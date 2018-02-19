@@ -27,7 +27,7 @@ object vegas2 {
   val snpTest = "plink --bfile ex_CEU --out ex_CEU --assoc --allow-no-sex"
   //list file have 4 columns: chromosome, start, end, name, same as glist file of VEGAS2
   val makeSet = "plink --file ex_CEU.out --make-set ex_CEU.glist --write-set"
-  val vegas2v2 = "vegas2v2 -G -snpandp example.txt -custom /Users/qunliu/Nutstore/workspace/PLS/example -glist example.glist –out TESTsubset"
+  val vegas2v2 = "vegas2v2 -G -snpandp example.txt -custom fullexample -glist example.glist –out TESTsubset"
 
   def writeGl(gl:Array[String]) {
     val pw = new PrintWriter(new File(pPath+"genelist.txt"))
@@ -105,9 +105,9 @@ object vegas2 {
     val end = glist(2).toInt
     val gname = glist(3)
     makeSetF(glist)
-    val snpL = fileOper.toArrays(gPms.gp+"CEU.0908/ALL.chr"+chr+".integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend"," ").drop(1).filter(i => i(1).toInt > stt & i(1).toInt < end).toArray
+    val snpL = fileOper.toArrays(gPms.gp+"ALL.chr"+chr+".integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend"," ").drop(1).filter(i => i(1).toInt > stt & i(1).toInt < end).toArray
     val snpp = snpL(snpL.length/2+1).apply(1)
-    val simu = simu37P.replace("chr10","chr"+chr).replace("8000000 8100000",stt + " "+end).replace("8050000",snpp).replace("refpath/",gPms.gp)
+    val simu = simu37P.replace("chr10","chr"+chr).replace("8000000 8100000",stt + " "+end).replace("8050000",snpp).replace("refpath/",gPms.gp)//.replace("outpath/",gPms.tp)
     val comm1 = Process(simu,new File(gPms.tp)).!
     val comm2 = Process(mergeFile,new File(gPms.tp)).!
 
@@ -124,7 +124,7 @@ object vegas2 {
   def getPvalF(fil:String = gPms.tp+"ex_CEU.out.qassoc") = {
     val qa = "[q]?assoc".r
     val outf =qa.replaceFirstIn(fil,"txt")
-    val writer = new PrintWriter(new FileWriter(gPms.tp+outf))
+    val writer = new PrintWriter(new FileWriter(outf))
     fileOper.toArrays(fil, " ").drop(1).map(_.filter(_.length >0)).filter(i => i(i.length -1) != "NA").map(i => i(1) + "\t"+i(i.length-1)).foreach(writer.println(_))
     writer.close()
   }
@@ -133,7 +133,7 @@ object vegas2 {
     val stt = glist(1).toInt
     val end = glist(2).toInt
     val gname = glist(3)
-    val snpL = fileOper.toArrays(gPms.tp+"snp6annoNewchr"+chr+".txt").filter(i => i(2).toInt > stt & i(2).toInt < end).map(_(2)).toSet
+    val snpL = fileOper.toArrays(gPms.op+"snp6annoNewchr"+chr+".txt").filter(i => i(2).toInt > stt & i(2).toInt < end).map(_(2)).toSet
     val snpp = fileOper.toArrays(gPms.tp+"ex_CEU.out.gen"," ").filter(i => snpL.contains(i(2))).map(_(1)).toArray
     val writer = new PrintWriter(new FileWriter(outf))
     snpp.foreach(writer.println)
@@ -160,7 +160,7 @@ object vegas2 {
     }else{
       getPvalF(gPms.tp+"ex_CEU.assoc")
     }
-    val vegas2 = vegas2v2.replace("example","ex_CEU")
+    val vegas2 = vegas2v2.replace("fullexample",gPms.tp+"ex_CEU").replace("example","ex_CEU")
     val comm6 = Process(vegas2,new File(gPms.tp)).!
     val pval = fileOper.toArrays(gPms.tp+"gene-basedoutput.out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
     pval ++ plsCalc.gdofPlsPval(X,Y,n)._2

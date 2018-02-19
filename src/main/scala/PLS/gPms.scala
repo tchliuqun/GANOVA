@@ -1,10 +1,13 @@
 package PLS
-
+import java.io._
 object gPms {
-  var tp:String = "../temp/PLStemp/"
-  var op:String = "../resources/PLSresources/"
-  var rp:String = "../results/PLSresults/"
-  var gp:String = "../resources/genomeRef/"
+  val sepr = java.io.File.separator
+  val cdr = new File(".").getAbsolutePath().split(sepr)
+  val cdrr = cdr.slice(0,cdr.length-2)//.mkString(sepr)
+  var tp:String = Array.concat(cdrr,Array("temp","PLStemp/")).mkString(sepr)
+  var op:String = Array.concat(cdrr,Array("resources","PLSresources")).mkString(sepr)+sepr
+  var rp:String = Array.concat(cdrr,Array("results","PLSresults")).mkString(sepr)+sepr
+  var gp:String = Array.concat(cdrr,Array("resources","genomeRef")).mkString(sepr)+sepr
   var egf:String = "hgnc_ensg.txt"
   var ef:String = "GBMLGG.transcriptome__ht_hg_u133a__broad_mit_edu__Level_3__gene_rma__data.data.txt"
   var pf:String = "GBMLGG.rppa.txt"
