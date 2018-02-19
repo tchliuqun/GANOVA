@@ -1,2 +1,6 @@
 exit
 console
+:q
+exit
+compile
+console
