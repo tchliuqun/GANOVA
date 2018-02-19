@@ -6,8 +6,8 @@
 		module="ganova_2.12"
 		revision="0.1"
 		conf="optional"
-		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20180219200752"/>
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20180219211737"/>
 	<dependencies>
 	</dependencies>
 </ivy-report>
