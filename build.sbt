@@ -3,7 +3,9 @@ name := "GANOVA"
 version := "0.1"
 
 scalaVersion := "2.12.3"
+import com.github.retronym.SbtOneJar._
 
+oneJarSettings
 resolvers ++= Seq(
   "Artima Maven Repository" at "http://repo.artima.com/releases",
   "Sonatype OSS Snapshots" at
