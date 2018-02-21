@@ -36,6 +36,6 @@ package myParallel
     case object wrong
     case object busy
     case class outActor(actorName:String)
-    case class done(count:Int)
+    case class done(count:Int=1)
 
 }

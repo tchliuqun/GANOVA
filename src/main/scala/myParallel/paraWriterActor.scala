@@ -14,15 +14,17 @@ package myParallel
     */
   object paraWriterActor {
     val name = "paraWriterActor"
-    def props(fileName:String) = Props(classOf[paraWriterActor], fileName)
+    def props(fileName:fileName) = Props(classOf[paraWriterActor], fileName)
+    case class fileName(fil:String)
     case class WriteStr(str: String)
     case class totalNumber(num:Int)
     //  case class count(num:Int)
     //  case class done(count:Int)
     //  case object finished
   }
-  class paraWriterActor(fileName:String = "Buffered.txt") extends Actor {
+  class paraWriterActor(fileN:fileName = fileName("Buffered.txt")) extends Actor {
 
+    var fileName = fileN.fil
     //  val system = ActorSystem("mySystem")
     //var fileName = "Buffered.txt"
     val fnL = fileName.split("\\.")//txt", utils.currentTime + ".txt")
@@ -41,13 +43,14 @@ package myParallel
 
     def receive = {
       case paraWriterActor.WriteStr(str) => {
+        count += 1
         myActor ! BufferWriterActor.WriteToBuffer(str)
         if (ifCount & count == totalNum) {
           sender ! done(count)
           myActor ! PoisonPill// actorMessage.finished
           self ! PoisonPill
         }
-        count += 1
+
       } //.info(s"I was greeted by $greeter.")
       case paraWriterActor.totalNumber(i) => {
         println(utils.currentTimeIn+s"get total record numbers $i to write")

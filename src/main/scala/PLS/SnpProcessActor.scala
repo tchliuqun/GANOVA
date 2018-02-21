@@ -28,8 +28,8 @@ object SnpProcessActor{
     val chr = sf.map(_(1)).toSet.filter(i => Try(i.toInt).isSuccess).toArray.sortBy(_.toInt)
     val dnam = chr.map(i => dpref + i)
     val snam = chr.map(i => spref + i)
-    val dactors = dnam.map(i => system.actorOf(paraWriterActor.props(i+".txt"),i))
-    val sactors = snam.map(i => system.actorOf(paraWriterActor.props(i+".txt"),i))
+    val dactors = dnam.map(i => system.actorOf(paraWriterActor.props(fileName(i+".txt")),i))
+    val sactors = snam.map(i => system.actorOf(paraWriterActor.props(fileName(i+".txt")),i))
     val smap = sf.map(i => i(0)->i(1)).toMap
     val lines = fileOper.toArrays(ddfile,",")
     var i = 0
@@ -86,7 +86,7 @@ class SnpProcessActor(fil:SnpProcessActor.threeFile) extends Actor {
   }
   def setWriter(chr:Array[String] = chrName) = {
     val dnam = chr.map(i => dfile.split("\\.").apply(0)+"chr"+i)
-    dnam.map(i => system.actorOf(paraWriterActor.props(i+".csv"),i))
+    dnam.map(i => system.actorOf(paraWriterActor.props(fileName(i+".csv")),i))
   }
 
   def receive = {

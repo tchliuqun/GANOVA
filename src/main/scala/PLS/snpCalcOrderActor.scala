@@ -66,7 +66,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   def makeActor() = {
     val calcPm = snpCalcActor.snpCalcPms(k,n,perm,Y,looInx,tenFold,this.ofile)
     Array(0 until nActor:_*).map(i => system.actorOf(snpCalcActor.props(calcPm),"calc"+i))
-    val wrt = system.actorOf(myParallel.paraWriterActor.props(this.ofile),this.ofile)
+    val wrt = system.actorOf(myParallel.paraWriterActor.props(myParallel.paraWriterActor.fileName(this.ofile)),this.ofile)
     val colnames = snpCalcActor.getColnames(k).mkString("\t")
     wrt ! myParallel.paraWriterActor.WriteStr(colnames)
     //wrt ! myParallel.paraWriterActor.totalNumber(2)
