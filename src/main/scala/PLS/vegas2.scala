@@ -16,7 +16,7 @@ object vegas2 {
   val sGene = "snpgene"
   val comm = "pathtovegas/vegas2 test_vegas2input.txt -genelist genelist.txt -pop 1000GEURO -subpop EURO -genesize 0kbloc -top 100 –sex BothMnF –max 1000000 –out genebased.V2out"
   val simuSnpP = "hapgen2 -l refpath/CEU.0908/CEU.0908.chr10.legend -m  refpath/genetic_map_chr10_combined_b36.txt -h refpath/CEU.0908.chr10.hap -dl 8050000 1 1 1 -n 500 500 -int 8000000 8100000 -o ex_CEU.out"
-  val simu37P = "hapgen2 -l refpath/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m refpath/genetic_map_chr15_combined_b37.txt -h refpath/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 8050000 1 1 1 -n 500 500 -int 8000000 8100000 -o ex_CEU.out"
+  val simu37P = "hapgen2 -l refpath/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m refpath/genetic_map_chr15_combined_b37.txt -h refpath/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 8050000 1 1 1 -n 300 300 -int 8000000 8100000 -o ex_CEU.out"
   val mergeFile = "gtool -M --g ex_CEU.out.controls.gen ex_CEU.out.cases.gen --s ex_CEU.out.controls.sample ex_CEU.out.cases.sample  --og ex_CEU.out.gen  --os ex_CEU.out.sample --log ex_CEU.out.log"
   val snpG = "/Users/qunliu/VEGAS2offline/VEGAS2database/1000GEURO/0kbloc/geneset/allgene1"
   val subsetFileP = "gtool -S --g ex_CEU.out.gen  --s ex_CEU.out.sample --og ex_CEU.gen  --inclusion ex_CEU_rsid.txt"
