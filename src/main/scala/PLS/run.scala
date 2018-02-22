@@ -112,7 +112,7 @@ object run extends App {
     pc.foreach(simugenNo)
     writer.close()
   }
-  val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt",1000,Array(0f,0.01f,0.03f,0.05f))
+  val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt",100,Array(0.01f,0.03f,0.05f))
   val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
   println("start")
   //implicit val timeout = Timeout(999 hours)
