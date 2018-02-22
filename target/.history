@@ -21,3 +21,5 @@ compile
 exit 
 compile
 exit
+console
+exit
