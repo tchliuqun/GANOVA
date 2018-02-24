@@ -167,6 +167,4 @@ object vegas2 {
     val pval = fileOper.toArrays(gPms.tp+gname+"_vegas2out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
     pval ++ plsCalc.gdofPlsPval(X,Y,n)._2
   }
-
-
 }

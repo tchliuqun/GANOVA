@@ -20,7 +20,7 @@ class simumasterActor(pms:Pms) extends Actor{
   var doneNum = 0
   var times = pms.times
   var H = pms.H
-  var cores = Runtime.getRuntime.availableProcessors()
+  var cores = Runtime.getRuntime.availableProcessors()+1
   var glists:Array[Array[String]] = Array(Array(""))
   var order:Option[ActorRef] = None
   var writer:Option[ActorRef] = None
