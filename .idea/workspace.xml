@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ganova.iml" afterPath="$PROJECT_DIR$/.idea/modules/ganova.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
       <change beforePath="$PROJECT_DIR$/project/target/config-classes/$b2d9ae4868b044c55f21$$anonfun$$sbtdef$1.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/project/target/config-classes/$b2d9ae4868b044c55f21$.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/project/target/config-classes/$b2d9ae4868b044c55f21.cache" afterPath="" />
@@ -27,33 +25,7 @@
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/ivyConfiguration/$global/streams/out" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/out" />
       <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.10/output" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simucalcculateActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simucalcculateActor.scala" />
-      <change beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2$.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-docs.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-docs.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-optional.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-optional.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-plugin.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-plugin.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-pom.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-pom.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-provided.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-provided.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-scala-tool.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-scala-tool.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-sources.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-sources.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -88,8 +60,8 @@
       <file leaf-file-name="vegas2.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="90" column="12" lean-forward="false" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
+            <state relative-caret-position="445">
+              <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -527,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519467398581</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="change phenotype to pc1">
+      <created>1519630701911</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1519630701911</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -596,7 +575,8 @@
     <MESSAGE value=" adjust sbt version" />
     <MESSAGE value="remove one-jar" />
     <MESSAGE value="repair empty snp lists error" />
-    <option name="LAST_COMMIT_MESSAGE" value="repair empty snp lists error" />
+    <MESSAGE value="change phenotype to pc1" />
+    <option name="LAST_COMMIT_MESSAGE" value="change phenotype to pc1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1016,8 +996,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="90" column="12" lean-forward="false" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
+        <state relative-caret-position="445">
+          <caret line="101" column="39" lean-forward="false" selection-start-line="101" selection-start-column="39" selection-end-line="101" selection-end-column="39" />
           <folding />
         </state>
       </provider>
