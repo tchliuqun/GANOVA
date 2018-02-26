@@ -27,13 +27,19 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          i += 1
+          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, 0)) :+ h).mkString("\t")
+          try{
+            writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          }
+          finally {
+            i += 1
+          }
         }
       }
     }
   }
+
   def receive = {
     case wrt:writerName => {
       writer = Some(system.actorSelection("/user/"+wrt.name))

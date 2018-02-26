@@ -44,11 +44,11 @@ fork in run := true
 javaOptions ++= Seq(
   "-Xmx6G",
   "-Xms6G",
-  "-Xss2048k",
   "-XX:+PrintGCTimeStamps",
   "-XX:+UnlockCommercialFeatures",
   "-XX:+FlightRecorder",
   "-XX:+UnlockDiagnosticVMOptions",
   "-XX:+DebugNonSafepoints",
-  "-XX:FlightRecorderOptions=defaultrecording=true,dumponexit=true,dumponexitpath=/Users/qunliu/Nutstore/workspace/PLS/resources/liuTest.jfr"
+  "-XX:FlightRecorderOptions=defaultrecording=true,dumponexit=true,dumponexitpath=/Users/qunliu/Nutstore/workspace/PLS/resources/liuTest.jfr",
+  "-Xss2048k"
 )
