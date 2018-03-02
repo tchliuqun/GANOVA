@@ -30,3 +30,6 @@ exit
 console
 compile
 exit
+run
+compile
+exit
