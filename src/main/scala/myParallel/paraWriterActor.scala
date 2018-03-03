@@ -30,8 +30,7 @@ package myParallel
     val fnL = fileName.split("\\.")//txt", utils.currentTime + ".txt")
     val profix = "."+fnL(fnL.length -1)
     val fn  = fileName.replace(profix,"_"+utils.getTimeForFile+profix)
-    val fw:FileWriter  = new FileWriter(fn)
-    val bw:BufferedWriter  = new BufferedWriter(fw)
+
     var totalNum = 0
     var count = 0
     var ifCount = false
@@ -39,7 +38,7 @@ package myParallel
 
     //  try {
     // Share this actor across all your threads.
-    val myActor = system.actorOf(BufferWriterActor.props(bw), paraWriterActor.name)
+    val myActor = system.actorOf(BufferWriterActor.props(fn), paraWriterActor.name)
 
     def receive = {
       case paraWriterActor.WriteStr(str) => {

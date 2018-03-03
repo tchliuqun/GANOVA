@@ -16,11 +16,13 @@ package myParallel
     */
   object BufferWriterActor {
     val name = "BufferedWriterActor"
-    def props(bw: BufferedWriter) = Props(classOf[BufferWriterActor], bw)
+    def props(fn: String) = Props(classOf[BufferWriterActor],fn)
     case class WriteToBuffer(str: String)
   }
 
-  class BufferWriterActor(bw: BufferedWriter) extends Actor {
+  class BufferWriterActor(fn: String) extends Actor {
+    val fw:FileWriter  = new FileWriter(fn)
+    val bw:BufferedWriter  = new BufferedWriter(fw)
     var orderWorker:Option[ActorRef] = None
 
     def receive: Actor.Receive = {
