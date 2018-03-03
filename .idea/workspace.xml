@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
       <change beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor$$anonfun$receive$1.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor$.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/BufferWriterActor.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/paraWriterActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/paraWriterActor$$anonfun$receive$1.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/paraWriterActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/myParallel/paraWriterActor.class" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" />
     </list>
@@ -119,7 +119,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paraWriterActor.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paraWriterActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="782">
@@ -129,13 +129,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BufferWriterActor.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BufferWriterActor.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+            <state relative-caret-position="551">
+              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
               <folding>
-                <element signature="e#23#52#0" expanded="true" />
+                <element signature="e#23#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,8 +173,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" />
       </list>
     </option>
   </component>
@@ -1050,21 +1050,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding>
-            <element signature="e#23#52#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="40" column="62" lean-forward="false" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+          <folding>
+            <element signature="e#23#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

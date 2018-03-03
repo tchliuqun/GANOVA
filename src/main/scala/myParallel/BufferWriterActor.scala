@@ -1,7 +1,7 @@
 package myParallel
 
 
-  import java.io.BufferedWriter
+  import java.io.{BufferedWriter, File}
 
   import PLS.utils
   import akka.actor._
@@ -21,7 +21,9 @@ package myParallel
   }
 
   class BufferWriterActor(fn: String) extends Actor {
-    val fw:FileWriter  = new FileWriter(fn)
+    val file = new File(fn)
+    file.setWritable(true, false)
+    val fw:FileWriter  = new FileWriter(file,true)
     val bw:BufferedWriter  = new BufferedWriter(fw)
     var orderWorker:Option[ActorRef] = None
 
