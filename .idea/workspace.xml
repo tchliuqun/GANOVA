@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="change phenotype to pc1">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ganova.iml" afterPath="$PROJECT_DIR$/.idea/modules/ganova.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simucalcculateActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simucalcculateActor.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala" afterPath="$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-docs.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-docs.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-optional.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-optional.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-plugin.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-plugin.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-pom.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-pom.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-provided.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-provided.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-runtime.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-scala-tool.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-scala-tool.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-sources.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-sources.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test-internal.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test-internal.xml" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
-      <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" />
-    </list>
+    <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -62,16 +36,16 @@
         <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="529">
-              <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+              <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.sbt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.sbt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sbt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
+            <state relative-caret-position="1219">
               <caret line="53" column="2" lean-forward="false" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
               <folding />
             </state>
@@ -108,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+            <state relative-caret-position="23">
+              <caret line="52" column="56" lean-forward="false" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
               <folding>
                 <element signature="e#13#43#0" expanded="true" />
               </folding>
@@ -183,9 +157,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simucalcculateActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
       </list>
     </option>
   </component>
@@ -399,7 +373,7 @@
     </configuration>
   </component>
   <component name="SbtLocalSettings">
-    <option name="lastUpdateTimestamp" value="1520002463137" />
+    <option name="lastUpdateTimestamp" value="1520046542425" />
     <option name="availableProjects">
       <map>
         <entry>
@@ -568,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520000824181</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="change writer name">
+      <created>1520047749391</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1520047749391</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -639,7 +620,8 @@
     <MESSAGE value="remove one-jar" />
     <MESSAGE value="repair empty snp lists error" />
     <MESSAGE value="change phenotype to pc1" />
-    <option name="LAST_COMMIT_MESSAGE" value="change phenotype to pc1" />
+    <MESSAGE value="change writer name" />
+    <option name="LAST_COMMIT_MESSAGE" value="change writer name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1035,18 +1017,8 @@
     <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
-          <caret line="34" column="24" lean-forward="true" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+          <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-          <folding>
-            <element signature="e#13#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1062,9 +1034,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
+        <state relative-caret-position="1219">
           <caret line="53" column="2" lean-forward="false" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="52" column="56" lean-forward="false" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
+          <folding>
+            <element signature="e#13#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
