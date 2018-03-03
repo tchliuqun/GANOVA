@@ -41,14 +41,14 @@ logBuffered := false
 parallelExecution in Test := false
 
 fork in run := true
-javaOptions ++= Seq(
-  "-Xmx6G",
-  "-Xms6G",
-  "-XX:+PrintGCTimeStamps",
-  "-XX:+UnlockCommercialFeatures",
-  "-XX:+FlightRecorder",
-  "-XX:+UnlockDiagnosticVMOptions",
-  "-XX:+DebugNonSafepoints",
-  "-XX:FlightRecorderOptions=defaultrecording=true,dumponexit=true,dumponexitpath=/Users/qunliu/Nutstore/workspace/PLS/resources/liuTest.jfr",
-  "-Xss2048k"
-)
+//javaOptions ++= Seq(
+//  "-Xmx6G",
+//  "-Xms6G",
+//  "-XX:+PrintGCTimeStamps",
+//  "-XX:+UnlockCommercialFeatures",
+//  "-XX:+FlightRecorder",
+//  "-XX:+UnlockDiagnosticVMOptions",
+//  "-XX:+DebugNonSafepoints",
+//  "-XX:FlightRecorderOptions=defaultrecording=true,dumponexit=true,dumponexitpath=/Users/qunliu/Nutstore/workspace/PLS/resources/liuTest.jfr",
+//  "-Xss2048k"
+//)

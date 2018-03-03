@@ -15,7 +15,7 @@ object simumasterActor{
 
 class simumasterActor(pms:Pms) extends Actor{
   var ofile = pms.fil
-  var wname = "simuWriter"
+  //var wname = "simuWriter"
   var count = 0
   var doneNum = 0
   var times = pms.times
@@ -37,17 +37,18 @@ class simumasterActor(pms:Pms) extends Actor{
     }
     case chr:chr =>{
       order = Some(sender)
-      val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
+      val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), this.ofile)
       writer = Some(wrt)
 
       println("starting writer")
       getGlist(chr.chrname.apply(0))
       wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
+      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch starting"))
       println("starting processing")
       if (glists.length < cores){
         cores = glists.length
       }
-      val pms = simucalculateActor.Pms(wname,times,H)
+      val pms = simucalculateActor.Pms(this.ofile,times,H)
       Array(0 until cores:_*).foreach(i => {
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+i)
         calculaters :+= Some(actr)

@@ -18,7 +18,7 @@ package myParallel
     */
   object actorMessage {
 
-    implicit val system = ActorSystem()
+    implicit val system = ActorSystem("MySystem")
     implicit val materializer = ActorMaterializer()
     implicit val ec = global
     case class host(address:String,https:Boolean = true)
