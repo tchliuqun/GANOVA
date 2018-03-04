@@ -123,7 +123,7 @@ object run extends App {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
-  val testactor1 = system.actorOf(myParallel.paraWriterActor.props(filn),"testa1")
+  val testactor1 = system.actorOf(myParallel.paraWriterActor.props(filn1),"testa1")
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa"))
   var writer1:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa1"))
   testactor1 ! myParallel.paraWriterActor.WriteStr("test11")
