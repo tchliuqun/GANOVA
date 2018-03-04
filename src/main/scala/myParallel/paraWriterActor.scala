@@ -65,6 +65,7 @@ package myParallel
       }
       case actorMessage.done => {
         //orderWorker.foreach(_!actorMessage.done)
+        myActor ! PoisonPill// actorMessage.finished
         self ! PoisonPill
       }
       case _ => println(utils.currentTimeIn+"Someone said wrong to me. - paraWriterActor") // Send messages to this actor from all you threads.

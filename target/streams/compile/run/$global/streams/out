@@ -2,7 +2,7 @@
 [0m[[0minfo[0m] [0mRunning PLS.run [0m
 [0m[[0minfo[0m] [0mstart[0m
 [0m[[0minfo[0m] [0mstarting writer[0m
-[0m[[0minfo[0m] [0m2018-03-03_12:28:45 get total record numbers 62400 to write[0m
+[0m[[0minfo[0m] [0m2018-03-03_13:01:45 get total record numbers 62400 to write[0m
 [0m[[0minfo[0m] [0mstarting processing[0m
 [0m[[0minfo[0m] [0mprocessing No.1[0m
 [0m[[0minfo[0m] [0mprocessing No.2[0m
@@ -15,179 +15,8 @@
 [0m[[0minfo[0m] [0mprocessing No.9[0m
 [0m[[0minfo[0m] [0mCreating directory [0m
 [0m[[0minfo[0m] [0mCreating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 59105927 1 1 1 -n 300 300 -int 59063391 59154099 -o ENSG00000128923.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000128923.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000128923.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 59105927 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 59063391[0m
-[0m[[0minfo[0m] [0m                                                     upper: 59154099[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Command line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 23020139 1 1 1 -n 300 300 -int 23004684 23034427 -o ENSG00000140157.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000140157.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000140157.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 23020139 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 23004684[0m
-[0m[[0minfo[0m] [0m                                                     upper: 23034427[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 45477528 1 1 1 -n 300 300 -int 45459412 45493373 -o ENSG00000138606.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000138606.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000138606.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 45477528 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 45459412[0m
-[0m[[0minfo[0m] [0m                                                     upper: 45493373[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 78383065 1 1 1 -n 300 300 -int 78370150 78397251 -o ENSG00000183476.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000183476.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000183476.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 78383065 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 78370150[0m
-[0m[[0minfo[0m] [0m                                                     upper: 78397251[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 25633871 1 1 1 -n 300 300 -int 25582381 25684128 -o ENSG00000114062.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000114062.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000114062.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 25633871 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 25582381[0m
-[0m[[0minfo[0m] [0m                                                     upper: 25684128[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 65645790 1 1 1 -n 300 300 -int 65619465 65670378 -o ENSG00000174498.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000174498.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000174498.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 65645790 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 65619465[0m
-[0m[[0minfo[0m] [0m                                                     upper: 65670378[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
+[0m[[0minfo[0m] [0mCreating directory [0m
+[0m[[0minfo[0m] [0mCreating directory [0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m===================================================================[0m
 [0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
@@ -224,35 +53,6 @@
 [0m[[0minfo[0m] [0m===================================================================[0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0mCommand line input is:[0m
-[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 50610707 1 1 1 -n 300 300 -int 50569389 50647605 -o ENSG00000104064.out [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mFILE INPUTS[0m
-[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
-[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
-[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
-[0m[[0minfo[0m] [0m                                             tag snps file: [0m
-[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
-[0m[[0minfo[0m] [0m                                               output file: ENSG00000104064.out[0m
-[0m[[0minfo[0m] [0m                                              summary file: ENSG00000104064.out.summary[0m
-[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
-[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
-[0m[[0minfo[0m] [0m                                              disease loci: (1) 50610707 [0m
-[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
-[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
-[0m[[0minfo[0m] [0m                                                     lower: 50569389[0m
-[0m[[0minfo[0m] [0m                                                     upper: 50647605[0m
-[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
-[0m[[0minfo[0m] [0m                                                     theta: -1[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
-[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
-[0m[[0minfo[0m] [0m===================================================================[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mCommand line input is:[0m
 [0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 45731403 1 1 1 -n 300 300 -int 45722727 45740959 -o ENSG00000166920.out [0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0mFILE INPUTS[0m
@@ -274,7 +74,219 @@
 [0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
 [0m[[0minfo[0m] [0m                                                     theta: -1[0m
 [0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... [0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 25633871 1 1 1 -n 300 300 -int 25582381 25684128 -o ENSG00000114062.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000114062.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000114062.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 25633871 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 25582381[0m
+[0m[[0minfo[0m] [0m                                                     upper: 25684128[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 45477528 1 1 1 -n 300 300 -int 45459412 45493373 -o ENSG00000138606.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000138606.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000138606.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 45477528 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 45459412[0m
+[0m[[0minfo[0m] [0m                                                     upper: 45493373[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... [0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 65645790 1 1 1 -n 300 300 -int 65619465 65670378 -o ENSG00000174498.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000174498.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000174498.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 65645790 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 65619465[0m
+[0m[[0minfo[0m] [0m                                                     upper: 65670378[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 59105927 1 1 1 -n 300 300 -int 59063391 59154099 -o ENSG00000128923.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000128923.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000128923.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 59105927 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 59063391[0m
+[0m[[0minfo[0m] [0m                                                     upper: 59154099[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 23020139 1 1 1 -n 300 300 -int 23004684 23034427 -o ENSG00000140157.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000140157.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000140157.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 23020139 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 23004684[0m
+[0m[[0minfo[0m] [0m                                                     upper: 23034427[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... [0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 78383065 1 1 1 -n 300 300 -int 78370150 78397251 -o ENSG00000183476.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000183476.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000183476.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 78383065 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 78370150[0m
+[0m[[0minfo[0m] [0m                                                     upper: 78397251[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading genetic map file ... Creating directory [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m  Welcome to HAPGEN_v2.1.2 (24/03/2011)[0m
+[0m[[0minfo[0m] [0m  Zhan Su, Peter Donnelly, Jonathan Marchini[0m
+[0m[[0minfo[0m] [0m===================================================================[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mCommand line input is:[0m
+[0m[[0minfo[0m] [0mhapgen2 -l /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend -m /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt -h /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes -dl 50610707 1 1 1 -n 300 300 -int 50569389 50647605 -o ENSG00000104064.out [0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mFILE INPUTS[0m
+[0m[[0minfo[0m] [0m                                            haplotype file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.haplotypes[0m
+[0m[[0minfo[0m] [0m                                               legend file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/ALL.chr15.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nosing.legend[0m
+[0m[[0minfo[0m] [0m                                          genetic map file: /Users/qunliu/Nutstore/workspace/resources/genomeRef/genetic_map_chr15_combined_b37.txt[0m
+[0m[[0minfo[0m] [0m                                             tag snps file: [0m
+[0m[[0minfo[0m] [0mFILE OUTPUTS[0m
+[0m[[0minfo[0m] [0m                                               output file: ENSG00000104064.out[0m
+[0m[[0minfo[0m] [0m                                              summary file: ENSG00000104064.out.summary[0m
+[0m[[0minfo[0m] [0mPARAMETER INPUTS[0m
+[0m[[0minfo[0m] [0m                                  no. controls to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                     no. cases to simulate: 300[0m
+[0m[[0minfo[0m] [0m                                              disease loci: (1) 50610707 [0m
+[0m[[0minfo[0m] [0m                                           disease alleles: (1) 1 [0m
+[0m[[0minfo[0m] [0m                             heterozygote/homozygote risks: (1) 1.00/1.00 [0m
+[0m[[0minfo[0m] [0m                                                     lower: 50569389[0m
+[0m[[0minfo[0m] [0m                                                     upper: 50647605[0m
+[0m[[0minfo[0m] [0m                                                        Ne: 11418[0m
+[0m[[0minfo[0m] [0m                                                     theta: -1[0m
+[0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0mReading genetic map file ... done[0m
+[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mdone[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [59063391, 59154099] ...                                       number of rates read: 90378[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [25582381, 25684128] ... done[0m
+[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [45722727, 45740959] ... done[0m
 [0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[0m
@@ -282,15 +294,15 @@
 [0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [25582381, 25684128] ... done[0m
-[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [23004684, 23034427] ... done[0m
-[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [42140345, 42186275] ... done[0m
+[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [65619465, 65670378] ... done[0m
+[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [78370150, 78397251] ... done[0m
 [0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[0m
@@ -298,89 +310,43 @@
 [0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
 [0m[[0minfo[0m] [0m[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [78370150, 78397251] ... done[0m
-[0m[[0minfo[0m] [0mdone[0m
-[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [59063391, 59154099] ...                                       number of rates read: 90378[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [65619465, 65670378] ... done[0m
-[0m[[0minfo[0m] [0m                                      number of rates read: 90378[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [45722727, 45740959] ... [INFO] [03/03/2018 12:28:50.187] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
-[0m[[0minfo[0m] [0mgtool -M --g ENSG00000174498.out.controls.gen ENSG00000174498.out.cases.gen --s ENSG00000174498.out.controls.sample ENSG00000174498.out.cases.sample --og ENSG00000174498.out.gen --os ENSG00000174498.out.sample --log ENSG00000174498.out.log[0m
+[0m[[0minfo[0m] [0mReading haplotype and legend files: looking for SNPs in [23004684, 23034427] ... [INFO] [03/03/2018 13:01:51.536] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
 [0m[[0minfo[0m] [0mgtool -M --g ENSG00000138606.out.controls.gen ENSG00000138606.out.cases.gen --s ENSG00000138606.out.controls.sample ENSG00000138606.out.cases.sample --og ENSG00000138606.out.gen --os ENSG00000138606.out.sample --log ENSG00000138606.out.log[0m
 [0m[[0minfo[0m] [0mgtool -M --g ENSG00000140157.out.controls.gen ENSG00000140157.out.cases.gen --s ENSG00000140157.out.controls.sample ENSG00000140157.out.cases.sample --og ENSG00000140157.out.gen --os ENSG00000140157.out.sample --log ENSG00000140157.out.log[0m
-[0m[[0minfo[0m] [0mgtool -M --g ENSG00000183476.out.controls.gen ENSG00000183476.out.cases.gen --s ENSG00000183476.out.controls.sample ENSG00000183476.out.cases.sample --og ENSG00000183476.out.gen --os ENSG00000183476.out.sample --log ENSG00000183476.out.log[0m
+[0m[[0minfo[0m] [0mgtool -M --g ENSG00000174498.out.controls.gen ENSG00000174498.out.cases.gen --s ENSG00000174498.out.controls.sample ENSG00000174498.out.cases.sample --og ENSG00000174498.out.gen --os ENSG00000174498.out.sample --log ENSG00000174498.out.log[0m
 [0m[[0minfo[0m] [0mgtool -M --g ENSG00000104064.out.controls.gen ENSG00000104064.out.cases.gen --s ENSG00000104064.out.controls.sample ENSG00000104064.out.cases.sample --og ENSG00000104064.out.gen --os ENSG00000104064.out.sample --log ENSG00000104064.out.log[0m
-[0m[[0minfo[0m] [0mgtool -M --g ENSG00000166920.out.controls.gen ENSG00000166920.out.cases.gen --s ENSG00000166920.out.controls.sample ENSG00000166920.out.cases.sample --og ENSG00000166920.out.gen --os ENSG00000166920.out.sample --log ENSG00000166920.out.log[0m
 [0m[[0minfo[0m] [0mgtool -M --g ENSG00000137877.out.controls.gen ENSG00000137877.out.cases.gen --s ENSG00000137877.out.controls.sample ENSG00000137877.out.cases.sample --og ENSG00000137877.out.gen --os ENSG00000137877.out.sample --log ENSG00000137877.out.log[0m
-[0m[[0minfo[0m] [0mgtool -M --g ENSG00000114062.out.controls.gen ENSG00000114062.out.cases.gen --s ENSG00000114062.out.controls.sample ENSG00000114062.out.cases.sample --og ENSG00000114062.out.gen --os ENSG00000114062.out.sample --log ENSG00000114062.out.log[0m
+[0m[[0minfo[0m] [0mgtool -M --g ENSG00000183476.out.controls.gen ENSG00000183476.out.cases.gen --s ENSG00000183476.out.controls.sample ENSG00000183476.out.cases.sample --og ENSG00000183476.out.gen --os ENSG00000183476.out.sample --log ENSG00000183476.out.log[0m
+[0m[[0minfo[0m] [0mgtool -M --g ENSG00000166920.out.controls.gen ENSG00000166920.out.cases.gen --s ENSG00000166920.out.controls.sample ENSG00000166920.out.cases.sample --og ENSG00000166920.out.gen --os ENSG00000166920.out.sample --log ENSG00000166920.out.log[0m
 [0m[[0minfo[0m] [0mgtool -M --g ENSG00000128923.out.controls.gen ENSG00000128923.out.cases.gen --s ENSG00000128923.out.controls.sample ENSG00000128923.out.cases.sample --og ENSG00000128923.out.gen --os ENSG00000128923.out.sample --log ENSG00000128923.out.log[0m
-[0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000128923.out.controls.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000128923.out.cases.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000140157.out.controls.sample: 300[0m
-[0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000183476.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mgtool -M --g ENSG00000114062.out.controls.gen ENSG00000114062.out.cases.gen --s ENSG00000114062.out.controls.sample ENSG00000114062.out.cases.sample --og ENSG00000114062.out.gen --os ENSG00000114062.out.sample --log ENSG00000114062.out.log[0m
 [0m[[0minfo[0m] [0mOrganise Samples...[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000114062.out.controls.sample: 300[0m
 [0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000104064.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000183476.out.controls.sample: 300[0m
 [0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000137877.out.controls.sample: 300[0m
-[0m[[0minfo[0m] [0mOrganise Samples...[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000174498.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000128923.out.controls.sample: 300[0m
 [0m[[0minfo[0m] [0mOrganise Samples...[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000166920.out.controls.sample: 300[0m
 [0m[[0minfo[0m] [0mOrganise Samples...[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000138606.out.controls.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000140157.out.cases.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
+[0m[[0minfo[0m] [0mOrganise Samples...[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000137877.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mOrganise Samples...[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000104064.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mOrganise Samples...[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000140157.out.controls.sample: 300[0m
+[0m[[0minfo[0m] [0mOrganise Samples...[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000174498.out.controls.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000166920.out.cases.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000174498.out.cases.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000114062.out.cases.sample: 300[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000128923.out.cases.sample: 300[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000138606.out.cases.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000137877.out.cases.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000183476.out.cases.sample: 300[0m
-[0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mNumber of samples in ENSG00000138606.out.cases.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
 [0m[[0minfo[0m] [0mNumber of samples in ENSG00000104064.out.cases.sample: 300[0m
 [0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000128923.out.controls.gen[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000174498.out.controls.gen[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000166920.out.controls.gen[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000137877.out.controls.gen[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000140157.out.controls.gen[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000174498.out.controls.gen: 449[0m
-[0m[[0minfo[0m] [0mENSG00000174498.out.cases.gen[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000128923.out.controls.gen: 854[0m
-[0m[[0minfo[0m] [0mENSG00000128923.out.cases.gen[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000166920.out.controls.gen: 224[0m
-[0m[[0minfo[0m] [0mENSG00000166920.out.cases.gen[0m
-[0m[[0minfo[0m] [0m2018-03-03_12:28:50 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/simuRs.txt is done - paraWriter[0m
-[0m[[0minfo[0m] [0m2018-03-03_12:28:50 writing is done -- BufferedWriter[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000174498.out.cases.gen: 449[0m
-[0m[[0minfo[0m] [0mNumber of SNPs with mismatched alleles: 0[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000166920.out.cases.gen: 224[0m
-[0m[[0minfo[0m] [0mNumber of SNPs with mismatched alleles: 0[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000140157.out.controls.gen: 346[0m
-[0m[[0minfo[0m] [0mENSG00000140157.out.cases.gen[0m
-[0m[[0minfo[0m] [0mCreate ordered list of positions...[0m
-[0m[[0minfo[0m] [0mENSG00000183476.out.controls.gen[0m
-[0m[[0minfo[0m] [0mNumber of SNPs in ENSG00000137877.out.controls.gen: 454[0m
-[0m[[0minfo[0m] [0mENSG00000137877.out.cases.gen[0m
+[0m[[0minfo[0m] [0mNumber of samples in ENSG00000174498.out.cases.sample: 300[0m
+[0m[[0minfo[0m] [0mNumber of merged samples: 600[0m
