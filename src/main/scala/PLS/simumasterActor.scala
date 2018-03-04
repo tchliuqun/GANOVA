@@ -43,10 +43,11 @@ class simumasterActor(pms:Pms) extends Actor{
       println("starting writer")
       getGlist(chr.chrname.apply(0))
       wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
+      wrt ! myParallel.paraWriterActor.WriteStr("dispatch starting 1")
       writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch starting"))
       println("starting processing")
       if (glists.length < cores){
-        cores = glists.length
+        cores = glists.length`
       }
       val pms = simucalculateActor.Pms(wname,times,H)
       Array(0 until cores:_*).foreach(i => {
