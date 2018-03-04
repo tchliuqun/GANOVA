@@ -125,7 +125,7 @@ object run extends App {
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa"))
   testactor ! myParallel.paraWriterActor.WriteStr("test1")
   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test2"))
-  //testactor ! done
+  testactor ! done
 
 //}
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
