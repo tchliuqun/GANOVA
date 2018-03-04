@@ -2,7 +2,7 @@ package PLS
 
 import java.io._
 
-import akka.actor.PoisonPill
+import akka.actor.{ActorSelection, PoisonPill}
 
 import scala.util.{Failure, Success}
 import scala.collection.parallel._
@@ -121,8 +121,9 @@ object run extends App {
   }
   val filn = myParallel.paraWriterActor.fileName("tests.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
-  testactor ! myParallel.paraWriterActor.WriteStr("test1")
-  testactor ! done
+  var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa"))
+  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test1"))
+  writer.foreach(_ ! done)
 
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
 //  //val result: String = future.get()
