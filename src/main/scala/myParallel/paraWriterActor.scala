@@ -1,7 +1,7 @@
 package myParallel
 
 
-  import java.io.{BufferedWriter, FileWriter}
+  import java.io.{BufferedWriter, File, FileWriter}
 
   import PLS.run.currentTime
   import PLS.utils
@@ -31,6 +31,10 @@ package myParallel
     val profix = "."+fnL(fnL.length -1)
     val fn  = fileName.replace(profix,"_"+utils.getTimeForFile+profix)
 
+    val file = new File(fn)
+    file.setWritable(true, false)
+    val fw:FileWriter  = new FileWriter(file,true)
+    val bw:BufferedWriter  = new BufferedWriter(fw)
     var totalNum = 0
     var count = 0
     var ifCount = false
@@ -38,20 +42,23 @@ package myParallel
 
     //  try {
     // Share this actor across all your threads.
-    val myActor = system.actorOf(BufferWriterActor.props(fn), paraWriterActor.name)
+    //val myActor = system.actorOf(BufferWriterActor.props(fn), paraWriterActor.name)
 
     def receive = {
       case paraWriterActor.WriteStr(str) => {
         count += 1
-        myActor ! BufferWriterActor.WriteToBuffer(str)
+        bw.write(str)
+        bw.newLine()
+        //myActor ! BufferWriterActor.WriteToBuffer(str)
         if (ifCount & count == totalNum) {
           sender ! done(count)
-          myActor ! PoisonPill// actorMessage.finished
+      //    myActor ! PoisonPill// actorMessage.finished
           self ! PoisonPill
         }
 
       } //.info(s"I was greeted by $greeter.")
       case paraWriterActor.totalNumber(i) => {
+        var orderWorker:Option[ActorRef] = Some(sender)
         println(utils.currentTimeIn+s"get total record numbers $i to write")
 
         totalNum += i
@@ -59,19 +66,21 @@ package myParallel
       }
       case actorMessage.finished => {
         println(utils.currentTimeIn+s"total writed record numbers $count")
-        orderWorker = Some(sender)
-        myActor ! PoisonPill// actorMessage.finished
+     //   orderWorker = Some(sender)
+      //  myActor ! PoisonPill// actorMessage.finished
         self ! PoisonPill
       }
       case actorMessage.done => {
         //orderWorker.foreach(_!actorMessage.done)
-        myActor ! PoisonPill// actorMessage.finished
+ //       myActor ! PoisonPill// actorMessage.finished
         self ! PoisonPill
       }
       case _ => println(utils.currentTimeIn+"Someone said wrong to me. - paraWriterActor") // Send messages to this actor from all you threads.
     }
     override def postStop {
+      bw.close()
       println(utils.currentTimeIn+s"writing to $fileName is done - paraWriter")
+
     }
     //      myActor ! riteToBuffer("The Text")
     //  }finally {
