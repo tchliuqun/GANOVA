@@ -39,7 +39,7 @@ class simumasterActor(pms:Pms) extends Actor{
       order = Some(sender)
       val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
       writer = Some(wrt)
-      if (cores > 70) cores = 70
+      if (cores > 50) cores = 50
 
       println("starting writer")
       getGlist(chr.chrname.apply(0))
