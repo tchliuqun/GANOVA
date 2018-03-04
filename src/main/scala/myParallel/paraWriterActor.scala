@@ -45,7 +45,7 @@ package myParallel
 
     Runtime.getRuntime.addShutdownHook(new Thread() {
       override def run(): Unit = {
-        System.out.println("run shutdownHook")
+        //System.out.println("run shutdownHook")
         // save state, resource clean,up etc.
         if (bw != null) try { // try to close the open file
           //bw.flush()
@@ -56,7 +56,7 @@ package myParallel
             System.out.println("Failed to flush/close"+fn +": " + e.getMessage)
             e.printStackTrace()
         }
-        System.out.println("Shutdown hook completed...")
+        //System.out.println("Shutdown hook completed...")
       }
     })
     //  try {
