@@ -121,11 +121,24 @@ object run extends App {
 //  }
 //if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
+  val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
+  val testactor1 = system.actorOf(myParallel.paraWriterActor.props(filn),"testa1")
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa"))
+  var writer1:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa1"))
+  testactor1 ! myParallel.paraWriterActor.WriteStr("test11")
   testactor ! myParallel.paraWriterActor.WriteStr("test1")
+  writer1.foreach(_ ! myParallel.paraWriterActor.WriteStr("test22"))
   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test2"))
   testactor ! done
+
+//  val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
+//  val testactor1 = system.actorOf(myParallel.paraWriterActor.props(filn),"testa1")
+//  var writer1:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa1"))
+//  testactor1 ! myParallel.paraWriterActor.WriteStr("test11")
+//  writer1.foreach(_ ! myParallel.paraWriterActor.WriteStr("test22"))
+  //testactor1 ! done
+
 
 //}
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
