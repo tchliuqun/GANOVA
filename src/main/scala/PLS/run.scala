@@ -112,13 +112,13 @@ object run extends App {
     pc.foreach(simugenNo)
     writer.close()
   }
-  if (false) {
+//  if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
     srt ! SnpProcessActor.chr(Array("15"))
-  }
+//  }
 //if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
