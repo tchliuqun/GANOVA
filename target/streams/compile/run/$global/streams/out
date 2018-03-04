@@ -1,19 +1,32 @@
 [0m[[0mdebug[0m] [0mjavaOptions: List()[0m
 [0m[[0minfo[0m] [0mRunning PLS.run [0m
 [0m[[0minfo[0m] [0mstart[0m
-[0m[[0minfo[0m] [0mstarting writer[0m
-[0m[[0minfo[0m] [0mwrite to /Users/qunliu/Nutstore/workspace/results/PLSresults/tests_2018_03_04_10_59_26.txt[0m
-[0m[[0minfo[0m] [0mwrite to /Users/qunliu/Nutstore/workspace/results/PLSresults/simuRs_2018_03_04_10_59_26.txt[0m
-[0m[[0minfo[0m] [0m2018-03-04_10:59:26 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/tests.txt is done - paraWriter[0m
-[0m[[0minfo[0m] [0m2018-03-04_10:59:26 get total record numbers 62400 to write[0m
 [0m[[0minfo[0m] [0mstarting processing[0m
 [0m[[0minfo[0m] [0mprocessing No.1[0m
-[0m[[0minfo[0m] [0mprocessing No.2[0m
-[0m[[0minfo[0m] [0mprocessing No.3[0m
-[0m[[0minfo[0m] [0mprocessing No.4[0m
-[0m[[0minfo[0m] [0mprocessing No.5[0m
-[0m[[0minfo[0m] [0mprocessing No.6[0m
-[0m[[0minfo[0m] [0mprocessing No.7[0m
-[0m[[0minfo[0m] [0mprocessing No.8[0m
-[0m[[0minfo[0m] [0mprocessing No.9[0m
-[0m[[0minfo[0m] [0m[INFO] [03/04/2018 10:59:28.523] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
+[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/simuRs_2018_03_04_12_40_50.txt[0m
+[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/tests_2018_03_04_12_40_50.txt[0m
+[0m[[0minfo[0m] [0m2018-03-04_12:40:50 get total record numbers 300 to write[0m
+[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/tests1_2018_03_04_12_40_50.txt[0m
+[0m[[0minfo[0m] [0m[ERROR] [03/04/2018 12:40:50.442] [MySystem-akka.actor.default-dispatcher-3] [akka://MySystem/user/calc0] 1[0m
+[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 1[0m
+[0m[[0minfo[0m] [0m	at PLS.vegas2$.simuFgene(vegas2.scala:104)[0m
+[0m[[0minfo[0m] [0m	at PLS.simucalculateActor.simugenNo(simucalculateActor.scala:24)[0m
+[0m[[0minfo[0m] [0m	at PLS.simucalculateActor$$anonfun$receive$1.applyOrElse(simucalculateActor.scala:46)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
+[0m[[0minfo[0m] [0m	at PLS.simucalculateActor.aroundReceive(simucalculateActor.scala:17)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m2018-03-04_12:40:50 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/tests.txt is done - paraWriter[0m
+[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/tests_2018_03_04_12_40_50.txt closed successfully[0m
+[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/tests1_2018_03_04_12_40_50.txt closed successfully[0m
+[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/simuRs_2018_03_04_12_40_50.txt closed successfully[0m
+[0m[[0minfo[0m] [0m[INFO] [03/04/2018 12:40:54.650] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
