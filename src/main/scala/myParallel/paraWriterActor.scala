@@ -83,6 +83,8 @@ package myParallel
     override def preStart(): Unit = {
       if(file.canWrite()) {
         println("write to "+fn)
+        bw.write(utils.currentTimeIn+"start write")
+        bw.newLine()
         // write access
       } else {
         println("can't write to "+fn)
