@@ -60,12 +60,14 @@ package myParallel
       case paraWriterActor.totalNumber(i) => {
         var orderWorker:Option[ActorRef] = Some(sender)
         println(utils.currentTimeIn+s"get total record numbers $i to write")
-
+        bw.write(utils.currentTimeIn+s"get total record numbers $i to write")
+        bw.newLine()
         totalNum += i
         ifCount = true
       }
       case actorMessage.finished => {
         println(utils.currentTimeIn+s"total writed record numbers $count")
+
      //   orderWorker = Some(sender)
       //  myActor ! PoisonPill// actorMessage.finished
         self ! PoisonPill
