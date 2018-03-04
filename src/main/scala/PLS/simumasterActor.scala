@@ -83,4 +83,11 @@ class simumasterActor(pms:Pms) extends Actor{
       }
     case _ => println("the message is not correct -simumasterActor")
     }
+  override def postStop {
+    calculaters.foreach(_.foreach(_ ! PoisonPill))
+    writer.foreach(_ ! PoisonPill)
+    order.foreach(_ ! "done")
+    println(utils.currentTimeIn+s"calculating is done -simumasterActor")
+
+  }
 }

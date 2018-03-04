@@ -31,15 +31,34 @@ package myParallel
     val profix = "."+fnL(fnL.length -1)
     val fn  = fileName.replace(profix,"_"+utils.getTimeForFile+profix)
 
-    val file = new File(fn)
-    file.setWritable(true, false)
-    val fw:FileWriter  = new FileWriter(file,true)
-    val bw:BufferedWriter  = new BufferedWriter(fw)
     var totalNum = 0
     var count = 0
     var ifCount = false
     var orderWorker:Option[ActorRef] = None
 
+    val file = new File(fn)
+    file.setWritable(true, false)
+    //    val fw:FileWriter  =
+    val bw:BufferedWriter  = new BufferedWriter(new FileWriter(file,true))
+
+    import java.io.IOException
+
+    Runtime.getRuntime.addShutdownHook(new Thread() {
+      override def run(): Unit = {
+        System.out.println("in : run () : shutdownHook")
+        // save state, resource clean,up etc.
+        if (bw != null) try { // try to close the open file
+          bw.flush()
+          bw.close()
+          System.out.println("File closed successfully")
+        } catch {
+          case e: IOException =>
+            System.out.println("Failed to flush/close the file :" + e.getMessage)
+            e.printStackTrace()
+        }
+        System.out.println("Shutdown hook completed...")
+      }
+    })
     //  try {
     // Share this actor across all your threads.
     //val myActor = system.actorOf(BufferWriterActor.props(fn), paraWriterActor.name)
