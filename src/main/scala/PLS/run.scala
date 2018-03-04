@@ -119,11 +119,12 @@ object run extends App {
     //implicit val timeout = Timeout(999 hours)
     srt ! SnpProcessActor.chr(Array("15"))
   }
-  val filn = myParallel.paraWriterActor.fileName("tests.txt")
+  val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+"testa"))
-  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test1"))
-  writer.foreach(_ ! done)
+  testactor ! myParallel.paraWriterActor.WriteStr("test1")
+  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test2"))
+  testactor ! done
 
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
 //  //val result: String = future.get()
