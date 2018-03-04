@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="44" column="6" lean-forward="false" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+            <state relative-caret-position="592">
+              <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding>
                 <element signature="e#13#43#0" expanded="true" />
               </folding>
@@ -110,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paraWriterActor.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="paraWriterActor.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="62" column="47" lean-forward="false" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
+            <state relative-caret-position="966">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="e#23#72#0" expanded="true" />
               </folding>
@@ -167,8 +167,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
       </list>
     </option>
   </component>
@@ -1033,16 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="62" column="47" lean-forward="false" selection-start-line="62" selection-start-column="47" selection-end-line="62" selection-end-column="47" />
-          <folding>
-            <element signature="e#23#72#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1057,10 +1047,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="44" column="6" lean-forward="false" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
+        <state relative-caret-position="592">
+          <caret line="45" column="35" lean-forward="false" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding>
             <element signature="e#13#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#23#72#0" expanded="true" />
           </folding>
         </state>
       </provider>
