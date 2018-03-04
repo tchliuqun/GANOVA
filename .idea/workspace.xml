@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -114,8 +113,8 @@
       <file leaf-file-name="paraWriterActor.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="449">
-              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+            <state relative-caret-position="574">
+              <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
               <folding>
                 <element signature="e#23#72#0" expanded="true" />
               </folding>
@@ -1057,8 +1056,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+        <state relative-caret-position="574">
+          <caret line="85" column="23" lean-forward="true" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
           <folding>
             <element signature="e#23#72#0" expanded="true" />
           </folding>

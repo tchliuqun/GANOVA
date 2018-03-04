@@ -60,6 +60,7 @@ package myParallel
       case paraWriterActor.totalNumber(i) => {
         var orderWorker:Option[ActorRef] = Some(sender)
         println(utils.currentTimeIn+s"get total record numbers $i to write")
+        println("write to "+fn)
         bw.write(utils.currentTimeIn+s"get total record numbers $i to write")
         bw.newLine()
         totalNum += i
@@ -78,6 +79,15 @@ package myParallel
         self ! PoisonPill
       }
       case _ => println(utils.currentTimeIn+"Someone said wrong to me. - paraWriterActor") // Send messages to this actor from all you threads.
+    }
+    override def preStart(): Unit = {
+      if(file.canWrite()) {
+        println("write to "+fn)
+        // write access
+      } else {
+        println("can't write to "+fn)
+        // no write access
+      }
     }
     override def postStop {
       bw.close()
