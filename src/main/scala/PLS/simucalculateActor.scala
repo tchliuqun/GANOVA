@@ -23,7 +23,7 @@ class simucalculateActor(pms:Pms) extends Actor{
     //println("processing No."+g)
     vegas2.simuFgene(glist)
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
-    //writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation starting"))
+    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation starting"))
 
     if(rl > 0) {
       for (h <- H) {

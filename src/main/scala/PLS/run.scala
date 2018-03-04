@@ -61,7 +61,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
   //implicit val timeout = Timeout(999 hours)
   srt ! SnpProcessActor.chr(Array("15"))
 
-//  if (false) {
+  if (false) {
     val mb = 1024 * 1024
     val runtime = Runtime.getRuntime
     val cores = runtime.availableProcessors()
@@ -86,7 +86,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
       vegas2.simuFgene(glist)
       for (h <- H) {
         var i = 0
-        while (i < 100) {
+        while (i < 10) {
           wrter.println((glists(g) ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, 0)) :+ h).mkString("\t"))
           i += 1
         }
@@ -120,7 +120,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
 //  }
 //  if (false) {
 
-//  }
+  }
 //if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")

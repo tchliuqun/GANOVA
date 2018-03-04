@@ -39,10 +39,11 @@ class simumasterActor(pms:Pms) extends Actor{
       order = Some(sender)
       val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
       writer = Some(wrt)
+      if (cores > 50) cores = 50
 
       println("starting writer")
       getGlist(chr.chrname.apply(0))
-      //wrt ! myParallel.paraWriterActor.WriteStr("dispatch starting 1")
+      wrt ! myParallel.paraWriterActor.WriteStr("dispatch starting 1")
       wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
       writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch starting"))
       println("starting processing")
