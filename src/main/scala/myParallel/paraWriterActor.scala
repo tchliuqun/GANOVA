@@ -60,9 +60,9 @@ package myParallel
       case paraWriterActor.totalNumber(i) => {
         var orderWorker:Option[ActorRef] = Some(sender)
         println(utils.currentTimeIn+s"get total record numbers $i to write")
-        println("write to "+fn)
-        bw.write(utils.currentTimeIn+s"get total record numbers $i to write")
-        bw.newLine()
+        //println("write to "+fn)
+        //bw.write(utils.currentTimeIn+s"get total record numbers $i to write")
+        //bw.newLine()
         totalNum += i
         ifCount = true
       }
@@ -82,7 +82,7 @@ package myParallel
     }
     override def preStart(): Unit = {
       if(file.canWrite()) {
-        println("write to "+fn)
+        println("writing to "+fn)
         bw.write(utils.currentTimeIn+"start write")
         bw.newLine()
         // write access

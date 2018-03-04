@@ -70,13 +70,13 @@ products:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$.class
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$delayedInit$body.class
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms$.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList$.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList.class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms$.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList$.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList.class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor.class
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$.class
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$Pms$.class
@@ -233,10 +233,10 @@ binary dependencies:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/jars/akka-actor_2.12-2.5.3.jar
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.1.jar
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/jars/akka-actor_2.12-2.5.3.jar
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.1.jar
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/jars/akka-actor_2.12-2.5.3.jar
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.1.jar
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/.ivy2/cache/com.typesafe.akka/akka-actor_2.12/jars/akka-actor_2.12-2.5.3.jar
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar
@@ -287,7 +287,7 @@ public inherited source dependencies:
 public inherited external dependencies:
 0 items
 member reference internal dependencies:
-71 items
+70 items
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/SnpProcessActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/fileOper.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/SnpProcessActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/SnpProcessActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala
@@ -316,15 +316,15 @@ member reference internal dependencies:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/vegas2.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/gPms.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalcActor.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/vegas2.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/gPms.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalcActor.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/vegas2.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/SnpProcessActor.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/fileOper.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/gPms.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalc.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/fileOper.scala
@@ -357,7 +357,6 @@ member reference internal dependencies:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/BufferWriterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/utils.scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/BufferWriterActor.scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala
 member reference external dependencies:
 0 items
@@ -417,13 +416,13 @@ class names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> PLS.run
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> PLS.run$
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> PLS.run$delayedInit$body
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$$anonfun$receive$1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$Pms
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$Pms$
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$geneList
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS.simucalculateActor$geneList$
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$$anonfun$receive$1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$Pms
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$Pms$
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$geneList
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS.simucalculateActor$geneList$
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> PLS.simumasterActor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> PLS.simumasterActor$
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> PLS.simumasterActor$$anonfun$receive$1
@@ -541,7 +540,7 @@ class names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> myParallel.paraWriterActor$totalNumber
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> myParallel.paraWriterActor$totalNumber$
 used names:
-4610 items
+4619 items
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/Rcall.scala -> <init>
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/Rcall.scala -> <repeated>
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/Rcall.scala -> Any
@@ -2739,6 +2738,7 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Long
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Nothing
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Object
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Option
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Ordering
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> PLS
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> ParArray
@@ -2751,8 +2751,10 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> RichInt
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Runtime
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> ScalaActorRef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> ScalaActorSelection
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> ScalaRunTime
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> SnpProcessActor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Some
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> String
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> StringOps
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> Success
@@ -2852,6 +2854,7 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> qual$5
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> qual$6
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> qual$7
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> qual$8
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> refArrayOps
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> reflect
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> renameTo
@@ -2885,6 +2888,7 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> toArrays
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> toFloat
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> toInt
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> toScala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> toString
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> until
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> util
@@ -2905,150 +2909,152 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$19
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$20
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$21
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$5
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$22
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$23
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$24
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$6
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$7
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$8
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> x$9
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> !
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> &&
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> +
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ++
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> :+
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> <
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> <init>
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> <repeated>
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ==
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> >
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> A
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> A1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> AbstractFunction1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> AbstractFunction3
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> AbstractPartialFunction
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Actor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ActorRef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ActorSelection
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ActorSystem
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Any
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> AnyRef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Array
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ArrayOps
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> B
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> B1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Boolean
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> BufferedSource
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> CanBuildFrom
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Class
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ClassTag
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Codec
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> DenseMatrix
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Float
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Function1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> GenTraversableOnce
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> H
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> IndexOutOfBoundsException
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Int
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Iterator
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> None
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Nothing
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Object
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Option
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> PLS
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Pms
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Predef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Product
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Props
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ScalaActorRef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ScalaActorSelection
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ScalaRunTime
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Serializable
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Some
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Source
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Statics
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> String
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> T
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> T0
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> T1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> T2
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> T3
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> That
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Tuple3
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> U
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> Unit
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> WriteStr
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _$2
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _$4
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _$7
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _hashCode
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _root_
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> _toString
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> actor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> actorMessage
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> actorRef2Scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> actorSelection
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> akka
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> anyHash
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> apply
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> asInstanceOf
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> canBuildFrom
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> done
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> eq
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> fallbackSystemCodec
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> fil
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> finalizeHash
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> floatArrayOps
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> foreach
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> fromFile
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> gPms
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> geneList
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> genericArrayOps
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> getLines
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> glist
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> glists
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> h
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> i
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> io
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> isInstanceOf
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> length
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> materializeClassTag
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> mix
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> mkString
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> myParallel
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> name
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ofFloat
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ofRef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> package
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> paraWriterActor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> pms
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> refArrayOps
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> reflect
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> rl
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> rs
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> runtime
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> scala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> self
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> sender
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> setPheno
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> simuFgene
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> simucalculateActor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> simugenNo
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> slice
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> snpCalcActor
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> system
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> times
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> toArray
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> toScala
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> toString
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> tp
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> typedProductIterator
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> unchecked
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> vegas
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> vegas2
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> while$1
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> writer
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> writerName
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> writer_=
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> ||
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> !
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> &&
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> +
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ++
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> :+
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> <
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> <init>
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> <repeated>
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ==
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> >
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> A
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> A1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> AbstractFunction1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> AbstractFunction3
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> AbstractPartialFunction
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Actor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ActorRef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ActorSelection
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ActorSystem
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Any
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> AnyRef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Array
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ArrayOps
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> B
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> B1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Boolean
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> BufferedSource
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> CanBuildFrom
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ClassTag
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Codec
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> DenseMatrix
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Float
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Function1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> GenTraversableOnce
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> H
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> IndexOutOfBoundsException
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Int
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Iterator
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> None
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Nothing
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Object
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Option
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> PLS
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Pms
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Predef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Product
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Props
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ScalaActorRef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ScalaActorSelection
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ScalaRunTime
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Serializable
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Some
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Source
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Statics
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> String
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> T
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> T0
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> T1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> T2
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> T3
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> That
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Tuple3
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> U
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> Unit
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> WriteStr
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _$2
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _$4
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _$7
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _hashCode
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _root_
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> _toString
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> actor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> actorMessage
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> actorRef2Scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> actorSelection
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> akka
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> anyHash
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> apply
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> asInstanceOf
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> canBuildFrom
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> done
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> eq
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> fallbackSystemCodec
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> fil
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> finalizeHash
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> floatArrayOps
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> foreach
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> fromFile
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> gPms
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> geneList
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> genericArrayOps
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> getLines
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> glist
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> glists
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> h
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> i
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> io
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> isInstanceOf
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> length
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> materializeClassTag
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> mix
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> mkString
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> myParallel
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> name
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ofFloat
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ofRef
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> package
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> paraWriterActor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> pms
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> refArrayOps
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> reflect
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> rl
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> rs
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> runtime
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> scala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> self
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> sender
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> setPheno
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> simuFgene
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> simucalculateActor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> simugenNo
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> slice
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> snpCalcActor
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> system
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> times
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> toArray
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> toScala
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> toString
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> tp
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> typedProductIterator
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> unchecked
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> vegas
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> vegas2
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> while$1
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> writer
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> writerName
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> writer_=
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> ||
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> !
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> &
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> &&
@@ -5054,16 +5060,15 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> AbstractPartialFunction
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Actor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> ActorRef
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> ActorSystem
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Any
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> AnyRef
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Array
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> B1
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Boolean
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> BufferWriterActor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> BufferedWriter
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> CharSequence
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Class
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> File
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> FileWriter
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Function1
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> IndexOutOfBoundsException
@@ -5089,18 +5094,20 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> T0
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Unit
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> WriteStr
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> WriteToBuffer
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> Writer
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> _$2
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> _hashCode
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> _root_
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> _toString
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> actor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> actorMessage
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> actorOf
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> actorRef2Scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> akka
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> apply
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> asInstanceOf
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> bw
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> canWrite
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> close
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> count
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> count_=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> currentTime
@@ -5108,12 +5115,14 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> done
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> eq
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fil
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> file
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fileN
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fileName
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> finalizeHash
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> finished
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fn
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fnL
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> fw
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> getTimeForFile
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> i
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> ifCount
@@ -5123,17 +5132,15 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> java
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> length
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> mix
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> myActor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> myParallel
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> name
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> newLine
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> num
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> orderWorker
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> orderWorker_=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> package
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> paraWriterActor
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> println
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> profix
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> props
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> replace
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> run
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> runtime
@@ -5141,9 +5148,9 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> scala
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> self
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> sender
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> setWritable
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> split
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> str
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> system
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> toString
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> totalNum
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> totalNum_=
@@ -5151,6 +5158,7 @@ used names:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> typedProductIterator
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> unchecked
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> utils
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> write
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> ||
 product stamps:
 173 items
@@ -5201,23 +5209,23 @@ product stamps:
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/plsCalc$plsResult$.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/plsCalc$plsResult.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/plsCalc.class -> lastModified(1519050254000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$delayedInit$body.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms$.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList$.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor.class -> lastModified(1520046595000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$Pms$.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$Pms.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$coreNum$.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$coreNum.class -> lastModified(1520048538000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor.class -> lastModified(1520048538000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run$delayedInit$body.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/run.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$Pms.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor$geneList.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simucalculateActor.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$Pms$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$Pms.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$coreNum$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor$coreNum.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/simumasterActor.class -> lastModified(1520132364000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/snpCalc$geneSNPResult$.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/snpCalc$geneSNPResult.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/PLS/snpCalc.class -> lastModified(1519050254000)
@@ -5318,15 +5326,15 @@ product stamps:
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/package$DefaultTaskScheduler.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/package$TaskScheduler.class -> lastModified(1519050254000)
 /Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/package.class -> lastModified(1519050254000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$$anonfun$receive$1.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$WriteStr$.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$WriteStr.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$fileName$.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$fileName.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$totalNumber$.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$totalNumber.class -> lastModified(1520121988000)
-/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor.class -> lastModified(1520121988000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$$anonfun$receive$1.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$WriteStr$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$WriteStr.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$fileName$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$fileName.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$totalNumber$.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor$totalNumber.class -> lastModified(1520132364000)
+/Users/qunliu/Nutstore/workspace/GANOVA/target/scala-2.12/classes/myParallel/paraWriterActor.class -> lastModified(1520132364000)
 source stamps:
 26 items
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/Rcall.scala -> hash(4c06d2085f85c70de7b05a929522de80cdbddf9d)
@@ -5341,9 +5349,9 @@ source stamps:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/parFunction.scala -> hash(47fd774d47eceb9219ed971ef23100adb32647a0)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/pcaActor.scala -> hash(490c2628cd0051b45e921deab1bacd29b12a6338)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/plsCalc.scala -> hash(884ad6c503819b4cff4542f62c2cb150d65554b1)
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> hash(3afb8c6ad59e7e7e6e0f8f85619c29fcd79e5766)
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> hash(fe3c8a6bdb8a42a7c2389898b76601bd1435a934)
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> hash(d072c2ea48c0caa8ae3b34f30158898e98e2fc96)
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> hash(ece05777fb6046d50aa11d9b49a77ad3b0f82d9e)
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> hash(fe3c8a6bdb8a42a7c2389898b76601bd1435a934)
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> hash(8b7d2f291d0e1ecca4fb8c9ff5767ddf902b084f)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalc.scala -> hash(937b1d33a1633ca28afd34a93316bb22a50d5c91)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalcActor.scala -> hash(434f3b912d34ccb59b1f35c345503c6a3421f8a6)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalcDispatchActor.scala -> hash(718340c214b68d3c3e7a07b46dff509b1f6d6cbf)
@@ -5354,7 +5362,7 @@ source stamps:
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/BufferWriterActor.scala -> hash(187d5284aede352e40cc7f2d47c01794fe1a1bbd)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/actorMessage.scala -> hash(bfceb0ea1272ae2f9f9e4f53201d04fb3ef8c4b0)
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/myParallel.scala -> hash(88db4571ddb3996e96c44fc12e9422c081a9c479)
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> hash(fb79d6547fb5861aa02d3fe4012c34eec620cb44)
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> hash(0a2bc3dde3b1abe82b797ee6aec54d6ebce03a34)
 binary stamps:
 10 items
 /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre/lib/rt.jar -> lastModified(1481605174000)
@@ -5376,7 +5384,7 @@ class names:
 /Users/qunliu/.ivy2/cache/mysql/mysql-connector-java/jars/mysql-connector-java-5.1.22.jar -> com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 /Users/qunliu/.ivy2/cache/org.apache.commons/commons-math3/jars/commons-math3-3.2.jar -> org.apache.commons.math3.distribution.NormalDistribution
 /Users/qunliu/.ivy2/cache/org.ddahl/rscala_2.12/jars/rscala_2.12-2.4.0.jar -> org.ddahl.rscala.RClient
-/Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar -> scala.Serializable
+/Users/qunliu/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.3.jar -> scala.runtime.AbstractFunction1
 /Users/qunliu/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.3.jar -> scala.reflect.io.File$
 /Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.1.jar -> breeze.linalg.DenseMatrix
 internal apis:
@@ -5406,11 +5414,11 @@ rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBo
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/plsCalc.scala -> 
 rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwcxGPSAAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAABUc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwkHsaxXQABm5vdGlmeXNxAH4ADIolWsd0AAd1bmFwcGx5c3EAfgAMmL2n9nQAB1RTc3RhcnRzcQB+AAxmwwM3dAAHY3VycmllZHNxAH4ADMsaFCp0AAJYbXNxAH4ADBncYMJ0AAZnZXRDVlBzcQB+AAx0kfF4dAAHZ2RvZkFsbHNxAH4ADD2XSMR0AA9wZXJtVCRkZWZhdWx0JDRzcQB+AAyo8A0XdAAEd2FpdHNxAH4ADDgE1T90AANwbHNzcQB+AAwx4HU8dAAOY29weSRkZWZhdWx0JDJzcQB+AAxp/UsbdAANJGFzSW5zdGFuY2VPZnNxAH4ADBdMcrR0AANtb2RzcQB+AAzuxc3QdAAQPGluaXQ+JGRlZmF1bHQkMXNxAH4ADLzCvn90ABFnZG9mQWxsJGRlZmF1bHQkNXNxAH4ADHZaVZF0AAxwcm9kdWN0QXJpdHlzcQB+AAxTBPKudAAFcGVybVlzcQB+AAy5f9j4dAAGZXF1YWxzc3EAfgAMC2Taq3QABVRTZW5kc3EAfgAMoc1joHQADGFzSW5zdGFuY2VPZnNxAH4ADHd/03h0AAZlbnRyZXpzcQB+AAzttFSDdAAEU25pcHNxAH4ADNy2NFR0AAxzeW5jaHJvbml6ZWRzcQB+AAxhx+a+dAANJGlzSW5zdGFuY2VPZnNxAH4ADMD4Jed0AARHZW5lc3EAfgAM04tWxXQABnR1cGxlZHNxAH4ADJ6CvHh0AAVwbHNDVnNxAH4ADC3jCj50AA5nZG9mJGRlZmF1bHQkNXNxAH4ADG/3Bux0AAJZbXNxAH4ADIYj66B0AAhjYW5FcXVhbHNxAH4ADLgi+YZ0AA5nZG9mUGxzUHZhbEFsbHNxAH4ADN/tbgN0AA5jb3B5JGRlZmF1bHQkNHNxAH4ADEUDUkN0AA1wcm9kdWN0UHJlZml4c3EAfgAMRh+ZRnQACW5vdGlmeUFsbHNxAH4ADIbnfER0AAtnZG9mUGxzUHZhbHNxAH4ADJYWa890ABFnZG9mQWxsJGRlZmF1bHQkNHNxAH4ADMwX7J90AAxpc0luc3RhbmNlT2ZzcQB+AAz9WG2bdAAGPGluaXQ+c3EAfgAMhTE0l3QACGtmb2xkSW54c3EAfgAMvETkhHQAAmlkc3EAfgAMhDtXVnQAEGdldENWUCRkZWZhdWx0JDRzcQB+AAzLsUwddAAPYXBwbHkkZGVmYXVsdCQyc3EAfgAM8W3+inQABWFwcGx5c3EAfgAM4KTGDXQAA2NocnNxAH4ADJEZiJ90AAI9PXNxAH4ADD76iYt0AA5nZG9mJGRlZmF1bHQkNHNxAH4ADDcV0EZ0AAVjbG9uZXNxAH4ADCcpCGF0AAdwbHNDYWxjc3EAfgAMtm6uW3QACHR3b0Fub3Zhc3EAfgAMKYRsC3QAEmtmb2xkSW54JGRlZmF1bHQkM3NxAH4ADK38S5N0AAYkaW5pdCRzcQB+AAxnDN0SdAAEcGRvZnNxAH4ADF7dS8J0AAlnZG9mUHZhbDJzcQB+AAziP7PhdAAScGxzVHJhaW4kZGVmYXVsdCQzc3EAfgAMv3QZLnQACXBsc1Jlc3VsdHNxAH4ADOxkNcN0AA5jb3B5JGRlZmF1bHQkM3NxAH4ADHVO9FB0AARjb3B5c3EAfgAMmkwFGHQAD2FwcGx5JGRlZmF1bHQkMXNxAH4ADEhhiX10AApTbnBJblJhbmdlc3EAfgAMS0yjgnQABWFub3Zhc3EAfgAM97OHy3QACHRvU3RyaW5nc3EAfgAMfz4P2nQAA2xvY3NxAH4ADCgMjY50AAhwbHNMb29jdnNxAH4ADGE7dit0AAIhPXNxAH4ADDpM3JR0AAdwcmVkaWN0c3EAfgAMaSOO7nQABnBsc0FsbHNxAH4ADMXQI5l0AAhnZXRDbGFzc3NxAH4ADMs8l010AA5jb3B5JGRlZmF1bHQkMXNxAH4ADDeKexx0AA5nZG9mJGRlZmF1bHQkNnNxAH4ADCtDxfx0AAJuZXNxAH4ADFwl/bN0AAVwcm9iZXNxAH4ADNYID0B0AARnZG9mc3EAfgAMtkYpJnQAEWdkb2ZBbGwkZGVmYXVsdCQ2c3EAfgAM3i+AhHQAEDxpbml0PiRkZWZhdWx0JDJzcQB+AAxXPO7wdAACZXFzcQB+AAwbOLrvdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgAM4UgWW3QACHBsc1RyYWluc3EAfgAMqc7LSnQAAiMjc3EAfgAMpzP0ZnQACGZpbmFsaXplc3EAfgAMbxxT4HQAB2RvZlB2YWxzcQB+AAw7YiAVdAAOcHJvZHVjdEVsZW1lbnRzcQB+AAxHlcV2dAAIaGFzaENvZGVzcQB+AAzTiLtydAADcnNzc3EAfgAMxTo05XQABXBlcm1Uc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4Av3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAC1BMUy5wbHNDYWxjdXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyACF4c2J0aS5hcGkuQWJzdHJhY3RMYXp5JFN0cmljdExhenkNZhxrKRYquAIAAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgDXc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AL9MAAlpbmhlcml0ZWRxAH4Av0wAB3BhcmVudHNxAH4Av3hxAH4A3HNxAH4A13VxAH4AugAAAABzcQB+ANd1cQB+ALoAAAAAc3EAfgDXdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AA1MAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgDbdAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgDbc3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADXhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgD0dAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgD1c3EAfgDodAADQW55c3EAfgDsc3EAfgDvdXEAfgDyAAAAAnNxAH4A9HQABXNjYWxhcQB+APt1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgANeHB0AANQTFNzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAWGucq+DdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAUiErWxQOBm0z/RUL2LCyxUNZVVLE=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwc8TSXgAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAfc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hw82uZXHQABm5vdGlmeXNxAH4ADFXnNut0AARmaWxuc3EAfgAMWKXdpXQABHdhaXRzcQB+AAw//fMrdAANJGFzSW5zdGFuY2VPZnNxAH4ADED8zF10AAZlcXVhbHNzcQB+AAxEFSzadAALY3VycmVudFRpbWVzcQB+AAwMyOoYdAAMYXNJbnN0YW5jZU9mc3EAfgAMR/Btk3QADmV4ZWN1dGlvblN0YXJ0c3EAfgAMpsZMcnQAA3J1bnNxAH4ADNNwPqR0AAl0ZXN0YWN0b3JzcQB+AAwQUduMdAAMc3luY2hyb25pemVkc3EAfgAMXXjehXQADSRpc0luc3RhbmNlT2ZzcQB+AAx6LxkxdAAEbWFpbnNxAH4ADAc+8TB0AAlub3RpZnlBbGxzcQB+AAybjkjmdAAMaXNJbnN0YW5jZU9mc3EAfgAMCr+bpHQAB2xvZ2ZpbGVzcQB+AAzZusl9dAACPT1zcQB+AAyZiuDodAAFY2xvbmVzcQB+AAyHj1SUdAAGJGluaXQkc3EAfgAMTMDdt3QACHRvU3RyaW5nc3EAfgAMqZRE7XQABGFyZ3NzcQB+AAwpVLDddAACIT1zcQB+AAwm1FT7dAAIZ2V0Q2xhc3NzcQB+AAw4tdUTdAACbXZzcQB+AAwviU4odAACbmVzcQB+AAyX47AJdAAGbmV3bG9nc3EAfgAMEol3iHQAAmVxc3EAfgAM/rTRpXQAC2RlbGF5ZWRJbml0c3EAfgAMF4uZhHQAAiMjc3EAfgAMcaPnUHQACGZpbmFsaXplc3EAfgAM7vkRdnQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4AVXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAB1BMUy5ydW51cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAACdAAac2NhbGEuZGVwcmVjYXRlZE92ZXJyaWRpbmd0ABBzY2FsYS5kZXByZWNhdGVkc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AG9zcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4AVUwACWluaGVyaXRlZHEAfgBVTAAHcGFyZW50c3EAfgBVeHEAfgB0c3EAfgBvdXEAfgBQAAAAAHNxAH4Ab3VxAH4AUAAAAAFzcgANeHNidGkuYXBpLkRlZlK+n+J8tDZpAgACTAAKcmV0dXJuVHlwZXQAEEx4c2J0aS9hcGkvVHlwZTtbAA92YWx1ZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9QYXJhbWV0ZXJMaXN0O3hxAH4AVnEAfgBfdXEAfgBgAAAAAXNyABR4c2J0aS5hcGkuQW5ub3RhdGlvbt4OgaL2XAqyAgACWwAJYXJndW1lbnRzdAAfW0x4c2J0aS9hcGkvQW5ub3RhdGlvbkFyZ3VtZW50O0wABGJhc2VxAH4AfnhwdXIAH1tMeHNidGkuYXBpLkFubm90YXRpb25Bcmd1bWVudDtRnaaPOCUPeAIAAHhwAAAAAXNyABx4c2J0aS5hcGkuQW5ub3RhdGlvbkFyZ3VtZW501kWx2AMbF3wCAAJMAARuYW1lcQB+AA1MAAV2YWx1ZXEAfgANeHB0AAB0ACooIm1haW4gc2hvdWxkIG5vdCBiZSBvdmVycmlkZGVuIiwiMi4xMS4wIilzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AA1MAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgBzdAAUZGVwcmVjYXRlZE92ZXJyaWRpbmdzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AHNzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgANeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AJhzcQB+AGIAcQB+ACd1cQB+AGUAAAAAc3EAfgCLdAAEVW5pdHEAfgCRdXIAGltMeHNidGkuYXBpLlBhcmFtZXRlckxpc3Q79dM6HfKzcO4CAAB4cAAAAAFzcgAXeHNidGkuYXBpLlBhcmFtZXRlckxpc3TWxbwcZEl04wIAAloACmlzSW1wbGljaXRbAApwYXJhbWV0ZXJzdAAcW0x4c2J0aS9hcGkvTWV0aG9kUGFyYW1ldGVyO3hwAHVyABxbTHhzYnRpLmFwaS5NZXRob2RQYXJhbWV0ZXI7z7jFXaXdtW0CAAB4cAAAAAFzcgAZeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlch9FrhfTSbDqAgAEWgAKaGFzRGVmYXVsdEwACG1vZGlmaWVydAAdTHhzYnRpL2FwaS9QYXJhbWV0ZXJNb2RpZmllcjtMAARuYW1lcQB+AA1MAAN0cGVxAH4AfnhwAH5yABt4c2J0aS5hcGkuUGFyYW1ldGVyTW9kaWZpZXIAAAAAAAAAABIAAHhxAH4AaHQABVBsYWlucQB+ADdzcgAXeHNidGkuYXBpLlBhcmFtZXRlcml6ZWQWbO5pA8m7fwIAAkwACGJhc2VUeXBlcQB+AIxbAA10eXBlQXJndW1lbnRzdAARW0x4c2J0aS9hcGkvVHlwZTt4cQB+AHNzcQB+AIt0AAVBcnJheXEAfgCRdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAFzcQB+AIt0AAZTdHJpbmdzcQB+AI9zcQB+AJJ1cQB+AJUAAAADc3EAfgCXdAAEamF2YXNxAH4Al3QABGxhbmdxAH4AnHNxAH4Ab3VxAH4AswAAAARzcQB+AIt0AANBcHBxAH4AkXNxAH4Ai3QAC0RlbGF5ZWRJbml0cQB+AJFzcQB+AIt0AAZPYmplY3RxAH4At3NxAH4Ai3QAA0FueXEAfgCRdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAADUExTc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFh7lSokXVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFDr7jGrVnn5+bg+PhWGcKfzXnldm
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwwMZ1EAAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHDMPYiudAAEc2VsZnNxAH4AC8AY2px0AAdjb250ZXh0dXEAfgAJAAAAQXNxAH4AC7hUnQJ0AAZub3RpZnlzcQB+AAubc06UdAAHdW5hcHBseXNxAH4AC2ydzKh0AAdjdXJyaWVkc3EAfgALL1KpL3QAB1JlY2VpdmVzcQB+AAsXufCVdAAEbmFtZXNxAH4AC3p/XP10AAR3YWl0c3EAfgALExOj/XQADmNvcHkkZGVmYXVsdCQyc3EAfgALavxnZHQADSRhc0luc3RhbmNlT2ZzcQB+AAsDGCWYdAAHY29tcG9zZXNxAH4AC66nDEt0AAZ3cml0ZXJzcQB+AAvkdiIRdAAMcHJvZHVjdEFyaXR5c3EAfgALdwtE+XQABmVxdWFsc3NxAH4AC4ogz/p0AAxhc0luc3RhbmNlT2ZzcQB+AAu10AzQdAAMc3luY2hyb25pemVkc3EAfgAL1ZJ4QHQADSRpc0luc3RhbmNlT2ZzcQB+AAssIgc+dAAHYW5kVGhlbnNxAH4AC2YMfRB0AA9hcHBseSRkZWZhdWx0JDNzcQB+AAvdskr7dAAHcmVjZWl2ZXNxAH4AC7bYXiR0AApwcmVSZXN0YXJ0c3EAfgALID/MWnQABnR1cGxlZHNxAH4AC/NotIV0AA1hcm91bmRSZWNlaXZlc3EAfgALacK+43QACGNhbkVxdWFsc3EAfgALzHfpWHQAC3Bvc3RSZXN0YXJ0c3EAfgALEfSqu3QACHBvc3RTdG9wc3EAfgALGPU+onQADXByb2R1Y3RQcmVmaXhzcQB+AAsYK1IpdAAJbm90aWZ5QWxsc3EAfgAL1SkkiHQABWdsaXN0c3EAfgALsnVl6XQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgAL/tnRAXQADGlzSW5zdGFuY2VPZnNxAH4AC8dQ5HZ0ABBhcm91bmRQcmVSZXN0YXJ0c3EAfgALSzi8w3QADmFyb3VuZFBvc3RTdG9wc3EAfgAL/LWBMnQAEDxpbml0PiRkZWZhdWx0JDNzcQB+AAvEdTYqdAAGPGluaXQ+c3EAfgALt+DO0nQAEnNpbXVjYWxjdWxhdGVBY3RvcnNxAH4ACzsNKKt0AAhwcmVTdGFydHNxAH4AC+lFbKx0AA9hcHBseSRkZWZhdWx0JDJzcQB+AAu1MYEOdAAJdW5oYW5kbGVkc3EAfgALF3ihonQABWFwcGx5c3EAfgALM8awe3QAAj09c3EAfgALbXZ9xHQAA2ZpbHNxAH4AC9lrfq10AAVjbG9uZXNxAH4AC9Y5nZp0AAV0aW1lc3NxAH4AC1RdRN90AAYkaW5pdCRzcQB+AAvFS63EdAAOY29weSRkZWZhdWx0JDNzcQB+AAue+aHvdAAEY29weXNxAH4AC9KzLfd0AAZzZW5kZXJzcQB+AAsGfo/VdAAIdG9TdHJpbmdzcQB+AAuzN4NKdAABSHNxAH4AC7gu0Q50AAIhPXNxAH4AC+my3Ll0AAhnZXRDbGFzc3NxAH4AC41PsOd0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC0h3xjx0AAVwcm9wc3NxAH4AC2H/bX90AAlzaW11Z2VuTm9zcQB+AAtG72U/dAACbmVzcQB+AAuiDHCidAAIZ2VuZUxpc3RzcQB+AAtBxLizdAADUG1zc3EAfgAL2U/7rHQAEnN1cGVydmlzb3JTdHJhdGVneXNxAH4AC1FdHUF0ABA8aW5pdD4kZGVmYXVsdCQyc3EAfgALvenCsHQAAmVxc3EAfgALE9fOlXQAD3Byb2R1Y3RJdGVyYXRvcnNxAH4ACw82eiN0AAIjI3NxAH4AC3kkMAd0AAhmaW5hbGl6ZXNxAH4ACxWAZ+50AA5wcm9kdWN0RWxlbWVudHNxAH4AC5jnuhJ0AAhoYXNoQ29kZXNxAH4ACwn6A650AA5hcm91bmRQcmVTdGFydHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAJzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AJ14cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgAMeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cAB0ABZQTFMuc2ltdWNhbGN1bGF0ZUFjdG9ydXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyACF4c2J0aS5hcGkuQWJzdHJhY3RMYXp5JFN0cmljdExhenkNZhxrKRYquAIAAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgC1c3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AJ1MAAlpbmhlcml0ZWRxAH4AnUwAB3BhcmVudHNxAH4AnXhxAH4AunNxAH4AtXVxAH4AmAAAAABzcQB+ALV1cQB+AJgAAAAAc3EAfgC1dXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AAxMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgC5dAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgC5c3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADHhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgDSdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgDTc3EAfgDGdAADQW55c3EAfgDKc3EAfgDNdXEAfgDQAAAAAnNxAH4A0nQABXNjYWxhcQB+ANlzcQB+AJpxAH4Ap3VxAH4AqAAAAABzcQB+AKoAdAAWUExTLnNpbXVjYWxjdWxhdGVBY3RvcnVxAH4ArQAAAAB+cQB+AK90AAhDbGFzc0RlZnVxAH4AswAAAABzcQB+ALVxAH4Au3NxAH4AtXNxAH4AvXNxAH4AtXVxAH4AmAAAAABzcQB+ALV1cQB+AJgAAAAAc3EAfgC1dXEAfgDEAAAAA3NxAH4AxnQABUFjdG9yc3EAfgDKc3EAfgDNdXEAfgDQAAAAA3NxAH4A0nQABGFra2FzcQB+ANJ0AAVhY3RvcnEAfgDZc3EAfgDGcQB+AMlzcQB+AMpzcQB+AM11cQB+ANAAAAADc3EAfgDScQB+ANVzcQB+ANJxAH4A13EAfgDZc3EAfgDGcQB+ANtzcQB+AMpzcQB+AM11cQB+ANAAAAACc3EAfgDScQB+AOBxAH4A2XVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAABc3IAEXhzYnRpLmFwaS5QYWNrYWdlflmP9q7OOVgCAAFMAARuYW1lcQB+AAx4cHQAA1BMU3NyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYenWNwR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AAxMAA9zb3VyY2VEaXJlY3RvcnlxAH4ADHhwdABBL1VzZXJzL3F1bmxpdS9OdXRzdG9yZS93b3Jrc3BhY2UvR0FOT1ZBL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABT+PIpr24pCp8I4mJi3ZgG9FDWpNA==
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhw/72J+wAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAic3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hw82uZXHQABm5vdGlmeXNxAH4ADFXnNut0AARmaWxuc3EAfgAMWKXdpXQABHdhaXRzcQB+AAzS6tjCdAADc3J0c3EAfgAMP/3zK3QADSRhc0luc3RhbmNlT2ZzcQB+AAyM9lX/dAAGd3JpdGVyc3EAfgAMxaqABnQACG9yZGVycG1zc3EAfgAMQPzMXXQABmVxdWFsc3NxAH4ADEQVLNp0AAtjdXJyZW50VGltZXNxAH4ADAzI6hh0AAxhc0luc3RhbmNlT2ZzcQB+AAxH8G2TdAAOZXhlY3V0aW9uU3RhcnRzcQB+AAymxkxydAADcnVuc3EAfgAM03A+pHQACXRlc3RhY3RvcnNxAH4ADBBR24x0AAxzeW5jaHJvbml6ZWRzcQB+AAxdeN6FdAANJGlzSW5zdGFuY2VPZnNxAH4ADHovGTF0AARtYWluc3EAfgAMBz7xMHQACW5vdGlmeUFsbHNxAH4ADJuOSOZ0AAxpc0luc3RhbmNlT2ZzcQB+AAwKv5ukdAAHbG9nZmlsZXNxAH4ADNm6yX10AAI9PXNxAH4ADJmK4Oh0AAVjbG9uZXNxAH4ADIePVJR0AAYkaW5pdCRzcQB+AAxMwN23dAAIdG9TdHJpbmdzcQB+AAyplETtdAAEYXJnc3NxAH4ADClUsN10AAIhPXNxAH4ADCbUVPt0AAhnZXRDbGFzc3NxAH4ADDi11RN0AAJtdnNxAH4ADC+JTih0AAJuZXNxAH4ADJfjsAl0AAZuZXdsb2dzcQB+AAwSiXeIdAACZXFzcQB+AAz+tNGldAALZGVsYXllZEluaXRzcQB+AAwXi5mEdAACIyNzcQB+AAxxo+dQdAAIZmluYWxpemVzcQB+AAzu+RF2dAAIaGFzaENvZGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgBbeHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnOX52HcEyZ7swIAAUIABWZsYWdzeHAAdAAHUExTLnJ1bnVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAAJ0ABpzY2FsYS5kZXByZWNhdGVkT3ZlcnJpZGluZ3QAEHNjYWxhLmRlcHJlY2F0ZWRzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AdXNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBbTAAJaW5oZXJpdGVkcQB+AFtMAAdwYXJlbnRzcQB+AFt4cQB+AHpzcQB+AHV1cQB+AFYAAAAAc3EAfgB1dXEAfgBWAAAAAXNyAA14c2J0aS5hcGkuRGVmUr6f4ny0NmkCAAJMAApyZXR1cm5UeXBldAAQTHhzYnRpL2FwaS9UeXBlO1sAD3ZhbHVlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1BhcmFtZXRlckxpc3Q7eHEAfgBccQB+AGV1cQB+AGYAAAABc3IAFHhzYnRpLmFwaS5Bbm5vdGF0aW9u3g6BovZcCrICAAJbAAlhcmd1bWVudHN0AB9bTHhzYnRpL2FwaS9Bbm5vdGF0aW9uQXJndW1lbnQ7TAAEYmFzZXEAfgCEeHB1cgAfW0x4c2J0aS5hcGkuQW5ub3RhdGlvbkFyZ3VtZW50O1Gdpo84JQ94AgAAeHAAAAABc3IAHHhzYnRpLmFwaS5Bbm5vdGF0aW9uQXJndW1lbnTWRbHYAxsXfAIAAkwABG5hbWVxAH4ADUwABXZhbHVlcQB+AA14cHQAAHQAKigibWFpbiBzaG91bGQgbm90IGJlIG92ZXJyaWRkZW4iLCIyLjExLjAiKXNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADUwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AHl0ABRkZXByZWNhdGVkT3ZlcnJpZGluZ3NyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4AeXNyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAAnNyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAFc2NhbGFzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AnnNxAH4AaABxAH4ALXVxAH4AawAAAABzcQB+AJF0AARVbml0cQB+AJd1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADUwAA3RwZXEAfgCEeHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgBudAAFUGxhaW5xAH4APXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4AklsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4AeXNxAH4AkXQABUFycmF5cQB+AJd1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAXNxAH4AkXQABlN0cmluZ3NxAH4AlXNxAH4AmHVxAH4AmwAAAANzcQB+AJ10AARqYXZhc3EAfgCddAAEbGFuZ3EAfgCic3EAfgB1dXEAfgC5AAAABHNxAH4AkXQAA0FwcHEAfgCXc3EAfgCRdAALRGVsYXllZEluaXRxAH4Al3NxAH4AkXQABk9iamVjdHEAfgC9c3EAfgCRdAADQW55cQB+AJd1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgANeHB0AANQTFNzcgAVeHNidGkuYXBpLkNvbXBpbGF0aW9u7frgw2rooEICAAJKAAlzdGFydFRpbWVbAAdvdXRwdXRzdAAaW0x4c2J0aS9hcGkvT3V0cHV0U2V0dGluZzt4cAAAAWHu8vXVdXIAGltMeHNidGkuYXBpLk91dHB1dFNldHRpbmc7f2rC86eHpUICAAB4cAAAAAFzcgAXeHNidGkuYXBpLk91dHB1dFNldHRpbmd62ZpHdPsdewIAAkwAD291dHB1dERpcmVjdG9yeXEAfgANTAAPc291cmNlRGlyZWN0b3J5cQB+AA14cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABL3VyAAJbQqzzF/gGCFTgAgAAeHAAAAAU7OBXd/tgRtUKoR2bSad607D4LZ4=
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwwMZ1EAAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHDMPYiudAAEc2VsZnNxAH4AC8AY2px0AAdjb250ZXh0dXEAfgAJAAAAQXNxAH4AC7hUnQJ0AAZub3RpZnlzcQB+AAubc06UdAAHdW5hcHBseXNxAH4AC2ydzKh0AAdjdXJyaWVkc3EAfgALL1KpL3QAB1JlY2VpdmVzcQB+AAsXufCVdAAEbmFtZXNxAH4AC3p/XP10AAR3YWl0c3EAfgALExOj/XQADmNvcHkkZGVmYXVsdCQyc3EAfgALavxnZHQADSRhc0luc3RhbmNlT2ZzcQB+AAsDGCWYdAAHY29tcG9zZXNxAH4AC66nDEt0AAZ3cml0ZXJzcQB+AAvkdiIRdAAMcHJvZHVjdEFyaXR5c3EAfgALdwtE+XQABmVxdWFsc3NxAH4AC4ogz/p0AAxhc0luc3RhbmNlT2ZzcQB+AAu10AzQdAAMc3luY2hyb25pemVkc3EAfgAL1ZJ4QHQADSRpc0luc3RhbmNlT2ZzcQB+AAssIgc+dAAHYW5kVGhlbnNxAH4AC2YMfRB0AA9hcHBseSRkZWZhdWx0JDNzcQB+AAvdskr7dAAHcmVjZWl2ZXNxAH4AC7bYXiR0AApwcmVSZXN0YXJ0c3EAfgALID/MWnQABnR1cGxlZHNxAH4AC/NotIV0AA1hcm91bmRSZWNlaXZlc3EAfgALacK+43QACGNhbkVxdWFsc3EAfgALzHfpWHQAC3Bvc3RSZXN0YXJ0c3EAfgALEfSqu3QACHBvc3RTdG9wc3EAfgALGPU+onQADXByb2R1Y3RQcmVmaXhzcQB+AAsYK1IpdAAJbm90aWZ5QWxsc3EAfgAL1SkkiHQABWdsaXN0c3EAfgALsnVl6XQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgAL/tnRAXQADGlzSW5zdGFuY2VPZnNxAH4AC8dQ5HZ0ABBhcm91bmRQcmVSZXN0YXJ0c3EAfgALSzi8w3QADmFyb3VuZFBvc3RTdG9wc3EAfgAL/LWBMnQAEDxpbml0PiRkZWZhdWx0JDNzcQB+AAvEdTYqdAAGPGluaXQ+c3EAfgALt+DO0nQAEnNpbXVjYWxjdWxhdGVBY3RvcnNxAH4ACzsNKKt0AAhwcmVTdGFydHNxAH4AC+lFbKx0AA9hcHBseSRkZWZhdWx0JDJzcQB+AAu1MYEOdAAJdW5oYW5kbGVkc3EAfgALF3ihonQABWFwcGx5c3EAfgALM8awe3QAAj09c3EAfgALbXZ9xHQAA2ZpbHNxAH4AC9lrfq10AAVjbG9uZXNxAH4AC9Y5nZp0AAV0aW1lc3NxAH4AC1RdRN90AAYkaW5pdCRzcQB+AAvFS63EdAAOY29weSRkZWZhdWx0JDNzcQB+AAue+aHvdAAEY29weXNxAH4AC9KzLfd0AAZzZW5kZXJzcQB+AAsGfo/VdAAIdG9TdHJpbmdzcQB+AAuzN4NKdAABSHNxAH4AC7gu0Q50AAIhPXNxAH4AC+my3Ll0AAhnZXRDbGFzc3NxAH4AC41PsOd0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC0h3xjx0AAVwcm9wc3NxAH4AC2H/bX90AAlzaW11Z2VuTm9zcQB+AAtG72U/dAACbmVzcQB+AAuiDHCidAAIZ2VuZUxpc3RzcQB+AAtBxLizdAADUG1zc3EAfgAL2U/7rHQAEnN1cGVydmlzb3JTdHJhdGVneXNxAH4AC1FdHUF0ABA8aW5pdD4kZGVmYXVsdCQyc3EAfgALvenCsHQAAmVxc3EAfgALE9fOlXQAD3Byb2R1Y3RJdGVyYXRvcnNxAH4ACw82eiN0AAIjI3NxAH4AC3kkMAd0AAhmaW5hbGl6ZXNxAH4ACxWAZ+50AA5wcm9kdWN0RWxlbWVudHNxAH4AC5jnuhJ0AAhoYXNoQ29kZXNxAH4ACwn6A650AA5hcm91bmRQcmVTdGFydHNyABN4c2J0aS5hcGkuU291cmNlQVBJuV6n+SkjOKQCAAJbAAtkZWZpbml0aW9uc3QAF1tMeHNidGkvYXBpL0RlZmluaXRpb247WwAIcGFja2FnZXN0ABRbTHhzYnRpL2FwaS9QYWNrYWdlO3hwdXIAF1tMeHNidGkuYXBpLkRlZmluaXRpb247iMlc57TjXg4CAAB4cAAAAAJzcgATeHNidGkuYXBpLkNsYXNzTGlrZYM0HKHfsJdsAgAETAAOZGVmaW5pdGlvblR5cGV0ABpMeHNidGkvYXBpL0RlZmluaXRpb25UeXBlO1sAEHNhdmVkQW5ub3RhdGlvbnN0ABNbTGphdmEvbGFuZy9TdHJpbmc7TAAIc2VsZlR5cGV0ABBMeHNidGkvYXBpL0xhenk7TAAJc3RydWN0dXJlcQB+AJ14cgAheHNidGkuYXBpLlBhcmFtZXRlcml6ZWREZWZpbml0aW9u+RFusdVQPOICAAFbAA50eXBlUGFyYW1ldGVyc3QAGltMeHNidGkvYXBpL1R5cGVQYXJhbWV0ZXI7eHIAFHhzYnRpLmFwaS5EZWZpbml0aW9uhyob6HFC40YCAARMAAZhY2Nlc3N0ABJMeHNidGkvYXBpL0FjY2VzcztbAAthbm5vdGF0aW9uc3QAF1tMeHNidGkvYXBpL0Fubm90YXRpb247TAAJbW9kaWZpZXJzdAAVTHhzYnRpL2FwaS9Nb2RpZmllcnM7TAAEbmFtZXEAfgAMeHBzcgAQeHNidGkuYXBpLlB1YmxpY7pYPa5sLWBCAgAAeHIAEHhzYnRpLmFwaS5BY2Nlc3PdYpr4HWMxSAIAAHhwdXIAF1tMeHNidGkuYXBpLkFubm90YXRpb24765frGRD2jUgCAAB4cAAAAABzcgATeHNidGkuYXBpLk1vZGlmaWVyc5fnYdwTJnuzAgABQgAFZmxhZ3N4cAB0ABZQTFMuc2ltdWNhbGN1bGF0ZUFjdG9ydXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyACF4c2J0aS5hcGkuQWJzdHJhY3RMYXp5JFN0cmljdExhenkNZhxrKRYquAIAAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgC1c3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AJ1MAAlpbmhlcml0ZWRxAH4AnUwAB3BhcmVudHNxAH4AnXhxAH4AunNxAH4AtXVxAH4AmAAAAABzcQB+ALV1cQB+AJgAAAAAc3EAfgC1dXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AAxMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgC5dAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgC5c3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADHhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgDSdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgDTc3EAfgDGdAADQW55c3EAfgDKc3EAfgDNdXEAfgDQAAAAAnNxAH4A0nQABXNjYWxhcQB+ANlzcQB+AJpxAH4Ap3VxAH4AqAAAAABzcQB+AKoAdAAWUExTLnNpbXVjYWxjdWxhdGVBY3RvcnVxAH4ArQAAAAB+cQB+AK90AAhDbGFzc0RlZnVxAH4AswAAAABzcQB+ALVxAH4Au3NxAH4AtXNxAH4AvXNxAH4AtXVxAH4AmAAAAABzcQB+ALV1cQB+AJgAAAAAc3EAfgC1dXEAfgDEAAAAA3NxAH4AxnQABUFjdG9yc3EAfgDKc3EAfgDNdXEAfgDQAAAAA3NxAH4A0nQABGFra2FzcQB+ANJ0AAVhY3RvcnEAfgDZc3EAfgDGcQB+AMlzcQB+AMpzcQB+AM11cQB+ANAAAAADc3EAfgDScQB+ANVzcQB+ANJxAH4A13EAfgDZc3EAfgDGcQB+ANtzcQB+AMpzcQB+AM11cQB+ANAAAAACc3EAfgDScQB+AOBxAH4A2XVyABRbTHhzYnRpLmFwaS5QYWNrYWdlO1sTGTdwpyehAgAAeHAAAAABc3IAEXhzYnRpLmFwaS5QYWNrYWdlflmP9q7OOVgCAAFMAARuYW1lcQB+AAx4cHQAA1BMU3NyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYe7y9dV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AAxMAA9zb3VyY2VEaXJlY3RvcnlxAH4ADHhwdABBL1VzZXJzL3F1bmxpdS9OdXRzdG9yZS93b3Jrc3BhY2UvR0FOT1ZBL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABT+PIpr24pCp8I4mJi3ZgG9FDWpNA==
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwOFbeRAAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHBcYI+8dAAEc2VsZnNxAH4AC0/gtbR0AAdjb250ZXh0dXEAfgAJAAAASXNxAH4ACzmEaWd0AAZub3RpZnlzcQB+AAviuX0FdAAHdW5hcHBseXNxAH4AC9jvCip0AAdjdXJyaWVkc3EAfgALlVyEk3QAB1JlY2VpdmVzcQB+AAt2vow5dAAEbmFtZXNxAH4AC45z3YV0AAVjb3VudHNxAH4AC6bmtrx0AAR3YWl0c3EAfgALmqrXHHQAB2NvcmVOdW1zcQB+AAvnTbtldAAOY29weSRkZWZhdWx0JDJzcQB+AAsw3DFqdAANJGFzSW5zdGFuY2VPZnNxAH4AC7tAdXZ0AAdjb21wb3Nlc3EAfgALWmvlrnQABndyaXRlcnNxAH4ACzIOI/N0AAxwcm9kdWN0QXJpdHlzcQB+AAtO5OZudAAGZXF1YWxzc3EAfgALeHd1n3QABWNvcmVzc3EAfgALwQLCI3QADGFzSW5zdGFuY2VPZnNxAH4AC6YMB8h0AAxzeW5jaHJvbml6ZWRzcQB+AAvKEGs4dAAFd25hbWVzcQB+AAvmHfojdAANJGlzSW5zdGFuY2VPZnNxAH4AC2gxhI10AAdhbmRUaGVuc3EAfgALc6Qq53QAD2FwcGx5JGRlZmF1bHQkM3NxAH4ACzpocCd0AAdyZWNlaXZlc3EAfgALfYKaR3QACnByZVJlc3RhcnRzcQB+AAvlJMa6dAAGdHVwbGVkc3EAfgALPYRYgnQADWFyb3VuZFJlY2VpdmVzcQB+AAswKH06dAAIY2FuRXF1YWxzcQB+AAtpb+sNdAALcG9zdFJlc3RhcnRzcQB+AAsxVvYBdAAIcG9zdFN0b3BzcQB+AAvxYfJ3dAANcHJvZHVjdFByZWZpeHNxAH4AC1ScuT90AAlub3RpZnlBbGxzcQB+AAueM4fydAADbnVtc3EAfgAL2RCFcXQACGdldEdsaXN0c3EAfgALMQQqEHQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgALJF/U0XQADGlzSW5zdGFuY2VPZnNxAH4AC5vuAc10ABBhcm91bmRQcmVSZXN0YXJ0c3EAfgALYqJ8BnQADmFyb3VuZFBvc3RTdG9wc3EAfgAL8j9MwHQAEDxpbml0PiRkZWZhdWx0JDNzcQB+AAt4lpF1dAAGPGluaXQ+c3EAfgALPFUVWXQACHByZVN0YXJ0c3EAfgAL89eFW3QAD2FwcGx5JGRlZmF1bHQkMnNxAH4AC27vtVR0AAl1bmhhbmRsZWRzcQB+AAvU/czldAAFYXBwbHlzcQB+AAuhLVZPdAAHZG9uZU51bXNxAH4ACx0gx9F0AAI9PXNxAH4AC6OAZ1t0AANmaWxzcQB+AAt6SM9YdAAFb3JkZXJzcQB+AAs5XFgCdAAFY2xvbmVzcQB+AAuYOadmdAAGZ2xpc3Rzc3EAfgALr96lyXQABXRpbWVzc3EAfgALcZtD1XQABiRpbml0JHNxAH4ACxYxMOF0AAtjYWxjdWxhdGVyc3NxAH4AC82ZjZ50AA5jb3B5JGRlZmF1bHQkM3NxAH4ACzn/8j10AARjb3B5c3EAfgALBX+nDXQABnNlbmRlcnNxAH4AC80Atzd0AAh0b1N0cmluZ3NxAH4AC9tZpal0AAFIc3EAfgALTm08+3QAD3NpbXVtYXN0ZXJBY3RvcnNxAH4AC2dlKwJ0AAIhPXNxAH4AC75oLqR0AAhnZXRDbGFzc3NxAH4AC+llBex0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC8Catgl0AAVwcm9wc3NxAH4ACyVRLYR0AAJuZXNxAH4AC5bR39F0AANQbXNzcQB+AAtUltL5dAASc3VwZXJ2aXNvclN0cmF0ZWd5c3EAfgALPxvicHQAEDxpbml0PiRkZWZhdWx0JDJzcQB+AAsYs3k+dAACZXFzcQB+AAscTMNYdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALNiB6JnQAAiMjc3EAfgALU859rnQACGZpbmFsaXplc3EAfgALQEWunHQADnByb2R1Y3RFbGVtZW50c3EAfgALc0iJI3QACGhhc2hDb2Rlc3EAfgALqXaAJXQADmFyb3VuZFByZVN0YXJ0c3EAfgALhqT0fXQABW9maWxlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAnNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4ArXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AAx4cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAE1BMUy5zaW11bWFzdGVyQWN0b3J1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AMVzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4ArUwACWluaGVyaXRlZHEAfgCtTAAHcGFyZW50c3EAfgCteHEAfgDKc3EAfgDFdXEAfgCoAAAAAHNxAH4AxXVxAH4AqAAAAABzcQB+AMV1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADEwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AMl0AAZPYmplY3RzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AMlzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAANzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgAMeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABGphdmFzcQB+AOJ0AARsYW5nc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AONzcQB+ANZ0AANBbnlzcQB+ANpzcQB+AN11cQB+AOAAAAACc3EAfgDidAAFc2NhbGFxAH4A6XNxAH4AqnEAfgC3dXEAfgC4AAAAAHNxAH4AugB0ABNQTFMuc2ltdW1hc3RlckFjdG9ydXEAfgC9AAAAAH5xAH4Av3QACENsYXNzRGVmdXEAfgDDAAAAAHNxAH4AxXEAfgDLc3EAfgDFc3EAfgDNc3EAfgDFdXEAfgCoAAAAAHNxAH4AxXVxAH4AqAAAAABzcQB+AMV1cQB+ANQAAAADc3EAfgDWdAAFQWN0b3JzcQB+ANpzcQB+AN11cQB+AOAAAAADc3EAfgDidAAEYWtrYXNxAH4A4nQABWFjdG9ycQB+AOlzcQB+ANZxAH4A2XNxAH4A2nNxAH4A3XVxAH4A4AAAAANzcQB+AOJxAH4A5XNxAH4A4nEAfgDncQB+AOlzcQB+ANZxAH4A63NxAH4A2nNxAH4A3XVxAH4A4AAAAAJzcQB+AOJxAH4A8HEAfgDpdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADHhwdAADUExTc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFh6fPnM3VyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFNBywupIwMqorjs08wFYiY6Y4vyW
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwOFbeRAAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHBcYI+8dAAEc2VsZnNxAH4AC0/gtbR0AAdjb250ZXh0dXEAfgAJAAAASXNxAH4ACzmEaWd0AAZub3RpZnlzcQB+AAviuX0FdAAHdW5hcHBseXNxAH4AC9jvCip0AAdjdXJyaWVkc3EAfgALlVyEk3QAB1JlY2VpdmVzcQB+AAt2vow5dAAEbmFtZXNxAH4AC45z3YV0AAVjb3VudHNxAH4AC6bmtrx0AAR3YWl0c3EAfgALmqrXHHQAB2NvcmVOdW1zcQB+AAvnTbtldAAOY29weSRkZWZhdWx0JDJzcQB+AAsw3DFqdAANJGFzSW5zdGFuY2VPZnNxAH4AC7tAdXZ0AAdjb21wb3Nlc3EAfgALWmvlrnQABndyaXRlcnNxAH4ACzIOI/N0AAxwcm9kdWN0QXJpdHlzcQB+AAtO5OZudAAGZXF1YWxzc3EAfgALeHd1n3QABWNvcmVzc3EAfgALwQLCI3QADGFzSW5zdGFuY2VPZnNxAH4AC6YMB8h0AAxzeW5jaHJvbml6ZWRzcQB+AAvKEGs4dAAFd25hbWVzcQB+AAvmHfojdAANJGlzSW5zdGFuY2VPZnNxAH4AC2gxhI10AAdhbmRUaGVuc3EAfgALc6Qq53QAD2FwcGx5JGRlZmF1bHQkM3NxAH4ACzpocCd0AAdyZWNlaXZlc3EAfgALfYKaR3QACnByZVJlc3RhcnRzcQB+AAvlJMa6dAAGdHVwbGVkc3EAfgALPYRYgnQADWFyb3VuZFJlY2VpdmVzcQB+AAswKH06dAAIY2FuRXF1YWxzcQB+AAtpb+sNdAALcG9zdFJlc3RhcnRzcQB+AAsxVvYBdAAIcG9zdFN0b3BzcQB+AAvxYfJ3dAANcHJvZHVjdFByZWZpeHNxAH4AC1ScuT90AAlub3RpZnlBbGxzcQB+AAueM4fydAADbnVtc3EAfgAL2RCFcXQACGdldEdsaXN0c3EAfgALMQQqEHQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgALJF/U0XQADGlzSW5zdGFuY2VPZnNxAH4AC5vuAc10ABBhcm91bmRQcmVSZXN0YXJ0c3EAfgALYqJ8BnQADmFyb3VuZFBvc3RTdG9wc3EAfgAL8j9MwHQAEDxpbml0PiRkZWZhdWx0JDNzcQB+AAt4lpF1dAAGPGluaXQ+c3EAfgALPFUVWXQACHByZVN0YXJ0c3EAfgAL89eFW3QAD2FwcGx5JGRlZmF1bHQkMnNxAH4AC27vtVR0AAl1bmhhbmRsZWRzcQB+AAvU/czldAAFYXBwbHlzcQB+AAuhLVZPdAAHZG9uZU51bXNxAH4ACx0gx9F0AAI9PXNxAH4AC6OAZ1t0AANmaWxzcQB+AAt6SM9YdAAFb3JkZXJzcQB+AAs5XFgCdAAFY2xvbmVzcQB+AAuYOadmdAAGZ2xpc3Rzc3EAfgALr96lyXQABXRpbWVzc3EAfgALcZtD1XQABiRpbml0JHNxAH4ACxYxMOF0AAtjYWxjdWxhdGVyc3NxAH4AC82ZjZ50AA5jb3B5JGRlZmF1bHQkM3NxAH4ACzn/8j10AARjb3B5c3EAfgALBX+nDXQABnNlbmRlcnNxAH4AC80Atzd0AAh0b1N0cmluZ3NxAH4AC9tZpal0AAFIc3EAfgALTm08+3QAD3NpbXVtYXN0ZXJBY3RvcnNxAH4AC2dlKwJ0AAIhPXNxAH4AC75oLqR0AAhnZXRDbGFzc3NxAH4AC+llBex0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC8Catgl0AAVwcm9wc3NxAH4ACyVRLYR0AAJuZXNxAH4AC5bR39F0AANQbXNzcQB+AAtUltL5dAASc3VwZXJ2aXNvclN0cmF0ZWd5c3EAfgALPxvicHQAEDxpbml0PiRkZWZhdWx0JDJzcQB+AAsYs3k+dAACZXFzcQB+AAscTMNYdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALNiB6JnQAAiMjc3EAfgALU859rnQACGZpbmFsaXplc3EAfgALQEWunHQADnByb2R1Y3RFbGVtZW50c3EAfgALc0iJI3QACGhhc2hDb2Rlc3EAfgALqXaAJXQADmFyb3VuZFByZVN0YXJ0c3EAfgALhqT0fXQABW9maWxlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAnNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4ArXhyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AAx4cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAE1BMUy5zaW11bWFzdGVyQWN0b3J1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAZNb2R1bGV1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAIXhzYnRpLmFwaS5BYnN0cmFjdExhenkkU3RyaWN0TGF6eQ1mHGspFiq4AgABTAAFdmFsdWV0ABJMamF2YS9sYW5nL09iamVjdDt4cHNyABN4c2J0aS5hcGkuRW1wdHlUeXBlvP2eRkk7iSQCAAB4cgAUeHNidGkuYXBpLlNpbXBsZVR5cGVyeGKIISO/QAIAAHhyAA54c2J0aS5hcGkuVHlwZT9q2SEWSarKAgAAeHBzcQB+AMVzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4ArUwACWluaGVyaXRlZHEAfgCtTAAHcGFyZW50c3EAfgCteHEAfgDKc3EAfgDFdXEAfgCoAAAAAHNxAH4AxXVxAH4AqAAAAABzcQB+AMV1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAAAnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADEwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AMl0AAZPYmplY3RzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AMlzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAANzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgAMeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABGphdmFzcQB+AOJ0AARsYW5nc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+AONzcQB+ANZ0AANBbnlzcQB+ANpzcQB+AN11cQB+AOAAAAACc3EAfgDidAAFc2NhbGFxAH4A6XNxAH4AqnEAfgC3dXEAfgC4AAAAAHNxAH4AugB0ABNQTFMuc2ltdW1hc3RlckFjdG9ydXEAfgC9AAAAAH5xAH4Av3QACENsYXNzRGVmdXEAfgDDAAAAAHNxAH4AxXEAfgDLc3EAfgDFc3EAfgDNc3EAfgDFdXEAfgCoAAAAAHNxAH4AxXVxAH4AqAAAAABzcQB+AMV1cQB+ANQAAAADc3EAfgDWdAAFQWN0b3JzcQB+ANpzcQB+AN11cQB+AOAAAAADc3EAfgDidAAEYWtrYXNxAH4A4nQABWFjdG9ycQB+AOlzcQB+ANZxAH4A2XNxAH4A2nNxAH4A3XVxAH4A4AAAAANzcQB+AOJxAH4A5XNxAH4A4nEAfgDncQB+AOlzcQB+ANZxAH4A63NxAH4A2nNxAH4A3XVxAH4A4AAAAAJzcQB+AOJxAH4A8HEAfgDpdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADHhwdAADUExTc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFh7vL11XVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFIt9LykdDh7MpPuMn/V2fd+QKwhP
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalc.scala -> 
 rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwCzlukgAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAABHc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hws29zD3QABm5vdGlmeXNxAH4ADG/gvX10AAVwZmlsZXNxAH4ADA2u1QN0AAd1bmFwcGx5c3EAfgAMpBS9YHQAB2N1cnJpZWRzcQB+AAznpPQydAAIZ2VuZVB2YWxzcQB+AAw9kb6udAAIZ2RvZlRlbmZzcQB+AAwonMkYdAAHdXBkYXRlWXNxAH4ADKFx6Gd0AAVzZmlsZXNxAH4ADIDWpN90AAdnZG9mTG9vc3EAfgAMpgcpl3QABHdhaXRzcQB+AAzS4Hp6dAAOY29weSRkZWZhdWx0JDJzcQB+AAzKAwQ/dAANJGFzSW5zdGFuY2VPZnNxAH4ADP6AzQ10AAp1cGRhdGVGaWxlc3EAfgAMQ9R+LXQAAW5zcQB+AAzOHSAkdAAOY29weSRkZWZhdWx0JDVzcQB+AAxjj506dAAIcGRvZlRlbmZzcQB+AAy6Iv0GdAAMcHJvZHVjdEFyaXR5c3EAfgAMdYBiynQABXBlcm1Zc3EAfgAMwc/dDXQABmVxdWFsc3NxAH4ADMnYStF0AAVnZXRYc3NxAH4ADNkBS8d0AAFZc3EAfgAM3MXHIXQADGFzSW5zdGFuY2VPZnNxAH4ADNmu1KZ0AAxzeW5jaHJvbml6ZWRzcQB+AAyOKhc2dAAHc25wQ2FsY3NxAH4ADI7YSup0AA0kaXNJbnN0YW5jZU9mc3EAfgAMrmefkXQABGdldE5zcQB+AAybhj3edAAGdHVwbGVkc3EAfgAMe+UKWnQABVlwcmVkc3EAfgAMNJJWznQACGNhbkVxdWFsc3EAfgAMkzX9R3QADmNvcHkkZGVmYXVsdCQ0c3EAfgAM+yVExnQADXByb2R1Y3RQcmVmaXhzcQB+AAzIeubIdAAJbm90aWZ5QWxsc3EAfgAMHX53FnQABWRmaWxlc3EAfgAMS4QuyXQADGlzSW5zdGFuY2VPZnNxAH4ADKSignV0AAl2YWxpZFJvd3NzcQB+AAxc25TmdAAEZ2V0WHNxAH4ADHABK6t0AAY8aW5pdD5zcQB+AAx38lmRdAAHdGVuRm9sZHNxAH4ADCyH1nB0AAVhcHBseXNxAH4ADCGfrX10AAI9PXNxAH4ADGTQx590AAVjbG9uZXNxAH4ADGtt70V0AAZsb29JbnhzcQB+AAzvoOSodAAGJGluaXQkc3EAfgAMOZme1XQABHBlcm1zcQB+AAxOCYcxdAAOY29weSRkZWZhdWx0JDNzcQB+AAx1hHdYdAAEY29weXNxAH4ADLYCczp0AAVyZmlsZXNxAH4ADBUyy390AAh0b1N0cmluZ3NxAH4ADFcbnSJ0AAIhPXNxAH4ADIJv6qh0AAlhbXBsZW5ndGhzcQB+AAzO/XYldAAHY2hyZmlsZXNxAH4ADNG5FUN0AAhnZXRDbGFzc3NxAH4ADDK4Brl0AA5jb3B5JGRlZmF1bHQkMXNxAH4ADEmy9IZ0AAZ1cGRhdGVzcQB+AAyS1jX4dAAEZ2V0WXNxAH4ADD+ykQR0AAhnZXRZcGVybXNxAH4ADDYxs0d0AARtY29sc3EAfgAMIS4jVXQAAm5lc3EAfgAMm5o5+HQADWdlbmVTTlBSZXN1bHRzcQB+AAxt48d8dAAHcGRvZkxvb3NxAH4ADI2g0bJ0AAFrc3EAfgAMytlw5HQACmdldEdlbmVTbnBzcQB+AAykPjJbdAAEc2V0WXNxAH4ADH99h9x0AAJlcXNxAH4ADLeeqlF0AA9wcm9kdWN0SXRlcmF0b3JzcQB+AAxb8bofdAACIyNzcQB+AAyRcck3dAAIZmluYWxpemVzcQB+AAx71ug3dAAOcHJvZHVjdEVsZW1lbnRzcQB+AAzqmyaRdAAIaGFzaENvZGVzcQB+AAxmHR9pdAAFb2ZpbGVzcQB+AAygR0DpdAAFZ2ZpbGVzcgATeHNidGkuYXBpLlNvdXJjZUFQSblep/kpIzikAgACWwALZGVmaW5pdGlvbnN0ABdbTHhzYnRpL2FwaS9EZWZpbml0aW9uO1sACHBhY2thZ2VzdAAUW0x4c2J0aS9hcGkvUGFja2FnZTt4cHVyABdbTHhzYnRpLmFwaS5EZWZpbml0aW9uO4jJXOe0414OAgAAeHAAAAABc3IAE3hzYnRpLmFwaS5DbGFzc0xpa2WDNByh37CXbAIABEwADmRlZmluaXRpb25UeXBldAAaTHhzYnRpL2FwaS9EZWZpbml0aW9uVHlwZTtbABBzYXZlZEFubm90YXRpb25zdAATW0xqYXZhL2xhbmcvU3RyaW5nO0wACHNlbGZUeXBldAAQTHhzYnRpL2FwaS9MYXp5O0wACXN0cnVjdHVyZXEAfgCleHIAIXhzYnRpLmFwaS5QYXJhbWV0ZXJpemVkRGVmaW5pdGlvbvkRbrHVUDziAgABWwAOdHlwZVBhcmFtZXRlcnN0ABpbTHhzYnRpL2FwaS9UeXBlUGFyYW1ldGVyO3hyABR4c2J0aS5hcGkuRGVmaW5pdGlvbocqG+hxQuNGAgAETAAGYWNjZXNzdAASTHhzYnRpL2FwaS9BY2Nlc3M7WwALYW5ub3RhdGlvbnN0ABdbTHhzYnRpL2FwaS9Bbm5vdGF0aW9uO0wACW1vZGlmaWVyc3QAFUx4c2J0aS9hcGkvTW9kaWZpZXJzO0wABG5hbWVxAH4ADXhwc3IAEHhzYnRpLmFwaS5QdWJsaWO6WD2ubC1gQgIAAHhyABB4c2J0aS5hcGkuQWNjZXNz3WKa+B1jMUgCAAB4cHVyABdbTHhzYnRpLmFwaS5Bbm5vdGF0aW9uO+uX6xkQ9o1IAgAAeHAAAAAAc3IAE3hzYnRpLmFwaS5Nb2RpZmllcnOX52HcEyZ7swIAAUIABWZsYWdzeHAAdAALUExTLnNucENhbGN1cgAaW0x4c2J0aS5hcGkuVHlwZVBhcmFtZXRlcjvZbSYPKJ3ytgIAAHhwAAAAAH5yABh4c2J0aS5hcGkuRGVmaW5pdGlvblR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAhDbGFzc0RlZnVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AvXNyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgClTAAJaW5oZXJpdGVkcQB+AKVMAAdwYXJlbnRzcQB+AKV4cQB+AMJzcQB+AL11cQB+AKAAAAAAc3EAfgC9dXEAfgCgAAAAAHNxAH4AvXVyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4AwXQABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4AwXNyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4A2nQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4A23NxAH4AznQAA0FueXNxAH4A0nNxAH4A1XVxAH4A2AAAAAJzcQB+ANp0AAVzY2FsYXEAfgDhdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAADUExTc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFhrnKvg3VyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADUwAD3NvdXJjZURpcmVjdG9yeXEAfgANeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFJN7HTOhYzyiiv00qTMWuyKlDVyR
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/snpCalcActor.scala -> 
@@ -5432,7 +5440,7 @@ rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBo
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/myParallel.scala -> 
 rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwr1F0GAABc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAB1cQB+AAkAAAAcc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hw9C+WzXQABm5vdGlmeXNxAH4ADAMKZoZ0AAdwYWNrYWdlc3EAfgAMlgdQg3QABHdhaXRzcQB+AAxNx3nNdAAEdGFza3NxAH4ADHPU+Tt0AA0kYXNJbnN0YW5jZU9mc3EAfgAMrnTS/3QAFERlZmF1bHRUYXNrU2NoZWR1bGVyc3EAfgAMSfM233QABmVxdWFsc3NxAH4ADO1tEgl0AAxhc0luc3RhbmNlT2ZzcQB+AAx/fk9ddAAMc3luY2hyb25pemVkc3EAfgAMM0ajmHQADSRpc0luc3RhbmNlT2ZzcQB+AAwSZTcbdAAMZm9ya0pvaW5Qb29sc3EAfgAMPfOOe3QACW5vdGlmeUFsbHNxAH4ADJQmY050AAxpc0luc3RhbmNlT2ZzcQB+AAwFtVAOdAAGPGluaXQ+c3EAfgAM5lhODHQACXNjaGVkdWxlcnNxAH4ADBp1okp0AAI9PXNxAH4ADGLOC5F0AA1UYXNrU2NoZWR1bGVyc3EAfgAM+K+Wl3QABWNsb25lc3EAfgAM8zkT/HQACHNjaGVkdWxlc3EAfgAM4bRk4HQACHRvU3RyaW5nc3EAfgAMUvnU83QAAiE9c3EAfgAMhxdk6nQACGdldENsYXNzc3EAfgAMfng1QHQAAm5lc3EAfgAMjjbkQnQAAmVxc3EAfgAMJCp653QACHBhcmFsbGVsc3EAfgAMCCkjwnQAAiMjc3EAfgAMOCBQLnQACGZpbmFsaXplc3EAfgAM6FIVDXQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAXNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4AT3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AA14cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAEm15UGFyYWxsZWwucGFja2FnZXVyABpbTHhzYnRpLmFwaS5UeXBlUGFyYW1ldGVyO9ltJg8onfK2AgAAeHAAAAAAfnIAGHhzYnRpLmFwaS5EZWZpbml0aW9uVHlwZQAAAAAAAAAAEgAAeHIADmphdmEubGFuZy5FbnVtAAAAAAAAAAASAAB4cHQABk1vZHVsZXVyABNbTGphdmEubGFuZy5TdHJpbmc7rdJW5+kde0cCAAB4cAAAAABzcgAheHNidGkuYXBpLkFic3RyYWN0TGF6eSRTdHJpY3RMYXp5DWYcaykWKrgCAAFMAAV2YWx1ZXQAEkxqYXZhL2xhbmcvT2JqZWN0O3hwc3IAE3hzYnRpLmFwaS5FbXB0eVR5cGW8/Z5GSTuJJAIAAHhyABR4c2J0aS5hcGkuU2ltcGxlVHlwZXJ4YoghI79AAgAAeHIADnhzYnRpLmFwaS5UeXBlP2rZIRZJqsoCAAB4cHNxAH4AZ3NyABN4c2J0aS5hcGkuU3RydWN0dXJlqar5gJNv2AACAANMAAhkZWNsYXJlZHEAfgBPTAAJaW5oZXJpdGVkcQB+AE9MAAdwYXJlbnRzcQB+AE94cQB+AGxzcQB+AGd1cQB+AEoAAAAAc3EAfgBndXEAfgBKAAAAAHNxAH4AZ3VyABFbTHhzYnRpLmFwaS5UeXBlO3T/pVp7+elBAgAAeHAAAAACc3IAFHhzYnRpLmFwaS5Qcm9qZWN0aW9u89KNVOlFpC0CAAJMAAJpZHEAfgANTAAGcHJlZml4dAAWTHhzYnRpL2FwaS9TaW1wbGVUeXBlO3hxAH4Aa3QABk9iamVjdHNyABN4c2J0aS5hcGkuU2luZ2xldG9u/Kdf+M9W5EYCAAFMAARwYXRodAAQTHhzYnRpL2FwaS9QYXRoO3hxAH4Aa3NyAA54c2J0aS5hcGkuUGF0aJs9XAjOpSeEAgABWwAKY29tcG9uZW50c3QAGltMeHNidGkvYXBpL1BhdGhDb21wb25lbnQ7eHB1cgAaW0x4c2J0aS5hcGkuUGF0aENvbXBvbmVudDtD2gl0LWcWdAIAAHhwAAAAA3NyAAx4c2J0aS5hcGkuSWSYMmyLN1PEQAIAAUwAAmlkcQB+AA14cgAXeHNidGkuYXBpLlBhdGhDb21wb25lbnRfmiJbLoafvAIAAHhwdAAEamF2YXNxAH4AhHQABGxhbmdzcgAOeHNidGkuYXBpLlRoaXPbCe2mzFpAXAIAAHhxAH4AhXNxAH4AeHQAA0FueXNxAH4AfHNxAH4Af3VxAH4AggAAAAJzcQB+AIR0AAVzY2FsYXEAfgCLdXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAAFzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADXhwdAAKbXlQYXJhbGxlbHNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYa5yr4N1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5cQB+AA1MAA9zb3VyY2VEaXJlY3RvcnlxAH4ADXhwdABBL1VzZXJzL3F1bmxpdS9OdXRzdG9yZS93b3Jrc3BhY2UvR0FOT1ZBL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABSI20Vx3bOZbpbET8EulCLAganEeQ==
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> 
-rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhw7ORZsQAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHD/fPfOdAAEc2VsZnNxAH4ACxsgUI90AAdjb250ZXh0dXEAfgAJAAAAQHNxAH4AC+OyueF0AAZub3RpZnlzcQB+AAvbfSbQdAAHdW5hcHBseXNxAH4AC7MT9/l0AAdSZWNlaXZlc3EAfgALAs0H43QABG5hbWVzcQB+AAukaolWdAAFY291bnRzcQB+AAvGiedIdAAHbXlBY3RvcnNxAH4AC4WPJsB0AAR3YWl0c3EAfgAL2kxyfHQADSRhc0luc3RhbmNlT2ZzcQB+AAsS5bBldAAGcHJvZml4c3EAfgALJJyPlnQAB2NvbXBvc2VzcQB+AAuwv5TudAAQPGluaXQ+JGRlZmF1bHQkMXNxAH4ACxpiXcx0AA9wYXJhV3JpdGVyQWN0b3JzcQB+AAtK1dHodAAMcHJvZHVjdEFyaXR5c3EAfgALo7TuM3QABmVxdWFsc3NxAH4ACxgbftN0AAhXcml0ZVN0cnNxAH4ACwkTMnN0AAxhc0luc3RhbmNlT2ZzcQB+AAs2YgqodAAMc3luY2hyb25pemVkc3EAfgALSGqOa3QADSRpc0luc3RhbmNlT2ZzcQB+AAu2R2h0dAAHYW5kVGhlbnNxAH4AC+yKSkJ0AAdyZWNlaXZlc3EAfgALt9sbR3QACnByZVJlc3RhcnRzcQB+AAvK0G4bdAADZm5Mc3EAfgALEiVVH3QADWFyb3VuZFJlY2VpdmVzcQB+AAteHrBYdAAIZmlsZU5hbWVzcQB+AAvF6gkkdAAIY2FuRXF1YWxzcQB+AAu01x2bdAALcG9zdFJlc3RhcnRzcQB+AAvcavJBdAALdG90YWxOdW1iZXJzcQB+AAslSWO3dAAIcG9zdFN0b3BzcQB+AAvLpvpBdAANcHJvZHVjdFByZWZpeHNxAH4ACy2lYKN0AAlub3RpZnlBbGxzcQB+AAtqS1/5dAADbnVtc3EAfgALv1C2knQAEWFyb3VuZFBvc3RSZXN0YXJ0c3EAfgAL6DNcHXQADGlzSW5zdGFuY2VPZnNxAH4AC4be7HB0ABBhcm91bmRQcmVSZXN0YXJ0c3EAfgALdCr8G3QADmFyb3VuZFBvc3RTdG9wc3EAfgAL7zL16nQAAmZuc3EAfgALppwXFXQAB2lmQ291bnRzcQB+AAu/ypYJdAADc3Ryc3EAfgALmdtDLXQABjxpbml0PnNxAH4AC/3oLV10AAhwcmVTdGFydHNxAH4AC4Ijful0AAl1bmhhbmRsZWRzcQB+AAvIz0cmdAAFYXBwbHlzcQB+AAsoWCTJdAACPT1zcQB+AAsz/lbldAADZmlsc3EAfgAL/3gDpXQABWNsb25lc3EAfgALRPR4qnQAC29yZGVyV29ya2Vyc3EAfgALeeR9inQABiRpbml0JHNxAH4AC9T8qNB0AARjb3B5c3EAfgALT7BxLXQABnNlbmRlcnNxAH4AC3SEFEp0AAh0b1N0cmluZ3NxAH4AC0FuAyR0AAh0b3RhbE51bXNxAH4AC+y72FV0AAIhPXNxAH4AC6SojUh0AAhnZXRDbGFzc3NxAH4ACyvYtTZ0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC1VGDVd0AAVwcm9wc3NxAH4AC84sXNZ0AAJuZXNxAH4AC1JS0VV0ABJzdXBlcnZpc29yU3RyYXRlZ3lzcQB+AAuwJFMZdAACZXFzcQB+AAv0PS8FdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALA5OHgnQAAiMjc3EAfgALhRBo0HQACGZpbmFsaXplc3EAfgALU6oe+HQADnByb2R1Y3RFbGVtZW50c3EAfgAL5KHt9XQACGhhc2hDb2Rlc3EAfgALoH5jX3QADmFyb3VuZFByZVN0YXJ0c3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAnNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4Am3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AAx4cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAGm15UGFyYWxsZWwucGFyYVdyaXRlckFjdG9ydXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyACF4c2J0aS5hcGkuQWJzdHJhY3RMYXp5JFN0cmljdExhenkNZhxrKRYquAIAAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgCzc3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AJtMAAlpbmhlcml0ZWRxAH4Am0wAB3BhcmVudHNxAH4Am3hxAH4AuHNxAH4As3VxAH4AlgAAAABzcQB+ALN1cQB+AJYAAAAAc3EAfgCzdXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AAxMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgC3dAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgC3c3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADHhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgDQdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgDRc3EAfgDEdAADQW55c3EAfgDIc3EAfgDLdXEAfgDOAAAAAnNxAH4A0HQABXNjYWxhcQB+ANdzcQB+AJhxAH4ApXVxAH4ApgAAAABzcQB+AKgAdAAabXlQYXJhbGxlbC5wYXJhV3JpdGVyQWN0b3J1cQB+AKsAAAAAfnEAfgCtdAAIQ2xhc3NEZWZ1cQB+ALEAAAAAc3EAfgCzcQB+ALlzcQB+ALNzcQB+ALtzcQB+ALN1cQB+AJYAAAAAc3EAfgCzdXEAfgCWAAAAAHNxAH4As3VxAH4AwgAAAANzcQB+AMR0AAVBY3RvcnNxAH4AyHNxAH4Ay3VxAH4AzgAAAANzcQB+ANB0AARha2thc3EAfgDQdAAFYWN0b3JxAH4A13NxAH4AxHEAfgDHc3EAfgDIc3EAfgDLdXEAfgDOAAAAA3NxAH4A0HEAfgDTc3EAfgDQcQB+ANVxAH4A13NxAH4AxHEAfgDZc3EAfgDIc3EAfgDLdXEAfgDOAAAAAnNxAH4A0HEAfgDecQB+ANd1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgAMeHB0AApteVBhcmFsbGVsc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFh7lSokXVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFPt51lR/tYYaoC0/5AEsNO7GIMtE
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlSjH5SdlLSkQCAAdJAAdhcGlIYXNoWgAIaGFzTWFjcm9aABBoYXNQYWNrYWdlT2JqZWN0TAAYX2ludGVybmFsT25seV9uYW1lSGFzaGVzdAAkTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoZXM7TAADYXBpdAAVTHhzYnRpL2FwaS9Tb3VyY2VBUEk7TAALY29tcGlsYXRpb250ABdMeHNidGkvYXBpL0NvbXBpbGF0aW9uO1sABGhhc2h0AAJbQnhwJ9i6/AAAc3IAInhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoZXNU2r6Z+tTsTAIAAlsAD2ltcGxpY2l0TWVtYmVyc3QAI1tMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2g7WwAOcmVndWxhck1lbWJlcnNxAH4AB3hwdXIAI1tMeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2g7SVqAtt2Wi/QCAAB4cAAAAAJzcgAgeHNidGkuYXBpLl9pbnRlcm5hbE9ubHlfTmFtZUhhc2hbDvUidjhXzwIAAkkABGhhc2hMAARuYW1ldAASTGphdmEvbGFuZy9TdHJpbmc7eHD/fPfOdAAEc2VsZnNxAH4ACxsgUI90AAdjb250ZXh0dXEAfgAJAAAAQnNxAH4AC+OyueF0AAZub3RpZnlzcQB+AAvbfSbQdAAHdW5hcHBseXNxAH4AC7MT9/l0AAdSZWNlaXZlc3EAfgALAs0H43QABG5hbWVzcQB+AAukaolWdAAFY291bnRzcQB+AAuFjybAdAAEd2FpdHNxAH4ACzlUFqh0AAJmd3NxAH4AC9pMcnx0AA0kYXNJbnN0YW5jZU9mc3EAfgALEuWwZXQABnByb2ZpeHNxAH4ACyScj5Z0AAdjb21wb3Nlc3EAfgALsL+U7nQAEDxpbml0PiRkZWZhdWx0JDFzcQB+AAsaYl3MdAAPcGFyYVdyaXRlckFjdG9yc3EAfgALStXR6HQADHByb2R1Y3RBcml0eXNxAH4AC6O07jN0AAZlcXVhbHNzcQB+AAsYG37TdAAIV3JpdGVTdHJzcQB+AAszv9QCdAACYndzcQB+AAsJEzJzdAAMYXNJbnN0YW5jZU9mc3EAfgALNmIKqHQADHN5bmNocm9uaXplZHNxAH4AC0hqjmt0AA0kaXNJbnN0YW5jZU9mc3EAfgALtkdodHQAB2FuZFRoZW5zcQB+AAvsikpCdAAHcmVjZWl2ZXNxAH4AC7fbG0d0AApwcmVSZXN0YXJ0c3EAfgALytBuG3QAA2ZuTHNxAH4ACxIlVR90AA1hcm91bmRSZWNlaXZlc3EAfgALXh6wWHQACGZpbGVOYW1lc3EAfgALxeoJJHQACGNhbkVxdWFsc3EAfgALtNcdm3QAC3Bvc3RSZXN0YXJ0c3EAfgAL3GryQXQAC3RvdGFsTnVtYmVyc3EAfgALJUljt3QACHBvc3RTdG9wc3EAfgALy6b6QXQADXByb2R1Y3RQcmVmaXhzcQB+AAstpWCjdAAJbm90aWZ5QWxsc3EAfgALaktf+XQAA251bXNxAH4AC79QtpJ0ABFhcm91bmRQb3N0UmVzdGFydHNxAH4AC+gzXB10AAxpc0luc3RhbmNlT2ZzcQB+AAuG3uxwdAAQYXJvdW5kUHJlUmVzdGFydHNxAH4AC3Qq/Bt0AA5hcm91bmRQb3N0U3RvcHNxAH4AC+8y9ep0AAJmbnNxAH4AC6acFxV0AAdpZkNvdW50c3EAfgALv8qWCXQAA3N0cnNxAH4AC5nbQy10AAY8aW5pdD5zcQB+AAtXmKysdAAIcHJlU3RhcnRzcQB+AAuCI37pdAAJdW5oYW5kbGVkc3EAfgALyM9HJnQABWFwcGx5c3EAfgALKFgkyXQAAj09c3EAfgALM/5W5XQAA2ZpbHNxAH4AC/94A6V0AAVjbG9uZXNxAH4AC0T0eKp0AAtvcmRlcldvcmtlcnNxAH4AC3nkfYp0AAYkaW5pdCRzcQB+AAvU/KjQdAAEY29weXNxAH4AC0+wcS10AAZzZW5kZXJzcQB+AAt0hBRKdAAIdG9TdHJpbmdzcQB+AAsiUAmFdAAEZmlsZXNxAH4AC0FuAyR0AAh0b3RhbE51bXNxAH4AC+y72FV0AAIhPXNxAH4AC6SojUh0AAhnZXRDbGFzc3NxAH4ACyvYtTZ0AA5jb3B5JGRlZmF1bHQkMXNxAH4AC1VGDVd0AAVwcm9wc3NxAH4AC84sXNZ0AAJuZXNxAH4AC1JS0VV0ABJzdXBlcnZpc29yU3RyYXRlZ3lzcQB+AAuwJFMZdAACZXFzcQB+AAv0PS8FdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALA5OHgnQAAiMjc3EAfgALhRBo0HQACGZpbmFsaXplc3EAfgALU6oe+HQADnByb2R1Y3RFbGVtZW50c3EAfgAL5KHt9XQACGhhc2hDb2Rlc3EAfgALoH5jX3QADmFyb3VuZFByZVN0YXJ0c3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAnNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4An3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AAx4cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzl+dh3BMme7MCAAFCAAVmbGFnc3hwAHQAGm15UGFyYWxsZWwucGFyYVdyaXRlckFjdG9ydXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAGTW9kdWxldXIAE1tMamF2YS5sYW5nLlN0cmluZzut0lbn6R17RwIAAHhwAAAAAHNyACF4c2J0aS5hcGkuQWJzdHJhY3RMYXp5JFN0cmljdExhenkNZhxrKRYquAIAAUwABXZhbHVldAASTGphdmEvbGFuZy9PYmplY3Q7eHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgC3c3IAE3hzYnRpLmFwaS5TdHJ1Y3R1cmWpqvmAk2/YAAIAA0wACGRlY2xhcmVkcQB+AJ9MAAlpbmhlcml0ZWRxAH4An0wAB3BhcmVudHNxAH4An3hxAH4AvHNxAH4At3VxAH4AmgAAAABzcQB+ALd1cQB+AJoAAAAAc3EAfgC3dXIAEVtMeHNidGkuYXBpLlR5cGU7dP+lWnv56UECAAB4cAAAAAJzcgAUeHNidGkuYXBpLlByb2plY3Rpb27z0o1U6UWkLQIAAkwAAmlkcQB+AAxMAAZwcmVmaXh0ABZMeHNidGkvYXBpL1NpbXBsZVR5cGU7eHEAfgC7dAAGT2JqZWN0c3IAE3hzYnRpLmFwaS5TaW5nbGV0b278p1/4z1bkRgIAAUwABHBhdGh0ABBMeHNidGkvYXBpL1BhdGg7eHEAfgC7c3IADnhzYnRpLmFwaS5QYXRomz1cCM6lJ4QCAAFbAApjb21wb25lbnRzdAAaW0x4c2J0aS9hcGkvUGF0aENvbXBvbmVudDt4cHVyABpbTHhzYnRpLmFwaS5QYXRoQ29tcG9uZW50O0PaCXQtZxZ0AgAAeHAAAAADc3IADHhzYnRpLmFwaS5JZJgybIs3U8RAAgABTAACaWRxAH4ADHhyABd4c2J0aS5hcGkuUGF0aENvbXBvbmVudF+aIlsuhp+8AgAAeHB0AARqYXZhc3EAfgDUdAAEbGFuZ3NyAA54c2J0aS5hcGkuVGhpc9sJ7abMWkBcAgAAeHEAfgDVc3EAfgDIdAADQW55c3EAfgDMc3EAfgDPdXEAfgDSAAAAAnNxAH4A1HQABXNjYWxhcQB+ANtzcQB+AJxxAH4AqXVxAH4AqgAAAABzcQB+AKwAdAAabXlQYXJhbGxlbC5wYXJhV3JpdGVyQWN0b3J1cQB+AK8AAAAAfnEAfgCxdAAIQ2xhc3NEZWZ1cQB+ALUAAAAAc3EAfgC3cQB+AL1zcQB+ALdzcQB+AL9zcQB+ALd1cQB+AJoAAAAAc3EAfgC3dXEAfgCaAAAAAHNxAH4At3VxAH4AxgAAAANzcQB+AMh0AAVBY3RvcnNxAH4AzHNxAH4Az3VxAH4A0gAAAANzcQB+ANR0AARha2thc3EAfgDUdAAFYWN0b3JxAH4A23NxAH4AyHEAfgDLc3EAfgDMc3EAfgDPdXEAfgDSAAAAA3NxAH4A1HEAfgDXc3EAfgDUcQB+ANlxAH4A23NxAH4AyHEAfgDdc3EAfgDMc3EAfgDPdXEAfgDSAAAAAnNxAH4A1HEAfgDicQB+ANt1cgAUW0x4c2J0aS5hcGkuUGFja2FnZTtbExk3cKcnoQIAAHhwAAAAAXNyABF4c2J0aS5hcGkuUGFja2FnZX5Zj/auzjlYAgABTAAEbmFtZXEAfgAMeHB0AApteVBhcmFsbGVsc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFh7vL11XVyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AEEvVXNlcnMvcXVubGl1L051dHN0b3JlL3dvcmtzcGFjZS9HQU5PVkEvdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS91cgACW0Ks8xf4BghU4AIAAHhwAAAAFAorw93jsavoK3l+5q7FTW684Do0
 external apis:
 0 items
 source infos:
@@ -5463,7 +5471,7 @@ AAAAAAAAAAA=
 AAAAAAAAAAA=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/run.scala -> 
 AAAAAAAAAAA=
-/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalcculateActor.scala -> 
+/Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simucalculateActor.scala -> 
 AAAAAAAAAAA=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/PLS/simumasterActor.scala -> 
 AAAAAAAAAAA=
@@ -5490,7 +5498,7 @@ AAAAAAAAAAA=
 /Users/qunliu/Nutstore/workspace/GANOVA/src/main/scala/myParallel/paraWriterActor.scala -> 
 AAAAAAAAAAA=
 compilations:
-41 items
+42 items
 00 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYa5yr4N1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
 01 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYa56IY11cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
 02 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYa7NMXN1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
@@ -5532,3 +5540,4 @@ compilations:
 38 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYeoeNfh1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
 39 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYeo8pt51cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
 40 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYe5UqJF1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
+41 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABYe7y9dV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAQS9Vc2Vycy9xdW5saXUvTnV0c3RvcmUvd29ya3NwYWNlL0dBTk9WQS90YXJnZXQvc2NhbGEtMi4xMi9jbGFzc2VzdAABLw==
