@@ -76,7 +76,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
     val H = Array(0.01f, 0.015f, 0.02f)
     val wrter = new PrintWriter(new FileWriter("rs" + fileOper.timeForFile + ".txt"))
 
-    var srt = cores
+//    var srt = cores
     var proc = 0
     var end = 0
     val g = 0
