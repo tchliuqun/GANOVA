@@ -55,12 +55,13 @@ object run extends App {
 //  withParallelism(2) {
 //    (1 to 100).par.map(_ * 2)
 //  }
-val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
-  val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
-  println("start")
-  //implicit val timeout = Timeout(999 hours)
-  srt ! SnpProcessActor.chr(Array("15"))
-
+//  if (false) {
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
+    val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
+    println("start")
+    //implicit val timeout = Timeout(999 hours)
+    srt ! SnpProcessActor.chr(Array("15"))
+//  }
   if (false) {
     val mb = 1024 * 1024
     val runtime = Runtime.getRuntime
@@ -80,21 +81,29 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
     var proc = 0
     var end = 0
     val g = 0
-//    def simugenNo(g: Int) = {
+    val filnn = myParallel.paraWriterActor.fileName(gPms.rp +"trs.txt")
+    val testwrtor = system.actorOf(myParallel.paraWriterActor.props(filnn),"testa")
+    def simugenNo(g: Int) = {
       val glist = glists(g).slice(0, 4)
       println("processing No." + g)
       vegas2.simuFgene(glist)
       for (h <- H) {
         var i = 0
-        while (i < 10) {
-          wrter.println((glists(g) ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, 0)) :+ h).mkString("\t"))
+        while (i < 100) {
+          val rs =(glists(g) ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, 0)) :+ h).mkString("\t")
+          wrter.println(rs)
+          testwrtor ! myParallel.paraWriterActor.WriteStr(rs)
           i += 1
         }
 
       }
 
-//    }
+    }
+    val pc = mutable.ParArray(glists.indices: _*)
+    pc.foreach( i => simugenNo(i))
+
   wrter.close()
+    testwrtor ! done
 
 //    Array(0 until cores: _*).foreach(i => {
 //      val actr = system.actorOf(snpCalcActor.props(calcPm), "calc" + i)
@@ -114,7 +123,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
 //    //  val f= Future{
 //    //
 //    //  }
-//    val pc = mutable.ParArray(glists.indices: _*)
+
 //    pc.tasksupport = new ForkJoinTaskSupport(new java.util.concurrent.ForkJoinPool(cores - 1))
 //    pc.foreach(simugenNo)
 //  }
@@ -133,6 +142,7 @@ val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.0
   writer1.foreach(_ ! myParallel.paraWriterActor.WriteStr("test22"))
   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("test2"))
   testactor ! done
+
 
 //  val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
 //  val testactor1 = system.actorOf(myParallel.paraWriterActor.props(filn),"testa1")
