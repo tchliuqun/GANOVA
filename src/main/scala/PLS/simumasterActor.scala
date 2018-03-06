@@ -43,9 +43,9 @@ class simumasterActor(pms:Pms) extends Actor{
 
       println("starting writer")
       getGlist(chr.chrname.apply(0))
-//      wrt ! myParallel.paraWriterActor.WriteStr("dispatch starting 1")
+//      wrt ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting 1")
       wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
-//      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch starting"))
+//      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting"))
       println("starting processing")
       if (glists.length < cores){
         cores = glists.length
