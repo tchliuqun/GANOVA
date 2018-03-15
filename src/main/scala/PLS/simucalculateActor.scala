@@ -30,7 +30,7 @@ class simucalculateActor(pms:Pms) extends Actor{
         var i = 0
         while (i < times) {
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, 1)) :+ h).mkString("\t")
+          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPhenoT(h, 0,0.5f)) :+ h).mkString("\t")
             writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
             i += 1
         }

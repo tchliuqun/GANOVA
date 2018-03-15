@@ -91,7 +91,7 @@ object vegas2 {
     val theta = getTheta(pc1)
     (sqrt(h) * pc1 + sqrt(1 - h) * theta).toDenseMatrix.t
   }
-  def setPhenoT(h:Float = 0.05f,num:Int = 0,pca:Boolean = true,thresh:Float = 0.5f)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
+  def setPhenoT(h:Float = 0.05f,num:Int = 0,thresh:Float = 0.5f,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
     val X1 = convert(X,Double)
     val pcs = if (pca) princomp(X1).scores else X1
     val mav = breeze.stats.meanAndVariance(pcs(::, num))
@@ -100,7 +100,7 @@ object vegas2 {
     val ph = (sqrt(h) * pc1 + sqrt(1 - h) * theta).map(i => if (i < thresh) 0f else 1f)
     ph.toDenseMatrix.t
   }
-  def setPheno2(h:Float = 0.05f,num:Int = 2,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
+  def setPheno2(h:Float = 0.05f,num:Int = 0,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
     val X1 = convert(X,Double)
     val pcs = if (pca) princomp(X1).scores else X1
     val mav = breeze.stats.meanAndVariance(pcs(::, 0 until num))
