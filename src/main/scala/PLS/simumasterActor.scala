@@ -28,7 +28,8 @@ class simumasterActor(pms:Pms) extends Actor{
   def getGlist(chr:String) {
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
     val rs2 = svd.filter(i => i(0) == chr & i(4).toInt > 10).sortBy(_ (4).toInt)
-    val glistsInx = Range(0, 60, 3).toArray ++ Array(60 until rs2.size: _*)
+    val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
+    //val glistsInx = Range(0, 30, 3).toArray ++ Array(30 until rs2.size: _*)
     this.glists = glistsInx.map(rs2(_))
   }
   def receive = {

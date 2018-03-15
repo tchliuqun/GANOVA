@@ -138,7 +138,7 @@ class calculationTest extends FlatSpec {
   val tenFold1 = plsCalc.kfoldInx(n1, 10, true)
   val YpredTenFold1 = plsCalc.plsCV(X1, Y1, k, tenFold1)
   val Yhat1 = plsCalc.predict(X1, plsCalc.plsTrain(X1, Y1, k))
-  val rssfold1 = 0.6 * sqrt(plsCalc.rss(Y1, YpredTenFold1))
+  val rssfold1 = 0.6f * sqrt(plsCalc.rss(Y1, YpredTenFold1))
   val t11 = System.nanoTime()
   val gdoffold01 = Array(0 until k: _*).map(i => plsCalc.gdof(X1, Y1, rssfold1(i), i + 1, 1000, 1))
   val t12 = System.nanoTime()

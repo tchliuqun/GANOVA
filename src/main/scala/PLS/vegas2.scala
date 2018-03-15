@@ -2,7 +2,7 @@ package PLS
 
 import java.io._
 
-import breeze.linalg.{DenseMatrix, DenseVector, princomp}
+//import breeze.linalg.{DenseMatrix, DenseVector, princomp}
 import breeze.linalg._
 import breeze.numerics._
 import breeze.stats._
@@ -87,15 +87,24 @@ object vegas2 {
     val X1 = convert(X,Double)
     val pcs = if (pca) princomp(X1).scores else X1
     val mav = breeze.stats.meanAndVariance(pcs(::, num))
-    var pc1 = convert((pcs(::, num) - mav.mean) / sqrt(mav.variance),Float)
+    val pc1 = convert((pcs(::, num) - mav.mean) / sqrt(mav.variance),Float)
     val theta = getTheta(pc1)
     (sqrt(h) * pc1 + sqrt(1 - h) * theta).toDenseMatrix.t
+  }
+  def setPhenoT(h:Float = 0.05f,num:Int = 0,pca:Boolean = true,thresh:Float = 0.5f)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
+    val X1 = convert(X,Double)
+    val pcs = if (pca) princomp(X1).scores else X1
+    val mav = breeze.stats.meanAndVariance(pcs(::, num))
+    val pc1 = convert((pcs(::, num) - mav.mean) / sqrt(mav.variance),Float)
+    val theta = getTheta(pc1)
+    val ph = (sqrt(h) * pc1 + sqrt(1 - h) * theta).map(i => if (i < thresh) 0f else 1f)
+    ph.toDenseMatrix.t
   }
   def setPheno2(h:Float = 0.05f,num:Int = 2,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
     val X1 = convert(X,Double)
     val pcs = if (pca) princomp(X1).scores else X1
     val mav = breeze.stats.meanAndVariance(pcs(::, 0 until num))
-    var pc1 = convert((pcs(::, 0 until num) - mav.mean) / sqrt(mav.variance),Float)
+    val pc1 = convert((pcs(::, 0 until num) - mav.mean) / sqrt(mav.variance),Float)
     val theta = getTheta(pc1(::,0))
     (sqrt(h/num.toFloat) * pc1(::,0) + sqrt(h/num.toFloat) * pc1(::,1)+ sqrt(1 - h) * theta).toDenseMatrix.t
   }
