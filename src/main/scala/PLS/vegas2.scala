@@ -22,8 +22,8 @@ object vegas2 {
   val subsetFileP = "gtool -S --g ex_CEU.out.gen  --s ex_CEU.out.sample --og ex_CEU.gen  --inclusion ex_CEU_rsid.txt"
   val ptest = "snptest -data ex_CEU.out.gen ex_CEU.out.sample -o ex.out -frequentist 1 -method score -pheno pheno"
   val modifyPheno = "awk 'NR<3{print $0}NR>2{print $1,$2,$3,$4+1}' ex_CEU.out.sample > ex_CEU.sample && mv ex_CEU.out0.sample ex_CEU.out.sample"
-  var toPedP = "gtool -G --g ex_CEU.gen --s ex_CEU.sample --chr 10 --phenotype pheno --ped ex_CEU.ped --map ex_CEU.map "
-  val tobed = "plink --file ex_CEU --out ex_CEU --make-bed"
+  var toPedP = "gtool -G --g ex_CEU.gen --s ex_CEU.sample --chr 10 --phenotype pheno --sex missing --ped ex_CEU.ped --map ex_CEU.map "
+  val tobed = "plink --file ex_CEU --out ex_CEU --make-bed --allow-no-sex"
   val snpTest = "plink --bfile ex_CEU --out ex_CEU --assoc --allow-no-sex"
   //list file have 4 columns: chromosome, start, end, name, same as glist file of VEGAS2
   val makeSet = "plink --file ex_CEU.out --make-set ex_CEU.glist --write-set"
@@ -76,13 +76,20 @@ object vegas2 {
     val mv = meanAndVariance(thetaV)
     (thetaV - mv.mean.toFloat) / sqrt(mv.variance).toFloat
   }
-  def repPheno(sampleF:String = gPms.tp+"ex_CEU.out.sample",pheno:Array[Float],outf:String) = {
+  def repPheno[T](sampleF:String = gPms.tp+"ex_CEU.out.sample",pheno:Array[T],outf:String) = {
     val sampl = scala.io.Source.fromFile(sampleF).getLines.map(_.split(" ")).toArray
     val phenoVal = sampl.slice(0,2).map(_(3)) ++ pheno.map(_.toString)
     val writer = new PrintWriter(new FileWriter(outf))
     sampl.indices.toArray.map{i => sampl(i).slice(0,3) :+ phenoVal(i)}.foreach( i => writer.println(i.mkString("\t")))
     writer.close()
   }
+//  def repPheno(sampleF:String = gPms.tp+"ex_CEU.out.sample",pheno:Array[Int],outf:String) = {
+//    val sampl = scala.io.Source.fromFile(sampleF).getLines.map(_.split(" ")).toArray
+//    val phenoVal = sampl.slice(0,2).map(_(3)) ++ pheno.map(_.toString)
+//    val writer = new PrintWriter(new FileWriter(outf))
+//    sampl.indices.toArray.map{i => sampl(i).slice(0,3) :+ phenoVal(i)}.foreach( i => writer.println(i.mkString("\t")))
+//    writer.close()
+//  }
   def setPheno(h:Float = 0.05f,num:Int = 0,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
     val X1 = convert(X,Double)
     val pcs = if (pca) princomp(X1).scores else X1
@@ -97,7 +104,7 @@ object vegas2 {
     val mav = breeze.stats.meanAndVariance(pcs(::, num))
     val pc1 = convert((pcs(::, num) - mav.mean) / sqrt(mav.variance),Float)
     val theta = getTheta(pc1)
-    val ph = (sqrt(h) * pc1 + sqrt(1 - h) * theta).map(i => if (i < thresh) 0f else 1f)
+    val ph = (sqrt(h) * pc1 + sqrt(1 - h) * theta).map(i => if (i < thresh) 1f else 2f)
     ph.toDenseMatrix.t
   }
   def setPheno2(h:Float = 0.05f,num:Int = 0,pca:Boolean = true)(X:DenseMatrix[Float]):DenseMatrix[Float] = {
@@ -135,7 +142,7 @@ object vegas2 {
     val qa = "[q]?assoc".r
     val outf =qa.replaceFirstIn(fil,"txt")
     val writer = new PrintWriter(new FileWriter(outf))
-    fileOper.toArrays(fil, " ").drop(1).map(_.filter(_.length >0)).filter(i => i(i.length -1) != "NA").map(i => i(1) + "\t"+i(i.length-1)).foreach(writer.println(_))
+    fileOper.toArrays(fil, " ").drop(1).map(_.filter(_.length >0)).filter(i => i(8) != "NA").map(i => i(1) + "\t"+i(8)).foreach(writer.println(_))
     writer.close()
   }
   def getSnp(glist:Array[String],outf:String = gPms.tp+"ex_CEU_rsid.txt") = {
@@ -160,16 +167,19 @@ object vegas2 {
     val Xx = snpCC.map(_.drop(5).map(_.toFloat).sliding(3,3).map(snpVal(_).toFloat).toArray).toArray
     val X = utils.Array2DM(Xx,false)
     val Y = spheno(X)
-    repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+gname+".sample")
+    val typ = Y.toArray.toSet.size < Y.rows/3
+    //val Y = if (typ) convert(Y0,Int) else Y0
+    if (typ) repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray.map(_.toInt),outf = gPms.tp+gname+".sample")
+      else repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+gname+".sample")
     val toPed = toPedP.replace("chr 10","chr "+glist(0))
     val comm3 = Process(toPed.replace("ex_CEU",gname),new File(gPms.tp)).!
     val comm4 = Process(tobed.replace("ex_CEU",gname),new File(gPms.tp)).!
     val comm5 = Process(snpTest.replace("ex_CEU",gname), new File(gPms.tp)).!
 
-    if (Y.toArray.toSet.size > Y.rows/2){
-      getPvalF(gPms.tp+gname+".qassoc")
-    }else{
+    if (typ){
       getPvalF(gPms.tp+gname+".assoc")
+    }else{
+      getPvalF(gPms.tp+gname+".qassoc")
     }
     val vegas2 = vegas2v2.replace("fullexample",gPms.tp+gname).replace("example",gname)
     val comm6 = Process(vegas2,new File(gPms.tp)).!
