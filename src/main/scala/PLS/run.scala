@@ -60,7 +60,14 @@ object run extends App {
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
+    val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
+  val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
+   val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
+  srt ! simucalculateActor.gList(glist,2)
+  if (false) {
     srt ! SnpProcessActor.chr(Array("15"))
+  }
+
 //  }
   if (false) {
     val mb = 1024 * 1024
@@ -130,7 +137,7 @@ object run extends App {
 //  if (false) {
 
   }
-//if (false) {
+if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
   val testactor = system.actorOf(myParallel.paraWriterActor.props(filn),"testa")
@@ -152,7 +159,7 @@ object run extends App {
   //testactor1 ! done
 
 
-//}
+}
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
 //  //val result: String = future.get()
 //  future.onComplete {

@@ -3,10 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="1a2aa2cf-1c11-447e-ba85-3796f4b8e5f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/run.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+      <change beforePath="$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala" />
       <change beforePath="$PROJECT_DIR$/target/.history" afterPath="$PROJECT_DIR$/target/.history" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/run$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/run$.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/run.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/run.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$.class" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2$.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2$.class" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2.class" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/vegas2.class" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" />
@@ -14,7 +22,6 @@
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" afterPath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,8 +44,8 @@
       <file leaf-file-name="simucalculateActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+            <state relative-caret-position="83">
+              <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
               <folding>
                 <element signature="e#47#81#0" expanded="true" />
               </folding>
@@ -66,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vegas2.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vegas2.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-950">
-              <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+            <state relative-caret-position="83">
+              <caret line="170" column="6" lean-forward="false" selection-start-line="170" selection-start-column="6" selection-end-line="170" selection-end-column="6" />
               <folding>
                 <element signature="e#13#29#0" expanded="true" />
               </folding>
@@ -81,8 +88,8 @@
       <file leaf-file-name="calculationTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-260">
-              <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+            <state relative-caret-position="-932">
+              <caret line="69" column="51" lean-forward="false" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
               <folding>
                 <element signature="e#13#53#0" expanded="true" />
               </folding>
@@ -93,7 +100,7 @@
       <file leaf-file-name="plsCalc.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
+            <state relative-caret-position="11017">
               <caret line="483" column="11" lean-forward="false" selection-start-line="483" selection-start-column="11" selection-end-line="483" selection-end-column="11" />
               <folding />
             </state>
@@ -103,8 +110,8 @@
       <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-929">
-              <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+            <state relative-caret-position="221">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding>
                 <element signature="e#13#43#0" expanded="true" />
               </folding>
@@ -112,15 +119,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="58" column="93" lean-forward="false" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
+            <state relative-caret-position="302">
+              <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
               <folding>
                 <element signature="e#13#29#0" expanded="true" />
                 <element signature="e#947#1237#0" expanded="false" />
-                <element signature="e#1875#4152#0" expanded="false" />
+                <element signature="e#2186#4463#0" expanded="false" />
+                <element signature="e#4475#5640#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -181,16 +189,16 @@
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/myParallel/paraWriterActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="77" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="257" />
     <option name="width" value="1440" />
     <option name="height" value="823" />
   </component>
@@ -592,7 +600,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="823" extended-state="6" />
+    <frame x="0" y="257" width="1440" height="823" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -688,7 +696,8 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#947#1237#0" expanded="false" />
-            <element signature="e#1875#4152#0" expanded="false" />
+            <element signature="e#2186#4463#0" expanded="false" />
+            <element signature="e#4475#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -700,7 +709,8 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#947#1237#0" expanded="false" />
-            <element signature="e#1875#4152#0" expanded="false" />
+            <element signature="e#2186#4463#0" expanded="false" />
+            <element signature="e#4475#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -795,7 +805,8 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#947#1237#0" expanded="false" />
-            <element signature="e#1875#4152#0" expanded="false" />
+            <element signature="e#2186#4463#0" expanded="false" />
+            <element signature="e#4475#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -883,7 +894,8 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#947#1237#0" expanded="false" />
-            <element signature="e#1875#4152#0" expanded="false" />
+            <element signature="e#2186#4463#0" expanded="false" />
+            <element signature="e#4475#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,18 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="58" column="93" lean-forward="false" selection-start-line="58" selection-start-column="93" selection-end-line="58" selection-end-column="93" />
-          <folding>
-            <element signature="e#13#29#0" expanded="true" />
-            <element signature="e#947#1237#0" expanded="false" />
-            <element signature="e#1875#4152#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -1050,10 +1050,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11017">
+          <caret line="483" column="11" lean-forward="false" selection-start-line="483" selection-start-column="11" selection-end-line="483" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="146" column="37" lean-forward="false" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+        <state relative-caret-position="-932">
+          <caret line="69" column="51" lean-forward="false" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
           <folding>
             <element signature="e#13#53#0" expanded="true" />
           </folding>
@@ -1062,38 +1070,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-929">
-          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        <state relative-caret-position="221">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#13#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="483" column="11" lean-forward="false" selection-start-line="483" selection-start-column="11" selection-end-line="483" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="83">
+          <caret line="170" column="6" lean-forward="false" selection-start-line="170" selection-start-column="6" selection-end-line="170" selection-end-column="6" />
+          <folding>
+            <element signature="e#13#29#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="6" lean-forward="false" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        <state relative-caret-position="83">
+          <caret line="64" column="20" lean-forward="true" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="20" />
           <folding>
             <element signature="e#47#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
-          <caret line="35" column="2" lean-forward="false" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        <state relative-caret-position="302">
+          <caret line="67" column="42" lean-forward="true" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
           <folding>
             <element signature="e#13#29#0" expanded="true" />
+            <element signature="e#947#1237#0" expanded="false" />
+            <element signature="e#2186#4463#0" expanded="false" />
+            <element signature="e#4475#5640#0" expanded="false" />
           </folding>
         </state>
       </provider>

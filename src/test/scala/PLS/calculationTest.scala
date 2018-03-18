@@ -62,6 +62,34 @@ class calculationTest extends FlatSpec {
   val flwriter = new PrintWriter(new FileWriter("goResult.txt"))
   tes.map(i => i._1 +":"+ i._2 +"\t"+ i._3.formatted("%.9f")).foreach(flwriter.println)
   writer.close
+  val H:Array[Float] = Array(0.01f, 0.03f, 0.05f)
+  //val writer =
+  def simugenNo(glists:Array[String]) = {
+    import java.io.{FileWriter, PrintWriter}
+    val glist = glists.slice(0, 4)
+    val writer = new PrintWriter(new FileWriter("goR"+glist(3)+".txt"))
+    //println("processing No."+g)
+        vegas2.simuFgene(glist)
+    val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
+    //val sl = glist(4)
+    //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
+
+      for (h <- H) {
+        var i = 0
+        while (i < rl) {
+          var j = 0
+          while(j < 100) {
+            //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+            val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+            writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+            j += 1
+          }
+          i += 1
+        }
+      }
+    writer.close()
+    }
+
 
 
 

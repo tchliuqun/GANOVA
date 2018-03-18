@@ -25,9 +25,11 @@ class simumasterActor(pms:Pms) extends Actor{
   var order:Option[ActorRef] = None
   var writer:Option[ActorRef] = None
   var calculaters:Array[Option[ActorRef]] = Array(None)
+  var tlen = 0
   def getGlist(chr:String) {
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
     val rs2 = svd.filter(i => i(0) == chr & i(4).toInt > 10).sortBy(_ (4).toInt)
+    // val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
     val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
     //val glistsInx = Range(0, 30, 3).toArray ++ Array(30 until rs2.size: _*)
     this.glists = glistsInx.map(rs2(_))
@@ -44,9 +46,10 @@ class simumasterActor(pms:Pms) extends Actor{
 
       println("starting writer")
       getGlist(chr.chrname.apply(0))
-//      wrt ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting 1")
+      this.tlen = glists.length
+      //      wrt ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting 1")
       wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
-//      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting"))
+      //      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting"))
       println("starting processing")
       if (glists.length < cores){
         cores = glists.length
@@ -60,10 +63,36 @@ class simumasterActor(pms:Pms) extends Actor{
         println("processing No." + count)
       })
     }
+    case gList:simucalculateActor.gList =>{
+      order = Some(sender)
+      val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
+      writer = Some(wrt)
+      if (cores > 50) cores = 50
+      this.tlen = cores * gList.n
+
+      println("starting writer")
+      //getGlist(chr.chrname.apply(0))
+      //      wrt ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting 1")
+      wrt ! myParallel.paraWriterActor.totalNumber(gList.glist.apply(4).toInt * times * H.length)
+      //      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting"))
+      println("starting processing")
+      //if (glists.length < cores){
+      //  cores = glists.length
+      //}
+      val pms = simucalculateActor.Pms(wname,times,H)
+      Array(0 until cores:_*).foreach(i => {
+        val actr = system.actorOf(simucalculateActor.props(pms),"calc"+i)
+        calculaters :+= Some(actr)
+        actr !  gList
+        count += 1
+        println("processing No." + count)
+      })
+    }
+
     case don:done => {
       //val r = don.count
       //doneNum += 1
-      if (count < glists.length) {
+      if (count < tlen) {
         sender ! simucalculateActor.geneList(glists(count))
         println("processing No." + count)
       }
@@ -72,7 +101,7 @@ class simumasterActor(pms:Pms) extends Actor{
       }
       count += 1
       //After all jobs is done, the count should equal to number of actors add length of gene list.
-      if (count == glists.length + cores){
+      if (count == tlen + cores){
         sender ! PoisonPill
         try {
           calculaters.foreach(_.foreach(_ ! PoisonPill))

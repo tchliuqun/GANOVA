@@ -10,6 +10,7 @@ object simucalculateActor{
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
   case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f))
   case class geneList(glist:Array[String])
+  case class gList(glist:Array[String],n:Int = 2 )
   //case class
 }
 
@@ -37,6 +38,32 @@ class simucalculateActor(pms:Pms) extends Actor{
       }
     }
   }
+  def simugenNo1(glists:Array[String],n:Int) = {
+    import java.io.{FileWriter, PrintWriter}
+    val glist = glists.slice(0, 4)
+    //val writer = new PrintWriter(new FileWriter("goR"+glist(3)+".txt"))
+    //println("processing No."+g)
+    vegas2.simuFgene(glist)
+    val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
+    //val sl = glist(4)
+    //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
+
+    for (h <- H) {
+      var i = 0
+      while (i < rl) {
+        var j = 0
+        while(j < n) {
+          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          j += 1
+        }
+        i += 1
+      }
+    }
+    //writer.close()
+  }
 
   def receive = {
     case wrt:writerName => {
@@ -44,6 +71,10 @@ class simucalculateActor(pms:Pms) extends Actor{
     }
     case gList:geneList =>{
       simugenNo(gList.glist)
+      sender ! done(0)
+    }
+    case gList:gList =>{
+      simugenNo1(gList.glist,gList.n)
       sender ! done(0)
     }
     case don:done => sender ! done(0)
