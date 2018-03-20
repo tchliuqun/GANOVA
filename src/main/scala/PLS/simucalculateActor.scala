@@ -2,9 +2,16 @@ package PLS
 
 //import PLS.simumasterActor.done
 import PLS.snpCalcActor.writerName
+
+import scala.concurrent.duration._
+import scala.util.{Failure, Success}
+//import akka.actor.Status.Success
 import akka.actor._
-import myParallel.actorMessage._//system
+import myParallel.actorMessage._
 import simucalculateActor._
+import akka.pattern.ask
+
+import scala.concurrent.Future
 object simucalculateActor{
   val name = "simucalculateActor"
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
@@ -17,23 +24,59 @@ object simucalculateActor{
 
 class simucalculateActor(pms:Pms) extends Actor{
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.fil))
+  //var vegasA:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.fil))
   var H = pms.H
   var times = pms.times
   def simugenNo(glists:Array[String]) = {
     val glist = glists.slice(0, 4)
+    //val vg:ActorSelection = system.actorSelection("/user/"+glist(3))
+    import java.util.concurrent.TimeUnit
+    //val t = 1, TimeUnit.SECONDS)
+    //val fs:FiniteDuration = (100).millis
+    //val ts = vg.resolveOne(fs).value
+
+    //if (ts.isDefined & ts.get.isFailure){
+    //  system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
+    //}
+    val vgs = system.actorSelection("/user/"+glist(3))
+    val file = new java.io.File(gPms.tp+glist(3)+".gen")
+    if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
+
+    //    implicit val timeout = 5000 // Timeout for the resolveOne call
+//    system.actorSelection(glist(3)).resolveOne().onComplete {
+//      case Success(actor) => actor ! message
+//
+//      case Failure(ex) =>
+//        val actor = system.actorOf(Props(classOf[ActorClass]), name)
+//        actor ! message
+//    }
+    //    vegas2.simuFgene(glist)
+    //val vegas2a = system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3)+utils.getTimeForFile)
     //println("processing No."+g)
-//    vegas2.simuFgene(glist)
+
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
 //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
-
+    val X = vegas2.vegasX(glist)
     if(rl > 0) {
       for (h <- H) {
         var i = 0
         while (i < times) {
+          val Y = vegas2.setPhenoT(h,0,0.5f)(X)
+          val future2: Future[Array[Float]] = ask(vgs, Y).mapTo[Array[Float]]
+          val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
+          future2 onComplete{
+            case Success(f) =>{
+              val rs = (glists ++f++ plsP :+h).mkString("\t")
+              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+              i += 1
+            }
+            case Failure(t) => println("An error has occured: " + t.getMessage)
+          }
+
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPhenoT(h, 0,0.5f)) :+ h).mkString("\t")
-            writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-            i += 1
+//          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPhenoT(h, 0,0.5f)) :+ h).mkString("\t")
+//            writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+//            i += 1
         }
       }
     }
@@ -41,23 +84,56 @@ class simucalculateActor(pms:Pms) extends Actor{
   def simugenNo1(glists:Array[String],n:Int) = {
     import java.io.{FileWriter, PrintWriter}
     val glist = glists.slice(0, 4)
+
+    val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
+//    import java.util.concurrent.TimeUnit
+//    //val t = 1, TimeUnit.SECONDS)
+//    val fs:FiniteDuration = (100).millis
+//    val ts = vgs.resolveOne(fs).value.get
+//
+//    if (ts.isFailure){
+//      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
+//      vgs = system.actorSelection("/user/"+glist(3))
+//    }
+
+//    var vgs:Option[ActorSelection] = Some(system.actorSelection("/user/"+glist(3)))
+//    if (vgs.isEmpty){
+//      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
+//      vgs = Some(system.actorSelection("/user/"+glist(3)))
+//    }
+    val file = new java.io.File(gPms.tp+glist(3)+".gen")
+    if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
+    //val vegas2a = system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3)+utils.getTimeForFile)
     //val writer = new PrintWriter(new FileWriter("goR"+glist(3)+".txt"))
+
     //println("processing No."+g)
-    vegas2.simuFgene(glist)
+
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
     //val sl = glist(4)
     //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
-
+    val X = vegas2.vegasX(glist)
     for (h <- H) {
       var i = 0
       while (i < rl) {
         var j = 0
         while(j < n) {
+          val Y = vegas2.setPheno(h,i,false)(X)
+          val future2: Future[Array[Float]] = ask(vgs, Y).mapTo[Array[Float]]
+          val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
+          future2 onComplete{
+            case Success(f) =>{
+              val rs = (glists ++f++ plsP :+ h :+ i).mkString("\t")
+              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+              j += 1
+            }
+            case Failure(t) => println("An error has occured: " + t.getMessage)
+          }
+
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+          //writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
           //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          j += 1
+          //j += 1
         }
         i += 1
       }

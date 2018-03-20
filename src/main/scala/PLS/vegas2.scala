@@ -160,22 +160,23 @@ object vegas2 {
     repPheno(gPms.tp+"ex_CEU.out.sample",ph,gPms.tp+"ex_CEU.sample")
 
   }
-  def vegas(glist:Array[String],n:Int = 1,spheno:DenseMatrix[Float] => DenseMatrix[Float] = setPheno()) = {
-
+  def vegasX(glist:Array[String]) = {
     val gname = glist(3)
     val snpCC = scala.io.Source.fromFile(gPms.tp+gname+".gen").getLines.map(_.split(" "))
     val Xx = snpCC.map(_.drop(5).map(_.toFloat).sliding(3,3).map(snpVal(_).toFloat).toArray).toArray
-    val X = utils.Array2DM(Xx,false)
-    val Y = spheno(X)
+    utils.Array2DM(Xx,false)
+  }
+
+  def vegasP(glist:Array[String],Y:DenseMatrix[Float]) = {
+    val gname = glist(3)
     val typ = Y.toArray.toSet.size < Y.rows/3
     //val Y = if (typ) convert(Y0,Int) else Y0
     if (typ) repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray.map(_.toInt),outf = gPms.tp+gname+".sample")
-      else repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+gname+".sample")
+    else repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+gname+".sample")
     val toPed = toPedP.replace("chr 10","chr "+glist(0))
     val comm3 = Process(toPed.replace("ex_CEU",gname),new File(gPms.tp)).!
     val comm4 = Process(tobed.replace("ex_CEU",gname),new File(gPms.tp)).!
     val comm5 = Process(snpTest.replace("ex_CEU",gname), new File(gPms.tp)).!
-
     if (typ){
       getPvalF(gPms.tp+gname+".assoc")
     }else{
@@ -183,7 +184,13 @@ object vegas2 {
     }
     val vegas2 = vegas2v2.replace("fullexample",gPms.tp+gname).replace("example",gname)
     val comm6 = Process(vegas2,new File(gPms.tp)).!
-    val pval = fileOper.toArrays(gPms.tp+gname+"_vegas2out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
+    fileOper.toArrays(gPms.tp+gname+"_vegas2out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
+  }
+  def vegas(glist:Array[String],n:Int = 1,spheno:DenseMatrix[Float] => DenseMatrix[Float] = setPheno()) = {
+    val X = vegasX(glist)
+    val Y = spheno(X)
+    val pval = vegasP(glist,Y)
     pval ++ plsCalc.gdofPlsPval(X,Y,n)._2
+
   }
 }

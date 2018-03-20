@@ -24,6 +24,7 @@ package myParallel
     case class host(address:String,https:Boolean = true)
     case class msgActor(actor:Option[ActorRef])
     implicit val timeout = Timeout(25000.seconds)
+    val fs:FiniteDuration = (100).millis
     case class result(output:String)
     case class MysqlSetup(url:String,usr:String,pwd:String)
     case class throttle(num:Int,time:FiniteDuration)

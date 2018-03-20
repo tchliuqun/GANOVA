@@ -53,15 +53,21 @@ class simumasterActor(pms:Pms) extends Actor{
       println("starting processing")
       if (glists.length < cores){
         cores = glists.length
+        //sleep
       }
       val pms = simucalculateActor.Pms(wname,times,H)
-      Array(0 until cores:_*).foreach(i => {
-        val actr = system.actorOf(simucalculateActor.props(pms),"calc"+i)
+      //Array(0 until cores:_*).foreach(i =>
+      var ii  = 0
+        while (ii < cores){
+        val actr = system.actorOf(simucalculateActor.props(pms),"calc"+ii)
         calculaters :+= Some(actr)
+          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
         actr !  simucalculateActor.geneList(glists(count))
+        Thread.sleep(myParallel.actorMessage.fs.length+100)
         count += 1
         println("processing No." + count)
-      })
+          ii += 1
+      }
     }
     case gList:simucalculateActor.gList =>{
       order = Some(sender)
@@ -79,6 +85,7 @@ class simumasterActor(pms:Pms) extends Actor{
       //if (glists.length < cores){
       //  cores = glists.length
       //}
+      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(gList.glist)), gList.glist.apply(3))
       val pms = simucalculateActor.Pms(wname,times,H)
       Array(0 until cores:_*).foreach(i => {
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+i)
@@ -93,6 +100,7 @@ class simumasterActor(pms:Pms) extends Actor{
       //val r = don.count
       //doneNum += 1
       if (count < tlen) {
+        system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
         sender ! simucalculateActor.geneList(glists(count))
         println("processing No." + count)
       }
