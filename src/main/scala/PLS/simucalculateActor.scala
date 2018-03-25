@@ -3,6 +3,7 @@ package PLS
 //import PLS.simumasterActor.done
 import PLS.snpCalcActor.writerName
 
+import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 //import akka.actor.Status.Success
@@ -29,6 +30,7 @@ class simucalculateActor(pms:Pms) extends Actor{
   var times = pms.times
   def simugenNo(glists:Array[String]) = {
     val glist = glists.slice(0, 4)
+    var rsm:Map[String,Array[String]] = Map()
     //val vg:ActorSelection = system.actorSelection("/user/"+glist(3))
     import java.util.concurrent.TimeUnit
     //val t = 1, TimeUnit.SECONDS)
@@ -62,11 +64,14 @@ class simucalculateActor(pms:Pms) extends Actor{
         var i = 0
         while (i < times) {
           val Y = vegas2.setPhenoT(h,0,0.5f)(X)
-          val future2: Future[Array[Float]] = ask(vgs, Y).mapTo[Array[Float]]
+          val sr = i+"_"+h
+
+          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Y)).mapTo[(String,Array[Float])]
           val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
+          rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
-              val rs = (glists ++f++ plsP :+h).mkString("\t")
+              val rs = (glists ++f._2++ rsm(f._1) :+f._1.split("_").apply(1)).mkString("\t")
               writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
               i += 1
             }
@@ -85,6 +90,7 @@ class simucalculateActor(pms:Pms) extends Actor{
     import java.io.{FileWriter, PrintWriter}
     val glist = glists.slice(0, 4)
 
+    var rsm:Map[String,Array[String]] = Map()
     val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
 //    import java.util.concurrent.TimeUnit
 //    //val t = 1, TimeUnit.SECONDS)
@@ -118,12 +124,16 @@ class simucalculateActor(pms:Pms) extends Actor{
         var j = 0
         while(j < n) {
           val Y = vegas2.setPheno(h,i,false)(X)
-          val future2: Future[Array[Float]] = ask(vgs, Y).mapTo[Array[Float]]
+          val sr = j+"_"+ h+"\t"+i
+
+          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Y)).mapTo[(String,Array[Float])]
           val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
+          rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
-              val rs = (glists ++f++ plsP :+ h :+ i).mkString("\t")
+              val rs = (glists ++f._2.map(_.toString)++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
               writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+              rsm -= f._1
               j += 1
             }
             case Failure(t) => println("An error has occured: " + t.getMessage)

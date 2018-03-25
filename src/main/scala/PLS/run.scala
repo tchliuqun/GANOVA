@@ -4,7 +4,7 @@ import java.io._
 
 import akka.actor.{ActorSelection, PoisonPill}
 
-import scala.util.{Failure, Success}
+import scala.util.{Failure, Random, Success}
 import scala.collection.parallel._
 //import collection.parallel.ForkJoinTasks.defaultForkJoinPool._
 //import PLS.gPms.rp
@@ -55,20 +55,44 @@ object run extends App {
 //  withParallelism(2) {
 //    (1 to 100).par.map(_ * 2)
 //  }
-//  if (false) {
-    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
+ // if (false) {
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array( 0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
-  val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
-   val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
-  srt ! simucalculateActor.gList(glist,2)
-  if (false) {
-    srt ! SnpProcessActor.chr(Array("15"))
+    val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
+    val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
+    srt ! simucalculateActor.gList(glist, 2)
+
+    if (false) {
+      srt ! SnpProcessActor.chr(Array("15"))
+    }
+ // }
+  if(false){
+  val f = Future {
+    Thread.sleep(Random.nextInt(500))
+    if (Random.nextInt(500) > 250) throw new Exception("Yikes!") else 42
+    //42
+  }
+  Thread.sleep(1000)
+  println("before onComplete")
+
+  f onComplete {
+    case Success(result) => println(s"Success: $result")
+    case Failure(t) => println(s"Exception: ${t.getMessage}")
   }
 
-//  }
+  // do the rest of your work
+  println("A ..."); Thread.sleep(100)
+  println("B ..."); Thread.sleep(100)
+  println("C ..."); Thread.sleep(100)
+  println("D ..."); Thread.sleep(100)
+  println("E ..."); Thread.sleep(100)
+  println("F ..."); Thread.sleep(100)
+  Thread.sleep(2000)
+
+  }
   if (false) {
     val mb = 1024 * 1024
     val runtime = Runtime.getRuntime

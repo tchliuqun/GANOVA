@@ -13,6 +13,7 @@ object vegas2Actor{
   case class Pms(glist:Array[String])//,spheno:DenseMatrix[Float] => DenseMatrix[Float] = vegas2.setPheno())
   case class geneList(glist:Array[String])
   case class gList(glist:Array[String],n:Int = 2 )
+  case class inp(inx:String,Y:DenseMatrix[Float])
   //case class
 }
 
@@ -30,11 +31,11 @@ class vegas2Actor(pms:Pms) extends Actor{
 //    (Y,pval)
 //  }
   def receive = {
-    case y:DenseMatrix[Float] =>{
+    case inp:inp =>{
       //val Y = spheno(X)
       //sender ! (X,Y)
-      val pval = vegas2.vegasP(glist,y)
-      sender ! pval
+      val pval = vegas2.vegasP(glist,inp.Y)
+      sender ! (inp.inx,pval)
     }
 
   }
