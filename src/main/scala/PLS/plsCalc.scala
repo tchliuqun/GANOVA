@@ -11,21 +11,21 @@ object plsCalc {
   //val totime = java.time.LocalTime.now.toString.split("\\.")(0).split(":")
   //val nowtime = (today ++ totime).mkString("_")
 
-//  def PlsSnp(snpData: String, snpAnno: String, Pheno: Array[Float]) = {
-//    ???
-//  }
-//
-//  def splitSnpFile(snpData: String, snpAnno: String) = {
-//    ???
-//  }
-//
-//  def getGeneList = {
-//    ???
-//  }
-//
-//  def getSnpInGene(gene: String, snpAnno: Array[Array[String]]) = {
-//    ???
-//  }
+  //  def PlsSnp(snpData: String, snpAnno: String, Pheno: Array[Float]) = {
+  //    ???
+  //  }
+  //
+  //  def splitSnpFile(snpData: String, snpAnno: String) = {
+  //    ???
+  //  }
+  //
+  //  def getGeneList = {
+  //    ???
+  //  }
+  //
+  //  def getSnpInGene(gene: String, snpAnno: Array[Array[String]]) = {
+  //    ???
+  //  }
 
   def pls(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int): DenseMatrix[Float] = {
     val K = X.cols // number of columns in X - number of predictor variables
@@ -54,12 +54,22 @@ object plsCalc {
       if (M==1) {
         w_a = XY.toDenseVector
       }else {
+        // cforRange(0 until reps) { i =>
+        //dataSet(::, *) - input
+        //val xy = XY(::,c(1,i))
+        //val ytxxty = xy.t *xy
+        //val EigSym(eigenvalues, eigenvectors) = eigSym(convert(ytxxty,Double))          // eigenvalues is a DenseVector[Double] and eigenvectors is a DenseMatrix[Double]
+        //indexOfLargestEigenvalue = argmax(eigenvalues)                  // find index of largest eigenvalue
+        //q_a = eigenvectors(::, indexOfLargestEigenvalue).mapValues(_.toFloat)
+        //w_a(::,i) = xy * q_a
+        //}
         YtXXtY = XY.t * XY                                              // XY.t * XY is an (M x M) matrix
         val EigSym(eigenvalues, eigenvectors) = eigSym(convert(YtXXtY,Double))          // eigenvalues is a DenseVector[Double] and eigenvectors is a DenseMatrix[Double]
         indexOfLargestEigenvalue = argmax(eigenvalues)                  // find index of largest eigenvalue
         q_a = eigenvectors(::, indexOfLargestEigenvalue).mapValues(_.toFloat)                // find the eigenvector corresponding to the largest eigenvalue; eigenvector is (M x 1)
         w_a = XY * q_a
       }// in this case, XY (K x M) is a column vector (K x 1) since M == 1
+      //w_a = XY(::,*).map(x => x/sqrt(x.t * x))
       w_a = w_a / sqrt(w_a.t * w_a).toFloat // normalize w_a to unity - the denominator is a scalar
       r_a = w_a // loop to compute r_a
       var j: Int = 0
@@ -86,10 +96,54 @@ object plsCalc {
     // compute the regression coefficients; (K x M)
     beta
   }
+  def plsP(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int): DenseMatrix[Float] = {
+    val K = X.cols // number of columns in X - number of predictor variables
+    val M = 1//Y.cols // number of columns in Y - number of response variables
+    val N = X.rows // number of rows in X === number of rows in Y - number of observations of predictor and response variables
+    val L = Y.cols
+    val P: Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
+    var Yhat: DenseMatrix[Float] = DenseMatrix.zeros[Float](N, L) // (M x A)
+    val R:Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
+    var w_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of W
+    var p_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of P
+    var q_a: DenseVector[Float] = DenseVector.zeros[Float](L) // (M x 1) - column vector of Q
+    var r_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of R
+    var t_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](N,L) // (N x 1) - column vector of T [which is N x A]
+    var tt: DenseVector[Float] = DenseVector.zeros[Float](L)
 
-  //case class regression(beta: DenseMatrix[Float], ???)
+    var XY: DenseMatrix[Float] = X.t * Y // compute the covariance matrices; (K x M) matrix
 
-  //case class plsResult(T: DenseMatrix[Float], ???) extends regression
+    var a :Int = 0
+    // A = number of PLS components to compute
+    while (a < A) {
+        w_a = XY
+      w_a = XY(::,*).map(x => x/sqrt(x.t * x))
+      r_a = w_a // loop to compute r_a
+      var j: Int = 0
+      while (j < a ) {
+        val md = sum(P(j) *:* w_a,Axis._0).t
+        r_a = r_a - (R(j)(*,::) * md) // (K x 1) - ( (1 x K) * (K x 1) ) * (K x 1) === (K x 1) - scalar * (K x 1)
+        j += 1
+      }
+      t_a = X * r_a // compute score vector
+      tt = t_a(::,*).map(x=> x.t * x).t // compute t't - (1 x 1) that is auto-converted to a scalar
+      val p_aa = X.t * t_a
+      p_a = p_aa(*,::) / tt // X-loadings - ((K x 1)' * (K x K))' / tt === (K x 1) / tt
+      val q_aa = sum(r_a *:* XY,Axis._0).t
+      q_a = q_aa /:/ tt//.asDenseMatrix
+      val xya =p_a(*,::) *:* (q_a *:* tt) // Y-loadings - ((K x 1)' * (K x M))' / tt === (M x 1) / tt
+      XY -= xya // XtY deflation
+      P(a) = p_a
+      R(a) = r_a
+      val Yhata = t_a(*,::) *:* q_a
+      Yhat += Yhata
+      //beta(::,a*M until (a+1)*M) := R(::,0 to a) * Q(::,0 to a).t//.toDenseVector
+      a += 1
+      //beta(::, a) := R(::, 0 until a) * Q(::,0 until a).t
+    }
+    Yhat
+  }
+
 
   def permY(Y: DenseMatrix[Float],times:Int):DenseMatrix[Float] = {
     val n = Y.rows
@@ -119,44 +173,8 @@ object plsCalc {
     val st = rss(::,0).toArray
     Array(0 until k :_*).map(i => rss(i,::).t.toArray.count(ii => ii < st(i)).toFloat / perm.toFloat)
   }
-
   case class Gene(entrez:String,chr:String,TSstart:Int,TSend:Int)
   case class Snip(probe:String = "None",id:String = "None",chr:String,loc:Int)
-//  def SnpInRange(gnfl:String,snpfl:String) = {
-//    val xchr = Array(1 to 22 :_*).map(_.toString).toSet
-//    val sp = scala.io.Source.fromFile(snpfl).getLines().drop(19).
-//      map(_.split("\" \"").map(_.replace("\"","")).take(4)).
-//      filter(i => xchr.contains(i(2)) && i(3) != "---" ).toArray.sortBy(i => (i(2).toInt,i(3).t
-//      oInt))//.map(i => new Snip(i(0),i(1),i(2),i(3).toInt))
-//    val gn = scala.io.Source.fromFile(gnfl).getLines().drop(1).map(_.split(","))
-//    val snl = sp.length
-//    var i = 0
-//    var rs = Array[(String,List[String])]()
-//    while(gn.hasNext) {
-//      val gen = gn.next
-//      val gnam = gen(0)
-//      val gchr = gen(1)
-//      val start = gen(2).toInt
-//      val end = gen(3).toInt
-//      var sloc = sp(i)(3).toInt
-//      var schr = sp(i)(2)
-//      var snpList = List[String]()
-//      while ((sloc < start | schr != gchr) & i < snl-2) {
-//        i += 1
-//        sloc = sp(i)(3).toInt
-//        schr = sp(i)(2)
-//      }
-//      var ii = i
-//      while (sloc <= end & schr == gchr & ii < snl-2) {
-//        snpList = sp(ii)(0) :: snpList
-//        ii += 1
-//        schr = sp(ii)(2)
-//        sloc = sp(ii)(3).toInt
-//      }
-//      rs = rs :+ (gnam, snpList)
-//    }
-//    rs
-//  }
   def SnpInRange(gnfl:String,snpfl:String) = {
     val xchr = Array(1 to 22: _*).map(_.toString).toSet
     val sp = scala.io.Source.fromFile(snpfl).getLines().drop(19).
@@ -291,7 +309,7 @@ object plsCalc {
     val n = Y.rows
     val ron = new DenseMatrix[Float](n,nPerm,g.sample(nPerm*n).toArray.map(_.toFloat))
     val est = DenseMatrix.zeros[Float](n,nPerm)
-    val Yest = Array(1 to k :_*).map(_ => est)
+    //val Yest = Array(1 to k :_*).map(_ => est)
     val h = DenseVector.zeros[Float](n)
     val mlen = 2 * nPerm / ncor
     def getEsts(ind:Array[Int]):Unit = {
@@ -318,6 +336,27 @@ object plsCalc {
       }
     }
     getEsts(Array(0 until nPerm :_*))
+//    var jj = 0
+//    while ( jj < n){
+//      val ronj = ron(jj,::)
+//      val xtx = ronj * ronj.t
+//      val xtxD = 1.0f / xtx
+//      val x = xtxD * ronj * est(jj,::).t
+//      h(jj) = x(0)
+//      jj += 1
+//    }
+    //return(sum(h))
+    pgdof(ron,est)
+  }
+  def gdofY(Y:DenseMatrix[Float],theta:Float,nPerm:Int = 1000): DenseMatrix[Float] ={
+    val g = breeze.stats.distributions.Gaussian(0, theta)
+    val n = Y.rows
+    val ron = new DenseMatrix[Float](n,nPerm,g.sample(nPerm*n).toArray.map(_.toFloat))
+    ron(::,*) + Y(::,Y.cols -1)
+  }
+  def pgdof(ron:DenseMatrix[Float],est: DenseMatrix[Float]): Float ={
+    val n = est.rows
+    val h = DenseVector.zeros[Float](n)
     var jj = 0
     while ( jj < n){
       val ronj = ron(jj,::)
@@ -329,7 +368,33 @@ object plsCalc {
     }
     return(sum(h))
   }
+
+  def ngdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000): (Array[Float],Array[Float]) ={
+    val n = Y.rows
+    val m = Y.cols
+    val Xmean = utils.meanColumns(X)
+    val Xm = X - utils.vertcat(Xmean, X.rows)
+    val tenFold = plsCalc.kfoldInx(n,10,true)
+    val YpredTenFold = plsCalc.plsCV(X,Y,k,tenFold)
+    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,k))
+    val YY = Y(::,m -1).toDenseMatrix.t
+    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
+    val gdoffold = Array(1 to k:_*).map { i => // plsCalc.gdof(X,Y,rssfold(i),i+1,1000,1))
+      //val Yest = gdofY(Y, rssfold(i-1), nPerm)
+      val g = breeze.stats.distributions.Gaussian(0, rssfold(i-1))
+      val ron = new DenseMatrix[Float](n,nPerm,g.sample(nPerm*n).toArray.map(_.toFloat))
+      val Yest = ron(::, *) + Y(::, Y.cols - 1)
+      val Ymean = utils.meanColumns(Yest)
+      val Ym = Yest - utils.vertcat(Ymean, Y.rows)
+      val Ye = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Y.rows)
+      pgdof(ron, Ye)
+    }
+    val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdoffold)
+    (gdoffold,pval)
+  }
+
   case class plsResult(Xm:DenseMatrix[Float],Ym:DenseMatrix[Float],mod:DenseMatrix[Float])
+
   def gdofAll(X:DenseMatrix[Float],Y:DenseMatrix[Float],theta:Float,k:Int =1,nPerm:Int = 1000,ncor:Int = 1) = {
     val g = breeze.stats.distributions.Gaussian(0, theta)
     val n = Y.rows
@@ -349,7 +414,6 @@ object plsCalc {
         myParallel.parallel(getEsts(ind.slice(0, sep)), getEsts(ind.slice(sep, nlen)))
       }
     }
-
     def getEst(ind: Array[Int]) = {
       var ii: Int = 0
       val leng = ind.length
@@ -380,7 +444,7 @@ object plsCalc {
     }
     sum(h(::,*)).t.toArray
   }
-    def plsTrain(X: DenseMatrix[Float], Y: DenseMatrix[Float], comp: Int = 10) = {
+  def plsTrain(X: DenseMatrix[Float], Y: DenseMatrix[Float], comp: Int = 10) = {
     val Xmean = utils.meanColumns(X)
     val Ymean = utils.meanColumns(Y)
     val Xm = X - utils.vertcat(Xmean, X.rows)

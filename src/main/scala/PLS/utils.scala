@@ -73,7 +73,8 @@ object utils {
   }
   def getTimeForFile = {
     val today = java.time.LocalDate.now.toString.split("-")
-    val totime = java.time.LocalTime.now.toString.split("\\.")(0).split(":")
+    val totime = java.time.LocalTime.now.toString.replace(".",":").split(":")
+    //val totime = java.time.LocalTime.now.toString.split("\\.")(0).split(":")
     (today++totime).mkString("_")
   }
   def colProduct(x:DenseMatrix[Float],y:DenseMatrix[Float]):DenseMatrix[Float] = {

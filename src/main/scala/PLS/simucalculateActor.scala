@@ -123,27 +123,28 @@ class simucalculateActor(pms:Pms) extends Actor{
       while (i < rl) {
         var j = 0
         while(j < n) {
-          val Y = vegas2.setPheno(h,i,false)(X)
-          val sr = j+"_"+ h+"\t"+i
+          if(false) {
+            val Y = vegas2.setPheno(h, i, false)(X)
+            val sr = j + "_" + h + "\t" + i
 
-          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Y)).mapTo[(String,Array[Float])]
-          val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
-          rsm += (sr -> plsP.map(_.toString))
-          future2 onComplete{
-            case Success(f) =>{
-              val rs = (glists ++f._2.map(_.toString)++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
-              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-              rsm -= f._1
-              j += 1
+            val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
+            val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
+            rsm += (sr -> plsP.map(_.toString))
+            future2 onComplete {
+              case Success(f) => {
+                val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
+                writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+                rsm -= f._1
+                j += 1
+              }
+              case Failure(t) => println("An error has occured: " + t.getMessage)
             }
-            case Failure(t) => println("An error has occured: " + t.getMessage)
           }
-
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-          //writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
           //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          //j += 1
+          j += 1
         }
         i += 1
       }

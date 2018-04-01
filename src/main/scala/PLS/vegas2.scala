@@ -77,6 +77,25 @@ object vegas2 {
     (thetaV - mv.mean.toFloat) / sqrt(mv.variance).toFloat
   }
   def repPheno[T](sampleF:String = gPms.tp+"ex_CEU.out.sample",pheno:Array[T],outf:String) = {
+    val ogenf = outf.replace("sample","gen")
+    val genf = sampleF.replace("out.sample","gen")
+    val glsf = sampleF.replace("out.sample","glist")
+    val oglsf = outf.replace("sample","glist")
+
+    val gfile = new java.io.File(ogenf)
+    val lfile = new java.io.File(oglsf)
+    if(!gfile.exists() || gfile.length() == 0){
+      val gen = scala.io.Source.fromFile(genf).getLines()
+      val gwriter = new PrintWriter(new FileWriter(ogenf))
+      gen.foreach(gwriter.println)
+      gwriter.close()
+    }
+    if(!lfile.exists() || lfile.length() == 0){
+      val genl = scala.io.Source.fromFile(glsf).getLines()
+      val glwriter = new PrintWriter(new FileWriter(oglsf))
+      genl.foreach(glwriter.println)
+      glwriter.close()
+    }
     val sampl = scala.io.Source.fromFile(sampleF).getLines.map(_.split(" ")).toArray
     val phenoVal = sampl.slice(0,2).map(_(3)) ++ pheno.map(_.toString)
     val writer = new PrintWriter(new FileWriter(outf))
@@ -167,30 +186,34 @@ object vegas2 {
     utils.Array2DM(Xx,false)
   }
 
-  def vegasP(glist:Array[String],Y:DenseMatrix[Float]) = {
+  def vegasP(glist:Array[String],Y:DenseMatrix[Float],ognames:String = utils.getTimeForFile+"_"+scala.util.Random.nextInt(100)) = {
     val gname = glist(3)
     val typ = Y.toArray.toSet.size < Y.rows/3
     //val Y = if (typ) convert(Y0,Int) else Y0
-    if (typ) repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray.map(_.toInt),outf = gPms.tp+gname+".sample")
-    else repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+gname+".sample")
+    //val r = scala.util.Random
+    val ogname = gname+"_"+ognames
+    if (typ) repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray.map(_.toInt),outf = gPms.tp+ogname+".sample")
+    else repPheno(gPms.tp+gname+".out.sample",pheno = Y.toArray,outf = gPms.tp+ogname+".sample")
     val toPed = toPedP.replace("chr 10","chr "+glist(0))
-    val comm3 = Process(toPed.replace("ex_CEU",gname),new File(gPms.tp)).!
-    val comm4 = Process(tobed.replace("ex_CEU",gname),new File(gPms.tp)).!
-    val comm5 = Process(snpTest.replace("ex_CEU",gname), new File(gPms.tp)).!
+    val comm3 = Process(toPed.replace("ex_CEU",ogname),new File(gPms.tp)).!
+    val comm4 = Process(tobed.replace("ex_CEU",ogname),new File(gPms.tp)).!
+    val comm5 = Process(snpTest.replace("ex_CEU",ogname), new File(gPms.tp)).!
     if (typ){
-      getPvalF(gPms.tp+gname+".assoc")
+      getPvalF(gPms.tp+ogname+".assoc")
     }else{
-      getPvalF(gPms.tp+gname+".qassoc")
+      getPvalF(gPms.tp+ogname+".qassoc")
     }
-    val vegas2 = vegas2v2.replace("fullexample",gPms.tp+gname).replace("example",gname)
+    val vegas2 = vegas2v2.replace("fullexample",gPms.tp+ogname).replace("example",ogname)
     val comm6 = Process(vegas2,new File(gPms.tp)).!
-    fileOper.toArrays(gPms.tp+gname+"_vegas2out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
+    val rs = fileOper.toArrays(gPms.tp+ogname+"_vegas2out.out"," ").drop(1).toArray.map(i =>Array(i(7).toFloat,i(9).toFloat)).apply(0)
+    val dir = new java.io.File(gPms.tp)
+    dir.list.filter(i => i.indexOf(ogname) >= 0).map(i => new java.io.File(gPms.tp+i)).foreach(_.delete())
+    rs
   }
   def vegas(glist:Array[String],n:Int = 1,spheno:DenseMatrix[Float] => DenseMatrix[Float] = setPheno()) = {
     val X = vegasX(glist)
     val Y = spheno(X)
     val pval = vegasP(glist,Y)
-    pval ++ plsCalc.gdofPlsPval(X,Y,n)._2
-
+    pval ++ plsCalc.ngdof(X,Y,n)._2
   }
 }

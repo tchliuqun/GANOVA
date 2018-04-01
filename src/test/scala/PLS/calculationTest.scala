@@ -156,8 +156,8 @@ class calculationTest extends FlatSpec {
   val pcs1 = princomp(convert(X1,Double)).scores
   val mav1 = breeze.stats.meanAndVariance(pcs1(::, 0))
   var pc11 = convert((pcs1(::, 0) - mav1.mean) / sqrt(mav1.variance),Float)
-  val theta1 = getTheta(pc11)
-  val theta2 = getTheta(pc11)
+  val theta1 = vegas2.getTheta(pc11)
+  val theta2 = vegas2.getTheta(pc11)
   val Y1 = (sqrt(h) * pc11 + sqrt(1 - h) * theta1).toDenseMatrix.t
   val Y2 = (sqrt(h) * Y1.toDenseVector + sqrt(1 - h) * theta2).toDenseMatrix.t
   val Y3 = (sqrt(h) * pc11 + sqrt(1 - h) * theta2).toDenseMatrix.t
