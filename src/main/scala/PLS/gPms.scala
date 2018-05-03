@@ -9,7 +9,7 @@ object gPms {
   var rp:String = Array.concat(cdrr,Array("results","PLSresults")).mkString(sepr)+sepr
   var gp:String = Array.concat(cdrr,Array("resources","genomeRef")).mkString(sepr)+sepr
   var egf:String = "hgnc_ensg.txt"
-  var ef:String = "GBMLGG.transcriptome__ht_hg_u133a__broad_mit_edu__Level_3__gene_rma__data.data.txt"
+  var ef:String = "gbmExp.txt"
   var pf:String = "GBMLGG.rppa.txt"
   var df:String = "gbmsnp6.txt"
   var af:String = "snp6annoNew.txt"

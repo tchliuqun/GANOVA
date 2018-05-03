@@ -2,7 +2,7 @@ package PLS
 
 import java.io.{FileWriter, PrintWriter}
 
-import breeze.linalg.{min, _}
+import breeze.linalg._
 
 import scala.math._
 import org.apache.commons.math3.stat.inference.TestUtils
@@ -73,6 +73,7 @@ object calculation {
     (ncorrelat - countsA.toFloat * meaA * meaB)/scala.math.sqrt(variA * variB).toFloat
 
   }
+
   def pearsonCorr(as: Array[Float], bs: Array[Float]): Float = {
     val countsA = as.length
     val countsB = bs.length
@@ -103,12 +104,14 @@ object calculation {
     val inx:Seq[Int] = covi.findAll(_ > 0.9999).filter(i => i._2 > i._1).map(_._2).distinct
     dm.delete(inx,Axis._1)
   }
+
   def permPvalue[@specialized(Float,Double) T](x:T,dv: Array[T])(implicit n: Numeric[T]): Float = {
     import n._
     if (gteq(x, zero) && dv.count(gteq(_, zero)) > 0) dv.count { i => gteq(i, x) }.toFloat / dv.count(gteq(_, zero)).toFloat
     else if (lteq(x, zero) && dv.count(lteq(_, zero)) > 0) dv.count { i => lteq(i, x) }.toFloat / dv.count(lteq(_, zero)).toFloat
     else 1f
   }
+
   def permPvalue(dv:DenseVector[Float]):Float = {
     val ts = dv(0)
     val ct = sum(dv.map(i => if (i < ts) 1 else 0))
@@ -124,6 +127,7 @@ object calculation {
     }
     msum
   }
+
   def cprod(end:BigInt,start:BigInt):BigInt = {
     var prod = BigInt(1)
     var i = start + 1
@@ -133,6 +137,7 @@ object calculation {
     }
     prod
   }
+
   def eigVal(X:DenseMatrix[Float],n:Int = 0) = {
     val m = X.cols
     val X1 = convert(princomp(convert(X,Double)).propvar,Float)
@@ -140,19 +145,20 @@ object calculation {
     else if(n <= m) X1.apply(0 until n)
     else DenseVector.vertcat(X1,DenseVector.zeros[Float](n-m))
   }
+
   def runeig(X:DenseMatrix[Float],Y:DenseMatrix[Float],pm:Any) = {
     val n = pm.asInstanceOf[Int]
     val m = X.cols
     val eig = eigVal(X,n)
     m.toString + "\t" + eig.toArray.map(_.toString).mkString("\t")
   }
+
   def cca(x:DenseMatrix[Float],y:DenseMatrix[Float]):DenseVector[Float] = {
     val yn= y.rows
     val xn= x.rows
     require(xn == yn)
     val qr.QR(xQ, xR) = qr(x)
     val qr.QR(yQ, yR) = qr(y)
-
     val xk = rank(x.mapValues(_.toDouble))
     val yk = rank(y.mapValues(_.toDouble))
     val e = DenseMatrix.eye[Float](yk)
@@ -166,7 +172,7 @@ object calculation {
   }
 
   def HotellingLawleyTrace(rho:DenseVector[Float],p:Int,q:Int):DenseVector[Float] = {
-    val minpq = min(p,q)
+    val minpq = scala.math.min(p,q)
     val rhosq = rho *rho
     val rh = rhosq/(1.0f-rhosq)
     val hotell = DenseVector.zeros[Float](minpq)
@@ -176,7 +182,7 @@ object calculation {
     return(hotell)
   }
   def HotellingTest(rho:DenseVector[Float],N:Int,p:Int,q:Int) = {
-    val minpq = min(p,q)
+    val minpq = scala.math.min(p,q)
     val hotell = HotellingLawleyTrace(rho,p,q)
     val Hotelling = DenseVector.zeros[Float](minpq)
     val df1 = DenseVector.zeros[Float](minpq)
@@ -192,22 +198,30 @@ object calculation {
     }
     (hotell,Hotelling,pVal,df1,df2)
   }
-  def Brown(pval:Array[Float],cor:Float)={
+  def Brown(pval:Array[Float],cor:Array[Float])={
     val N = pval.length
-    val T0 = pval.map(log10(_)/log10(Math.E)).sum
-    val thetaS = 4*N + 2 * cor * (3.25 + 0.75 * cor)
+    val T0 = pval.filter(i=> !i.isNaN & i != 0f).map(log10(_)/log10(Math.E)).sum
+    val tc = cor.map(i => 2 * i * (3.25 +0.75 * i)).sum
+    val thetaS = 4*N + tc
     val c = thetaS / (4*N)
     val dof = 2 * N/c
     val T = -2 * T0/c
     (T,dof)
   }
-  def brownTest(pval:Array[Float],cor:Float) = {
+  def brownTest(pval:Array[Float],cor:Array[Float]):Float = {
+    if (pval.filter(i => i.isNaN | i.isInfinite).length > 0) {
+      return 1f
+    }else if(pval.filter(_ == 0).length >0){
+      return 0f
+    }
+    else{
     val (ts,dof) = Brown(pval,cor)
-    1 - new ChiSquaredDistribution(dof).cumulativeProbability(ts)
+    return (1 - new ChiSquaredDistribution(dof).cumulativeProbability(ts)).toFloat
+  }
   }
 
   def wilksLambda(rho:DenseVector[Float],N:Int,p:Int,q:Int)= {
-    val minpq = min(p,q)
+    val minpq = scala.math.min(p,q)
     val raoF = DenseVector.zeros[Float](minpq)
     val wilks = DenseVector.zeros[Float](minpq)
     val df1 = DenseVector.zeros[Float](minpq)

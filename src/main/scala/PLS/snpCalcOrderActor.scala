@@ -12,9 +12,10 @@ object snpCalcOrderActor{
   val name = "snpCalcOrderActor"
   def props(pms:orderPms) = Props(classOf[snpCalcOrderActor],pms)
   case class chrs(chrs:Array[String])
-  case class orderPms(k:Int = 5,n:Int = 236,perm:Int = 1000,amp:Int = 0,nactor:Int = 10, gfile:String=gPms.op+gPms.glf,
+  case class yArray(y:Array[String])
+  case class orderPms(k:Int = 5,perm:Int = 1000,amp:Int = 0,nactor:Int = 10, gfile:String=gPms.op+gPms.glf,
                            dfile:String = gPms.op+gPms.df, ifile:String=gPms.op+gPms.af,
-                           pfile:String=gPms.op+gPms.pf,ofile:String = gPms.rp+gPms.rsf)
+                           pfile:String=gPms.op+gPms.pf,ofile:String = gPms.rp+gPms.rsf,efile:String = gPms.op+gPms.ef)
 }
 
 class snpCalcOrderActor(pm:orderPms) extends Actor{
@@ -23,6 +24,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   var dfile = pm.dfile//"gbmsnp6.csv"
   var pfile = pm.pfile///"GBMLGG.rppa.txt"
   var ofile = pm.ofile//"GBMsnp6Rs.txt"
+  var efile = pm.efile
   var process:chrs = chrs(Array(1 to 22:_*).map(_.toString))
   var dispatcher:Option[ActorRef] = None
   var count = 0
@@ -31,29 +33,37 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   var amplength =pm.amp
   var k = pm.k
   var perm = pm.perm
-  var n = pm.n
+  var n = 0
   var nActor:Int = pm.nactor
   //var len = 900000
   var cnt = 0
   var diff = 0
-  var mcol:(Array[Int], Array[Int]) = (Array(0),Array(0))
+  var mcol:(Array[Int], Array[Int],Array[Int]) = (Array(0),Array(0),Array(0))
   var dm = new DenseMatrix[Float](n,100)
   var Y = DenseMatrix.zeros[Float](n,1)
   var permY = DenseMatrix.zeros[Float](n,perm)
   var looInx = Array(0 until n :_*).map(Seq(_))
   var tenFold = plsCalc.kfoldInx(n,10,true)
   var writer:Option[ActorRef] = None
-  def updateY(y:Array[Float]) = {
+  def updateY(y:Array[String]) = {
     val pn = fileOper.toArrays(pfile).next.map(_.slice(0,15))
-    val dn = fileOper.toArrays(dfile,",").next.drop(2)
-    //val pakt = y
-    this.mcol = fileOper.intersectCols(dn,pn)
+    val dn = fileOper.toArrays(dfile).next
+    if (efile.length >0) {
+      val en = fileOper.toArrays(efile, "\t").next.map(_.slice(0,15))
+      //val pakt = y
+      this.mcol = fileOper.intersectCols(dn, pn, en)
+    }else {
+      val mcoll = fileOper.intersectCols(dn, pn)
+      this.mcol = (mcoll._1, mcoll._2, Array(0))
+    }
     this.n = mcol._1.length
     this.looInx = Array(0 until n :_*).map(Seq(_))
     this.tenFold = plsCalc.kfoldInx(n,10,true)
-    this.Y = new DenseMatrix(n,1,mcol._2.map(y))
+    this.Y = new DenseMatrix(n,1,mcol._2.map(y(_)).map(_.toFloat))
     if(perm > 0) this.permY = plsCalc.permY(Y,perm)
   }
+//  override def preStart { println("kenny: prestart") }
+
   def updateFile(chrn:String)= {
     val regex = "(chr[0-9]+)?\\.(txt|csv)".r
     val newn = "chr"+chrn+".txt"
@@ -63,52 +73,64 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
     this.gfile = regex.replaceAllIn(gfile,newn)// gfileo.replace(".txt","chr"+chrn+".txt")
     //fileOper.FindIndexinRange(gfile,ifile,rfile)
   }
+
   def makeActor() = {
-    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,Y,looInx,tenFold,this.ofile)
+    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,Y,looInx,tenFold,this.ofile.replaceFirst("/",""))
     Array(0 until nActor:_*).map(i => system.actorOf(snpCalcActor.props(calcPm),"calc"+i))
-    val wrt = system.actorOf(myParallel.paraWriterActor.props(myParallel.paraWriterActor.fileName(this.ofile)),this.ofile)
+    val wrt = system.actorOf(myParallel.paraWriterActor.props(myParallel.paraWriterActor.fileName(this.ofile)),"writer")
+
     val colnames = snpCalcActor.getColnames(k).mkString("\t")
     wrt ! myParallel.paraWriterActor.WriteStr(colnames)
     //wrt ! myParallel.paraWriterActor.totalNumber(2)
     writer = Some(wrt)
   }
+
   def receive = {
+    case y:yArray => {
+      updateY(y.y)
+    }
+
     case c:chrs =>{
       this.process = c
       this.len = c.chrs.length
       makeActor()
       updateFile(c.chrs.apply(count))
-      val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1, this.gfile, this.dfile, this.ifile, this.ofile)
+
+      val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1,mcol._3, this.gfile, this.dfile, this.ifile, this.ofile, this.efile)
       val dispatch = context.actorOf(snpCalcDispatchActor.props(dispPm), "dispatcher"+c.chrs.apply(count))
       dispatcher = Some(dispatch)
       count += 1
         //dispatcher.foreach(_ ! actorMessage.action)
-
     }
+
     case cfunc:func =>{
       Array(0 until nActor:_*).map("/user/calc"+_).map(system.actorSelection(_)).foreach(_ ! cfunc)
     }
+
     case fpm:calcPm =>{
       Array(0 until nActor:_*).map("/user/calc"+_).map(system.actorSelection(_)).foreach(_ ! fpm)
     }
+
     case actorMessage.action => {
       dispatcher.foreach(_ ! actorMessage.action)
     }
-    case don:done =>{
+
+    case don:done => {
       if (count < len) {
         updateFile(process.chrs.apply(count))
-        val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1, this.gfile, this.dfile, this.ifile, this.ofile)
+        val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1,mcol._3, this.gfile, this.dfile, this.ifile, this.ofile)
         val dispatch = context.actorOf(snpCalcDispatchActor.props(dispPm), "dispatcher"+process.chrs.apply(count))
         dispatcher = Some(dispatch)
         dispatcher.foreach(_ ! actorMessage.action)
         //sender !  snpCalcDispatchActor.chr(process.chrs.apply(count))
         count += 1
-      }else {
+      } else {
        // dispatcher.foreach(_ ! PoisonPill)
         writer.foreach(_ ! actorMessage.finished)
         Array(0 until nActor:_*).map("/user/calc"+_).map(system.actorSelection(_)).foreach(_ ! PoisonPill)
         println(utils.currentTimeIn+s"calculation is done -- Order")
         self ! PoisonPill
+        system.shutdown()
       }
     }
     //case _ =>

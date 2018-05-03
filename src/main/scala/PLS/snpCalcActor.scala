@@ -1,10 +1,11 @@
 package PLS
 
-import PLS.snpCalcActor._
+import snpCalcActor._
+import myParallel.actorMessage._
 import akka.actor._
-import breeze.linalg.DenseMatrix
-import breeze.numerics.sqrt
-import myParallel.actorMessage._//{done, system}//{Actor, Props}
+import breeze.linalg._
+import breeze.numerics._
+import com.sun.corba.se.impl.orbutil.DenseIntMapImpl//{done, system}//{Actor, Props}
 object snpCalcActor{
   val name = "snpCalcActor"
   def props(fil:snpCalcPms) = Props(classOf[snpCalcActor],fil)
@@ -13,6 +14,7 @@ object snpCalcActor{
   case class geneSNPResult(Ypred:DenseMatrix[Float],pdofLoo:Array[Float],gdofLoo:Array[Float],
                            pdofTenf:Array[Float],gdofTenf:Array[Float],permPval:Array[Float])
   case class Xs(gene:Array[String],X:DenseMatrix[Float])
+  case class XYs(gene:Array[String],X:DenseMatrix[Float],Y:DenseMatrix[Float])
   case class Ys(Y:DenseMatrix[Float])
   case class func(f:(DenseMatrix[Float],DenseMatrix[Float],Any) => String)
   case class calcPm(pms:Any)
@@ -35,14 +37,14 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
   var k = pms.k
   //var pk = pms.k
   var n = pms.n
-  var perm = if(pms.perm>0)pms.Y.cols else pms.perm
+  var perm = if(pms.perm < 1)pms.Y.cols else pms.perm
   var Y = pms.Y //DenseMatrix.zeros[Float](n,1)
   var permY = pms.Y//DenseMatrix.zeros[Float](n,perm)
   var looInx = pms.looInx//Array(0 until n :_*).map(Seq(_))
   var tenFold = pms.tenFold//plsCalc.kfoldInx(n,10,true)
   //var mcol = pms.mcol//:(Array[Int], Array[Int]) = (Array(0),Array(0))
   var order:Option[ActorRef] = None
-  var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.oname))
+  var writer:Option[ActorSelection] = Some(system.actorSelection("/user/writer"))
   def permT(X:DenseMatrix[Float]) = {
     var i = 0
     var nk = if(X.cols < k) X.cols else k
@@ -56,7 +58,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
     val st = rss(::,0).toArray
     Array(0 until nk :_*).map(i => rss(i,::).t.toArray.count(ii => ii < st(i)).toFloat / perm.toFloat)
   }
-  var calcPms:Any = (k,n,perm,looInx,tenFold)
+  var calcPms:Any = 3//(k,n,perm,looInx,tenFold)
   def getGeneSnpSimp(X:DenseMatrix[Float])= {
     val nk = if(X.cols < k) X.cols else k
     val YpredTenFold = plsCalc.plsCV(X,Y,nk,tenFold)
@@ -99,9 +101,11 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
 
   }
   var getRes:(DenseMatrix[Float],DenseMatrix[Float],Any) => String = (X:DenseMatrix[Float],Y:DenseMatrix[Float],pm:Any) => {
-    val grs = getGeneSnp(X)
-    //val pmls = pm.asInstanceOf[(Int,Int,Int,Array[Seq[Int]],Array[Seq[Int]])]
-    genePval(grs).mkString("\t")
+    //val grs = getGeneSnp(X)
+    val pmls = pm.asInstanceOf[Int]//,Int,Int,Array[Seq[Int]],Array[Seq[Int]])]
+    //genePval(grs).mkString("\t")
+    val rs = plsCalc.ngdofPvalT(X,Y,pmls)
+    rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
   }
 
 
@@ -110,14 +114,14 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
       //order = Some(sender)
       writer = Some(system.actorSelection("/user/"+wrt.name))
     }
-    case func:func =>{
+    case func:func => {
       getRes = func.f
     }
-    case pm:calcPm =>{
-      calcPms = pm.pms
+    case pm:calcPm => {
+      this.calcPms = pm.pms
     }
 
-    case x:Xs =>{
+    case x:Xs => {
 
       val X = x.X
       val prs = getRes(X,Y,calcPms)
@@ -127,6 +131,19 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
       sender ! done(1)
 
     }
+
+    case xy:XYs => {
+
+      val X = xy.X
+      val Ys = if (max(Y) == 0f & min(Y) == 0f) xy.Y else DenseMatrix.horzcat(xy.Y,Y)
+      val prs = getRes(X,Ys,calcPms)
+      //val prs = genePval(grs).mkString("\t")
+      var rs = xy.gene.mkString("\t")+"\t" +X.cols+ "\t"+prs
+      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+      sender ! done(1)
+    }
+
     case _ =>
+
   }
 }

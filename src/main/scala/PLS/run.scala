@@ -31,31 +31,29 @@ object run extends App {
   if (new java.io.File(logfile).exists) {
     mv(logfile, newlog)
   }
-  if (false) {
+//  if (false) {
+    val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
+    val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    val mcol =fileOper.intersectCols(xx,yy,ee)
+    val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(_ (0).contains("AKT")).toArray
+
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = orderPms()
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7)//,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-
+    srt ! snpCalcOrderActor.yArray(pakt(2))
     srt ! snpCalcOrderActor.chrs(ch)
-    srt ! snpCalcActor.func(calculation.runeig)
-    srt ! snpCalcActor.calcPm(5)
+
+
+    //srt ! snpCalcActor.func(calculation.runeig)
+    srt ! snpCalcActor.calcPm(3)
     srt ! action
-  }
-
-
-//  def withParallelism[A](n : Int)(block : => A) : A = {
-
-//    val defaultParLevel = getParallelism
-//    collection.parallel.ForkJoinTasks.defaultForkJoinPool.setParallelism(n)
-//    val ret = block
-//    setParallelism(defaultParLevel)
-//    ret
 //  }
-//
-//  withParallelism(2) {
-//    (1 to 100).par.map(_ * 2)
-//  }
- // if (false) {
+
+
+  // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
+  // results are before "simuRs_2018_04_02_07_01_24_582.txt"
+  if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array( 0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
@@ -63,12 +61,14 @@ object run extends App {
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
     val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
     val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
-    srt ! simucalculateActor.gList(glist, 2)
+    srt ! simucalculateActor.gList(glist, 20)
 
     if (false) {
       srt ! SnpProcessActor.chr(Array("15"))
     }
- // }
+  }
+
+  // testing parallel with future class
   if(false){
   val f = Future {
     Thread.sleep(Random.nextInt(500))
@@ -93,6 +93,9 @@ object run extends App {
   Thread.sleep(2000)
 
   }
+
+
+  // comparing VEGAS2 with old GANOVA using simulating SNP in chr 15
   if (false) {
     val mb = 1024 * 1024
     val runtime = Runtime.getRuntime
@@ -161,6 +164,8 @@ object run extends App {
 //  if (false) {
 
   }
+
+  // testin parallel writing
 if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")
@@ -184,6 +189,7 @@ if (false) {
 
 
 }
+
   //  val future:Future[String] = ask(srt, SnpProcessActor.chr(Array("15"))).mapTo[String]
 //  //val result: String = future.get()
 //  future.onComplete {

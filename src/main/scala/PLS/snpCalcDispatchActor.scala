@@ -3,7 +3,7 @@ package PLS
 import PLS.snpCalcDispatchActor._
 import PLS.snpCalcActor._
 import akka.actor._
-import breeze.linalg.DenseMatrix
+import breeze.linalg._
 import myParallel.actorMessage._
 import myParallel.actorMessage
 import scala.collection.mutable.ArrayBuffer
@@ -11,8 +11,8 @@ object snpCalcDispatchActor{
 
   val name = "snpCalcDispatchActor"
   def props(pms:dispatcherPms) = Props(classOf[snpCalcDispatchActor],pms)
-  case class dispatcherPms(amp:Int = 50000,nactor:Int = 10, mcol:Array[Int] = Array(0),gfile:String= gPms.op+gPms.glf,
-                      dfile:String =  gPms.op+gPms.df, ifile:String= gPms.op+gPms.af,oname:String)
+  case class dispatcherPms(amp:Int = 50000,nactor:Int = 10, mcolX:Array[Int] = Array(0),mcolY:Array[Int] = Array(0),gfile:String= gPms.op+gPms.glf,
+                      dfile:String =  gPms.op+gPms.df, ifile:String= gPms.op+gPms.af,oname:String,efile:String = gPms.op+gPms.ef)
 
   case class chr(chr:String)
   case class dataf(file:String)
@@ -30,15 +30,17 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
   var gfile = pm.gfile//"GeneLoc.txt"
   var ifile = pm.ifile//"snp6annoNew.txt"
   var dfile = pm.dfile//"gbmsnp6.csv"
+  var efile = pm.efile
   var wrt:Option[ActorSelection] = Some(system.actorSelection("/user/"+pm.oname))//"GBMsnp6Rs.txt"
   var ampl =pm.amp
   var nActor:Int = pm.nactor
   var len = 900000
   var cnt = 0
-  var mcol:Array[Int] = pm.mcol
-
+  var mcol:Array[Int] = pm.mcolX
+  var mcolY:Array[Int] = pm.mcolY
   var gens = Array[Array[String]]()//
   var snpI = Iterator[Array[String]]()//
+  var genExp = Map[String, Array[Float]]()
   var order:Option[ActorRef] = None
   var actor:Option[Array[ActorRef]] = None
   var snpd = Iterator[Array[Float]]()
@@ -50,9 +52,10 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
   var recieveCont = 0
 
   def updateXs = {
-    this.snpd = if(mcol.length == 1)fileOper.toArrays(dfile).map(_.drop(1).map(_.toFloat)) else fileOper.toArrays(dfile).map(_.drop(1).map(_.toFloat)).map(mcol.map(_))
+    this.snpd = if(mcol.length == 1)fileOper.toArrays(dfile).map(_.drop(1).map(_.toFloat)) else fileOper.toArrays(dfile).map(i => mcol.map(i(_)).map(_.toFloat))
     this.gens = fileOper.toArrays(gfile).toArray
     this.snpI = fileOper.toArrays(ifile)
+    if(mcolY.length > 1) this.genExp = fileOper.toArrays(efile).drop(1).map(i => (i(0),mcolY.map(i(_)).map(_.toFloat))).toMap
     this.loc = snpI.next.apply(2).toInt
     this.cnt = 0
     this.sendCont = 0
@@ -75,11 +78,17 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
 
     while (sendCont <= nActor *2) {
       val gen = gens(cnt)
+      //print("gene length is"+gen.length)
       XX = getX(gen)
-      if (XX.length>0) {
+      //val ye = if(mcolY.length > 1) genExp(gen(4)) else
+        if (XX.length>0) {
         val na = sendCont % nActor
         val calcular = system.actorSelection("/user/calc" + na)
-        calcular ! snpCalcActor.Xs(gen,utils.Array2DM(XX,false))
+        if(mcolY.length == 1) {
+          calcular ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
+        }else {
+          calcular ! snpCalcActor.XYs(gen,utils.Array2DM(XX, false),new DenseVector(genExp(gen(4))).asDenseMatrix.t)
+        }
         sendCont += 1
       }
       cnt += 1
@@ -110,16 +119,22 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
             cnt += 1
           }
         if(XX.length>0) {
-          sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
+          if(mcolY.length == 1) {
+            sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
+          }else {
+            sender ! snpCalcActor.XYs(gen,utils.Array2DM(XX, false),new DenseVector(genExp(gen(4))).asDenseMatrix.t)
+          }
+          //sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
           sendCont += 1
           cnt += 1
-          }
-        if(cnt >= len & !completed) {
-          completed = true
         }
       }
-      else if(!completed)  {
-        completed = true
+      else {
+        if (!completed) {
+          completed = true
+
+
+        }
       }
       if (completed & sendCont == recieveCont){
         order.foreach(_ ! done(1))

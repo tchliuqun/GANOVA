@@ -96,15 +96,16 @@ object plsCalc {
     // compute the regression coefficients; (K x M)
     beta
   }
-  def plsP(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int): DenseMatrix[Float] = {
+  def plsP(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int,nPerm:Int = 1000): DenseMatrix[Float] = {
     val K = X.cols // number of columns in X - number of predictor variables
-    val M = 1//Y.cols // number of columns in Y - number of response variables
+
     val N = X.rows // number of rows in X === number of rows in Y - number of observations of predictor and response variables
     val L = Y.cols
+    val M = L/nPerm//Y.cols // number of columns in Y - number of response variables
     val P: Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
     var Yhat: DenseMatrix[Float] = DenseMatrix.zeros[Float](N, L) // (M x A)
     val R:Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
-    var w_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of W
+    var w_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,nPerm) // (K x 1) - column vector of W
     var p_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of P
     var q_a: DenseVector[Float] = DenseVector.zeros[Float](L) // (M x 1) - column vector of Q
     var r_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of R
@@ -112,13 +113,28 @@ object plsCalc {
     var tt: DenseVector[Float] = DenseVector.zeros[Float](L)
 
     var XY: DenseMatrix[Float] = X.t * Y // compute the covariance matrices; (K x M) matrix
-
     var a :Int = 0
     // A = number of PLS components to compute
     while (a < A) {
-        w_a = XY
-      w_a = XY(::,*).map(x => x/sqrt(x.t * x))
-      r_a = w_a // loop to compute r_a
+      // w_a = XY
+      if (M == 1) {
+        w_a = XY(::, *).map(x => x / sqrt(x.t * x))
+
+      } else {
+        var ii = 0
+        while (ii < nPerm){
+          val xy = XY(::,ii*M until (ii+1)* M)
+          val YtXXtY = xy.t * xy                                              // XY.t * XY is an (M x M) matrix
+          val EigSym(eigenvalues, eigenvectors) = eigSym(convert(YtXXtY,Double))          // eigenvalues is a DenseVector[Double] and eigenvectors is a DenseMatrix[Double]
+          val indexOfLargestEigenvalue = argmax(eigenvalues)                  // find index of largest eigenvalue
+          q_a = eigenvectors(::, indexOfLargestEigenvalue).mapValues(_.toFloat)                // find the eigenvector corresponding to the largest eigenvalue; eigenvector is (M x 1)
+          w_a(::,ii) := xy * q_a
+          ii += 1
+        }
+        w_a = w_a(::, *).map(x => x / sqrt(x.t * x))
+      }// loop to compute r_a
+
+      r_a = w_a
       var j: Int = 0
       while (j < a ) {
         val md = sum(P(j) *:* w_a,Axis._0).t
@@ -129,14 +145,19 @@ object plsCalc {
       tt = t_a(::,*).map(x=> x.t * x).t // compute t't - (1 x 1) that is auto-converted to a scalar
       val p_aa = X.t * t_a
       p_a = p_aa(*,::) / tt // X-loadings - ((K x 1)' * (K x K))' / tt === (K x 1) / tt
-      val q_aa = sum(r_a *:* XY,Axis._0).t
-      q_a = q_aa /:/ tt//.asDenseMatrix
-      val xya =p_a(*,::) *:* (q_a *:* tt) // Y-loadings - ((K x 1)' * (K x M))' / tt === (M x 1) / tt
-      XY -= xya // XtY deflation
+      //val q_aa = sum(r_a *:* XY,Axis._0).t
+      var jj = 0
+      while(jj< M){
+        val q_aa = sum(t_a *:* Y(::,jj until L by M),Axis._0).t
+        val q_a = q_aa /:/ tt
+        val xya =p_a(*,::) *:* (tt *:* q_a)  // Y-loadings - ((K x 1)' * (K x M))' / tt === (M x 1) / tt
+        if (jj == M -1) Yhat(::,jj until L by M) += t_a(*,::) *:* q_a
+        XY(::,jj until L by M) :-= xya// XtY deflation
+        jj += 1
+      }
       P(a) = p_a
       R(a) = r_a
-      val Yhata = t_a(*,::) *:* q_a
-      Yhat += Yhata
+      //val Yhata = t_a(*,::) *:* q_a
       //beta(::,a*M until (a+1)*M) := R(::,0 to a) * Q(::,0 to a).t//.toDenseVector
       a += 1
       //beta(::, a) := R(::, 0 until a) * Q(::,0 until a).t
@@ -383,10 +404,14 @@ object plsCalc {
       //val Yest = gdofY(Y, rssfold(i-1), nPerm)
       val g = breeze.stats.distributions.Gaussian(0, rssfold(i-1))
       val ron = new DenseMatrix[Float](n,nPerm,g.sample(nPerm*n).toArray.map(_.toFloat))
-      val Yest = ron(::, *) + Y(::, Y.cols - 1)
-      val Ymean = utils.meanColumns(Yest)
-      val Ym = Yest - utils.vertcat(Ymean, Y.rows)
-      val Ye = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Y.rows)
+      val Yest = ron(::, *) + Y(::, m - 1)
+      val Yp = DenseMatrix.zeros[Float](n,m * nPerm)
+      (0 until m-1).foreach(i => Yp(::,i until m * nPerm by m) := tile(Y(::,i),1,nPerm))
+      Yp(::,m-1 until m * nPerm by m) := Yest
+      val Ymean = utils.meanColumns(Yp)
+      val Ym = Yp - utils.vertcat(Ymean, Y.rows)
+      val Yes = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Y.rows)
+      val Ye = Yes(::,m-1 until m * nPerm by m)
       pgdof(ron, Ye)
     }
     val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdoffold)
@@ -544,7 +569,29 @@ object plsCalc {
   def gdofPval2(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = {
     val (d,p) = gdofPlsPvalAll(X,Y,k)
     val corr = calculation.pearsonCorr(Y(::,0).toArray.map(_.toFloat),Y(::,1).toArray.map(_.toFloat))
-    val up = Array(1 to k:_*).map(i => calculation.brownTest(p.slice((i-1)*2,i*2),corr))
+    val up = Array(1 to k:_*).map(i => calculation.brownTest(p.slice((i-1)*2,i*2),Array(corr)))
     (d,p,up)
+  }
+  def ngdofPvalT(X:DenseMatrix[Float],Y:DenseMatrix[Float],nk:Int) = {
+    val ny = Y.cols -1
+    val inx = ny +: Seq(0 to (ny - 1):_*)
+    var Yi = Y
+    val k = scala.math.min(X.cols,nk)
+    var (df,pl) = ngdof(X,Yi,k)
+    //var pl = Array[Float]()
+    var i = 0
+    while (i < ny){
+      Yi = Y(::,inx).toDenseMatrix
+      val(dfi,pli) = ngdof(X,Yi,k)
+      df ++:= dfi
+      pl ++:= pli
+      i += 1
+    }
+    val corr = breeze.stats.covmat(convert(Y,Double))
+    var corrr = lowerTriangular(corr)
+    diag(corrr) := 0d
+    var fcor = corrr.toArray.filter( _ != 0d).map(_.toFloat)
+    val up = Array(0 to (k -1) :_*).map(i => calculation.brownTest(Array(i until k*(ny+1) by k :_*).map(pl(_)),fcor))
+    (df,pl,up)
   }
 }

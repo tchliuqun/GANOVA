@@ -80,3 +80,29 @@ console
 run
 console
 run
+eixt
+exit
+console
+exit
+console
+import breeze.linalg._
+import breeze.linalg.eigSym.EigSym
+import breeze.numerics._
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
