@@ -37,7 +37,8 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   var k = pm.k
   var perm = pm.perm
   var n = 0
-  var nActor:Int = pm.nactor
+  var cores = Runtime.getRuntime.availableProcessors()+1
+  var nActor:Int = if (cores > 50) 50 else cores//pm.nactor
   //var len = 900000
   var cnt = 0
   var diff = 0
