@@ -240,10 +240,10 @@ object plsCalc {
     val pval = new DenseVector[Float](dof.cols)
     for (i <- 0 until dof.cols){
       val fdist: FDistribution = new FDistribution(dof(0,i).abs, nm(0,i).abs)
-      pval(i) = 1.0f - fdist.cumulativeProbability(fval(0,i)).toFloat
+      val pv = (1.0d - fdist.cumulativeProbability(fval(0,i).toDouble)).toFloat
+      pval(i) = if (pv == 0f) 1e-16f else pv
     }
 
-    //val f = breeze.stats.distributions.FDistribution(dof, nm)
     return(pval)
   }
   def dofPval(Ys:DenseMatrix[Float],Ypred:DenseMatrix[Float],dof:Array[Float]) = {
@@ -391,26 +391,27 @@ object plsCalc {
   }
 
   def ngdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000): (Array[Float],Array[Float]) ={
-    val n = Y.rows
-    val m = Y.cols
+    val Ys = calculation.standardization(Y)
+    val n = Ys.rows
+    val m = Ys.cols
     val Xmean = utils.meanColumns(X)
     val Xm = X - utils.vertcat(Xmean, X.rows)
     val tenFold = plsCalc.kfoldInx(n,10,true)
-    val YpredTenFold = plsCalc.plsCV(X,Y,k,tenFold)
-    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,k))
-    val YY = Y(::,m -1).toDenseMatrix.t
-    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
+    val YpredTenFold = plsCalc.plsCV(X,Ys,k,tenFold)
+    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Ys,k))
+    val YY = Ys(::,m -1).toDenseMatrix.t
+    val rssfold = 0.6f * sqrt(plsCalc.rss(Ys,YpredTenFold))
     val gdoffold = Array(1 to k:_*).map { i => // plsCalc.gdof(X,Y,rssfold(i),i+1,1000,1))
       //val Yest = gdofY(Y, rssfold(i-1), nPerm)
       val g = breeze.stats.distributions.Gaussian(0, rssfold(i-1))
       val ron = new DenseMatrix[Float](n,nPerm,g.sample(nPerm*n).toArray.map(_.toFloat))
-      val Yest = ron(::, *) + Y(::, m - 1)
+      val Yest = ron(::, *) + Ys(::, m - 1)
       val Yp = DenseMatrix.zeros[Float](n,m * nPerm)
-      (0 until m-1).foreach(i => Yp(::,i until m * nPerm by m) := tile(Y(::,i),1,nPerm))
+      (0 until m-1).foreach(i => Yp(::,i until m * nPerm by m) := tile(Ys(::,i),1,nPerm))
       Yp(::,m-1 until m * nPerm by m) := Yest
       val Ymean = utils.meanColumns(Yp)
-      val Ym = Yp - utils.vertcat(Ymean, Y.rows)
-      val Yes = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Y.rows)
+      val Ym = Yp - utils.vertcat(Ymean, Ys.rows)
+      val Yes = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Ys.rows)
       val Ye = Yes(::,m-1 until m * nPerm by m)
       pgdof(ron, Ye)
     }

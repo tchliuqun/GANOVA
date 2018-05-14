@@ -19,7 +19,7 @@ object gPms {
   var rf:String = "geneSnpRange.txt"
   var ggf:String = "GOGeneList.txt"
   var gnf:String = "ensgGene.txt"
-  var glf:String= "GeneLoc.txt"
+  var glf:String= "geneLoc.txt"
   var slf:String= "snpLoc.txt"
   var gdf:String = "GOidDescript.txt"
   var rsf:String = "GBMsnp6Rs.txt"

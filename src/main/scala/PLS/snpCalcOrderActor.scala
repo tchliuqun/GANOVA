@@ -8,6 +8,9 @@ import breeze.linalg.DenseMatrix
 import myParallel.actorMessage
 import myParallel.actorMessage._
 import PLS.snpCalcActor._
+import akka.Done
+
+import scala.concurrent.Future
 object snpCalcOrderActor{
   val name = "snpCalcOrderActor"
   def props(pms:orderPms) = Props(classOf[snpCalcOrderActor],pms)
@@ -130,7 +133,9 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
         Array(0 until nActor:_*).map("/user/calc"+_).map(system.actorSelection(_)).foreach(_ ! PoisonPill)
         println(utils.currentTimeIn+s"calculation is done -- Order")
         self ! PoisonPill
-        system.shutdown()
+        val done: Future[Done] = CoordinatedShutdown(system).run()
+
+        //system.shutdown
       }
     }
     //case _ =>

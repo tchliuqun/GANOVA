@@ -5,6 +5,7 @@ import java.io.{FileWriter, PrintWriter}
 import breeze.linalg._
 
 import scala.math._
+import breeze.stats._
 import org.apache.commons.math3.stat.inference.TestUtils
 import org.apache.commons.math3.distribution._
 import org.apache.commons.math3.stat.regression._
@@ -105,6 +106,17 @@ object calculation {
     dm.delete(inx,Axis._1)
   }
 
+  def standardization(X:DenseMatrix[Float]) = {
+    val (m,n) = dim(X)
+    var rs = DenseMatrix.zeros[Float](m,n)
+    var i = 0
+    while(i< n){
+      val mv = meanAndVariance(X(::,i))
+      rs(::,i) := (X(::,i) - mv.mean.toFloat)/sqrt(mv.variance).toFloat
+      i += 1
+    }
+    rs
+  }
   def permPvalue[@specialized(Float,Double) T](x:T,dv: Array[T])(implicit n: Numeric[T]): Float = {
     import n._
     if (gteq(x, zero) && dv.count(gteq(_, zero)) > 0) dv.count { i => gteq(i, x) }.toFloat / dv.count(gteq(_, zero)).toFloat
@@ -211,10 +223,11 @@ object calculation {
   def brownTest(pval:Array[Float],cor:Array[Float]):Float = {
     if (pval.filter(i => i.isNaN | i.isInfinite).length > 0) {
       return 1f
-    }else if(pval.filter(_ == 0).length >0){
-      return 0f
+    }else {
+      if(pval.filter(_ == 0).length >0){
+      for (i <- 0 until pval.length) if (pval(i) == 0f) pval(i) = 1e-16f
+     // return 0f
     }
-    else{
     val (ts,dof) = Brown(pval,cor)
     return (1 - new ChiSquaredDistribution(dof).cumulativeProbability(ts)).toFloat
   }
