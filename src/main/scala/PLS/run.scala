@@ -32,7 +32,7 @@ object run extends App {
     mv(logfile, newlog)
   }
   // pakt and gene expression as phenotype data
-  if (false) {
+//  if (false) {
     val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
@@ -49,10 +49,10 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-  }
+//  }
 
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
-  //  if (false) {
+    if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
   //val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
   //val yy = scala.io.Source.fromFile(gPms.op+pfl).getLines.map(_.split("\t")).take(1).toArray.flatten//.map(_.slice(0,15))
@@ -67,7 +67,7 @@ object run extends App {
   srt ! snpCalcOrderActor.chrs(ch)
   srt ! snpCalcActor.calcPm(3)
   srt ! action
-  //  }
+    }
 
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
