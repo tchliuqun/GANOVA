@@ -54,14 +54,14 @@ object run extends App {
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
   //  if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
-  val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
-  val yy = scala.io.Source.fromFile(gPms.op+pfl).getLines.map(_.split("\t")).take(1).toArray.flatten//.map(_.slice(0,15))
-  val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-  val mcol =fileOper.intersectCols(xx,yy,ee)
+  //val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
+  //val yy = scala.io.Source.fromFile(gPms.op+pfl).getLines.map(_.split("\t")).take(1).toArray.flatten//.map(_.slice(0,15))
+  //val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+  //val mcol =fileOper.intersectCols(xx,yy,ee)
   val mgmt = fileOper.toArrays(gPms.op+pfl).filter(_ (0).contains("mgmt")).toArray.flatten
 
   val ch = Array(1 to 22: _*).map(_.toString)
-  val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7)//,efile = "")
+  val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,pfile = gPms.op+pfl)//,efile = "")
   val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
   srt ! snpCalcOrderActor.yArray(mgmt)
   srt ! snpCalcOrderActor.chrs(ch)
