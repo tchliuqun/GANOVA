@@ -108,3 +108,24 @@ console
 run
 console
 exit
+consol
+console
+run
+console
+exit
+console
+  def getkappa[@specialized(Float,Int) T](x1:DenseVector[T],x2:DenseVector[T])(implicit num: Numeric[T]) = {
+    import num._
+    val n = x1.length
+    val n1 = x1.t * x2
+    val n2 = x1.reduce(plus(_,_)) - n1
+    val n3 = x2.reduce(plus(_,_)) - n1
+    val n4 = n-n1-n2-n3
+    kappaTest(n1.toInt,n2.toInt,n3.toInt,n4.toInt)
+  }
+console
+run
+console
+run
+console
+run

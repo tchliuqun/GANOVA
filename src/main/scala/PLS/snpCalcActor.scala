@@ -37,9 +37,9 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
   var k = pms.k
   //var pk = pms.k
   var n = pms.n
-  var perm = if(pms.perm < 1)pms.Y.cols else pms.perm
-  var Y = pms.Y //DenseMatrix.zeros[Float](n,1)
+  var perm = pms.perm
   var permY = pms.Y//DenseMatrix.zeros[Float](n,perm)
+  var Y = permY(::,0).toDenseMatrix.t //DenseMatrix.zeros[Float](n,1)
   var looInx = pms.looInx//Array(0 until n :_*).map(Seq(_))
   var tenFold = pms.tenFold//plsCalc.kfoldInx(n,10,true)
   //var mcol = pms.mcol//:(Array[Int], Array[Int]) = (Array(0),Array(0))
@@ -103,11 +103,18 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
   var getRes:(DenseMatrix[Float],DenseMatrix[Float],Any) => String = (X:DenseMatrix[Float],Y:DenseMatrix[Float],pm:Any) => {
     //val grs = getGeneSnp(X)
     val pmls = pm.asInstanceOf[Int]//,Int,Int,Array[Seq[Int]],Array[Seq[Int]])]
+    val m = X.cols
+    val k = min(m,pmls)
     //genePval(grs).mkString("\t")
-    val rs = plsCalc.ngdofPvalT(X,Y,pmls)
-    rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
-  }
+    //val rs = plsCalc.ngdofPvalT(X,Y,k)
 
+
+    val rs = plsCalc.dofPvalA(X,Y,k)
+
+    val rsp = Array( 1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
+    rsp.mkString("\t")+"\t"+rs._1.mkString("\t")+"\t"+ rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")+"\t"+ rs._4.mkString("\t")+"\t"+ rs._5.mkString("\t")+"\t"+ rs._6.mkString("\t")
+    //rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
+  }
 
   def receive = {
     case wrt:writerName => {

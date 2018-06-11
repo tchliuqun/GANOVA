@@ -133,10 +133,26 @@ class calculationTest extends FlatSpec {
   val R = org.ddahl.rscala.RClient()
   R.x = X(::,150).toArray
   R.y = X(::,0).toArray
+
+
   val rrs = R.evalD0("cor(x,y)")
   val h = 0.05f
   val Y = vegas2.setPheno()(X)
   val n = Y.rows
+
+  R.X = JavaArrayOps.dmToArray2(X).map(_.map(_.toDouble))
+  R.Y = JavaArrayOps.dmToArray2(Y).flatten.map(_.toDouble)
+
+  val rcomm =  """
+              require(plsdof)
+             |pl = pls.model(X,Y,m=5,compute.DoF=TRUE)
+             |pld = pl$DoF
+           """.stripMargin
+
+  R eval rcomm.replaceAll("5",k.toString)
+
+  val plsdof = R.getD1("pld")
+
   val k = 3
   val num = 20
   val tenFold = plsCalc.kfoldInx(n, 10, true)

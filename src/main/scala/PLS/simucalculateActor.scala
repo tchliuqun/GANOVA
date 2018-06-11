@@ -1,24 +1,24 @@
 package PLS
 
-//import PLS.simumasterActor.done
 import PLS.snpCalcActor.writerName
-
 import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 //import akka.actor.Status.Success
 import akka.actor._
+import breeze.linalg._
 import myParallel.actorMessage._
 import simucalculateActor._
 import akka.pattern.ask
-
 import scala.concurrent.Future
+
 object simucalculateActor{
   val name = "simucalculateActor"
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f))
+  case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class geneList(glist:Array[String])
-  case class gList(glist:Array[String],n:Int = 2 )
+  case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  case class calfunc(func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String])
   //case class
 }
 
@@ -28,6 +28,9 @@ class simucalculateActor(pms:Pms) extends Actor{
   //var vegasA:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.fil))
   var H = pms.H
   var times = pms.times
+  var k = pms.k
+  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
+
   def simugenNo(glists:Array[String]) = {
     val glist = glists.slice(0, 4)
     var rsm:Map[String,Array[String]] = Map()
@@ -67,8 +70,8 @@ class simucalculateActor(pms:Pms) extends Actor{
           val sr = i+"_"+h
 
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Y)).mapTo[(String,Array[Float])]
-          val plsP = plsCalc.gdofPlsPval(X,Y,2)._2
-          rsm += (sr -> plsP.map(_.toString))
+          val plsP = calculiting(X,Y,k)
+          rsm += (sr -> plsP)
           future2 onComplete{
             case Success(f) =>{
               val rs = (glists ++f._2++ rsm(f._1) :+f._1.split("_").apply(1)).mkString("\t")
@@ -107,6 +110,7 @@ class simucalculateActor(pms:Pms) extends Actor{
 //      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
 //      vgs = Some(system.actorSelection("/user/"+glist(3)))
 //    }
+
     val file = new java.io.File(gPms.tp+glist(3)+".gen")
     if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
     //val vegas2a = system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3)+utils.getTimeForFile)
@@ -123,13 +127,13 @@ class simucalculateActor(pms:Pms) extends Actor{
       while (i < rl) {
         var j = 0
         while(j < n) {
-          if(false) {
+//          if(false) {
             val Y = vegas2.setPheno(h, i, false)(X)
             val sr = j + "_" + h + "\t" + i
 
             val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
-            val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
-            rsm += (sr -> plsP.map(_.toString))
+            val plsP = calculiting(X, Y, k)
+            rsm += (sr -> plsP)
             future2 onComplete {
               case Success(f) => {
                 val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
@@ -139,12 +143,15 @@ class simucalculateActor(pms:Pms) extends Actor{
               }
               case Failure(t) => println("An error has occured: " + t.getMessage)
             }
-          }
+//          }
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          j += 1
+          if (false) {
+            val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+            writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+
+            //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+            j += 1
+          }
         }
         i += 1
       }
@@ -161,10 +168,13 @@ class simucalculateActor(pms:Pms) extends Actor{
       sender ! done(0)
     }
     case gList:gList =>{
+      this.calculiting = gList.func
       simugenNo1(gList.glist,gList.n)
       sender ! done(0)
     }
+    case func:calfunc => {
+      this.calculiting = func.func
+    }
     case don:done => sender ! done(0)
   }
-
 }

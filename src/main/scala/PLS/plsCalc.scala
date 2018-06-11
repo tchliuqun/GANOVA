@@ -3,6 +3,7 @@ package PLS
 import breeze.linalg._
 import breeze.linalg.eigSym.EigSym
 import breeze.numerics._
+import breeze.util._
 //import breeze.stats.regression.leastSquares
 import org.apache.commons.math3.distribution.FDistribution
 
@@ -96,14 +97,15 @@ object plsCalc {
     // compute the regression coefficients; (K x M)
     beta
   }
-  def plsP(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int,nPerm:Int = 1000): DenseMatrix[Float] = {
+  def plsP(X: DenseMatrix[Float], Y: DenseMatrix[Float], A: Int,nPerm:Int = 1000) = {
     val K = X.cols // number of columns in X - number of predictor variables
-
     val N = X.rows // number of rows in X === number of rows in Y - number of observations of predictor and response variables
     val L = Y.cols
     val M = L/nPerm//Y.cols // number of columns in Y - number of response variables
     val P: Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
+    //val Q: DenseMatrix[Float] = DenseMatrix.zeros[Float](M, A) // (M x A)
     var Yhat: DenseMatrix[Float] = DenseMatrix.zeros[Float](N, L) // (M x A)
+    var beta: DenseMatrix[Float] = DenseMatrix.zeros[Float](K, L)
     val R:Array[DenseMatrix[Float]] = Array.fill(A)(DenseMatrix.zeros[Float](K, L)) // (K x A)
     var w_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,nPerm) // (K x 1) - column vector of W
     var p_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of P
@@ -111,7 +113,6 @@ object plsCalc {
     var r_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](K,L) // (K x 1) - column vector of R
     var t_a: DenseMatrix[Float] = DenseMatrix.zeros[Float](N,L) // (N x 1) - column vector of T [which is N x A]
     var tt: DenseVector[Float] = DenseVector.zeros[Float](L)
-
     var XY: DenseMatrix[Float] = X.t * Y // compute the covariance matrices; (K x M) matrix
     var a :Int = 0
     // A = number of PLS components to compute
@@ -151,36 +152,58 @@ object plsCalc {
         val q_aa = sum(t_a *:* Y(::,jj until L by M),Axis._0).t
         val q_a = q_aa /:/ tt
         val xya =p_a(*,::) *:* (tt *:* q_a)  // Y-loadings - ((K x 1)' * (K x M))' / tt === (M x 1) / tt
-        if (jj == M -1) Yhat(::,jj until L by M) += t_a(*,::) *:* q_a
-        XY(::,jj until L by M) :-= xya// XtY deflation
+        if (jj == M -1) {
+          Yhat(::,jj until L by M) += t_a(*,::) *:* q_a
+          beta(::,jj until L by M) += r_a(*,::) *:* q_a
+        }
+        XY(::,jj until L by M) :-= xya // XtY deflation
         jj += 1
       }
       P(a) = p_a
       R(a) = r_a
+      //Q(::, a) := q_a
       //val Yhata = t_a(*,::) *:* q_a
-      //beta(::,a*M until (a+1)*M) := R(::,0 to a) * Q(::,0 to a).t//.toDenseVector
+      //beta(::,a*L until (a+1)*L) := R(::,0 to a) * Q(::,0 to a).t//.toDenseVector
       a += 1
       //beta(::, a) := R(::, 0 until a) * Q(::,0 until a).t
     }
-    Yhat
+    (Yhat,beta)
   }
 
+  def plsAdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = {
+    val rs = plsCalc.dofPvalA(X,Y,k)
+    Array(Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000)),rs._1.map(_.toFloat),rs._2,rs._3,rs._4,rs._5,rs._6).map(_.mkString("\t"))
+
+  }
+
+  def plsSimu(X:DenseMatrix[Float],h:Float,k:Int) = {
+    val pcs1 = princomp(convert(X,Double)).scores
+    val mav1 = breeze.stats.meanAndVariance(pcs1(::, 0))
+    var pc11 = convert((pcs1(::, 0) - mav1.mean) / sqrt(mav1.variance),Float)
+    val theta1 = vegas2.getTheta(pc11)
+    //val theta2 = vegas2.getTheta(pc11)
+    val Y = (sqrt(h) * pc11 + sqrt(1 - h) * theta1).toDenseMatrix.t
+    plsAdof(X,Y,k)
+  }
 
   def permY(Y: DenseMatrix[Float],times:Int):DenseMatrix[Float] = {
-    val n = Y.rows
+    //val n = Y.rows
     val y = Y.toDenseVector
-    val inx = Seq(0 until n: _*)
-    val res = DenseMatrix.zeros[Float](n,times+1)
-    res(::,0) := y
-    if(times > 0){
-      var i:Int = 1
-      while(i < times) {
-        res(::,i) := y(scala.util.Random.shuffle(inx))
-        i += 1
-      }
-    }
-    res
+    calculation.permY(y,times)
+//    val inx = Seq(0 until n: _*)
+//    val res = DenseMatrix.zeros[Float](n,times+1)
+//    res(::,0) := y
+//    if(times > 0){
+//      var i:Int = 1
+//      while(i < times) {
+//        res(::,i) := y(scala.util.Random.shuffle(inx))
+//        i += 1
+//      }
+//    }
+//    res
   }
+
+
   def permT(X:DenseMatrix[Float],permY:DenseMatrix[Float],Yot:DenseMatrix[Float],k:Int = 3) = {
     var i = 0
     val perm = permY.cols
@@ -390,16 +413,30 @@ object plsCalc {
     return(sum(h))
   }
 
-  def ngdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000): (Array[Float],Array[Float]) ={
-    val Ys = calculation.standardization(Y)
+  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
+
+    //val R = org.ddahl.rscala.RClient()
+    R.X = JavaArrayOps.dmToArray2(X).map(_.map(_.toDouble))
+    R.Y = JavaArrayOps.dmToArray2(Y).flatten.map(_.toDouble)
+
+    val rcomm =  """
+              require(plsdof)
+             |pl = pls.model(X,Y,m=6,compute.DoF=TRUE)
+             |pld = pl$DoF
+           """.stripMargin
+
+    R eval rcomm.replaceAll("6",k.toString)
+
+    R.getD1("pld")
+
+  }
+  def ngdof(X:DenseMatrix[Float], Ys:DenseMatrix[Float], k:Int = 1, nPerm:Int = 1000) = {
     val n = Ys.rows
     val m = Ys.cols
     val Xmean = utils.meanColumns(X)
     val Xm = X - utils.vertcat(Xmean, X.rows)
     val tenFold = plsCalc.kfoldInx(n,10,true)
     val YpredTenFold = plsCalc.plsCV(X,Ys,k,tenFold)
-    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Ys,k))
-    val YY = Ys(::,m -1).toDenseMatrix.t
     val rssfold = 0.6f * sqrt(plsCalc.rss(Ys,YpredTenFold))
     val gdoffold = Array(1 to k:_*).map { i => // plsCalc.gdof(X,Y,rssfold(i),i+1,1000,1))
       //val Yest = gdofY(Y, rssfold(i-1), nPerm)
@@ -411,14 +448,56 @@ object plsCalc {
       Yp(::,m-1 until m * nPerm by m) := Yest
       val Ymean = utils.meanColumns(Yp)
       val Ym = Yp - utils.vertcat(Ymean, Ys.rows)
-      val Yes = plsP(Xm, Ym, i) + utils.vertcat(Ymean, Ys.rows)
+      val Yms = plsP(Xm, Ym, i)
+      val Yes = Yms._1 + utils.vertcat(Ymean, Ys.rows)
       val Ye = Yes(::,m-1 until m * nPerm by m)
       pgdof(ron, Ye)
     }
-    val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdoffold)
-    (gdoffold,pval)
+    gdoffold
   }
+  def ngdofP(X:DenseMatrix[Float], Y:DenseMatrix[Float], k:Int = 1, nPerm:Int = 1000): (Array[Float],Array[Float]) ={
+    val Ys = calculation.standardization(Y)
+    //val n = Y.rows
+    val m = Ys.cols
+    val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))
+    val YY = Ys(::, m - 1).toDenseMatrix.t
+    val gdof = ngdof(X,Ys,k,nPerm)
+   //val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))
+    val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdof)
+    (gdof,pval)
+  }
+  def dofPvalA(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000) = {
+    val Ys = calculation.standardization(Y)
+    val n = Ys.rows
+    val m = Ys.cols
+    val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))
+    val YY = Ys(::, m - 1).toDenseMatrix.t
+    //    val coef = plsTrain(X,Y,k)
+    //    val Yhat = predict(X, coef)
 
+    //val tenFold = kfoldInx(n,10,true)
+    val looInx = Array(0 until n :_*).map(Seq(_))
+    //val YpredTenFold = plsCV(X,Y,k,tenFold)
+    val YpredLoo = plsCV(X,Ys,k,looInx)
+    //val pdof= pdof(Y,Yhat(::,0).asDenseMatrix.t,YpredTenFold)
+    //??
+    val pdofl = pdof(YY,Yhat(::,m-1 until Yhat.cols by m),YpredLoo).toArray
+    //val meanY = sum(Y)/n
+
+    val gdof = ngdof(X,Ys,k,nPerm)
+    val kdof = kramerDof(X,Ys,k)
+    val ppval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),pdofl)
+    val gpval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdof)
+    val kpval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),kdof.drop(1).map(_.toFloat))
+    (kdof,kpval,pdofl,ppval,gdof,gpval)
+
+  }
+  def plsPerm(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000) = {
+    val YY = plsCalc.permY(Y,nPerm)
+    val y0 = plsCalc.plsP(X,YY,k,nPerm)
+    val py = plsCalc.rss(YY,y0._1)
+    (1.0f/nPerm) * sum(py.map(i => if(i < py(0)) 1 else 0))
+  }
   case class plsResult(Xm:DenseMatrix[Float],Ym:DenseMatrix[Float],mod:DenseMatrix[Float])
 
   def gdofAll(X:DenseMatrix[Float],Y:DenseMatrix[Float],theta:Float,k:Int =1,nPerm:Int = 1000,ncor:Int = 1) = {
@@ -578,12 +657,12 @@ object plsCalc {
     val inx = ny +: Seq(0 to (ny - 1):_*)
     var Yi = Y
     val k = scala.math.min(X.cols,nk)
-    var (df,pl) = ngdof(X,Yi,k)
+    var (df,pl) = ngdofP(X,Yi,k)
     //var pl = Array[Float]()
     var i = 0
     while (i < ny){
       Yi = Y(::,inx).toDenseMatrix
-      val(dfi,pli) = ngdof(X,Yi,k)
+      val(dfi,pli) = ngdofP(X,Yi,k)
       df ++:= dfi
       pl ++:= pli
       i += 1

@@ -214,6 +214,6 @@ object vegas2 {
     val X = vegasX(glist)
     val Y = spheno(X)
     val pval = vegasP(glist,Y)
-    pval ++ plsCalc.ngdof(X,Y,n)._2
+    pval ++ plsCalc.ngdofP(X,Y,n)._2
   }
 }

@@ -15,7 +15,7 @@ import akka.pattern.ask
 import akka.util.Timeout
 import scala.concurrent._//{Await, ExecutionContext, Future}
 import scala.concurrent.duration._
-
+import breeze.linalg._
 
 //import scala.concurrent.Future
 import scala.util.Try
@@ -32,8 +32,8 @@ object run extends App {
     mv(logfile, newlog)
   }
   // pakt and gene expression as phenotype data
-//  if (false) {
-    val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
+  if (false) {
+  val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val mcol =fileOper.intersectCols(xx,yy,ee)
@@ -49,7 +49,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-//  }
+  }
 
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
@@ -68,10 +68,21 @@ object run extends App {
   srt ! snpCalcActor.calcPm(3)
   srt ! action
     }
+  // 2018-5-20 gsea analysis for the results
+  if (false) {
+    val orderpms = pathwayDispatchActor.pathwayPms()//,efile = "")
+    val srt = system.actorOf(pathwayDispatchActor.props(orderpms), "srt")
+    srt ! action
+  }
 
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
   if (false) {
+//    val t1 = System.nanoTime()
+//    //plsCalc.gdofPval2(X1,Y0,2)
+//    val rss = calculation.sgsea(gs,rs)
+//    val t2 = System.nanoTime()
+//    val lapse1 = (t2 - t1) / 1e9d
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array( 0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
@@ -85,6 +96,19 @@ object run extends App {
       srt ! SnpProcessActor.chr(Array("15"))
     }
   }
+  // 2018-6-11 15:20 testing different dof calculating method and compare to permutation results of PLS
+//  if (false) {
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, 0f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof(_,_,_))
+    val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
+    println("start")
+    //implicit val timeout = Timeout(999 hours)
+    //val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
+    //val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
+    //al glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
+    srt ! SnpProcessActor.chr(Array("15"))//simucalculateActor.gList(glist, 20)
+
+
+//  }
 
   // testing parallel with future class
   if(false){
@@ -183,7 +207,7 @@ object run extends App {
 
   }
 
-  // testin parallel writing
+  // testing parallel writing
 if (false) {
   val filn = myParallel.paraWriterActor.fileName(gPms.rp +"tests.txt")
   val filn1 = myParallel.paraWriterActor.fileName(gPms.rp +"tests1.txt")

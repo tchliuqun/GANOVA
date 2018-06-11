@@ -3,16 +3,18 @@ package PLS
 import java.io.{FileWriter, PrintWriter}
 
 import breeze.linalg._
-
-import scala.math._
+//import scala.math._
+//import scala.math._
 import breeze.stats._
+import breeze.math._
+import breeze.numerics._
 import org.apache.commons.math3.stat.inference.TestUtils
 import org.apache.commons.math3.distribution._
 import org.apache.commons.math3.stat.regression._
-
+import PLS.parFunction._
 import scala.collection.mutable.ArrayBuffer
 import scala.io.Source.fromFile
-
+import scala.math.Numeric
 
 //import scala.annotation.tailrec
 //import org.scalameter._
@@ -130,6 +132,7 @@ object calculation {
     ct.toFloat / (dv.size -1)
   }
 
+
   def csum(end:Int,start:Int):Int = {
     var msum = 0
     var i = start + 1
@@ -193,6 +196,7 @@ object calculation {
     }
     return(hotell)
   }
+
   def HotellingTest(rho:DenseVector[Float],N:Int,p:Int,q:Int) = {
     val minpq = scala.math.min(p,q)
     val hotell = HotellingLawleyTrace(rho,p,q)
@@ -210,6 +214,7 @@ object calculation {
     }
     (hotell,Hotelling,pVal,df1,df2)
   }
+
   def Brown(pval:Array[Float],cor:Array[Float])={
     val N = pval.length
     val T0 = pval.filter(i=> !i.isNaN & i != 0f).map(log10(_)/log10(Math.E)).sum
@@ -220,6 +225,7 @@ object calculation {
     val T = -2 * T0/c
     (T,dof)
   }
+
   def brownTest(pval:Array[Float],cor:Array[Float]):Float = {
     if (pval.filter(i => i.isNaN | i.isInfinite).length > 0) {
       return 1f
@@ -231,6 +237,22 @@ object calculation {
     val (ts,dof) = Brown(pval,cor)
     return (1 - new ChiSquaredDistribution(dof).cumulativeProbability(ts)).toFloat
   }
+
+  }
+  def permY(Y: DenseVector[Float],times:Int):DenseMatrix[Float] = {
+    val n = Y.length
+    //val y = Y.toDenseVector
+    val inx = Seq(0 until n: _*)
+    val res = DenseMatrix.zeros[Float](n,times+1)
+    res(::,0) := Y
+    if(times > 0){
+      var i:Int = 1
+      while(i < times) {
+        res(::,i) := Y(scala.util.Random.shuffle(inx))
+        i += 1
+      }
+    }
+    res
   }
 
   def wilksLambda(rho:DenseVector[Float],N:Int,p:Int,q:Int)= {
@@ -284,6 +306,152 @@ object calculation {
       return(regression.getSignificance.toFloat)
     }
   }
+//  def filterDuplicateColumn(dm:DenseMatrix[Double]):DenseMatrix[Double] ={
+//    val covi = breeze.linalg.cov(Standardize.scaleColumns(dm))
+//    val inx:Seq[Int] = covi.findAll(_ > 0.9999).filter(i => i._2 > i._1).map(_._2).distinct
+//    dm.delete(inx,Axis._1)
+//  }
+  def sgsea(gs:DenseMatrix[Float],rs:DenseVector[Float]) = {
+    val psum = gs.rows
+    val gcol = gs.cols
+    val asum = sum(gs(::,*)).t
+    val nsum = psum.toFloat - asum
+    val rst = DenseVector.zeros[Float](gcol)
+    val nrst = DenseVector.zeros[Float](gcol)
+    val rss = breeze.numerics.abs(rs)
+    val gss = gs(::,*) *:* rss
+    val ngs = 1f - gs
+    val posd = sum(gss(::,*)).t
+    val res =  gss(*,::) /:/ posd - ngs(*,::) /:/ nsum
+    val results = accumulate(res(::,*))
+    val mins = min(results(::,*))
+    val maxs = max(results(::,*))
+    for ( i <- 0 until gcol) {
+      val es = if (abs(mins(i)) > maxs(i)) mins(i) else maxs(i)
+      rst(i) = es
+      nrst(i) = nes(es,results(::,i).toArray)
+    }
+    (rst,nrst,results)
+  }
+  def gseaP(gs:DenseMatrix[Float],rs:DenseVector[Float],perm:Int = 1000,cores:Int = 1) = {
+    val rsp = calculation.permY(rs,perm)
+    val rsd = DenseMatrix.zeros[Float](perm,gs.cols)
+    var i = 0
+//    while(i< perm){
+//      rsd(i,::) := calculation.sgsea(gs,rsp(::,i).toDenseVector)._2.t
+//      i += 1
+//    }
+    parFunction.threshold = perm/cores
+    parFunction.mapPar(Array(1 to perm :_*)){ i =>
+//      rsd(i,::) := DenseVector(Array.fill(gs.cols)(0.1f)).t;0
+     rsd(i,::) := calculation.sgsea(gs,rsp(::,i).toDenseVector)._2.t;0
+    }
+//    Array(1 to perm :_*).par.foreach{ i =>
+//      rsd(i,::) := DenseVector(Array.fill(gs.cols)(0.1f)).t
+////     rsd(i,::) := calculation.sgsea(gs,rsp(::,i).toDenseVector)._2.t;0
+//    }
+    val rss = calculation.sgsea(gs,rs)
+    val pv = DenseVector.fill(gs.cols,0f)
+    i = 0
+    while (i< gs.cols){
+      val rsv = rss._2.apply(i)
+      if (rsv < 0){
+        val sm = rsd(::,i) <:< rsv //._2.apply(i)
+        pv(i) = sum(sm.map(i => if (i)1f else 0f))/perm
+      } else{
+        val sm = rsd(::,i) >:> rsv //._2.apply(i)
+        pv(i) = sum(sm.map(i => if (i)1f else 0f))/perm
+      }
+      i += 1
+    }
+    (rss._1,rss._2,pv)
+  }
+
+
+  def gsea(gss: Array[Float], rss: Array[Float]):(Float,Array[Float]) = {
+    //    val rs = rss.map(abs(_))
+    val len = rss.length
+    var rs = new Array[Float](len)
+    var posd = 0f
+    var i:Int = 0
+    var ngss = 0f
+    var gsssum = 0f
+    while( i < len) {
+      val temp = if (rss(i) < 0) -rss(i) else rss(i)
+      rs(i) = temp
+      posd = posd+ gss(i) * temp
+      gsssum = gsssum + gss(i)
+      ngss = ngss + 1f
+      i += 1
+    }
+    val negd = ngss - gsssum
+
+    var j = 0
+    var res = new Array[Float](len)
+    var minresult = 0f
+    var maxresult = 0f
+    var result = 0f
+    while( j < len)  {
+      result = result + gss(j) * rs(j) /posd  - (1f - gss(j))/negd
+      res(j) = result
+      minresult = if (minresult < result) minresult else result
+      maxresult = if (maxresult > result) maxresult else result
+      j += 1
+    }
+    val reslt = if(scala.math.abs(minresult) > maxresult) minresult else maxresult
+    (reslt,res)
+  }
+  def gseaPerm(gss: Array[Float], rss: Array[Float]):Float = {
+    //    import n._
+    //val rs = rss.map(abs(_))
+    val len = rss.length
+    var rs = new Array[Float](len)
+    var posd = 0f
+    var i:Int = 0
+    var ngss = 0f
+    var gsssum = 0f
+    while( i < len) {
+      val temp = if (rss(i) < 0) -rss(i) else rss(i)
+
+      rs(i) = temp
+      posd = posd+ gss(i) * temp
+      gsssum = gsssum + gss(i)
+      ngss = ngss + 1f
+      i += 1
+
+    }
+    val negd = ngss - gsssum
+
+    //@tailrec def gseainner(gss:Array[Float],rss:Array[Float],posdiv:Float,negdiv:Float,sigresult:Float,minresult: Float,maxresult :Float,result: List[Float]):(Float,Float,List[Float]) ={
+    i = 0
+    var minresult = 0f
+    var maxresult = 0f
+    var result = 0f
+    while( i < len)  {
+      result = result + gss(i) * rs(i) /posd  - (1f - gss(i))/negd
+      minresult = if (minresult < result) minresult else result
+      maxresult = if (maxresult > result) maxresult else result
+      i += 1
+    }
+    val reslt = if(scala.math.abs(minresult) > maxresult) minresult else maxresult
+    reslt
+  }
+  def nes[@specialized(Float) T](x:T,dv: Array[T])(implicit n: Numeric[T]): Float = {
+    import n._
+    //    val dvar = dv.toArray
+    if (gteq(x, zero)) x.toFloat * dv.count(gteq(_, zero)).toFloat / dv.filter(gteq(_, zero)).sum.toFloat
+    else
+      x.toFloat * dv.count(lteq(_, zero)).toFloat / dv.filter(lteq(_, zero)).sum.toFloat
+  }
+
+//  def nes(x:Float,dv: DenseVector[Float]): Float = {
+//    //import n._
+//    //    val dvar = dv.toArray
+//    num = dv.size
+//    if (x > 0f) x * dv.filter(_ > 0).length.toFloat / dv.filter(gteq(_, zero)).sum.toFloat
+//    else
+//      x.toFloat * dv.count(lteq(_, zero)).toFloat / dv.filter(lteq(_, zero)).sum.toFloat
+//  }
   def linearPvall(pf:String = gPms.op+gPms.pf,df:String =gPms.op+gPms.df,af:String =gPms.op+gPms.af,of:String = gPms.op+"snp6pval.txt") = {
     val x = scala.io.Source.fromFile(df).getLines.map(_.split(",")).take(1).toArray.flatten
     val y = scala.io.Source.fromFile(pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
@@ -330,6 +498,37 @@ object calculation {
     rs.toArray
     //writer.close
   }
+  def fisherMatrix(gs:DenseMatrix[Float],anno:Array[Array[String]],num:Int) = {
+    val t4 = gs.rows
+    val m = gs.cols
+    val tgs = gs(0 until num,::)
+    val t1 = sum(tgs(::,*)).t.toArray.map(_.toInt)
+    val t2 = sum(gs(::,*)).t.toArray.map(_.toInt)
+    val no = anno(0).length - 1
+    //Array(0 until m :_*).map(i => anno(i) +: calculation.fisherTest(t1(i),t2(i),num,t4).toString).sortBy(_(no).toFloat)
+    Array(0 until m :_*).map(i => (anno(i),t1(i),t2(i), calculation.fisherTest(t1(i),t2(i),num,t4))).sortBy(_._4)
+  }
+
+  def BenjaminiHochbergFDR(p:Array[Float]):Array[Float] = {
+    val po = p.sorted
+    val n = p.length
+    val rs = Array.fill(n)(0f)
+    rs(n-1) = po(n-1)
+    var i = n-2
+    var un = po(n-1)
+    var left = 0f
+    var right = 0f
+    var bm = i+1
+    while( i > -1){
+      un = po(i)
+      bm = i+1
+      left = rs(bm)
+      right = (n/bm)*un
+      rs(i) = math.min(left,right)
+      i -= 1
+    }
+    return(rs)
+  }
 
   def chisqTestwithCorrect(a1:Int,b1:Int,c1:Int,d1:Int):Float = {
     val a = BigDecimal(a1)
@@ -345,6 +544,18 @@ object calculation {
   def chisqPvalue(chisq:Float,k:Int):Float = {
     val pval = new ChiSquaredDistribution(k.toDouble).cumulativeProbability(chisq).toFloat
     1-pval
+  }
+
+  def reverseChisq(pval:Array[Float],dof:Int = 1):Array[Float] = {
+    val pd = new ChiSquaredDistribution(dof.toDouble)//.cumulativeProbability(chisq).toFloat
+    var i = 0
+    val n = pval.length
+    val rs = Array.fill(n)(0f)
+    while (i< n){
+      rs(i) = pd.inverseCumulativeProbability(1f-pval(i)).toFloat
+      i += 1
+    }
+    return(rs)
   }
 
   def fisherValue(a:Int,b:Int,c:Int,d:Int):Float = {
@@ -364,6 +575,7 @@ object calculation {
 
     (BigDecimal(logdc*logca*logbd) / BigDecimal(logn * logab)).toFloat
   }
+
   def fisherTest(a:Int,b:Int,c:Int,d:Int):Float = {
     //val row = a+b
     //val col = a+c
@@ -382,6 +594,31 @@ object calculation {
     val n4 = n - n1 - n2 - n3
     kappaTest(n1,n2,n3,n4)
   }
+  def getkappa[@specialized(Float,Int) T](x1:DenseVector[T],x2:DenseVector[T])(implicit num: Numeric[T]) = {
+
+    import num._
+    val x11 = x1.map(_.toInt)
+    val x22 = x2.map(_.toInt)
+    val n = x11.length
+    val n1 = x11.t * x22
+    val n2 = sum(x11) - n1
+    val n3 = sum(x22) - n1
+//    val n2 = x1.reduce(plus(_,_)) - n1
+//    val n3 = x2.reduce(plus(_,_)) - n1
+    val n4 = n-n1-n2-n3
+    kappaTest(n1,n2,n3,n4)
+  }
+
+  def getkappa(x1:DenseVector[Float],x2:DenseVector[Float]) = {
+    val n = x1.length
+    val n1 = (x1.t * x2).toInt
+    val n2 = sum(x1).toInt - n1
+    val n3 = sum(x2).toInt - n1
+    val n4 = n-n1-n2-n3
+    kappaTest(n1,n2,n3,n4)
+  }
+
+
   def kappaMap[T](x:Array[(String,Set[T])],g0 : (String,Set[T]),n:Int = -1,thresh:Float = 0.1f)= {
     val num = if(n<0)x.flatMap(_._2).toSet.size else n
     val len = x.length

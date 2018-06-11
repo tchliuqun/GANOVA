@@ -1,30 +1,36 @@
 package PLS
 
-import PLS.SnpProcessActor.chr
 import akka.actor._
-import myParallel.actorMessage.{done, system}
-import myParallel.paraWriterActor
-import myParallel.paraWriterActor._
 import simumasterActor._
+import simucalculateActor._
+import myParallel.actorMessage._
+import SnpProcessActor._
+import breeze.linalg._
+import myParallel._
+import myParallel.paraWriterActor._
+
 object simumasterActor{
   val name = "simumasterActor"
   def props(fil:Pms) = Props(classOf[simumasterActor],fil)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f))
+  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class coreNum(num:Int)
 }
 
-class simumasterActor(pms:Pms) extends Actor{
+class simumasterActor(pms:simumasterActor.Pms) extends Actor{
+
   var ofile = pms.fil
   var wname = "simuWriter"
   var count = 0
   var doneNum = 0
   var times = pms.times
   var H = pms.H
-  var cores = Runtime.getRuntime.availableProcessors()+1
+  var k = pms.k
+  var cores = Runtime.getRuntime.availableProcessors()-1
   var glists:Array[Array[String]] = Array(Array(""))
   var order:Option[ActorRef] = None
   var writer:Option[ActorRef] = None
   var calculaters:Array[Option[ActorRef]] = Array(None)
+  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] =pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
   var tlen = 0
   def getGlist(chr:String) {
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
@@ -38,7 +44,10 @@ class simumasterActor(pms:Pms) extends Actor{
     case corenums:coreNum =>{
       this.cores = corenums.num
     }
-    case chr:chr =>{
+    case func:calfunc => {
+      this.calculiting = func.func
+    }
+    case chr:SnpProcessActor.chr =>{
       order = Some(sender)
       val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
       writer = Some(wrt)
@@ -55,14 +64,15 @@ class simumasterActor(pms:Pms) extends Actor{
         cores = glists.length
         //sleep
       }
-      val pms = simucalculateActor.Pms(wname,times,H)
+      val pms = simucalculateActor.Pms(wname,times,H,this.k,this.calculiting)
       //Array(0 until cores:_*).foreach(i =>
       var ii  = 0
         while (ii < cores){
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+ii)
         calculaters :+= Some(actr)
           system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
-        actr !  simucalculateActor.geneList(glists(count))
+        //actr ! simucalculateActor.calfunc(this.calculiting)
+          actr !  simucalculateActor.geneList(glists(count))
         Thread.sleep(myParallel.actorMessage.fs.length+100)
         count += 1
         println("processing No." + count)
@@ -73,7 +83,7 @@ class simumasterActor(pms:Pms) extends Actor{
       order = Some(sender)
       val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
       writer = Some(wrt)
-      if (cores > 5) cores = 5
+      if (cores > 50) cores = 50
       this.tlen = cores * gList.n
 
       println("starting writer")
@@ -95,6 +105,9 @@ class simumasterActor(pms:Pms) extends Actor{
         count += 1
         println("processing No." + count)
       })
+    }
+    case func:calfunc => {
+      this.calculiting = func.func
     }
 
     case don:done => {

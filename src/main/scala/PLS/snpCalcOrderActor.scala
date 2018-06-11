@@ -37,7 +37,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   var k = pm.k
   var perm = pm.perm
   var n = 0
-  var cores = Runtime.getRuntime.availableProcessors()+1
+  var cores = Runtime.getRuntime.availableProcessors()-1
   var nActor:Int = if (cores > 50) 50 else cores//pm.nactor
   //var len = 900000
   var cnt = 0
@@ -64,7 +64,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
     this.looInx = Array(0 until n :_*).map(Seq(_))
     this.tenFold = plsCalc.kfoldInx(n,10,true)
     this.Y = new DenseMatrix(n,1,mcol._2.map(y(_)).map(_.toFloat))
-    if(perm > 0) this.permY = plsCalc.permY(Y,perm)
+    this.permY = if(perm > 0) plsCalc.permY(Y,perm) else this.Y
   }
 //  override def preStart { println("kenny: prestart") }
 
@@ -79,7 +79,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   }
 
   def makeActor() = {
-    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,Y,looInx,tenFold,this.ofile.replaceFirst("/",""))
+    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,permY,looInx,tenFold,this.ofile.replaceFirst("/",""))
     Array(0 until nActor:_*).map(i => system.actorOf(snpCalcActor.props(calcPm),"calc"+i))
     val wrt = system.actorOf(myParallel.paraWriterActor.props(myParallel.paraWriterActor.fileName(this.ofile)),"writer")
 
