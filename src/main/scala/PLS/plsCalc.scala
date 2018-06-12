@@ -171,8 +171,9 @@ object plsCalc {
   }
 
   def plsAdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = {
-    val rs = plsCalc.dofPvalA(X,Y,k)
-    Array(Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000)),rs._1.map(_.toFloat),rs._2,rs._3,rs._4,rs._5,rs._6).map(_.mkString("\t"))
+    val kk = min(X.cols,k)
+    val rs = plsCalc.dofPvalA(X,Y,kk)
+    Array(Array(1 to kk:_*).map(i => plsCalc.plsPerm(X,Y,i,10000)),rs._1.map(_.toFloat),rs._2,rs._3,rs._4,rs._5,rs._6).map(_.mkString("\t"))
 
   }
 
@@ -413,9 +414,9 @@ object plsCalc {
     return(sum(h))
   }
 
-  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
+  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1):Array[Double]  = {//,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
 
-    //val R = org.ddahl.rscala.RClient()
+    val R = org.ddahl.rscala.RClient()
     R.X = JavaArrayOps.dmToArray2(X).map(_.map(_.toDouble))
     R.Y = JavaArrayOps.dmToArray2(Y).flatten.map(_.toDouble)
 
@@ -427,7 +428,11 @@ object plsCalc {
 
     R eval rcomm.replaceAll("6",k.toString)
 
-    R.getD1("pld")
+    val rs = R.getD1("pld")
+
+    R.exit()
+
+    rs
 
   }
   def ngdof(X:DenseMatrix[Float], Ys:DenseMatrix[Float], k:Int = 1, nPerm:Int = 1000) = {
