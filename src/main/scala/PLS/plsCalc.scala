@@ -170,21 +170,21 @@ object plsCalc {
     (Yhat,beta)
   }
 
-  def plsAdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = {
+  def plsAdof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float] = null)= {
     val kk = min(X.cols,k)
-    val rs = plsCalc.dofPvalA(X,Y,kk)
+    val rs = plsCalc.dofPvalA(X,Y,kk,1000,dof)
     Array(Array(1 to kk:_*).map(i => plsCalc.plsPerm(X,Y,i,10000)),rs._1.map(_.toFloat),rs._2,rs._3,rs._4,rs._5,rs._6).map(_.mkString("\t"))
-
   }
 
-  def plsSimu(X:DenseMatrix[Float],h:Float,k:Int) = {
+  def plsSimu(X:DenseMatrix[Float],h:Float,k:Int,dof:Array[Float] = null) = {
     val pcs1 = princomp(convert(X,Double)).scores
     val mav1 = breeze.stats.meanAndVariance(pcs1(::, 0))
     var pc11 = convert((pcs1(::, 0) - mav1.mean) / sqrt(mav1.variance),Float)
     val theta1 = vegas2.getTheta(pc11)
     //val theta2 = vegas2.getTheta(pc11)
     val Y = (sqrt(h) * pc11 + sqrt(1 - h) * theta1).toDenseMatrix.t
-    plsAdof(X,Y,k)
+    val Ys = calculation.standardization(Y)
+    plsAdof(X,Ys,k,dof)
   }
 
   def permY(Y: DenseMatrix[Float],times:Int):DenseMatrix[Float] = {
@@ -414,9 +414,9 @@ object plsCalc {
     return(sum(h))
   }
 
-  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1):Array[Double]  = {//,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
+  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
 
-    val R = org.ddahl.rscala.RClient()
+    //val R = org.ddahl.rscala.RClient()
     R.X = JavaArrayOps.dmToArray2(X).map(_.map(_.toDouble))
     R.Y = JavaArrayOps.dmToArray2(Y).flatten.map(_.toDouble)
 
@@ -430,7 +430,7 @@ object plsCalc {
 
     val rs = R.getD1("pld")
 
-    R.exit()
+    //R.exit()
 
     rs
 
@@ -471,8 +471,8 @@ object plsCalc {
     val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdof)
     (gdof,pval)
   }
-  def dofPvalA(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000) = {
-    val Ys = calculation.standardization(Y)
+  def dofPvalA(X:DenseMatrix[Float],Ys:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000,dof:Array[Float] = null) = {
+    //val Ys = calculation.standardization(Y)
     val n = Ys.rows
     val m = Ys.cols
     val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))
@@ -490,10 +490,10 @@ object plsCalc {
     //val meanY = sum(Y)/n
 
     val gdof = ngdof(X,Ys,k,nPerm)
-    val kdof = kramerDof(X,Ys,k)
+    val kdof = if(dof == null) kramerDof(X,Ys,k).drop(1).map(_.toFloat) else dof
     val ppval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),pdofl)
     val gpval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdof)
-    val kpval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),kdof.drop(1).map(_.toFloat))
+    val kpval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),kdof)
     (kdof,kpval,pdofl,ppval,gdof,gpval)
 
   }

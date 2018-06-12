@@ -12,7 +12,7 @@ import myParallel.paraWriterActor._
 object simumasterActor{
   val name = "simumasterActor"
   def props(fil:Pms) = Props(classOf[simumasterActor],fil)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class coreNum(num:Int)
 }
 
@@ -26,11 +26,13 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
   var H = pms.H
   var k = pms.k
   var cores = Runtime.getRuntime.availableProcessors()-1
+
   var glists:Array[Array[String]] = Array(Array(""))
   var order:Option[ActorRef] = None
   var writer:Option[ActorRef] = None
   var calculaters:Array[Option[ActorRef]] = Array(None)
-  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] =pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
+  var ractor = system.actorOf(Ractor.props(Ractor.Pms(3)), "ractor")
+  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
   var tlen = 0
   def getGlist(chr:String) {
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
@@ -64,8 +66,9 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
         cores = glists.length
         //sleep
       }
-      val pms = simucalculateActor.Pms(wname,times,H,this.k,this.calculiting)
+      val pms = simucalculateActor.Pms(wname,times,H,this.k,true,this.calculiting)
       //Array(0 until cores:_*).foreach(i =>
+
       var ii  = 0
         while (ii < cores){
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+ii)

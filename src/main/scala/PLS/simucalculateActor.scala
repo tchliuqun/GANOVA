@@ -15,10 +15,11 @@ import scala.concurrent.Future
 object simucalculateActor{
   val name = "simucalculateActor"
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  def deffun(z:Array[Float])(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = plsCalc.ngdofP(X,Y,k)._2.map(_.toString)
+  case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,rscala:Boolean = true,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class geneList(glist:Array[String])
-  case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
-  case class calfunc(func:(DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String])
+  case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String]=(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))// = xx:Array[Float]=>(xyk:[(DenseMatrix[Float],DenseMatrix[Float],Int)] => plsCalc.ngdofP(xyk._1,xyk._2,xyk._3)._2.map(_.toString)))
+  case class calfunc(func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String])
   //case class
 }
 
@@ -29,7 +30,8 @@ class simucalculateActor(pms:Pms) extends Actor{
   var H = pms.H
   var times = pms.times
   var k = pms.k
-  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int) => Array[String] = pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
+  var rscala = pms.rscala
+  var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
 
   def simugenNo(glists:Array[String]) = {
     val glist = glists.slice(0, 4)
@@ -66,12 +68,13 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val Y = vegas2.setPhenoT(h,0,0.5f)(X)
+          val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+          val Y = calculation.standardization(Ys)
           val sr = i+"_"+h
 
-          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Y)).mapTo[(String,Array[Float])]
-          val plsP = calculiting(X,Y,k)
-          rsm += (sr -> plsP)
+          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
+
+          //rsm += (sr -> plsP)
           future2 onComplete{
             case Success(f) =>{
               val rs = (glists ++f._2++ rsm(f._1) :+f._1.split("_").apply(1)).mkString("\t")
@@ -95,6 +98,7 @@ class simucalculateActor(pms:Pms) extends Actor{
 
     var rsm:Map[String,Array[String]] = Map()
     val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
+    val ractor:ActorSelection = system.actorSelection("/user/ractor")
 //    import java.util.concurrent.TimeUnit
 //    //val t = 1, TimeUnit.SECONDS)
 //    val fs:FiniteDuration = (100).millis
@@ -128,12 +132,20 @@ class simucalculateActor(pms:Pms) extends Actor{
         var j = 0
         while(j < n) {
 //          if(false) {
-            val Y = vegas2.setPheno(h, i, false)(X)
-            val sr = j + "_" + h + "\t" + i
-
-            val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
-            val plsP = calculiting(X, Y, k)
+          val Ys = vegas2.setPheno(h, i, false)(X)
+          val Y = calculation.standardization(Ys)
+          val sr = j + "_" + h + "\t" + i
+          val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
+          if(rscala) {
+            val future1: Future[(String,Array[Float])] = ask(ractor,Ractor.inp(sr, (X,Y,k))).mapTo[(String,Array[Float])]
+            future1.map{i =>
+              rsm += (i._1 -> calculiting(X,Y,k,i._2).map(_.mkString("\t")))
+            }
+          }else {
+            val plsP = calculiting(X, Y, k,Array(0f))
             rsm += (sr -> plsP)
+          }
+
             future2 onComplete {
               case Success(f) => {
                 val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
