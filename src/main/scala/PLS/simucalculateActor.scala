@@ -1,6 +1,5 @@
 package PLS
 
-import PLS.snpCalcActor.writerName
 import scala.collection.mutable.ArrayBuffer
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
@@ -11,6 +10,7 @@ import myParallel.actorMessage._
 import simucalculateActor._
 import akka.pattern.ask
 import scala.concurrent.Future
+import myParallel.paraWriterActor._
 
 object simucalculateActor{
   val name = "simucalculateActor"
@@ -134,47 +134,68 @@ class simucalculateActor(pms:Pms) extends Actor{
 //          if(false) {
           val Ys = vegas2.setPheno(h, i, false)(X)
           val Y = calculation.standardization(Ys)
-          val sr = j + "_" + h + "\t" + i
+          val permp = Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
+          val sr = j + "_" + h + "_" + i
           val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
-          if(rscala) {
-            val future1: Future[(String,Array[Float])] = ask(ractor,Ractor.inp(sr, (X,Y,k))).mapTo[(String,Array[Float])]
-            future1.map{i =>
-              rsm += (i._1 -> calculiting(X,Y,k,i._2).map(_.mkString("\t")))
-            }
-          }else {
-            val plsP = calculiting(X, Y, k,Array(0f))
-            rsm += (sr -> plsP)
-          }
 
-            future2 onComplete {
-              case Success(f) => {
-                val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
+//          if(rscala) {
+          val future1: Future[(String,Array[Float])] = ask(ractor,Ractor.inp(sr, (X,Y,k))).mapTo[(String,Array[Float])]
+          val (yy,yh,pdofl,gdof) = plsCalc.dofPvalF(X,Ys,k,1000,true)
+          //val gdof = ngdof(X,Ys,k,nPerm)
+//          val kdof = kramerDof(X,Ys,k).drop(1).map(_.toFloat)
+//          val kpval =dofPval(yy,yh,kdof)
+          val ppval = plsCalc.dofPval(yy,yh,pdofl)
+          val gpval = plsCalc.dofPval(yy,yh,gdof)
+//          val (yup,ydn,ny,pdofl,gdof) = dofPvalF(X,Y,k)
+//            val kpval =fdpval(yup,ydn,ny,kdof)
+//            val ppval = fdpval(yup,ydn,ny,pdofl)
+//            val gpval =fdpval(yup,ydn,ny,gdof)
+            val future10 = future1.map{i => {
+              val kpval = plsCalc.dofPval(yy,yh,i._2)
+              val rss = permp ++ i._2 ++ kpval ++ pdofl ++ ppval ++ gdof ++ gpval
+              rsm += (i._1 -> rss.map(_.toString))
+            }
+//              rsm += (i._1 -> calculiting(X,Y,k,i._2).map(_.mkString("\t")))
+            }
+//          }else {
+//            val plsP = calculiting(X, Y, k,Array(0f))
+//            rsm += (sr -> plsP)
+//          }
+
+            for {
+              f2 <- future2
+              f1 <- future10
+            }yield{
+//                case Success(f) => {
+                  val rs = (glists ++ f2._2.map(_.toString) ++ rsm(f2._1) :+ f2._1.split("_").apply(1)).mkString("\t")
+                  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+                  rsm -= f2._1
+                  j += 1
+                }
+//                case Failure(t) => println("An error has occured: " + t.getMessage)
+//              }
+              //          }
+              //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+              if (false) {
+                val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
                 writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-                rsm -= f._1
+
+                //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
                 j += 1
               }
-              case Failure(t) => println("An error has occured: " + t.getMessage)
             }
-//          }
-          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          if (false) {
-            val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-            writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-
-            //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-            j += 1
-          }
-        }
         i += 1
+        }
+
       }
     }
     //writer.close()
-  }
+//}
 
   def receive = {
-    case wrt:writerName => {
-      writer = Some(system.actorSelection("/user/"+wrt.name))
-    }
+//    case wrt:writerName => {
+//      writer = Some(system.actorSelection("/user/"+wrt.name))
+//    }
     case gList:geneList =>{
       simugenNo(gList.glist)
       sender ! done(0)
