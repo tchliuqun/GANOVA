@@ -7,6 +7,8 @@ import akka.actor._
 import breeze.linalg.DenseMatrix
 import myParallel.actorMessage._
 import vegas2Actor._
+import simucalculateActor._
+
 object vegas2Actor{
   val name = "vegas2Actor"
   def props(pms:Pms) = Props(classOf[vegas2Actor],pms)
@@ -14,11 +16,13 @@ object vegas2Actor{
   case class geneList(glist:Array[String])
   case class gList(glist:Array[String],n:Int = 2 )
   case class inp(inx:String,Y:DenseMatrix[Float])
+
   //case class
 }
 
 
-class vegas2Actor(pms:Pms) extends Actor{
+class vegas2Actor(pms:vegas2Actor.Pms) extends Actor{
+  var simuwriter:Option[ActorSelection] = Some(system.actorSelection("/user/plswriter"))
   //var Y:DenseMatrix[Float] = DenseMatrix.zeros[Float](1,1)
 
   //var pval:Array[Float] = Array(0f)
@@ -35,7 +39,7 @@ class vegas2Actor(pms:Pms) extends Actor{
       //val Y = spheno(X)
       //sender ! (X,Y)
       val pval = vegas2.vegasP(glist,inp.Y)
-      sender ! (inp.inx,pval)
+      simuwriter.foreach(_ ! simucalculateActor.permp(inp.inx,pval))
     }
 
   }

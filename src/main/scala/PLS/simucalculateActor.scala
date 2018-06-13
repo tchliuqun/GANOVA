@@ -11,6 +11,7 @@ import simucalculateActor._
 import akka.pattern.ask
 import scala.concurrent.Future
 import myParallel.paraWriterActor._
+import java.io.{FileWriter, PrintWriter}
 
 object simucalculateActor{
   val name = "simucalculateActor"
@@ -20,18 +21,25 @@ object simucalculateActor{
   case class geneList(glist:Array[String])
   case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String]=(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))// = xx:Array[Float]=>(xyk:[(DenseMatrix[Float],DenseMatrix[Float],Int)] => plsCalc.ngdofP(xyk._1,xyk._2,xyk._3)._2.map(_.toString)))
   case class calfunc(func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String])
+  case class dof(idx:String,dt:Array[Float])
+  case class permp(idx:String,dt:Array[Float])
+  case class rsy(idx:String,glt:Array[String],yy:DenseMatrix[Float], yh:DenseMatrix[Float],pdofl:Array[Float],gdof:Array[Float],permp:Array[Float])
   //case class
 }
 
 
 class simucalculateActor(pms:Pms) extends Actor{
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.fil))
+  var simuwriter:Option[ActorSelection] = Some(system.actorSelection("/user/plswriter"))
   //var vegasA:Option[ActorSelection] = Some(system.actorSelection("/user/"+pms.fil))
   var H = pms.H
   var times = pms.times
   var k = pms.k
   var rscala = pms.rscala
   var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
+  val ractor:ActorSelection = system.actorSelection("/user/ractor")
+  var rsm:Map[String,Array[String]] = Map()
+//  var rsy:Map[String,(Array[String],DenseMatrix[Float],DenseMatrix[Float],Array[Float],Array[Float],Array[Float])] = Map()
 
   def simugenNo(glists:Array[String]) = {
     val glist = glists.slice(0, 4)
@@ -93,12 +101,14 @@ class simucalculateActor(pms:Pms) extends Actor{
     }
   }
   def simugenNo1(glists:Array[String],n:Int) = {
-    import java.io.{FileWriter, PrintWriter}
+
     val glist = glists.slice(0, 4)
 
     var rsm:Map[String,Array[String]] = Map()
+
+
     val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
-    val ractor:ActorSelection = system.actorSelection("/user/ractor")
+
 //    import java.util.concurrent.TimeUnit
 //    //val t = 1, TimeUnit.SECONDS)
 //    val fs:FiniteDuration = (100).millis
@@ -134,18 +144,21 @@ class simucalculateActor(pms:Pms) extends Actor{
 //          if(false) {
           val Ys = vegas2.setPheno(h, i, false)(X)
           val Y = calculation.standardization(Ys)
-          val permp = Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
+
           val sr = j + "_" + h + "_" + i
           val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
 
 //          if(rscala) {
           val future1: Future[(String,Array[Float])] = ask(ractor,Ractor.inp(sr, (X,Y,k))).mapTo[(String,Array[Float])]
+          val permp = Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
           val (yy,yh,pdofl,gdof) = plsCalc.dofPvalF(X,Ys,k,1000,true)
+
           //val gdof = ngdof(X,Ys,k,nPerm)
 //          val kdof = kramerDof(X,Ys,k).drop(1).map(_.toFloat)
 //          val kpval =dofPval(yy,yh,kdof)
           val ppval = plsCalc.dofPval(yy,yh,pdofl)
           val gpval = plsCalc.dofPval(yy,yh,gdof)
+
 //          val (yup,ydn,ny,pdofl,gdof) = dofPvalF(X,Y,k)
 //            val kpval =fdpval(yup,ydn,ny,kdof)
 //            val ppval = fdpval(yup,ydn,ny,pdofl)
@@ -153,7 +166,12 @@ class simucalculateActor(pms:Pms) extends Actor{
             val future10 = future1.map{i => {
               val kpval = plsCalc.dofPval(yy,yh,i._2)
               val rss = permp ++ i._2 ++ kpval ++ pdofl ++ ppval ++ gdof ++ gpval
+  println("")
+  println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+  println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111")
               rsm += (i._1 -> rss.map(_.toString))
+
+
             }
 //              rsm += (i._1 -> calculiting(X,Y,k,i._2).map(_.mkString("\t")))
             }
@@ -168,10 +186,12 @@ class simucalculateActor(pms:Pms) extends Actor{
             }yield{
 //                case Success(f) => {
                   val rs = (glists ++ f2._2.map(_.toString) ++ rsm(f2._1) :+ f2._1.split("_").apply(1)).mkString("\t")
-                  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+
+              println("writtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt")
+              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
                   rsm -= f2._1
-                  j += 1
                 }
+          j += 1
 //                case Failure(t) => println("An error has occured: " + t.getMessage)
 //              }
               //          }
@@ -181,7 +201,7 @@ class simucalculateActor(pms:Pms) extends Actor{
                 writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
 
                 //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-                j += 1
+//                j += 1
               }
             }
         i += 1
@@ -196,8 +216,29 @@ class simucalculateActor(pms:Pms) extends Actor{
 //    case wrt:writerName => {
 //      writer = Some(system.actorSelection("/user/"+wrt.name))
 //    }
-    case gList:geneList =>{
-      simugenNo(gList.glist)
+    case gList:geneList => {
+      val glist = gList.glist.slice(0, 4)
+      val file = new java.io.File(gPms.tp + glist(3) + ".gen")
+      val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
+
+      if (!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
+      //val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
+      val X = vegas2.vegasX(glist)
+      for (h <- H) {
+        var j = 0
+        while (j < times) {
+          val Ys = vegas2.setPhenoT(h, 0, 0.5f)(X)
+          val Y = calculation.standardization(Ys)
+          val sr = glist(3) + "_" + j + "_" + h
+          vgs ! vegas2Actor.inp(sr, Y)
+          val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)
+          val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Y, i, 10000))
+          //rsy += (sr-> (glist, yy, yh, pdofl, gdof, permp))
+          simuwriter.foreach(_ ! rsy(sr,glist, yy, yh, pdofl, gdof, permp))
+          ractor ! Ractor.inp(sr, (X, Y, k))
+          j += 1
+        }
+      }
       sender ! done(0)
     }
     case gList:gList =>{
@@ -205,7 +246,39 @@ class simucalculateActor(pms:Pms) extends Actor{
       simugenNo1(gList.glist,gList.n)
       sender ! done(0)
     }
-    case func:calfunc => {
+
+//    case df:dof => {
+//      println("")
+//      println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+//
+//      val (glt, yy, yh, pdofl, gdof, permp) = rsy(df.idx)
+//      rsy -= df.idx
+//      val ppval = plsCalc.dofPval(yy, yh, pdofl)
+//      val gpval = plsCalc.dofPval(yy, yh, gdof)
+//      val kpval = plsCalc.dofPval(yy, yh, df.dt)
+//      val rss = glt ++(permp ++ df.dt ++ kpval ++ pdofl ++ ppval ++ gdof ++ gpval).map(_.toString)
+//      if (rsm.contains(df.idx)) {
+//        val vgsr = rsm(df.idx)
+//        val rs = (rss ++ vgsr).mkString("\t") +"\t"+ df.idx.split("_").apply(2)
+//        rsm -= df.idx
+//        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+//      } else {
+//        rsm += (df.idx -> rss)
+//      }
+//    }
+//    case pp:permp =>{
+//      println("")
+//      println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
+//
+//      if (rsm.contains(pp.idx)) {
+//        val ppr = rsm(pp.idx)
+//        val rs = (ppr ++ pp.dt.map(_.toString)).mkString("\t")+"\t" + pp.idx.split("_").apply(2)
+//        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+//      } else {
+//        rsm += (pp.idx -> pp.dt.map(_.toString))
+//      }
+//    }
+  case func:calfunc => {
       this.calculiting = func.func
     }
     case don:done => sender ! done(0)

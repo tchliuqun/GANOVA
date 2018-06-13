@@ -422,7 +422,7 @@ object plsCalc {
     return(sum(h))
   }
 
-  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Double] = {
+  def kramerDof(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,R: org.ddahl.rscala.RClient= org.ddahl.rscala.RClient()):Array[Float] = {
 
     //val R = org.ddahl.rscala.RClient()
     R.X = JavaArrayOps.dmToArray2(X).map(_.map(_.toDouble))
@@ -436,7 +436,7 @@ object plsCalc {
 
     R eval rcomm.replaceAll("6",k.toString)
 
-    val rs = R.getD1("pld")
+    val rs = R.getD1("pld").map(_.toFloat)
 
     //R.exit()
     rs

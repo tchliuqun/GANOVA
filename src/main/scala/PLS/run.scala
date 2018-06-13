@@ -98,7 +98,7 @@ object run extends App {
   }
   // 2018-6-11 15:20 testing different dof calculating method and compare to permutation results of PLS
 //  if (false) {
-    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, 0f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 10, 0f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)

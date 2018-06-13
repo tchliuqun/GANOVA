@@ -32,6 +32,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
   var writer:Option[ActorRef] = None
   var calculaters:Array[Option[ActorRef]] = Array(None)
   var ractor = system.actorOf(Ractor.props(Ractor.Pms(3)), "ractor")
+
   var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
   var tlen = 0
   def getGlist(chr:String) {
@@ -55,6 +56,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
       writer = Some(wrt)
       if (cores > 40) cores = 40
 
+      var plsWriter = system.actorOf(plssimuWriter.props(plssimuWriter.Pms(wname)), "plswriter")
       println("starting writer")
       getGlist(chr.chrname.apply(0))
       this.tlen = glists.length
