@@ -102,29 +102,26 @@ class simucalculateActor(pms:Pms) extends Actor{
   }
   def simugenNo1(glists:Array[String],n:Int) = {
 
+    import java.io.{FileWriter, PrintWriter}
     val glist = glists.slice(0, 4)
 
     var rsm:Map[String,Array[String]] = Map()
-
-
     val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
+    //    import java.util.concurrent.TimeUnit
+    //    //val t = 1, TimeUnit.SECONDS)
+    //    val fs:FiniteDuration = (100).millis
+    //    val ts = vgs.resolveOne(fs).value.get
+    //
+    //    if (ts.isFailure){
+    //      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
+    //      vgs = system.actorSelection("/user/"+glist(3))
+    //    }
 
-//    import java.util.concurrent.TimeUnit
-//    //val t = 1, TimeUnit.SECONDS)
-//    val fs:FiniteDuration = (100).millis
-//    val ts = vgs.resolveOne(fs).value.get
-//
-//    if (ts.isFailure){
-//      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
-//      vgs = system.actorSelection("/user/"+glist(3))
-//    }
-
-//    var vgs:Option[ActorSelection] = Some(system.actorSelection("/user/"+glist(3)))
-//    if (vgs.isEmpty){
-//      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
-//      vgs = Some(system.actorSelection("/user/"+glist(3)))
-//    }
-
+    //    var vgs:Option[ActorSelection] = Some(system.actorSelection("/user/"+glist(3)))
+    //    if (vgs.isEmpty){
+    //      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
+    //      vgs = Some(system.actorSelection("/user/"+glist(3)))
+    //    }
     val file = new java.io.File(gPms.tp+glist(3)+".gen")
     if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
     //val vegas2a = system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3)+utils.getTimeForFile)
@@ -141,74 +138,35 @@ class simucalculateActor(pms:Pms) extends Actor{
       while (i < rl) {
         var j = 0
         while(j < n) {
-//          if(false) {
-          val Ys = vegas2.setPheno(h, i, false)(X)
-          val Y = calculation.standardization(Ys)
+          if(false) {
+            val Y = vegas2.setPheno(h, i, false)(X)
+            val sr = j + "_" + h + "\t" + i
 
-          val sr = j + "_" + h + "_" + i
-          val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
-
-//          if(rscala) {
-          val future1: Future[(String,Array[Float])] = ask(ractor,Ractor.inp(sr, (X,Y,k))).mapTo[(String,Array[Float])]
-          val permp = Array(1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
-          val (yy,yh,pdofl,gdof) = plsCalc.dofPvalF(X,Ys,k,1000,true)
-
-          //val gdof = ngdof(X,Ys,k,nPerm)
-//          val kdof = kramerDof(X,Ys,k).drop(1).map(_.toFloat)
-//          val kpval =dofPval(yy,yh,kdof)
-          val ppval = plsCalc.dofPval(yy,yh,pdofl)
-          val gpval = plsCalc.dofPval(yy,yh,gdof)
-
-//          val (yup,ydn,ny,pdofl,gdof) = dofPvalF(X,Y,k)
-//            val kpval =fdpval(yup,ydn,ny,kdof)
-//            val ppval = fdpval(yup,ydn,ny,pdofl)
-//            val gpval =fdpval(yup,ydn,ny,gdof)
-            val future10 = future1.map{i => {
-              val kpval = plsCalc.dofPval(yy,yh,i._2)
-              val rss = permp ++ i._2 ++ kpval ++ pdofl ++ ppval ++ gdof ++ gpval
-  println("")
-  println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
-  println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111")
-              rsm += (i._1 -> rss.map(_.toString))
-
-
-            }
-//              rsm += (i._1 -> calculiting(X,Y,k,i._2).map(_.mkString("\t")))
-            }
-//          }else {
-//            val plsP = calculiting(X, Y, k,Array(0f))
-//            rsm += (sr -> plsP)
-//          }
-
-            for {
-              f2 <- future2
-              f1 <- future10
-            }yield{
-//                case Success(f) => {
-                  val rs = (glists ++ f2._2.map(_.toString) ++ rsm(f2._1) :+ f2._1.split("_").apply(1)).mkString("\t")
-
-              println("writtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt")
-              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-                  rsm -= f2._1
-                }
-          j += 1
-//                case Failure(t) => println("An error has occured: " + t.getMessage)
-//              }
-              //          }
-              //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-              if (false) {
-                val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+            val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
+            val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
+            rsm += (sr -> plsP.map(_.toString))
+            future2 onComplete {
+              case Success(f) => {
+                val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
                 writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-
-                //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-//                j += 1
+                rsm -= f._1
+                j += 1
               }
+              case Failure(t) => println("An error has occured: " + t.getMessage)
             }
-        i += 1
+          }
+          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+          j += 1
         }
-
+        i += 1
       }
     }
+    //writer.close()
+  }
+
     //writer.close()
 //}
 
@@ -227,8 +185,8 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var j = 0
         while (j < times) {
-          val Ys = vegas2.setPhenoT(h, 0, 0.5f)(X)
-          val Y = calculation.standardization(Ys)
+          val Y = vegas2.setPhenoT(h, 0, 0.5f)(X)
+          val Ys = calculation.standardization(Y)
           val sr = glist(3) + "_" + j + "_" + h
           vgs ! vegas2Actor.inp(sr, Y)
           val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)

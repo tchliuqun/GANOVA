@@ -27,8 +27,8 @@ class plssimuWriter(pms:plssimuWriter.Pms) extends Actor {
       rsy += (ry.idx-> (ry.glt, ry.yy, ry.yh, ry.pdofl, ry.gdof, ry.permp))
     }
     case df:dof => {
-      println("")
-      println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+//      println("")
+//      println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
 
       val (glt, yy, yh, pdofl, gdof, permp) = rsy(df.idx)
       rsy -= df.idx
@@ -46,8 +46,8 @@ class plssimuWriter(pms:plssimuWriter.Pms) extends Actor {
       }
     }
     case pp:permp =>{
-      println("")
-      println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
+//      println("")
+//      println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
 
       if (rsm.contains(pp.idx)) {
         val ppr = rsm(pp.idx)

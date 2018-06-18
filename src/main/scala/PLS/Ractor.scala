@@ -31,7 +31,6 @@ class Ractor(pms:Ractor.Pms) extends Actor{
       val pval = getRs(inp).asInstanceOf[Array[Float]]
 
       simuwriter.foreach(_ ! simucalculateActor.dof(inp.inx,pval))
-      println("f22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222")
     }
 
   }
