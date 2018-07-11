@@ -14,7 +14,7 @@ object simumasterActor{
   def props(fil:Pms) = Props(classOf[simumasterActor],fil)
   case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class coreNum(num:Int)
-}
+  case class chr(chrname:Array[String])}
 
 class simumasterActor(pms:simumasterActor.Pms) extends Actor{
 
@@ -49,6 +49,37 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
     }
     case func:calfunc => {
       this.calculiting = func.func
+    }
+    case chr:simumasterActor.chr =>{
+      order = Some(sender)
+      val wrt = system.actorOf(paraWriterActor.props(fileName(this.ofile)), wname)
+      writer = Some(wrt)
+      if (cores > 50) cores = 50
+
+      println("starting writer")
+      getGlist(chr.chrname.apply(0))
+      this.tlen = glists.length
+      //      wrt ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting 1")
+      wrt ! myParallel.paraWriterActor.totalNumber(glists.length * times * H.length)
+      //      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("dispatch ssstarting"))
+      println("starting processing")
+      if (glists.length < cores){
+        cores = glists.length
+        //sleep
+      }
+      val pms = simucalculateActor.Pms(wname,times,H)
+      //Array(0 until cores:_*).foreach(i =>
+      var ii  = 0
+      while (ii < cores){
+        val actr = system.actorOf(simucalculateActor.props(pms),"calc"+ii)
+        calculaters :+= Some(actr)
+        system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+        actr !  simucalculateActor.geneLists(glists(count))
+        Thread.sleep(myParallel.actorMessage.fs.length+100)
+        count += 1
+        println("processing No." + count)
+        ii += 1
+      }
     }
     case chr:SnpProcessActor.chr =>{
       order = Some(sender)
@@ -120,7 +151,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
       //doneNum += 1
       if (count < tlen) {
         system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
-        sender ! simucalculateActor.geneList(glists(count))
+        sender ! simucalculateActor.geneLists(glists(count))
         println("processing No." + count)
       }
       else {

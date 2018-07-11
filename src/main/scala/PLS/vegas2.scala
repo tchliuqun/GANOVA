@@ -76,6 +76,26 @@ object vegas2 {
     val mv = meanAndVariance(thetaV)
     (thetaV - mv.mean.toFloat) / sqrt(mv.variance).toFloat
   }
+  def SNPsimu(p:Double,n:Int) = {
+    import breeze.stats.distributions._
+    val q = 1 - p
+    val aa = p*p
+    val bb = q*q
+    val ab = 2*p*q
+    val TestDist = DenseVector[Double](aa,ab,bb)
+    val mult = new Multinomial[DenseVector[Double], Int](TestDist)
+    val rs = Array.fill(n)(0f)
+    (0 until n).foreach { i =>
+      rs(i) = mult.draw()
+    }
+    rs
+  }
+  def ldx(x:Array[Float],m:Int)={
+    val ix = ranIdx(x.length,m)
+    val y = x.map(_.toInt)
+    for(i <- ix)y(i) = scala.util.Random.nextInt(2)
+    y.map(_.toFloat)
+  }
   def repPheno[T](sampleF:String = gPms.tp+"ex_CEU.out.sample",pheno:Array[T],outf:String) = {
     val ogenf = outf.replace("sample","gen")
     val genf = sampleF.replace("out.sample","gen")
@@ -134,6 +154,27 @@ object vegas2 {
     val theta = getTheta(pc1(::,0))
     (sqrt(h/num.toFloat) * pc1(::,0) + sqrt(h/num.toFloat) * pc1(::,1)+ sqrt(1 - h) * theta).toDenseMatrix.t
   }
+  def ldy(x:Array[Float],q:Double,h:Double,n:Int) = {
+    //val x = vegas2.SNPsimu(p,n)
+    val y = vegas2.setPheno(h.toFloat,0,false)(new DenseMatrix(n,1,x)).toArray
+    val n1 = (q*q*n).toInt
+    val n2 = n - ((1-q)*(1-q)*n).toInt
+    val ys = y.sorted
+    val y1 = ys(n1)
+    val y2 = ys(n2)
+    y.map(i => if(i<y1) 0f else if(i<y2)1f else 0f)
+  }
+  def ranIdx(n:Int,m:Int) ={
+    val rs = Array.fill(m)(0)
+    for (i <- 0 until m){
+      var r = scala.util.Random.nextInt(n)
+      while (rs.toSet.contains(r)){
+        r = scala.util.Random.nextInt(n)
+      }
+      rs(i) = r
+    }
+    rs.sorted
+  }
   def simuFgene(glist:Array[String]) = {
     val chr = glist(0)
     val stt = glist(1).toInt
@@ -185,6 +226,68 @@ object vegas2 {
     val Xx = snpCC.map(_.drop(5).map(_.toFloat).sliding(3,3).map(snpVal(_).toFloat).toArray).toArray
     utils.Array2DM(Xx,false)
   }
+  def snpGenL(x:Array[Float],locs:Int=52300000) = {
+    val nam = "snp_"+(100+scala.util.Random.nextInt(100)).toString
+    val id = "rs" + (100000+scala.util.Random.nextInt(300000)).toString
+    val bp = Array("A","G","C","T")
+    val loc = (locs+scala.util.Random.nextInt(10000)).toString
+    val gt = bp(scala.util.Random.nextInt(3))+" "+ bp(scala.util.Random.nextInt(3))
+    val gen = x.map{
+      case 0f => "0 0 1"
+      case 1f => "0 1 0"
+      case 2f => "1 0 0"
+    }
+    val rs = Array(nam,id,loc,gt) ++ gen
+    rs.mkString(" ")
+  }
+  def snpGen(x:Array[Float],fil:String) = {
+    val lines = scala.io.Source.fromFile(fil).getLines
+    val locs = lines.dropWhile(_ => lines.hasNext).next.split(" ").apply(2).toInt
+    val rs = snpGenL(x,locs)
+    scala.tools.nsc.io.File(fil).appendAll("\n"+rs)
+  }
+  def snpSample(n:Int,outf:String) = {
+    val pheno = Array.fill(n)(0).map(_ => scala.util.Random.nextInt(2))
+    val lin1 = Array("ID_1","ID_2","missing",	"pheno").mkString(" ")
+    val lin2 = Array("0","0","0","B").mkString(" ")
+    val lins = Array(lin1,lin2) ++ Array(0 until n:_*).map(i => Array("id1_"+i,"id2_"+i,"0",pheno(i).toString).mkString(" "))
+    val writer = new PrintWriter(new FileWriter(outf))
+    lins.foreach(writer.println)
+    writer.close()
+  }
+  def simuVegas(n:Int,filn:String = "test11") = {
+    //val filn = "test11"
+    val gen = filn.split("/").last
+    val x = SNPsimu(0.4,n)
+    //val x1 = ldx(x,n/7)
+    val rs = snpGenL(x)
+    //val nm = "ENSG"+(200000+scala.util.Random.nextInt(100000)).toString
+    val genL = Array("11","52300000","62300000",gen)
+    scala.tools.nsc.io.File(filn+".gen").writeAll(rs)
+    scala.tools.nsc.io.File(filn+".glist").writeAll(genL.mkString(" "))
+    snpSample(n,filn+".out.sample")
+
+
+    //snpGen(x1,filn+".gen")
+    x
+  }
+  def addVegas(n:Int,n1:Int,n2:Int,gen:String = "ENSG"+(200000+scala.util.Random.nextInt(100000)).toString) = {
+    val filn = gPms.tp+gen
+    val x1 = vegas2.simuVegas(n,filn)
+    val x2 = vegas2.SNPsimu(0.4,n)
+    val Y = vegas2.setPhenoT(0.05f,0,pca = false)(new DenseMatrix(n,1,x1))
+    val X = DenseMatrix.zeros[Float](n,n1+n2)
+    X(::,0) := DenseVector(x1)
+    for (i <- 1 until n1+n2) {
+      val x0 = if (i < n1) vegas2.ldx(x1, n / 7) else vegas2.ldx(x2,n/7)
+      X(::,i) := DenseVector(x0)
+      vegas2.snpGen(x0, filn + ".gen")
+    }
+    val glist = scala.io.Source.fromFile(filn+".glist").getLines().next.split(" ")
+    val pval = plsCalc.ngdofP(X,Y)._2
+    (pval,vegas2.vegasP(glist,Y))
+  }
+
 
   def vegasP(glist:Array[String],Y:DenseMatrix[Float],ognames:String = utils.getTimeForFile+"_"+scala.util.Random.nextInt(100)) = {
     val gname = glist(3)

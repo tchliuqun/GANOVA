@@ -17,8 +17,9 @@ object simucalculateActor{
   val name = "simucalculateActor"
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
   def deffun(z:Array[Float])(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = plsCalc.ngdofP(X,Y,k)._2.map(_.toString)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,rscala:Boolean = true,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  case class Pms(fil:String,times:Int = 1000,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,rscala:Boolean = true,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class geneList(glist:Array[String])
+  case class geneLists(glist:Array[String])
   case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String]=(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))// = xx:Array[Float]=>(xyk:[(DenseMatrix[Float],DenseMatrix[Float],Int)] => plsCalc.ngdofP(xyk._1,xyk._2,xyk._3)._2.map(_.toString)))
   case class calfunc(func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String])
   case class dof(idx:String,dt:Array[Float])
@@ -81,8 +82,8 @@ class simucalculateActor(pms:Pms) extends Actor{
           val sr = i+"_"+h
 
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
-
-          //rsm += (sr -> plsP)
+          val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+          rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
               val rs = (glists ++f._2++ rsm(f._1) :+f._1.split("_").apply(1)).mkString("\t")
@@ -190,13 +191,17 @@ class simucalculateActor(pms:Pms) extends Actor{
           val sr = glist(3) + "_" + j + "_" + h
           vgs ! vegas2Actor.inp(sr, Y)
           val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)
-          val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Y, i, 10000))
+          val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Ys, i, 10000))
           //rsy += (sr-> (glist, yy, yh, pdofl, gdof, permp))
           simuwriter.foreach(_ ! rsy(sr,glist, yy, yh, pdofl, gdof, permp))
           ractor ! Ractor.inp(sr, (X, Y, k))
           j += 1
         }
       }
+      sender ! done(0)
+    }
+    case gList:geneLists =>{
+      simugenNo(gList.glist)
       sender ! done(0)
     }
     case gList:gList =>{

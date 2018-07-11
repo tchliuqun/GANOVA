@@ -24,23 +24,17 @@ object vegas2Actor{
 class vegas2Actor(pms:vegas2Actor.Pms) extends Actor{
   var simuwriter:Option[ActorSelection] = Some(system.actorSelection("/user/plswriter"))
   //var Y:DenseMatrix[Float] = DenseMatrix.zeros[Float](1,1)
-
   //var pval:Array[Float] = Array(0f)
   val glist = pms.glist
-  //val spheno = pms.spheno
-  //val X = vegas2.vegasX(glist)
-//  def vegasY = {
-//    val Y = spheno(X)
-//    val pval = vegas2.vegasP(glist,Y)
-//    (Y,pval)
 //  }
   def receive = {
     case inp:inp =>{
       //val Y = spheno(X)
       //sender ! (X,Y)
       val pval = vegas2.vegasP(glist,inp.Y)
-      simuwriter.foreach(_ ! simucalculateActor.permp(inp.inx,pval))
+      sender ! (inp.inx,pval)
+      // new writer
+      //simuwriter.foreach(_ ! simucalculateActor.permp(inp.inx,pval))
     }
-
   }
 }
