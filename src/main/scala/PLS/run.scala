@@ -110,15 +110,24 @@ object run extends App {
 
   }
   //2018-7-11
-//  if (false) {
+  if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f,0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
 
       srt ! simumasterActor.chr(Array("15"))
-//  }
+  }
+//2018-7-15
+//  if (false) {
+val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.05f),3,500,50)
+  val srt = system.actorOf(simuSnpActor.props(orderpms), "srt")
+  val nis = (5 to 100 by 3).toArray
+  println("start")
+  //implicit val timeout = Timeout(999 hours)
 
+  srt ! simuSnpActor.ns(nis)
+  //  }
   // testing parallel with future class
   if(false){
   val f = Future {

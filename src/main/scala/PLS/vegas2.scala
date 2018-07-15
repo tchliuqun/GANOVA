@@ -271,11 +271,11 @@ object vegas2 {
     //snpGen(x1,filn+".gen")
     x
   }
-  def addVegas(n:Int,n1:Int,n2:Int,gen:String = "ENSG"+(200000+scala.util.Random.nextInt(100000)).toString) = {
+  def simuVegasSnp(n:Int,n1:Int,n2:Int,gen:String = "ENSG"+(200000+scala.util.Random.nextInt(100000)).toString) = {
     val filn = gPms.tp+gen
     val x1 = vegas2.simuVegas(n,filn)
     val x2 = vegas2.SNPsimu(0.4,n)
-    val Y = vegas2.setPhenoT(0.05f,0,pca = false)(new DenseMatrix(n,1,x1))
+
     val X = DenseMatrix.zeros[Float](n,n1+n2)
     X(::,0) := DenseVector(x1)
     for (i <- 1 until n1+n2) {
@@ -284,8 +284,18 @@ object vegas2 {
       vegas2.snpGen(x0, filn + ".gen")
     }
     val glist = scala.io.Source.fromFile(filn+".glist").getLines().next.split(" ")
-    val pval = plsCalc.ngdofP(X,Y)._2
-    (pval,vegas2.vegasP(glist,Y))
+    (X,x1,glist)
+
+  }
+  def addVegas(n:Int,n1:Int,n2:Int,gen:String = "ENSG"+(200000+scala.util.Random.nextInt(100000)).toString) = {
+    val (x,x1,glist) = simuVegasSnp(n,n1,n2,gen)
+//    val X = rs._1
+//    val x1 = rs._2
+//    val glist = rs._3
+    val Y = vegas2.setPheno(0.05f,0,false)(new DenseMatrix(n,1,x1))
+    val pval = plsCalc.ngdofP(x,Y)._2
+    val vp = vegas2.vegasP(glist,Y)
+    pval ++ vp
   }
 
 
