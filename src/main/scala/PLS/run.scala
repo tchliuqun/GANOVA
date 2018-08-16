@@ -70,11 +70,49 @@ object run extends App {
     }
   // 2018-5-20 gsea analysis for the results
   if (false) {
-    val orderpms = pathwayDispatchActor.pathwayPms()//,efile = "")
-    val srt = system.actorOf(pathwayDispatchActor.props(orderpms), "srt")
+  //2018-8-1
+  val rsf =  gPms.rp + "GBMsnp6Rs_2018_05_14_15_14_49_569.txt"
+  //2018-8-2
+  //  val rsf = gPms.rp + "GBMsnp6Rs_2018_05_14_16_38_13_481.txt"
+  //
+    var rs = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).toArray
+  //gseaResult_2018_08_02_11_15_52_376.txt, gseaResult_2018_08_03_00_25_16_486.txt,gseaResult_2018_08_03_11_04_17_209.txt,gseaResult_2018_08_04_20_45_11_609.txt
+
+  //var rsorder  = rs.map(i => if(i.length == 11 )i(8) else if(i.length == 9 ) i(7) else i(6)).map(_.toFloat)
+  // GBMsnp6Rs_2018_05_14_15_14_49_569.txt: gseaResult_2018_08_02_14_28_41_340.txt,gseaResult_2018_08_02_23_26_53_653.txt,gseaResult_2018_08_03_13_27_40_727.txt,gseaResult_2018_08_04_16_36_33_145.txt,gseaResult_2018_08_04_19_12_25_443.txt
+  //var rsorder = rs.map(i => if(i.length == 15 )i(9) else if(i.length == 12 ) i(8) else i(7)).map(_.toFloat)
+  //gseaResult_2018_08_02_12_14_30_216.txt,gseaResult_2018_08_03_09_03_28_657.txt,gseaResult_2018_08_04_22_56_13_394.txt
+  //var rsorder = rs.map(i => if(i.length == 11 )i.slice(8,11).min else if(i.length == 9 ) i.slice(7,9).min else i(6)).map(_.toFloat)
+  // GBMsnp6Rs_2018_05_14_15_14_49_569.txt:gseaResult_2018_08_02_15_26_26_047.txt,gseaResult_2018_08_02_16_29_50_746.txt,gseaResult_2018_08_02_21_41_00_747.txt,gseaResult_2018_08_03_14_42_00_044.txt,gseaResult_2018_08_04_17_21_00_824.txt
+  var rsorder = rs.map(i => if(i.length == 15 )i.slice(9,12).min else if(i.length == 12 ) i.slice(8,10).min else i(7)).map(_.toFloat)
+  val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder)//,efile = "")
+    val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
     srt ! action
   }
+  // 2018-8-9 gbm expression Vs pakt go set base pls
+    if (false) {
+    var sfile = gPms.op +"GOGeneList.txt"
+    var gfile = gPms.op +"gbmExp.txt"
+    var pfile = gPms.op +"GBMLGG.rppa.txt"
+    val pname = Array("Akt_pS473","Akt_pT308")
 
+    val orderpms = setDispatchActor.dispatcherPms(gfile = gfile, sfile =sfile,pfile = pfile,pname = pname)
+    //,efile = "")
+    val srt = system.actorOf(setDispatchActor.props(orderpms), "srt")
+    srt ! action
+  }
+  // 2018-8-13 gbmlgg expression Vs pakt go set base pls
+  //  if (false) {
+  var sfile = gPms.op +"GOGeneList.txt"
+  var gfile = gPms.op +"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt"
+  var pfile = gPms.op +"GBMLGG.rppa.txt"
+  val pname = Array("Akt_pS473","Akt_pT308")
+
+  val orderpms = setDispatchActor.dispatcherPms(gfile = gfile, sfile =sfile,pfile = pfile,pname = pname)
+  //,efile = "")
+  val srt = system.actorOf(setDispatchActor.props(orderpms), "srt")
+  srt ! action
+  //  }
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
   if (false) {
@@ -119,15 +157,15 @@ object run extends App {
       srt ! simumasterActor.chr(Array("15"))
   }
 //2018-7-15
-//  if (false) {
-val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.05f),3,500,50)
+  if (false) {
+val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.03f),3,500,50)
   val srt = system.actorOf(simuSnpActor.props(orderpms), "srt")
   val nis = (5 to 100 by 3).toArray
   println("start")
   //implicit val timeout = Timeout(999 hours)
 
   srt ! simuSnpActor.ns(nis)
-  //  }
+  }
   // testing parallel with future class
   if(false){
   val f = Future {

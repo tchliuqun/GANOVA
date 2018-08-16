@@ -127,7 +127,9 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
     case pm:calcPm => {
       this.calcPms = pm.pms
     }
-
+    case ys:Ys => {
+      this.Y = ys.Y
+    }
     case x:Xs => {
 
       val X = x.X

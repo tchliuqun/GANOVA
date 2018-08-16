@@ -2,22 +2,23 @@ package PLS
 
 import akka.actor._
 import breeze.linalg._
-import PLS.pathwayDispatchActor._
+import PLS.gseaDispatchActor._
 import myParallel.actorMessage._
 
 import scala.concurrent.Future
-import akka.Done
+//import akka.Done
 
-object pathwayDispatchActor{
+object gseaDispatchActor{
   val name = "pathwayDispatchActor"
-  def props(pms:pathwayPms) = Props(classOf[pathwayDispatchActor],pms)
+  def props(pms:pathwayPms) = Props(classOf[gseaDispatchActor],pms)
   case class yArray(y:Array[String])
   case class pathwayPms(cores:Int = 0,perm:Int = 1000,rsFile:String =  gPms.rp + "GBMsnp6Rs_2018_05_14_15_14_49_569.txt",
+                        rsord:Array[Float] = Array[Float](),
                         ggFile:String = gPms.op +"goa_human.gaf",gaFile:String = gPms.op + "HUMAN_9606_idmapping_selected.tab",
                         gcFile:String = gPms.op + "goose",outFile:String = gPms.rp+"gseaResult.txt")
 }
 
-class pathwayDispatchActor(pm:pathwayPms) extends Actor {
+class gseaDispatchActor(pm:pathwayPms) extends Actor {
   var ncores = if (pm.cores < 1) Runtime.getRuntime.availableProcessors() - 1 else pm.cores
 
   var cores = if (ncores > 50 ) 50 else ncores
@@ -28,13 +29,14 @@ class pathwayDispatchActor(pm:pathwayPms) extends Actor {
   var goSet:DenseMatrix[Float] = null
   var genesetAno:Array[Array[String]] = null
 
+  var rsords = pm.rsord
   var ofile:String = pm.outFile
   var perm = pm.perm
   var resultFile:String = pm.rsFile
   var goGeneFile:String = pm.ggFile
   var geneAnno:String = pm.gaFile
   var goChildFile = pm.gcFile
-  def getGOMatrix(rsf:String = this.resultFile) = {
+  def getGOMatrix(rsf:String = this.resultFile,rsord:Array[Float] = this.rsords) = {
     var idg = scala.io.Source.fromFile(goGeneFile).getLines.drop(23).map(_.split("\t")).map(i => (i(1), i(4))).toArray.groupBy(_._1).map(i => (i._1, i._2.map(_._2)))
 
     var idm = scala.io.Source.fromFile(geneAnno).getLines.map(_.split("\t")).map(i => (i.filter(_.contains("ENSG")), i(0))).filter(i => i._1.length > 0 & i._2.length > 0).map(i => (i._1.apply(0), idg.getOrElse(i._2, Array()))).filter(_._2.length > 0).toArray
@@ -50,15 +52,16 @@ class pathwayDispatchActor(pm:pathwayPms) extends Actor {
     //goset = null
     var rs = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).toArray
     var rsset = rs.map(_ (3)).toSet.intersect(gomxp.map(_._1).toSet)
-    var rss0 = rs.filter(i => rsset.contains(i(3)))
-    var rsorder  = rs.map(i => if(i(5).toInt >2)i(9) else if(i(5).toInt ==2) i(8) else i(7)).map(_.toFloat)
+    //var rss0 = rs.filter(i => rsset.contains(i(3)))
+    var rsorder  = if(rsord.length != 0) rsord else rs.map(i => if(i(5).toInt >2)i(9) else if(i(5).toInt ==2) i(8) else i(7)).map(_.toFloat)
     //val rss = Array( 0 until rss0.length :_*).map( i => rss0(i).slice(0,6) :+ rsorder(i).toString).sortBy(_(6).toFloat)
-    rs = null
-    var rss = Array( 0 until rss0.length :_*).map( i => rss0(i).slice(0,6) :+ rsorder(i).toString).filter(!_(6).toFloat.isNaN).sortBy(_(6).toFloat)
+
+    var rss = Array( 0 until rs.length :_*).map( i => rs(i).slice(0,6) :+ rsorder(i).toString).filter(i => rsset.contains(i(3))).filter(!_(6).toFloat.isNaN).sortBy(_(6).toFloat)
+
     val chisq = DenseVector(calculation.reverseChisq(rss.map(_(6).toFloat),1))
+    rs = null
 
-
-    rss0 = null
+    //rss0 = null
     rsorder = null
     var gomx = gomxp.filter(i => rsset.contains(i._1))
     rsset = null
@@ -102,31 +105,35 @@ class pathwayDispatchActor(pm:pathwayPms) extends Actor {
 
         val calculator = system.actorSelection("/user/calc" +(counts % cores))
         val wrt = system.actorSelection("/user/gseawriter")
-        if (counts == 0) wrt !  myParallel.paraWriterActor.totalNumber(total)
-
-        if (counts < cores)calculator ! gseaCalcActor.goresults(yarray)
+        if (counts == 0) wrt ! myParallel.paraWriterActor.totalNumber(total)
+        if (counts < cores) calculator ! gseaCalcActor.goresults(yarray)
         calculator ! gseaCalcActor.geneset(genesetAno(counts),goSet(::,counts).toDenseVector)
         counts += 1
+
       }
 
       //updateY(y.y)
     }
 
-    case dn:done => {
+    case dn:myParallel.actorMessage.done => {
       donecount += 1
+
       if (counts < total) {
+        if (counts % 100 == 0) println("calculating No."+counts)
+
         sender ! gseaCalcActor.geneset(genesetAno(counts), goSet(::, counts).toDenseVector)
         counts += 1
 
       }else {
+        //println("gsea job done")
         sender ! PoisonPill
+
       }
       if (donecount >= total ){
+        println("gsea job done")
+        val don : Future[akka.Done] = CoordinatedShutdown(system).run()
         self ! PoisonPill
-        val don : Future[Done] = CoordinatedShutdown(system).run()
       }
-
     }
-
   }
 }

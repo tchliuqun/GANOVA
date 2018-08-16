@@ -29,7 +29,7 @@ object vegas2 {
   val makeSet = "plink --file ex_CEU.out --make-set ex_CEU.glist --write-set"
   val vegas2v2 = "vegas2v2 -G -snpandp example.txt -custom fullexample -glist example.glist -out example_vegas2out"
 
-  def writeGl(gl:Array[String]) {
+  def writeGl(gl:Array[String]) = {
     val pw = new PrintWriter(new File(pPath+"genelist.txt"))
     gl.foreach(pw.println)
     pw.close()

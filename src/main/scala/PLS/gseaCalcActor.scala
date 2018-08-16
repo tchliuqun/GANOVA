@@ -42,15 +42,31 @@ class gseaCalcActor(pms:Pms) extends Actor{
     val res1 =  gss(*,::) /:/ posd
     val res = res1(::,*) - ngs / nsum
 
-    val results = accumulate(res(::,*))
-    val mins = min(results(::,*))
-    val maxs = max(results(::,*))
-    for ( i <- 0 until gcol) {
-      rst(i) = if (abs(mins(i)) > maxs(i)) mins(i) else maxs(i)
+    var ii = 0
+    while (ii < gcol){
+      val res2 = res(::,ii).toArray
+      val rss2 = rs(::,ii).toArray.zipWithIndex.sortBy(_._1).reverse.map(i => res2(i._2)).scanLeft(0f)(_+_).drop(1)
+      val mins = min(rss2)
+      val maxs = max(rss2)
+      rst(ii) = if (abs(mins) > maxs) mins else maxs
+      ii += 1
     }
+    val results = accumulate(res(::,0))
+    //val mins = min(results(::,*))
+    //val maxs = max(results(::,*))
+    //for ( i <- 0 until gcol) {
+    //  rst(i) = if (abs(mins(i)) > maxs(i)) mins(i) else maxs(i)
+    //}
     val es = rst(0)
+    val nes = if(es > 0) {
+      val ls = rst.drop(1).filter(! _.isNaN).filter(_ > 0)
+      ls.length.toFloat * es/ls.sum
+    }else {
+      val ls = rst.drop(1).filter(! _.isNaN).filter(_ < 0)
+      ls.length.toFloat * es/ls.sum
+    }
     val pval = if(es>0) rst.filter(_ > es).length.toFloat / (gcol-1).toFloat else rst.filter(_ < es).length.toFloat / (gcol-1).toFloat
-    es +: pval +: results(::,0).toArray
+    es +: nes +: pval +: asum.toFloat +: results.toArray
   }
 
   def receive = {
@@ -62,7 +78,9 @@ class gseaCalcActor(pms:Pms) extends Actor{
       val rss = ogsea(gs.data,res)
       val rsstr = des.mkString("\t")+"\t"+rss.mkString("\t")
       writer.foreach(_ !myParallel.paraWriterActor.WriteStr(rsstr))
-      sender ! done
+
+      sender ! myParallel.actorMessage.done(0)
+      //println("calculated")
     }
     case _ => println("Someone say wrong to me!!!")
   }

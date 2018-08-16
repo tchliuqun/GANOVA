@@ -247,7 +247,7 @@ object calculation {
     res(::,0) := Y
     if(times > 0){
       var i:Int = 1
-      while(i < times) {
+      while(i <= times) {
         res(::,i) := Y(scala.util.Random.shuffle(inx))
         i += 1
       }

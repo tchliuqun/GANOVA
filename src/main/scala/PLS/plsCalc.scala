@@ -717,4 +717,9 @@ object plsCalc {
     val up = Array(0 to (k -1) :_*).map(i => calculation.brownTest(Array(i until k*(ny+1) by k :_*).map(pl(_)),fcor))
     (df,pl,up)
   }
+  def ngdofPvalS(X:DenseMatrix[Float],Y:DenseMatrix[Float],nk:Any):String = {
+    val nks = nk.asInstanceOf[Int]
+    val rs = ngdofPvalT(X,Y,nks)
+    rs._1.mkString("\t") + "\t"+rs._2.mkString("\t")+"\t"+rs._3.mkString("\t")
+  }
 }
