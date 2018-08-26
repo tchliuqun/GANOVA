@@ -1,115 +1,48 @@
 [0m[[0mdebug[0m] [0mjavaOptions: List()[0m
 [0m[[0minfo[0m] [0mRunning PLS.run [0m
-[0m[[0minfo[0m] [0m2018-08-16_14:28:22 generate calculator[0m
-[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/setResult_2018_08_16_14_28_33_983.txt[0m
-[0m[[31merror[0m] [0mAug 16, 2018 2:28:34 PM com.github.fommil.jni.JniLoader liberalLoad[0m
-[0m[[31merror[0m] [0mINFO: successfully loaded /var/folders/xn/6t1wv_yj12x5s2tjdptc3z8r0000gn/T/jniloader199234985507746839netlib-native_system-osx-x86_64.jnilib[0m
-[0m[[31merror[0m] [0mAug 16, 2018 2:28:34 PM com.github.fommil.jni.JniLoader load[0m
+[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_26_21_46_27_047.txt[0m
+[0m[[0minfo[0m] [0m2018-08-26_21:46:27 generate calculator[0m
+[0m[[0minfo[0m] [0m2018-08-26_21:46:27 processing /Users/qunliu/Nutstore/workspace/resources/PLSresources/tcga_gbmlgg_snpchr1.txt[0m
+[0m[[0minfo[0m] [0m2018-08-26_21:46:33 Start dispatching[0m
+[0m[[31merror[0m] [0mAug 26, 2018 9:46:33 PM com.github.fommil.jni.JniLoader liberalLoad[0m
+[0m[[31merror[0m] [0mINFO: successfully loaded /var/folders/xn/6t1wv_yj12x5s2tjdptc3z8r0000gn/T/jniloader452449310042428188netlib-native_system-osx-x86_64.jnilib[0m
+[0m[[31merror[0m] [0mAug 26, 2018 9:46:33 PM com.github.fommil.jni.JniLoader load[0m
 [0m[[31merror[0m] [0mINFO: already loaded netlib-native_system-osx-x86_64.jnilib[0m
-[0m[[0minfo[0m] [0m2018-08-16_14:28:40 Start dispatching[0m
-[0m[[31merror[0m] [0mUncaught error from thread [MySystem-akka.actor.default-dispatcher-7]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for for ActorSystem[MySystem][0m
-[0m[[31merror[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
-[0m[[31merror[0m] [0m	at scala.reflect.ManifestFactory$FloatManifest.newArray(Manifest.scala:143)[0m
-[0m[[31merror[0m] [0m	at scala.reflect.ManifestFactory$FloatManifest.newArray(Manifest.scala:141)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$.zeros(DenseMatrix.scala:345)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.$anonfun$apply$2(DenseMatrix.scala:823)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.$anonfun$apply$2$adapted(DenseMatrix.scala:820)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33$$Lambda$318/115608906.apply(Unknown Source)[0m
-[0m[[31merror[0m] [0m	at scala.collection.immutable.Range.foreach(Range.scala:156)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.apply(DenseMatrix.scala:820)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.apply(DenseMatrix.scala:817)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.BroadcastedColumns$$anon$1.apply(BroadcastedColumns.scala:57)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.BroadcastedColumns$$anon$1.apply(BroadcastedColumns.scala:55)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.BroadcastedLike.map(Broadcasted.scala:16)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.BroadcastedLike.map$(Broadcasted.scala:15)[0m
-[0m[[31merror[0m] [0m	at breeze.linalg.BroadcastedColumns.map(BroadcastedColumns.scala:30)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.plsP(plsCalc.scala:135)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.$anonfun$ngdof$1(plsCalc.scala:463)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$$$Lambda$305/1086040658.apply$mcFI$sp(Unknown Source)[0m
-[0m[[31merror[0m] [0m	at scala.runtime.java8.JFunction1$mcFI$sp.apply(JFunction1$mcFI$sp.java:12)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:234)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike$$Lambda$14/1725097945.apply(Unknown Source)[0m
-[0m[[31merror[0m] [0m	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:32)[0m
-[0m[[31merror[0m] [0m	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:29)[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayOps$ofInt.foreach(ArrayOps.scala:239)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.map(TraversableLike.scala:234)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.map$(TraversableLike.scala:227)[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayOps$ofInt.map(ArrayOps.scala:239)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.ngdof(plsCalc.scala:453)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.ngdofP(plsCalc.scala:476)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.ngdofPvalT(plsCalc.scala:703)[0m
-[0m[[31merror[0m] [0m	at PLS.plsCalc$.ngdofPvalS(plsCalc.scala:722)[0m
-[0m[[31merror[0m] [0m	at PLS.setDispatchActor.$anonfun$makeActors$3(setDispatchActor.scala:134)[0m
-[0m[[31merror[0m] [0m	at PLS.setDispatchActor$$Lambda$227/1074659320.apply(Unknown Source)[0m
-[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/setResult_2018_08_16_14_28_33_983.txt closed successfully[0m
-[0m[[0minfo[0m] [0m[ERROR] [SECURITY][08/16/2018 14:46:03.645] [MySystem-akka.actor.default-dispatcher-7] [akka.actor.ActorSystemImpl(MySystem)] Uncaught error from thread [MySystem-akka.actor.default-dispatcher-7]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for ActorSystem[MySystem][0m
-[0m[[0minfo[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
-[0m[[0minfo[0m] [0m	at scala.reflect.ManifestFactory$FloatManifest.newArray(Manifest.scala:143)[0m
-[0m[[0minfo[0m] [0m	at scala.reflect.ManifestFactory$FloatManifest.newArray(Manifest.scala:141)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$.zeros(DenseMatrix.scala:345)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.$anonfun$apply$2(DenseMatrix.scala:823)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.$anonfun$apply$2$adapted(DenseMatrix.scala:820)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33$$Lambda$318/115608906.apply(Unknown Source)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.immutable.Range.foreach(Range.scala:156)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.apply(DenseMatrix.scala:820)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.DenseMatrix$$anon$33.apply(DenseMatrix.scala:817)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.BroadcastedColumns$$anon$1.apply(BroadcastedColumns.scala:57)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.BroadcastedColumns$$anon$1.apply(BroadcastedColumns.scala:55)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.BroadcastedLike.map(Broadcasted.scala:16)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.BroadcastedLike.map$(Broadcasted.scala:15)[0m
-[0m[[0minfo[0m] [0m	at breeze.linalg.BroadcastedColumns.map(BroadcastedColumns.scala:30)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.plsP(plsCalc.scala:135)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.$anonfun$ngdof$1(plsCalc.scala:463)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$$$Lambda$305/1086040658.apply$mcFI$sp(Unknown Source)[0m
-[0m[[0minfo[0m] [0m	at scala.runtime.java8.JFunction1$mcFI$sp.apply(JFunction1$mcFI$sp.java:12)[0m
+[0m[[0minfo[0m] [0m2018-08-26_22:36:59 generate calculator[0m
+[0m[[0minfo[0m] [0m2018-08-26_22:36:59 processing /Users/qunliu/Nutstore/workspace/resources/PLSresources/tcga_gbmlgg_snpchr2.txt[0m
+[0m[[0minfo[0m] [0m[ERROR] [08/26/2018 22:36:59.838] [MySystem-akka.actor.default-dispatcher-6] [akka://MySystem/user/srt/dispatcher2] 680[0m
+[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 680[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.$anonfun$updateXs$7(snpCalcDispatchActor.scala:58)[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.$anonfun$updateXs$7$adapted(snpCalcDispatchActor.scala:58)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:234)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.TraversableLike$$Lambda$14/1725097945.apply(Unknown Source)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.IndexedSeqOptimized.foreach(IndexedSeqOptimized.scala:32)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.IndexedSeqOptimized.foreach$(IndexedSeqOptimized.scala:29)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayOps$ofInt.foreach(ArrayOps.scala:239)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.map(TraversableLike.scala:234)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.map$(TraversableLike.scala:227)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayOps$ofInt.map(ArrayOps.scala:239)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.ngdof(plsCalc.scala:453)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.ngdofP(plsCalc.scala:476)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.ngdofPvalT(plsCalc.scala:703)[0m
-[0m[[0minfo[0m] [0m	at PLS.plsCalc$.ngdofPvalS(plsCalc.scala:722)[0m
-[0m[[0minfo[0m] [0m	at PLS.setDispatchActor.$anonfun$makeActors$3(setDispatchActor.scala:134)[0m
-[0m[[0minfo[0m] [0m	at PLS.setDispatchActor$$Lambda$227/1074659320.apply(Unknown Source)[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.$anonfun$updateXs$6(snpCalcDispatchActor.scala:58)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.Iterator$$anon$10.next(Iterator.scala:448)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.Iterator.foreach(Iterator.scala:929)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.Iterator.foreach$(Iterator.scala:929)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.AbstractIterator.foreach(Iterator.scala:1417)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.TraversableOnce.toMap(TraversableOnce.scala:316)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.TraversableOnce.toMap$(TraversableOnce.scala:314)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.AbstractIterator.toMap(Iterator.scala:1417)[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.updateXs(snpCalcDispatchActor.scala:58)[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:103)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
+[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
+[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
+[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:03.710] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
-[0m[[0minfo[0m] [0m2018-08-16_14:46:03 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/setResult.txt is done - paraWriter[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:04.264] [MySystem-akka.actor.default-dispatcher-10] [akka://MySystem/user/setwriter] Message [myParallel.paraWriterActor$WriteStr] from Actor[akka://MySystem/user/calc6#368599879] to Actor[akka://MySystem/user/setwriter] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:04.264] [MySystem-akka.actor.default-dispatcher-10] [akka://MySystem/user/srt] Message [myParallel.actorMessage$done] from Actor[akka://MySystem/user/calc6#368599879] to Actor[akka://MySystem/user/srt#-1736217855] was not delivered. [2] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:04.264] [MySystem-akka.actor.default-dispatcher-10] [akka://MySystem/user/calc6] Message [PLS.snpCalcActor$Xs] from Actor[akka://MySystem/user/srt#-1736217855] to Actor[akka://MySystem/user/calc6#368599879] was not delivered. [3] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:07.479] [MySystem-akka.actor.default-dispatcher-13] [akka://MySystem/user/setwriter] Message [myParallel.paraWriterActor$WriteStr] from Actor[akka://MySystem/user/calc2#-289236801] to Actor[akka://MySystem/user/setwriter] was not delivered. [4] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:07.479] [MySystem-akka.actor.default-dispatcher-13] [akka://MySystem/user/srt] Message [myParallel.actorMessage$done] from Actor[akka://MySystem/user/calc2#-289236801] to Actor[akka://MySystem/user/srt#-1736217855] was not delivered. [5] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:07.490] [MySystem-akka.actor.default-dispatcher-13] [akka://MySystem/user/calc2] Message [PLS.snpCalcActor$Xs] from Actor[akka://MySystem/user/srt#-1736217855] to Actor[akka://MySystem/user/calc2#-289236801] was not delivered. [6] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:10.372] [MySystem-akka.actor.default-dispatcher-8] [akka://MySystem/user/setwriter] Message [myParallel.paraWriterActor$WriteStr] from Actor[akka://MySystem/user/calc1#-876492995] to Actor[akka://MySystem/user/setwriter] was not delivered. [7] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:10.372] [MySystem-akka.actor.default-dispatcher-8] [akka://MySystem/user/srt] Message [myParallel.actorMessage$done] from Actor[akka://MySystem/user/calc1#-876492995] to Actor[akka://MySystem/user/srt#-1736217855] was not delivered. [8] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-[0m[[0minfo[0m] [0m[INFO] [08/16/2018 14:46:10.372] [MySystem-akka.actor.default-dispatcher-8] [akka://MySystem/user/calc1] Message [PLS.snpCalcActor$Xs] from Actor[akka://MySystem/user/srt#-1736217855] to Actor[akka://MySystem/user/calc1#-876492995] was not delivered. [9] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
-java.lang.RuntimeException: Nonzero exit code returned from runner: 255
-	at scala.sys.package$.error(package.scala:27)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
-	at scala.Option.foreach(Option.scala:236)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:817)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:815)
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
-	at sbt.std.Transform$$anon$4.work(System.scala:63)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
-	at sbt.Execute.work(Execute.scala:237)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-[0m[[31merror[0m] [0m(compile:[31mrun[0m) Nonzero exit code returned from runner: 255[0m
+[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_26_21_46_27_047.txt closed successfully[0m
+[0m[[0minfo[0m] [0m[INFO] [08/27/2018 06:59:28.029] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m

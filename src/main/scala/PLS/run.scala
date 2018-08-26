@@ -33,7 +33,7 @@ object run extends App {
   }
   // pakt and gene expression as phenotype data
   if (false) {
-  val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
+    val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val mcol =fileOper.intersectCols(xx,yy,ee)
@@ -50,7 +50,35 @@ object run extends App {
     srt ! snpCalcActor.calcPm(3)
     srt ! action
   }
+//2018-8-26 gbm and lgg: snp ,exp and pakt
+ // if (false) {
+    //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
+    // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
+    //out.println(expp.next.mkString("\t"))
+    //val ds = expp.next
+    //for (lin <- expp) out.println((lin(0).split("\\|").apply(1) +: lin.drop(1).map(i =>(log10(i.toDouble+1.0)/log10(2d)).toString)).mkString("\t"))
+    // out.close()
+    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
+    val pff = gPms.op+ "GBMLGG.rppa.txt"
+    val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
 
+    val xx = scala.io.Source.fromFile(dff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    val yy = scala.io.Source.fromFile(pff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    val ee = scala.io.Source.fromFile(eff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    val mcol =fileOper.intersectCols(xx,yy,ee)
+    val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
+
+    val ch = Array(1 to 22: _*).map(_.toString)
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = eff)//,efile = "")
+    val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
+    srt ! snpCalcOrderActor.yArray(pakt(2))
+    srt ! snpCalcOrderActor.chrs(ch)
+
+
+    //srt ! snpCalcActor.func(calculation.runeig)
+    srt ! snpCalcActor.calcPm(3)
+    srt ! action
+  //}
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
@@ -69,7 +97,7 @@ object run extends App {
   srt ! action
     }
   // 2018-5-20 gsea analysis for the results
-  if (false) {
+    if (false) {
   //2018-8-1
   val rsf =  gPms.rp + "GBMsnp6Rs_2018_05_14_15_14_49_569.txt"
   //2018-8-2
@@ -102,7 +130,7 @@ object run extends App {
     srt ! action
   }
   // 2018-8-13 gbmlgg expression Vs pakt go set base pls
-  //  if (false) {
+    if (false) {
   var sfile = gPms.op +"GOGeneList.txt"
   var gfile = gPms.op +"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt"
   var pfile = gPms.op +"GBMLGG.rppa.txt"
@@ -112,7 +140,7 @@ object run extends App {
   //,efile = "")
   val srt = system.actorOf(setDispatchActor.props(orderpms), "srt")
   srt ! action
-  //  }
+    }
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
   if (false) {

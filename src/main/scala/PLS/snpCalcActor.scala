@@ -106,14 +106,14 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
     val m = X.cols
     val k = min(m,pmls)
     //genePval(grs).mkString("\t")
-    //val rs = plsCalc.ngdofPvalT(X,Y,k)
+    val rs = plsCalc.ngdofPvalT(X,Y,k)
+    rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
 
 
-    val rs = plsCalc.dofPvalA(X,Y,k)
+//    val rs = plsCalc.dofPvalA(X,Y,k)
 
-    val rsp = Array( 1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
-    rsp.mkString("\t")+"\t"+rs._1.mkString("\t")+"\t"+ rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")+"\t"+ rs._4.mkString("\t")+"\t"+ rs._5.mkString("\t")+"\t"+ rs._6.mkString("\t")
-    //rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
+//    val rsp = Array( 1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
+//    rsp.mkString("\t")+"\t"+rs._1.mkString("\t")+"\t"+ rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")+"\t"+ rs._4.mkString("\t")+"\t"+ rs._5.mkString("\t")+"\t"+ rs._6.mkString("\t")
   }
 
   def receive = {

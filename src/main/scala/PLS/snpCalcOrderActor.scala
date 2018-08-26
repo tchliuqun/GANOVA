@@ -122,7 +122,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
     case don:done => {
       if (count < len) {
         updateFile(process.chrs.apply(count))
-        val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1,mcol._3, this.gfile, this.dfile, this.ifile, this.ofile)
+        val dispPm = snpCalcDispatchActor.dispatcherPms(amplength, nActor, mcol._1,mcol._3, this.gfile, this.dfile, this.ifile, this.ofile, this.efile)
         val dispatch = context.actorOf(snpCalcDispatchActor.props(dispPm), "dispatcher"+process.chrs.apply(count))
         dispatcher = Some(dispatch)
         dispatcher.foreach(_ ! actorMessage.action)
