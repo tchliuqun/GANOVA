@@ -36,13 +36,13 @@ class setDispatchActor(pm:dispatcherPms) extends Actor{
   var wrt:Option[ActorSelection] = Some(system.actorSelection("/user/"+pm.ofile))//"GBMsnp6Rs.txt"
   //var ampl =pm.amp
   //var nActor:Int = pm.nactor
-  var looInx = Array(0 until n :_*).map(Seq(_))
-  var tenFold = plsCalc.kfoldInx(n,10,true)
   var len = 900000
   var cnt = 0
   var k = pm.k
   var perm = pm.perm
   var n = 0
+  var looInx = Array(0 until n :_*).map(Seq(_))
+  var tenFold = plsCalc.kfoldInx(n,10,true)
   //var mcol:Array[Int] = pm.mcolX
   //var mcolY:Array[Int] = pm.mcolY
   var gset = Array[Array[String]]()//

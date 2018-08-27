@@ -60,12 +60,14 @@ object run extends App {
     // out.close()
     val dff = gPms.op+"tcga_gbmlgg_snp.txt"
     val pff = gPms.op+ "GBMLGG.rppa.txt"
-    val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
+    val eff = ""
+    //val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
 
-    val xx = scala.io.Source.fromFile(dff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    val yy = scala.io.Source.fromFile(pff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    val ee = scala.io.Source.fromFile(eff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    val mcol =fileOper.intersectCols(xx,yy,ee)
+
+    //val xx = scala.io.Source.fromFile(dff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    //val yy = scala.io.Source.fromFile(pff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    //val ee = scala.io.Source.fromFile(eff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+    //val mcol =fileOper.intersectCols(xx,yy,ee)
     val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
