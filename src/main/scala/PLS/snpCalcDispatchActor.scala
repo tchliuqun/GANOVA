@@ -113,12 +113,12 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
       if (cnt < len){
         var gen = gens(cnt)
         XX = getX(gen)
-        while (XX.length<1 & cnt < (len - 1) | !genExp.contains(gen(4))) {
+        while ((XX.length<1 | !genExp.contains(gen(4))) & cnt < (len - 1) ) {
             cnt += 1
             gen = gens(cnt)
             XX = getX(gen)
         }
-        if(XX.length>0) {
+        if(XX.length>0 | genExp.contains(gen(4))) {
           if(mcolY.length == 1) {
             sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
           }else {
