@@ -111,13 +111,13 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
     case don:actorMessage.done => {
       recieveCont += 1
       if (cnt < len){
-        val gen = gens(cnt)
+        var gen = gens(cnt)
         XX = getX(gen)
-        while (XX.length<1 & cnt < len) {
-
-            XX = getX(gens(cnt))
+        while (XX.length<1 & cnt < len & !genExp.contains(gen(4))) {
             cnt += 1
-          }
+            gen = gens(cnt)
+            XX = getX(gen)
+        }
         if(XX.length>0) {
           if(mcolY.length == 1) {
             sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
