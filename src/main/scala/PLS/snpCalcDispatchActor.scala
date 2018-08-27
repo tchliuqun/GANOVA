@@ -118,7 +118,7 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
             gen = gens(cnt)
             XX = getX(gen)
         }
-        if(XX.length>0 | genExp.contains(gen(4))) {
+        if(XX.length>0 & genExp.contains(gen(4))) {
           if(mcolY.length == 1) {
             sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
           }else {
