@@ -68,7 +68,7 @@ object run extends App {
     val mcol =fileOper.intersectCols(xx,yy,ee)
     val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
 
-    val ch = Array(1 to 22: _*).map(_.toString)
+    val ch = Array(13 to 22: _*).map(_.toString)
     val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = eff)//,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
     srt ! snpCalcOrderActor.yArray(pakt(2))
