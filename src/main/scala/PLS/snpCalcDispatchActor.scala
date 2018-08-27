@@ -126,8 +126,9 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
           }
           //sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
           sendCont += 1
-          cnt += 1
+
         }
+        cnt += 1
       }
       else {
         if (!completed) {
