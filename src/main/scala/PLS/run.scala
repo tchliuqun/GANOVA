@@ -62,7 +62,7 @@ object run extends App {
     //for (lin <- expp) out.println((lin(0).split("\\|").apply(1) +: lin.drop(1).map(i =>(log10(i.toDouble+1.0)/log10(2d)).toString)).mkString("\t"))
     // out.close()
 //    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
-  val dff = gPms.op + df
+  val dff = gPms.op + gPms.df
 //  val pff = gPms.op+ "tcga_gbmlgg_rppa_rnaseq.txt"
   val pff = gPms.op+ "GBMLGG.rppa.txt"
     val eff = ""
