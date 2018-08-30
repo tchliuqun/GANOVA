@@ -59,15 +59,16 @@ object run extends App {
     //for (lin <- expp) out.println((lin(0).split("\\|").apply(1) +: lin.drop(1).map(i =>(log10(i.toDouble+1.0)/log10(2d)).toString)).mkString("\t"))
     // out.close()
     val dff = gPms.op+"tcga_gbmlgg_snp.txt"
-    val pff = gPms.op+ "GBMLGG.rppa.txt"
+  val pff = gPms.op+ "tcga_gbmlgg_rppa_rnaseq.txt"
+//  val pff = gPms.op+ "GBMLGG.rppa.txt"
     val eff = ""
-    //val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
+//    val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
 
 
-    //val xx = scala.io.Source.fromFile(dff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    //val yy = scala.io.Source.fromFile(pff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    //val ee = scala.io.Source.fromFile(eff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
-    //val mcol =fileOper.intersectCols(xx,yy,ee)
+//    val xx = scala.io.Source.fromFile(dff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+//    val yy = scala.io.Source.fromFile(pff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+//    val ee = scala.io.Source.fromFile(eff).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
+//    val mcol =fileOper.intersectCols(xx,yy,ee)
     val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
