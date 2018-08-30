@@ -51,6 +51,9 @@ object run extends App {
     srt ! action
   }
 //2018-8-26 gbm and lgg: snp ,exp and pakt
+  // first gbmlgg exp and pakt
+  // second gbmlgg and pakt
+  // third gbmlgg and pakt adjusted by exp
  // if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
@@ -58,9 +61,10 @@ object run extends App {
     //val ds = expp.next
     //for (lin <- expp) out.println((lin(0).split("\\|").apply(1) +: lin.drop(1).map(i =>(log10(i.toDouble+1.0)/log10(2d)).toString)).mkString("\t"))
     // out.close()
-    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
-  val pff = gPms.op+ "tcga_gbmlgg_rppa_rnaseq.txt"
-//  val pff = gPms.op+ "GBMLGG.rppa.txt"
+//    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
+  val dff = gPms.op + df
+//  val pff = gPms.op+ "tcga_gbmlgg_rppa_rnaseq.txt"
+  val pff = gPms.op+ "GBMLGG.rppa.txt"
     val eff = ""
 //    val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
 
