@@ -21,7 +21,7 @@ import breeze.linalg._
 import scala.util.Try
 
 object run extends App {
-  val funs = Set("snpPls","gsea")
+  val funs = Set("snpPls","gsea","snpGsea")
   val currentTime = java.time.LocalDateTime.now().toString.split("\\.").apply(0)
   val logfile = gPms.rp + "liuTest.jfr"
   val newlog = logfile.replaceAll(".jfr", currentTime + ".jfr")
@@ -51,12 +51,10 @@ object run extends App {
           val ncol = args(2).toInt
           val rsord = args(3).toInt
           val pv = args(4).toBoolean
-
           val rsorder = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).map(_(rsord).toFloat).toArray
           val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
           val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
           srt ! action
-
         }
         case "snpGsea" => {
           val rsf = gPms.homerr + args(1)
