@@ -4,6 +4,7 @@ object gPms {
   val sepr = java.io.File.separator
   val cdr = new File(".").getAbsolutePath().split(sepr)
   val cdrr = cdr.slice(0,cdr.length-2)//.mkString(sepr)
+  val homerr = cdr.slice(0,3).mkString(sepr)
   var tp:String = Array.concat(cdrr,Array("temp","PLStemp/")).mkString(sepr)
   var op:String = Array.concat(cdrr,Array("resources","PLSresources")).mkString(sepr)+sepr
   var rp:String = Array.concat(cdrr,Array("results","PLSresults")).mkString(sepr)+sepr

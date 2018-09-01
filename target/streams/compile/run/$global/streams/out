@@ -1,6 +1,6 @@
 [0m[[0mdebug[0m] [0mjavaOptions: List()[0m
-[0m[[0minfo[0m] [0mRunning PLS.run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 3 6 true[0m
-[0m[[31merror[0m] [0mUncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for for ActorSystem[MySystem][0m
+[0m[[0minfo[0m] [0mRunning PLS.run gsea /Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 3 6 true[0m
+[0m[[31merror[0m] [0mUncaught error from thread [MySystem-akka.actor.default-dispatcher-3]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for for ActorSystem[MySystem][0m
 [0m[[31merror[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
 [0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
 [0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
@@ -22,7 +22,7 @@
 [0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
 [0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
 [0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[ERROR] [SECURITY][09/01/2018 16:06:10.418] [MySystem-akka.actor.default-dispatcher-2] [akka.actor.ActorSystemImpl(MySystem)] Uncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for ActorSystem[MySystem][0m
+[0m[[0minfo[0m] [0m[ERROR] [SECURITY][09/01/2018 16:16:57.055] [MySystem-akka.actor.default-dispatcher-3] [akka.actor.ActorSystemImpl(MySystem)] Uncaught error from thread [MySystem-akka.actor.default-dispatcher-3]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for ActorSystem[MySystem][0m
 [0m[[0minfo[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
 [0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
 [0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
@@ -45,7 +45,7 @@
 [0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
 [0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[INFO] [09/01/2018 16:06:10.420] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
+[0m[[0minfo[0m] [0m[INFO] [09/01/2018 16:16:57.057] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
 java.lang.RuntimeException: Nonzero exit code returned from runner: 255
 	at scala.sys.package$.error(package.scala:27)
 	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)

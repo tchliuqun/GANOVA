@@ -47,7 +47,7 @@ object run extends App {
       fun match {
         case "gsea" => {
 
-          val rsf = args(1)
+          val rsf = gPms.homerr + args(1)
           val ncol = args(2).toInt
           val rsord = args(3).toInt
           val pv = args(4).toBoolean
@@ -57,6 +57,23 @@ object run extends App {
           val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
           srt ! action
 
+        }
+        case "snpGsea" => {
+          val rsf = gPms.homerr + args(1)
+          val ncol = args(2).toInt
+          val rsfirst = args(3).toBoolean
+          val pv = args(4).toBoolean
+          val rs = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).toArray
+
+
+          val rsorder = if (rsfirst){
+            rs.map(i => if(i.length == 15 )i(9) else if(i.length == 12 ) i(8) else if(i.length == 11 )i(8) else if(i.length == 9 ) i(7) else i(6)).map(_.toFloat)
+          }else {
+            rs.map(i => if(i.length == 15 )i.slice(9,12).min else if(i.length == 12 ) i.slice(8,10).min else if(i.length == 11 )i.slice(8,11).min else if(i.length == 9 &i(5).toDouble < 1d) i.slice(7,9).min else if (i.length == 9 &i(5).toDouble < 1d) i(7) else i(6)).map(_.toFloat)
+          }
+          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
+          val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
+          srt ! action
         }
       }
 //      s.write("x , y\n")
