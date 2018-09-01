@@ -189,3 +189,11 @@ console
 exit
 console
 exit
+console
+run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 5 3 true
+console
+run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 5 3 true
+console
+run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 5 3 true
+run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 3 5 true
+run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 3 6 true

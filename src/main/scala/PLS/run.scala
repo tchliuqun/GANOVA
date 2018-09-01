@@ -21,12 +21,49 @@ import breeze.linalg._
 import scala.util.Try
 
 object run extends App {
+  val funs = Set("snpPls","gsea")
   val currentTime = java.time.LocalDateTime.now().toString.split("\\.").apply(0)
   val logfile = gPms.rp + "liuTest.jfr"
   val newlog = logfile.replaceAll(".jfr", currentTime + ".jfr")
 
+
   def mv(oldName: String, newName: String) =
     Try(new File(oldName).renameTo(new File(newName))).getOrElse(false)
+
+  //def main(args: Array[String]) = {
+    if (!funs.contains(args(0))) {
+      println("first args should be one of: "+ funs.mkString(" "))
+      sys.exit(1)
+    } else {
+      val fun = args(0)
+
+
+//      val outF=args(1)
+//      val iters=args(2).toInt
+//      val thin=args(3).toInt
+////      val out = genIters(State(0.0,0.0),iters,thin)
+//      val s = new java.io.FileWriter(outF)
+
+      fun match {
+        case "gsea" => {
+
+          val rsf = args(1)
+          val ncol = args(2).toInt
+          val rsord = args(3).toInt
+          val pv = args(4).toBoolean
+
+          val rsorder = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).map(_(rsord).toFloat).toArray
+          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
+          val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
+          srt ! action
+
+        }
+      }
+//      s.write("x , y\n")
+//      out map { it => s.write(it.toString) }
+//      s.close
+    }
+
 
   if (new java.io.File(logfile).exists) {
     mv(logfile, newlog)
@@ -56,7 +93,7 @@ object run extends App {
   // third gbmlgg and pakt adjusted by exp
   // fourth gbm and pakt
   // fifth gbm exp and pakt
- // if (false) {
+  if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
     //out.println(expp.next.mkString("\t"))
@@ -88,7 +125,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-  //}
+  }
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"

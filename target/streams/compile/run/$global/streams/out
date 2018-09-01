@@ -1,19 +1,40 @@
 [0m[[0mdebug[0m] [0mjavaOptions: List()[0m
-[0m[[0minfo[0m] [0mRunning PLS.run [0m
-[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_13_57_40_073.txt[0m
-[0m[[0minfo[0m] [0m2018-08-27_13:57:40 generate calculator[0m
-[0m[[0minfo[0m] [0m2018-08-27_13:57:40 processing /Users/qunliu/Nutstore/workspace/resources/PLSresources/tcga_gbmlgg_snpchr1.txt[0m
-[0m[[0minfo[0m] [0m2018-08-27_13:57:45 Start dispatching[0m
-[0m[[31merror[0m] [0mAug 27, 2018 1:57:45 PM com.github.fommil.jni.JniLoader liberalLoad[0m
-[0m[[31merror[0m] [0mINFO: successfully loaded /var/folders/xn/6t1wv_yj12x5s2tjdptc3z8r0000gn/T/jniloader4187822972842892705netlib-native_system-osx-x86_64.jnilib[0m
-[0m[[31merror[0m] [0mAug 27, 2018 1:57:45 PM com.github.fommil.jni.JniLoader load[0m
-[0m[[31merror[0m] [0mINFO: already loaded netlib-native_system-osx-x86_64.jnilib[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:38.462] [MySystem-akka.actor.default-dispatcher-10] [akka://MySystem/user/srt/dispatcher1] 1242[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 1242[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:118)[0m
+[0m[[0minfo[0m] [0mRunning PLS.run gsea /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_20_37_05_687.txt 3 6 true[0m
+[0m[[31merror[0m] [0mUncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for for ActorSystem[MySystem][0m
+[0m[[31merror[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
+[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
+[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
+[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:446)[0m
+[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:242)[0m
+[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:238)[0m
+[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:191)[0m
+[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor.getGOMatrix(gseaDispatchActor.scala:78)[0m
+[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor$$anonfun$receive$1.applyOrElse(gseaDispatchActor.scala:103)[0m
+[0m[[31merror[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
+[0m[[31merror[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
+[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor.aroundReceive(gseaDispatchActor.scala:21)[0m
+[0m[[31merror[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
+[0m[[31merror[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
+[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
+[0m[[0minfo[0m] [0m[ERROR] [SECURITY][09/01/2018 16:06:10.418] [MySystem-akka.actor.default-dispatcher-2] [akka.actor.ActorSystemImpl(MySystem)] Uncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for ActorSystem[MySystem][0m
+[0m[[0minfo[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
+[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:446)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:242)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:238)[0m
+[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:191)[0m
+[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor.getGOMatrix(gseaDispatchActor.scala:78)[0m
+[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor$$anonfun$receive$1.applyOrElse(gseaDispatchActor.scala:103)[0m
 [0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
 [0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
+[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor.aroundReceive(gseaDispatchActor.scala:21)[0m
 [0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
 [0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
 [0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
@@ -24,230 +45,29 @@
 [0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
 [0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
 [0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:40.367] [MySystem-akka.actor.default-dispatcher-10] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:41.837] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:52.063] [MySystem-akka.actor.default-dispatcher-12] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:55.572] [MySystem-akka.actor.default-dispatcher-9] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:58.965] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:49:59.720] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:00.585] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:01.530] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:02.536] [MySystem-akka.actor.default-dispatcher-5] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:04.040] [MySystem-akka.actor.default-dispatcher-8] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:07.206] [MySystem-akka.actor.default-dispatcher-11] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:08.359] [MySystem-akka.actor.default-dispatcher-5] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:09.592] [MySystem-akka.actor.default-dispatcher-8] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[ERROR] [08/27/2018 14:50:12.076] [MySystem-akka.actor.default-dispatcher-6] [akka://MySystem/user/srt/dispatcher1] 0[0m
-[0m[[0minfo[0m] [0mjava.lang.ArrayIndexOutOfBoundsException: 0[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor$$anonfun$receive$1.applyOrElse(snpCalcDispatchActor.scala:114)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.snpCalcDispatchActor.aroundReceive(snpCalcDispatchActor.scala:29)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_27_13_57_40_073.txt closed successfully[0m
-[0m[[0minfo[0m] [0m[INFO] [08/27/2018 15:24:52.844] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
-[0m[[0minfo[0m] [0m2018-08-27_15:24:52 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs.txt is done - paraWriter[0m
+[0m[[0minfo[0m] [0m[INFO] [09/01/2018 16:06:10.420] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
+java.lang.RuntimeException: Nonzero exit code returned from runner: 255
+	at scala.sys.package$.error(package.scala:27)
+	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
+	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
+	at scala.Option.foreach(Option.scala:236)
+	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:817)
+	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:815)
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
+	at sbt.std.Transform$$anon$4.work(System.scala:63)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
+	at sbt.Execute.work(Execute.scala:237)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+[0m[[31merror[0m] [0m(compile:[31mrun[0m) Nonzero exit code returned from runner: 255[0m

@@ -12,7 +12,7 @@ object gseaDispatchActor{
   val name = "pathwayDispatchActor"
   def props(pms:pathwayPms) = Props(classOf[gseaDispatchActor],pms)
   case class yArray(y:Array[String])
-  case class pathwayPms(cores:Int = 0,perm:Int = 1000,rsFile:String =  gPms.rp + "GBMsnp6Rs_2018_05_14_15_14_49_569.txt",
+  case class pathwayPms(cores:Int = 0,perm:Int = 1000,namcol:Int = 3,pval:Boolean = true,rsFile:String =  gPms.rp + "GBMsnp6Rs_2018_05_14_15_14_49_569.txt",
                         rsord:Array[Float] = Array[Float](),
                         ggFile:String = gPms.op +"goa_human.gaf",gaFile:String = gPms.op + "HUMAN_9606_idmapping_selected.tab",
                         gcFile:String = gPms.op + "goose",outFile:String = gPms.rp+"gseaResult.txt")
@@ -32,11 +32,13 @@ class gseaDispatchActor(pm:pathwayPms) extends Actor {
   var rsords = pm.rsord
   var ofile:String = pm.outFile
   var perm = pm.perm
+  var pval = pm.pval
+  var namcol = pm.namcol
   var resultFile:String = pm.rsFile
   var goGeneFile:String = pm.ggFile
   var geneAnno:String = pm.gaFile
   var goChildFile = pm.gcFile
-  def getGOMatrix(rsf:String = this.resultFile,rsord:Array[Float] = this.rsords) = {
+  def getGOMatrix(rsf:String = this.resultFile,rsord:Array[Float] = this.rsords,pval:Boolean = this.pval) = {
     var idg = scala.io.Source.fromFile(goGeneFile).getLines.drop(23).map(_.split("\t")).map(i => (i(1), i(4))).toArray.groupBy(_._1).map(i => (i._1, i._2.map(_._2)))
 
     var idm = scala.io.Source.fromFile(geneAnno).getLines.map(_.split("\t")).map(i => (i.filter(_.contains("ENSG")), i(0))).filter(i => i._1.length > 0 & i._2.length > 0).map(i => (i._1.apply(0), idg.getOrElse(i._2, Array()))).filter(_._2.length > 0).toArray
@@ -51,14 +53,14 @@ class gseaDispatchActor(pm:pathwayPms) extends Actor {
     genego = null
     //goset = null
     var rs = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).toArray
-    var rsset = rs.map(_ (3)).toSet.intersect(gomxp.map(_._1).toSet)
+    var rsset = rs.map(_ (namcol)).toSet.intersect(gomxp.map(_._1).toSet)
     //var rss0 = rs.filter(i => rsset.contains(i(3)))
     var rsorder  = if(rsord.length != 0) rsord else rs.map(i => if(i(5).toInt >2)i(9) else if(i(5).toInt ==2) i(8) else i(7)).map(_.toFloat)
     //val rss = Array( 0 until rss0.length :_*).map( i => rss0(i).slice(0,6) :+ rsorder(i).toString).sortBy(_(6).toFloat)
 
-    var rss = Array( 0 until rs.length :_*).map( i => rs(i).slice(0,6) :+ rsorder(i).toString).filter(i => rsset.contains(i(3))).filter(!_(6).toFloat.isNaN).sortBy(_(6).toFloat)
+    var rss = Array( 0 until rs.length :_*).map( i => Array(rs(i).apply(namcol), rsorder(i).toString)).filter(i => rsset.contains(i(0))).filter(!_(1).toFloat.isNaN).sortBy(_(1).toFloat)
 
-    val chisq = DenseVector(calculation.reverseChisq(rss.map(_(6).toFloat),1))
+    val chisq = if(pval)DenseVector(calculation.reverseChisq(rss.map(_(1).toFloat),1))else DenseVector(rss.map(_(1).toFloat))
     rs = null
 
     //rss0 = null
@@ -67,9 +69,12 @@ class gseaDispatchActor(pm:pathwayPms) extends Actor {
     rsset = null
     gomxp = null
     var indm = gomx.map(_._1).zipWithIndex.toMap
-    var goinx = rss.map(i => indm(i(3))).map(gomx(_))//.filter(i => sum(i._2) > 15 & sum(i._2)<500)
+
+    var goinx = rss.map(i => indm(i(0))).map(gomx(_))//.filter(i => sum(i._2) > 15 & sum(i._2)<500)
+    //.filter(i => sum(i._2) > 15 & sum(i._2)<500)
     gomx = null
     rss = null
+
     var gm = new DenseMatrix(goinx(0)._2.length, goinx.length, goinx.flatMap(_._2)).t
     goinx = null
     val goidx = sum(gm(::,*)).t.toArray.zipWithIndex.filter(i => i._1 > 15 & i._1 < 500).map(_._2)
