@@ -48,16 +48,20 @@ object run extends App {
         case "gsea" => {
 
           val rsf = gPms.homerr + args(1)
-          val ncol = args(2).toInt
-          val rsord = args(3).toInt
-          val pv = args(4).toBoolean
+          val gsf = gPms.homerr + args(2)
+          val gaf = gPms.homerr + args(3)
+          val ncol = args(4).toInt
+          val rsord = args(5).toInt
+          val pv = args(6).toBoolean
+          val gos = args(2) contains "goa_human.gaf"
           val rsorder = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).map(_(rsord).toFloat).toArray
-          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
+          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,ggFile = gsf,gcFile = gaf,go = gos,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
           val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
           srt ! action
         }
         case "snpGsea" => {
           val rsf = gPms.homerr + args(1)
+          //val gsf = gPms.homerr + args(2)
           val ncol = args(2).toInt
           val rsfirst = args(3).toBoolean
           val pv = args(4).toBoolean

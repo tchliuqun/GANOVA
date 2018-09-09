@@ -34,6 +34,13 @@ import java.io.{FileWriter, PrintWriter}
       val line = toArrays(csvf,",").drop(dropl)
       line.foreach(i => out.println(i.mkString("\t")))
     }
+    def fileFlip(fl:String):Array[(String,Array[String])] ={
+      var idg = scala.io.Source.fromFile(fl).getLines.map(_.split("\t")).map(i => (i(0), i.drop(2))).toArray
+      val gen = idg.flatMap(_._2).toSet.toArray.sorted
+      val gens = gen.map(i => (i,scala.collection.mutable.ArrayBuffer.empty[String])).toMap
+      idg.foreach(i => i._2.map(ii => gens(ii) += i._1))
+      return(gens.toArray.map(i => (i._1,i._2.toArray)))
+    }
     def select[T:ClassTag](in:Array[T],sel:Array[Int]):Array[T] = {
       val out = new ArrayBuffer[T]()
       val selLen = sel.length
