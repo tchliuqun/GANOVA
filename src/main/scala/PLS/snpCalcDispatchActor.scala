@@ -50,6 +50,7 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
   var completed:Boolean = false
   var sendCont = 0
   var recieveCont = 0
+  var shd = 3
 
   def updateXs = {
     this.snpd = if(mcol.length == 1)fileOper.toArrays(dfile).map(_.drop(1).map(_.toFloat)) else fileOper.toArrays(dfile).map(i => mcol.map(i(_)).map(_.toFloat))
@@ -81,7 +82,7 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
       //print("gene length is"+gen.length)
       XX = getX(gen)
       //val ye = if(mcolY.length > 1) genExp(gen(4)) else
-        if (XX.length>0 & (mcolY.length == 1 | genExp.contains(gen(4)))) {
+        if (XX.length > shd & (mcolY.length == 1 | genExp.contains(gen(4)))) {
        // if (XX.length>0 & ) {
         val na = sendCont % nActor
         val calcular = system.actorSelection("/user/calc" + na)
@@ -114,13 +115,13 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
       if (cnt < len){
         var gen = gens(cnt)
         XX = getX(gen)
-        while ((XX.length<1 | (mcolY.length > 1 & !genExp.contains(gen(4)))) & cnt < (len - 1) ) {
+        while ((XX.length <= shd | (mcolY.length > 1 & !genExp.contains(gen(4)))) & cnt < (len - 1) ) {
                  // while (XX.length<1 & cnt < (len - 1) ) {
             cnt += 1
             gen = gens(cnt)
             XX = getX(gen)
         }
-        if(XX.length>0 & (mcolY.length == 1 | genExp.contains(gen(4)))) {
+        if(XX.length > shd & (mcolY.length == 1 | genExp.contains(gen(4)))) {
           if(mcolY.length == 1) {
             sender ! snpCalcActor.Xs(gen, utils.Array2DM(XX, false))
           }else {

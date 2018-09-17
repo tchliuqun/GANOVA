@@ -31,18 +31,19 @@ object run extends App {
     Try(new File(oldName).renameTo(new File(newName))).getOrElse(false)
 
   //def main(args: Array[String]) = {
+  if (false) {
     if (!funs.contains(args(0))) {
-      println("first args should be one of: "+ funs.mkString(" "))
+      println("first args should be one of: " + funs.mkString(" "))
       sys.exit(1)
     } else {
       val fun = args(0)
 
 
-//      val outF=args(1)
-//      val iters=args(2).toInt
-//      val thin=args(3).toInt
-////      val out = genIters(State(0.0,0.0),iters,thin)
-//      val s = new java.io.FileWriter(outF)
+      //      val outF=args(1)
+      //      val iters=args(2).toInt
+      //      val thin=args(3).toInt
+      ////      val out = genIters(State(0.0,0.0),iters,thin)
+      //      val s = new java.io.FileWriter(outF)
 
       fun match {
         case "gsea" => {
@@ -54,8 +55,9 @@ object run extends App {
           val rsord = args(5).toInt
           val pv = args(6).toBoolean
           val gos = args(2) contains "goa_human.gaf"
-          val rsorder = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).map(_(rsord).toFloat).toArray
-          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,ggFile = gsf,gcFile = gaf,go = gos,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
+          val rsorder = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).map(_ (rsord).toFloat).toArray
+          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf, ggFile = gsf, gcFile = gaf, go = gos, rsord = rsorder, pval = pv, namcol = ncol)
+          //,efile = "")
           val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
           srt ! action
         }
@@ -67,27 +69,28 @@ object run extends App {
           val pv = args(4).toBoolean
           val rs = scala.io.Source.fromFile(rsf).getLines.drop(1).map(_.split("\t")).toArray
 
-
-          val rsorder = if (rsfirst){
-            rs.map(i => if(i.length == 15 )i(9) else if(i.length == 12 ) i(8) else if(i.length == 11 )i(8) else if(i.length == 9 ) i(7) else i(6)).map(_.toFloat)
-          }else {
-            rs.map(i => if(i.length == 15 )i.slice(9,12).min else if(i.length == 12 ) i.slice(8,10).min else if(i.length == 11 )i.slice(8,11).min else if(i.length == 9 &i(5).toDouble < 1d) i.slice(7,9).min else if (i.length == 9 &i(5).toDouble < 1d) i(7) else i(6)).map(_.toFloat)
+          val rsorder = if (rsfirst) {
+            rs.map(i => if (i.length == 15) i(9) else if (i.length == 12) i(8) else if (i.length == 11) i(8) else if (i.length == 9) i(7) else i(6)).map(_.toFloat)
+          } else {
+            rs.map(i => if (i.length == 15) i.slice(9, 12).min else if (i.length == 12) i.slice(8, 10).min else if (i.length == 11) i.slice(8, 11).min else if (i.length == 9 & i(5).toDouble < 1d) i.slice(7, 9).min else if (i.length == 9 & i(5).toDouble < 1d) i(7) else i(6)).map(_.toFloat)
           }
-          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf,rsord = rsorder,pval = pv,namcol = ncol)//,efile = "")
+          val orderpms = gseaDispatchActor.pathwayPms(rsFile = rsf, rsord = rsorder, pval = pv, namcol = ncol)
+          //,efile = "")
           val srt = system.actorOf(gseaDispatchActor.props(orderpms), "srt")
           srt ! action
         }
       }
-//      s.write("x , y\n")
-//      out map { it => s.write(it.toString) }
-//      s.close
+      //      s.write("x , y\n")
+      //      out map { it => s.write(it.toString) }
+      //      s.close
     }
 
-
+  }
   if (new java.io.File(logfile).exists) {
     mv(logfile, newlog)
   }
   // pakt and gene expression as phenotype data
+
   if (false) {
     val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
@@ -112,7 +115,8 @@ object run extends App {
   // third gbmlgg and pakt adjusted by exp
   // fourth gbm and pakt
   // fifth gbm exp and pakt
-  if (false) {
+  // 2018-9-17pakt ,three dof
+//  if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
     //out.println(expp.next.mkString("\t"))
@@ -135,7 +139,7 @@ object run extends App {
     val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = eff)//,efile = "")
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = "")//,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
     srt ! snpCalcOrderActor.yArray(pakt(2))
     srt ! snpCalcOrderActor.chrs(ch)
@@ -144,7 +148,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-  }
+//  }
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"

@@ -210,3 +210,11 @@ run gsea /Nutstore/workspace/results/PLSresults/xogene.txt /Nutstore/workspace/r
 run gsea Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_30_10_58_43_069.txt 3 true true
 run snpGsea Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_30_10_58_43_069.txt 3 true true
 exit
+console
+run gsea /Nutstore/workspace/results/PLSresults/snprs_2018_08_30_10_58_43_069.txt /Nutstore/workspace/resources/PLSresources/kegggene.txt /Nutstore/workspace/resources/PLSresources/keggAno.txt 1 2 false
+run gsea /Nutstore/workspace/results/PLSresults/snprs_2018_08_30_10_58_43_069.txt /Nutstore/workspace/resources/PLSresources/kegggene.txt /Nutstore/workspace/resources/PLSresources/keggAno.txt 1 2 true
+run
+console
+run
+console
+run

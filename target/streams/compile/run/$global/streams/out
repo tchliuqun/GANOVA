@@ -1,73 +1,164 @@
 [0m[[0mdebug[0m] [0mjavaOptions: List()[0m
-[0m[[0minfo[0m] [0mRunning PLS.run snpGsea Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_08_30_10_58_43_069.txt 3 true true[0m
-[0m[[31merror[0m] [0mUncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for for ActorSystem[MySystem][0m
-[0m[[31merror[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:446)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:242)[0m
-[0m[[31merror[0m] [0m	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:238)[0m
-[0m[[31merror[0m] [0m	at scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:191)[0m
-[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor.getGOMatrix(gseaDispatchActor.scala:79)[0m
-[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor$$anonfun$receive$1.applyOrElse(gseaDispatchActor.scala:134)[0m
-[0m[[31merror[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[31merror[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[31merror[0m] [0m	at PLS.gseaDispatchActor.aroundReceive(gseaDispatchActor.scala:21)[0m
-[0m[[31merror[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[31merror[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[31merror[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[ERROR] [SECURITY][09/09/2018 14:55:26.543] [MySystem-akka.actor.default-dispatcher-2] [akka.actor.ActorSystemImpl(MySystem)] Uncaught error from thread [MySystem-akka.actor.default-dispatcher-2]: Java heap space, shutting down JVM since 'akka.jvm-exit-on-fatal-error' is enabled for ActorSystem[MySystem][0m
-[0m[[0minfo[0m] [0mjava.lang.OutOfMemoryError: Java heap space[0m
-[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.mkArray(ArrayBuilder.scala:453)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:499)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayBuilder$ofFloat.result(ArrayBuilder.scala:446)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:242)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:238)[0m
-[0m[[0minfo[0m] [0m	at scala.collection.mutable.ArrayOps$ofRef.flatMap(ArrayOps.scala:191)[0m
-[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor.getGOMatrix(gseaDispatchActor.scala:79)[0m
-[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor$$anonfun$receive$1.applyOrElse(gseaDispatchActor.scala:134)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive(Actor.scala:513)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.Actor.aroundReceive$(Actor.scala:511)[0m
-[0m[[0minfo[0m] [0m	at PLS.gseaDispatchActor.aroundReceive(gseaDispatchActor.scala:21)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:527)[0m
-[0m[[0minfo[0m] [0m	at akka.actor.ActorCell.invoke(ActorCell.scala:496)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:257)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.run(Mailbox.scala:224)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.Mailbox.exec(Mailbox.scala:234)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)[0m
-[0m[[0minfo[0m] [0m	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)[0m
-[0m[[0minfo[0m] [0m[0m
-[0m[[0minfo[0m] [0m[INFO] [09/09/2018 14:55:26.546] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
-java.lang.RuntimeException: Nonzero exit code returned from runner: 255
-	at scala.sys.package$.error(package.scala:27)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47$$anonfun$apply$48.apply(Defaults.scala:817)
-	at scala.Option.foreach(Option.scala:236)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:817)
-	at sbt.Defaults$$anonfun$runTask$1$$anonfun$apply$46$$anonfun$apply$47.apply(Defaults.scala:815)
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:47)
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:40)
-	at sbt.std.Transform$$anon$4.work(System.scala:63)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:228)
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)
-	at sbt.Execute.work(Execute.scala:237)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:228)
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:28)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-	at java.lang.Thread.run(Thread.java:745)
-[0m[[31merror[0m] [0m(compile:[31mrun[0m) Nonzero exit code returned from runner: 255[0m
+[0m[[0minfo[0m] [0mRunning PLS.run [0m
+[0m[[0minfo[0m] [0mwriting to /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_09_17_17_01_33_750.txt[0m
+[0m[[0minfo[0m] [0m2018-09-17_17:01:33 generate calculator[0m
+[0m[[0minfo[0m] [0m2018-09-17_17:01:33 processing /Users/qunliu/Nutstore/workspace/resources/PLSresources/gbmsnp6chr1.txt[0m
+[0m[[0minfo[0m] [0m2018-09-17_17:01:33 Start dispatching[0m
+[0m[[31merror[0m] [0mSep 17, 2018 5:01:34 PM com.github.fommil.jni.JniLoader liberalLoad[0m
+[0m[[31merror[0m] [0mINFO: successfully loaded /var/folders/xn/6t1wv_yj12x5s2tjdptc3z8r0000gn/T/jniloader683366504999308875netlib-native_system-osx-x86_64.jnilib[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0mLoading required package: plsdof[0m
+[0m[[0minfo[0m] [0mLoading required package: MASS[0m
+[0m[[0minfo[0m] [0m/Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs_2018_09_17_17_01_33_750.txt closed successfully[0m
+[0m[[0minfo[0m] [0m[INFO] [09/17/2018 17:03:17.798] [Thread-0] [CoordinatedShutdown(akka://MySystem)] Starting coordinated shutdown from JVM shutdown hook[0m
+[0m[[0minfo[0m] [0m2018-09-17_17:03:17 writing to /Users/qunliu/Nutstore/workspace/results/PLSresults/GBMsnp6Rs.txt is done - paraWriter[0m
+[0m[[0minfo[0m] [0m[INFO] [09/17/2018 17:03:18.282] [MySystem-akka.actor.default-dispatcher-6] [akka://MySystem/user/writer] Message [myParallel.paraWriterActor$WriteStr] from Actor[akka://MySystem/user/calc3#-1038989979] to Actor[akka://MySystem/user/writer] was not delivered. [1] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
+[0m[[0minfo[0m] [0m[INFO] [09/17/2018 17:03:18.283] [MySystem-akka.actor.default-dispatcher-6] [akka://MySystem/user/srt/dispatcher1] Message [myParallel.actorMessage$done] from Actor[akka://MySystem/user/calc3#-1038989979] to Actor[akka://MySystem/user/srt/dispatcher1#247252332] was not delivered. [2] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
+[0m[[0minfo[0m] [0m[INFO] [09/17/2018 17:03:18.283] [MySystem-akka.actor.default-dispatcher-6] [akka://MySystem/user/calc3] Message [PLS.snpCalcActor$Xs] from Actor[akka://MySystem/user/srt/dispatcher1#247252332] to Actor[akka://MySystem/user/calc3#-1038989979] was not delivered. [3] dead letters encountered. This logging can be turned off or adjusted with configuration settings 'akka.log-dead-letters' and 'akka.log-dead-letters-during-shutdown'.[0m
