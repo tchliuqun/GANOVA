@@ -116,7 +116,7 @@ object run extends App {
   // fourth gbm and pakt
   // fifth gbm exp and pakt
   // 2018-9-17pakt ,three dof
-//  if (false) {
+  if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
     //out.println(expp.next.mkString("\t"))
@@ -148,7 +148,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-//  }
+  }
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
@@ -233,8 +233,8 @@ object run extends App {
     }
   }
   // 2018-6-11 15:20 testing different dof calculating method and compare to permutation results of PLS
-  if (false) {
-    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 10, 0f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )
+//  if (false) {
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 10, 0.02f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
@@ -244,7 +244,7 @@ object run extends App {
     srt ! SnpProcessActor.chr(Array("15"))//simucalculateActor.gList(glist, 20)
 
 
-  }
+//  }
   //2018-7-11
   if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f,0.03f, 0.05f))

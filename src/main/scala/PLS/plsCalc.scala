@@ -520,8 +520,12 @@ object plsCalc {
     (kdof,kpval,pdofl,ppval,gdof,gpval)
   }
   def plsPerm(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000) = {
-    val YY = plsCalc.permY(Y,nPerm)
-    val y0 = plsCalc.plsP(X,YY,k,nPerm)
+    val Xmean = utils.meanColumns(X)
+    val Ymean = utils.meanColumns(Y)
+    val Xm = X - utils.vertcat(Xmean, X.rows)
+    val Ym = Y - utils.vertcat(Ymean, Y.rows)
+    val YY = plsCalc.permY(Ym,nPerm)
+    val y0 = plsCalc.plsP(Xm,YY,k,nPerm)
     val py = plsCalc.rss(YY,y0._1)
     (1.0f/nPerm) * sum(py.map(i => if(i < py(0)) 1 else 0))
   }
