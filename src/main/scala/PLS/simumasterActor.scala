@@ -142,20 +142,28 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
         println("processing No." + count)
       })
     }
-    case func:calfunc => {
-      this.calculiting = func.func
-    }
 
     case don:done => {
-      //val r = don.count
+      val r = don.count
       //doneNum += 1
-      if (count < tlen) {
-        system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
-        sender ! simucalculateActor.geneLists(glists(count))
-        println("processing No." + count)
-      }
-      else {
-        sender ! PoisonPill
+      if (r == 0) {
+        if (count < tlen) {
+          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+          sender ! simucalculateActor.geneLists(glists(count))
+          println("processing No." + count)
+        }
+        else {
+          sender ! PoisonPill
+        }
+      }else if (r == 1){
+        if (count < tlen) {
+          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+          sender ! simucalculateActor.geneList(glists(count))
+          println("processing No." + count)
+        }
+        else {
+          sender ! PoisonPill
+        }
       }
       count += 1
       //After all jobs is done, the count should equal to number of actors add length of gene list.
@@ -170,6 +178,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
         }
         }
       }
+
     case _ => println("the message is not correct -simumasterActor")
     }
   override def postStop {

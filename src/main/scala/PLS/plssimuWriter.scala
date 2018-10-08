@@ -24,6 +24,7 @@ class plssimuWriter(pms:plssimuWriter.Pms) extends Actor {
   def receive = {
 
     case ry:rsy =>{
+      println("PPPPPPPPPPPPPPPPPPPP")
       rsy += (ry.idx-> (ry.glt, ry.yy, ry.yh, ry.pdofl, ry.gdof, ry.permp))
     }
     case df:dof => {
@@ -40,6 +41,7 @@ class plssimuWriter(pms:plssimuWriter.Pms) extends Actor {
         val vgsr = rsm(df.idx)
         val rs = (rss ++ vgsr).mkString("\t") +"\t"+ df.idx.split("_").apply(2)
         rsm -= df.idx
+        println("f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
         writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
       } else {
         rsm += (df.idx -> rss)
@@ -53,6 +55,7 @@ class plssimuWriter(pms:plssimuWriter.Pms) extends Actor {
         val ppr = rsm(pp.idx)
         val rs = (ppr ++ pp.dt.map(_.toString)).mkString("\t")+"\t" + pp.idx.split("_").apply(2)
         rsm -= pp.idx
+        println("f111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111")
         writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
       } else {
         rsm += (pp.idx -> pp.dt.map(_.toString))

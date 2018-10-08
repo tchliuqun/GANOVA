@@ -82,7 +82,7 @@ class GOquery extends mysqlFunc {
   //val pass = "pass";
 
   val ftpClient = new FTPClient();
-  try {
+//  try {
 
     ftpClient.connect(server, port);
     //ftpClient.login(user, pass);
@@ -96,7 +96,7 @@ class GOquery extends mysqlFunc {
     val outputStream1 = new BufferedOutputStream(new FileOutputStream(downloadFile1));
     val success = ftpClient.retrieveFile(remoteFile1, outputStream1);
     outputStream1.close();
-  }
+//  }
 
 }
 

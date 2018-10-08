@@ -189,16 +189,30 @@ class simucalculateActor(pms:Pms) extends Actor{
           val Y = vegas2.setPhenoT(h, 0, 0.5f)(X)
           val Ys = calculation.standardization(Y)
           val sr = glist(3) + "_" + j + "_" + h
-          vgs ! vegas2Actor.inp(sr, Y)
+          //vgs ! vegas2Actor.inp(sr, Y)
+          val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
+
           val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)
           val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Ys, i, 10000))
           //rsy += (sr-> (glist, yy, yh, pdofl, gdof, permp))
+          future2 onComplete {
+            case Success(f) => {
+              simuwriter.foreach(_ ! simucalculateActor.permp(f._1, f._2))
+//              val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
+//              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+//              rsm -= f._1
+//              j += 1
+            }
+            case Failure(t) => println("An error has occured: " + t.getMessage)
+          }
+
           simuwriter.foreach(_ ! rsy(sr,glist, yy, yh, pdofl, gdof, permp))
+
           ractor ! Ractor.inp(sr, (X, Y, k))
           j += 1
         }
       }
-      sender ! done(0)
+      sender ! done(1)
     }
     case gList:geneLists =>{
       simugenNo(gList.glist)

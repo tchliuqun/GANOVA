@@ -28,8 +28,10 @@ class Ractor(pms:Ractor.Pms) extends Actor{
   def receive = {
 
     case inp:inp =>{
+      println("rrrrrrrrrrrrrrrrrrrrr")
       val pval = getRs(inp).asInstanceOf[Array[Float]]
 
+      println("RRRRRRRRRRRRRRRRRRRRRRR")
       simuwriter.foreach(_ ! simucalculateActor.dof(inp.inx,pval))
     }
 

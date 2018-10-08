@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a85c488-4470-4626-a14d-f47e90f307ae" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ganova.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ganova.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/compile/copyResources/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/PLS/plsCalcTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/PLS/plsCalcTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/.history" beforeDir="false" afterPath="$PROJECT_DIR$/target/.history" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/target/.history" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/test.sc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/GOquery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/GOquery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/Ractor$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/Ractor$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/plssimuWriter$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/plssimuWriter$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simucalculateActor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor$$anonfun$receive$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/classes/PLS/simumasterActor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/default/ganova$sources_2.12/0.1/resolved.xml.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-compile-internal.xml" afterDir="false" />
@@ -27,8 +33,10 @@
       <change beforePath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/scala-2.12/resolution-cache/reports/default-ganova$sources_2.12-test.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.12/output_dsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/$global/updateClassifiers/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/export" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/compileIncremental/$global/streams/out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/console/$global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/incCompileSetup/$global/streams/inc_compile_2.12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/target/streams/compile/run/$global/streams/out" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -71,15 +79,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
+      <file leaf-file-name="GOquery.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="236" column="72" lean-forward="true" selection-start-line="236" selection-start-column="72" selection-end-line="236" selection-end-column="72" />
-              <folding>
-                <element signature="e#13#29#0" expanded="true" />
-                <element signature="e#990#3326#0" />
-              </folding>
+            <state relative-caret-position="444">
+              <caret line="91" column="56" selection-start-line="91" selection-start-column="56" selection-end-line="91" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -87,50 +91,74 @@
       <file leaf-file-name="simumasterActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1544">
-              <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
+            <state relative-caret-position="1523">
+              <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="snpCalcOrderActor.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/snpCalcOrderActor.scala">
+      <file leaf-file-name="gPms.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/gPms.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1219">
-              <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
+            <state relative-caret-position="437">
+              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simucalculateActor.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="545">
+              <caret line="199" column="51" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="actorMessage.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="644">
+              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plssimuWriter.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
               <folding>
-                <element signature="e#13#47#0" expanded="true" />
+                <element signature="e#14#36#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="snpCalcDispatchActor.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/snpCalcDispatchActor.scala">
+      <file leaf-file-name="vegas2Actor.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2Actor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1219">
-              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+            <state relative-caret-position="381">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="snpCalcActor.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/snpCalcActor.scala">
+      <file leaf-file-name="Ractor.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2369">
-              <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="32" />
-              <folding>
-                <element signature="e#13#34#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="628">
+              <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plsCalc.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plsCalc.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4539">
-              <caret line="526" column="36" lean-forward="true" selection-start-line="526" selection-start-column="36" selection-end-line="526" selection-end-column="36" />
+            <state relative-caret-position="-4876">
+              <caret line="355" column="27" selection-start-line="355" selection-start-column="27" selection-end-line="355" selection-end-column="27" />
               <folding>
                 <element signature="e#13#35#0" expanded="true" />
                 <element signature="e#761#4691#0" />
@@ -139,44 +167,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calculation.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/calculation.scala">
+      <file leaf-file-name="vegas2.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5451">
-              <caret line="251" column="13" selection-start-line="251" selection-start-column="13" selection-end-line="251" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.scala" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalanlp/breeze_2.12/srcs/breeze_2.12-0.13.1-sources.jar!/breeze/numerics/package.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1725">
-              <caret line="82" column="9" selection-start-line="82" selection-start-column="9" selection-end-line="82" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plsCalcTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/PLS/plsCalcTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1748">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
-              <folding>
-                <element signature="e#13#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calculationTest.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3266">
-              <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
-              <folding>
-                <element signature="e#13#53#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="612">
+              <caret line="323" column="5" selection-start-line="323" selection-start-column="5" selection-end-line="323" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -213,6 +208,9 @@
       <find>lgg</find>
       <find>looInx</find>
       <find>updateY</find>
+      <find>rsy</find>
+      <find>ractor</find>
+      <find>simuwriter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,14 +219,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/utils.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/PLS/calculationTest.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/vegas2Actor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simuSnpActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/simuSnpCalActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala" />
@@ -241,17 +234,22 @@
         <option value="$PROJECT_DIR$/src/main/scala/PLS/fileOper.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/gseaDispatchActor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/snpCalcActor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/snpCalcDispatchActor.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/PLS/plsCalcTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/run.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="181" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="203" />
     <option name="width" value="1440" />
-    <option name="height" value="845" />
+    <option name="height" value="823" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -259,6 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -291,13 +290,20 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="myParallel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GANOVA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GANOVA" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="PLS" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -459,7 +465,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="203" width="1440" height="823" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1002" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -476,7 +482,7 @@
       <window_info anchor="bottom" id="CheckStyle" order="9" weight="0.32859176" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32859176" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4957627" visible="true" weight="0.18168813" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4957627" visible="true" weight="0.1368477" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="17" weight="0.32859176" />
       <window_info anchor="bottom" id="Statistic" order="11" weight="0.32859176" />
       <window_info anchor="right" id="R Packages" order="3" />
@@ -549,34 +555,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/gseaCalcActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1219">
-          <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3680">
-          <caret line="160" column="70" selection-start-line="160" selection-start-column="70" selection-end-line="160" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1288">
@@ -584,6 +562,11 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#990#3326#0" />
+            <element signature="e#3459#4339#0" />
+            <element signature="e#4581#6242#0" />
+            <element signature="e#11919#12203#0" />
+            <element signature="e#12255#12877#0" />
+            <element signature="e#12962#15239#0" />
           </folding>
         </state>
       </provider>
@@ -637,6 +620,11 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#990#3326#0" />
+            <element signature="e#3459#4339#0" />
+            <element signature="e#4581#6242#0" />
+            <element signature="e#11919#12203#0" />
+            <element signature="e#12255#12877#0" />
+            <element signature="e#12962#15239#0" />
           </folding>
         </state>
       </provider>
@@ -690,6 +678,11 @@
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#990#3326#0" />
+            <element signature="e#3459#4339#0" />
+            <element signature="e#4581#6242#0" />
+            <element signature="e#11919#12203#0" />
+            <element signature="e#12255#12877#0" />
+            <element signature="e#12962#15239#0" />
           </folding>
         </state>
       </provider>
@@ -729,24 +722,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/BufferWriterActor.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
@@ -806,24 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/gPms.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/fileOper.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
           <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="79" column="47" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -852,9 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3266">
           <caret line="155" column="10" selection-start-line="155" selection-start-column="10" selection-end-line="155" selection-end-column="10" />
-          <folding>
-            <element signature="e#13#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -909,32 +871,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1544">
-          <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/run.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="236" column="72" lean-forward="true" selection-start-line="236" selection-start-column="72" selection-end-line="236" selection-end-column="72" />
+        <state relative-caret-position="375">
+          <caret line="247" column="12" selection-start-line="247" selection-start-column="12" selection-end-line="247" selection-end-column="12" />
           <folding>
             <element signature="e#13#29#0" expanded="true" />
             <element signature="e#990#3326#0" />
+            <element signature="e#3459#4339#0" />
+            <element signature="e#4581#6242#0" />
+            <element signature="e#11919#12203#0" />
+            <element signature="e#12255#12877#0" />
+            <element signature="e#12962#15239#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/GOquery.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="91" column="56" selection-start-line="91" selection-start-column="56" selection-end-line="91" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/gPms.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/Ractor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simumasterActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1523">
+          <caret line="115" column="7" lean-forward="true" selection-start-line="115" selection-start-column="7" selection-end-line="115" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/myParallel/actorMessage.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plsCalc.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4539">
-          <caret line="526" column="36" lean-forward="true" selection-start-line="526" selection-start-column="36" selection-end-line="526" selection-end-column="36" />
+        <state relative-caret-position="-4876">
+          <caret line="355" column="27" selection-start-line="355" selection-start-column="27" selection-end-line="355" selection-end-column="27" />
           <folding>
             <element signature="e#13#35#0" expanded="true" />
             <element signature="e#761#4691#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="323" column="5" selection-start-line="323" selection-start-column="5" selection-end-line="323" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/vegas2Actor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/plssimuWriter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+          <folding>
+            <element signature="e#14#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/PLS/simucalculateActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="199" column="51" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
         </state>
       </provider>
     </entry>
