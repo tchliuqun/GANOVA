@@ -37,6 +37,8 @@ class simucalculateActor(pms:Pms) extends Actor{
   var times = pms.times
   var k = pms.k
   var rscala = pms.rscala
+  var n  = 5
+  var m  = 5
   var calculiting : (DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = pms.func//(X:DenseMatrix[Float],Y:DenseMatrix[Float],K:Int) => plsCalc.ngdofP(X,Y,2)._2.map(_.toString)
   val ractor:ActorSelection = system.actorSelection("/user/ractor")
   var rsm:Map[String,Array[String]] = Map()
@@ -78,14 +80,15 @@ class simucalculateActor(pms:Pms) extends Actor{
         var i = 0
         while (i < times) {
           val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+          val sr = i+"_"+h
+          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
           val Ypm = calculation.permY(Ys.toDenseVector,1)
           val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
 
           //val Ys = calculation.standardization(Yp)
           val Y = calculation.standardization(Yp)
-          val sr = i+"_"+h
 
-          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
+
           val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
           rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
@@ -174,7 +177,55 @@ class simucalculateActor(pms:Pms) extends Actor{
 
     //writer.close()
 //}
+  def simugenNo2(glists:Array[String]) = {
+    val glist = glists.slice(0, 4)
+    var rsm:Map[String,Array[String]] = Map()
+    import java.util.concurrent.TimeUnit
+    val vgs = system.actorSelection("/user/"+glist(3))
+    val file = new java.io.File(gPms.tp+glist(3)+".gen")
+    if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
 
+    val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
+    val X = vegas2.vegasX(glist)
+
+    if(rl > 0) {
+      for (h <- H) {
+        var i = 0
+        while (i < times) {
+          val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+          val sr = i+"_"+h
+          var ii = 0
+          var rs  = Array("")
+          while (ii < n){
+            val Ypm = calculation.permY(Ys.toDenseVector,ii)
+            val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
+            val Y = calculation.standardization(Yp)
+            val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+            rs ++= plsP.map(_.toString)
+            ii += 1
+          }
+          var iii = 0
+          while (iii < m){
+            val Ypm = vegas2.setPhenoT(h,0,0.5f)(X)
+            var Yp = DenseMatrix.horzcat(Ypm,Ys)
+            while(Yp.cols < m -1){
+              val Ypm = vegas2.setPhenoT(h,0,0.5f)(X)
+              Yp = DenseMatrix.horzcat(Ypm,Yp)
+            }
+            val Y = calculation.standardization(Yp)
+            val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+            rs ++= plsP.map(_.toString)
+            iii += 1
+          }
+
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs.mkString("\t")))
+          i += 1
+//          }
+
+        }
+      }
+    }
+  }
   def receive = {
 //    case wrt:writerName => {
 //      writer = Some(system.actorSelection("/user/"+wrt.name))
@@ -220,7 +271,7 @@ class simucalculateActor(pms:Pms) extends Actor{
       sender ! done(1)
     }
     case gList:geneLists =>{
-      simugenNo(gList.glist)
+      simugenNo2(gList.glist)
       sender ! done(0)
     }
     case gList:gList =>{
