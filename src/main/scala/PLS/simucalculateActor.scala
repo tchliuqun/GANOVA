@@ -74,8 +74,8 @@ class simucalculateActor(pms:Pms) extends Actor{
 
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
 //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
-    val X = vegas2.vegasX(glist)
     if(rl > 0) {
+      val X = vegas2.vegasX(glist)
       for (h <- H) {
         var i = 0
         while (i < times) {
@@ -186,16 +186,16 @@ class simucalculateActor(pms:Pms) extends Actor{
     if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
 
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
-    val X = vegas2.vegasX(glist)
 
     if(rl > 0) {
+      val X = vegas2.vegasX(glist)
       for (h <- H) {
         var i = 0
         while (i < times) {
           val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
           val sr = i+"_"+h
-          var ii = 0
-          var rs  = Array("")
+          var ii = 1
+          var rs  = glists
           while (ii < n){
             val Ypm = calculation.permY(Ys.toDenseVector,ii)
             val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
@@ -204,11 +204,11 @@ class simucalculateActor(pms:Pms) extends Actor{
             rs ++= plsP.map(_.toString)
             ii += 1
           }
-          var iii = 0
+          var iii = 1
           while (iii < m){
-            val Ypm = vegas2.setPhenoT(h,0,0.5f)(X)
-            var Yp = DenseMatrix.horzcat(Ypm,Ys)
-            while(Yp.cols < m -1){
+            //val Ypm = vegas2.setPhenoT(h,0,0.5f)(X)
+            var Yp = Ys//DenseMatrix.horzcat(Ypm,Ys)
+            while(Yp.cols < iii){
               val Ypm = vegas2.setPhenoT(h,0,0.5f)(X)
               Yp = DenseMatrix.horzcat(Ypm,Yp)
             }
