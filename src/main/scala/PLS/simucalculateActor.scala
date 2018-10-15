@@ -78,7 +78,11 @@ class simucalculateActor(pms:Pms) extends Actor{
         var i = 0
         while (i < times) {
           val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
-          val Y = calculation.standardization(Ys)
+          val Ypm = calculation.permY(Ys.toDenseVector,1)
+          val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
+
+          //val Ys = calculation.standardization(Yp)
+          val Y = calculation.standardization(Yp)
           val sr = i+"_"+h
 
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
@@ -187,6 +191,7 @@ class simucalculateActor(pms:Pms) extends Actor{
         var j = 0
         while (j < times) {
           val Y = vegas2.setPhenoT(h, 0, 0.5f)(X)
+
           val Ys = calculation.standardization(Y)
           val sr = glist(3) + "_" + j + "_" + h
           //vgs ! vegas2Actor.inp(sr, Y)
