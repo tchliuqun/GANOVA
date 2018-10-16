@@ -217,6 +217,7 @@ class simucalculateActor(pms:Pms) extends Actor{
             rs ++= plsP.map(_.toString)
             iii += 1
           }
+          rs :+= h.toString
 
           writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs.mkString("\t")))
           i += 1
