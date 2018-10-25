@@ -99,9 +99,9 @@ object run extends App {
     val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7)//,efile = "")
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-    srt ! snpCalcOrderActor.yArray(pakt(2))
+    srt ! snpCalcOrderActor.yArray(pakt.slice(1,3))
     srt ! snpCalcOrderActor.chrs(ch)
 
 
@@ -116,7 +116,7 @@ object run extends App {
   // fourth gbm and pakt
   // fifth gbm exp and pakt
   // 2018-9-17pakt ,three dof
-  if (false) {
+//  if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
     //out.println(expp.next.mkString("\t"))
@@ -139,16 +139,16 @@ object run extends App {
     val pakt = fileOper.toArrays(pff).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = "")//,efile = "")
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,dfile = dff,pfile = pff,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-    srt ! snpCalcOrderActor.yArray(pakt(2))
+    srt ! snpCalcOrderActor.yArray(pakt.slice(1,3))
     srt ! snpCalcOrderActor.chrs(ch)
 
 
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-  }
+//  }
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
@@ -161,7 +161,7 @@ object run extends App {
   val ch = Array(1 to 22: _*).map(_.toString)
   val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,pfile = gPms.op+pfl)//,efile = "")
   val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-  srt ! snpCalcOrderActor.yArray(mgmt)
+  srt ! snpCalcOrderActor.yArray(Array(mgmt))
   srt ! snpCalcOrderActor.chrs(ch)
   srt ! snpCalcActor.calcPm(3)
   srt ! action
@@ -246,14 +246,15 @@ object run extends App {
 
   }
   //2018-7-11
-//  if (false) {
+  // 2018-10-18 simulation with different length of Y and different correlation in Ys
+  if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f,0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
 
       srt ! simumasterActor.chr(Array("15"))
-//  }
+  }
 //2018-7-15
   if (false) {
 val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.03f),3,500,50)

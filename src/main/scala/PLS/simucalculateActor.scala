@@ -81,7 +81,7 @@ class simucalculateActor(pms:Pms) extends Actor{
         while (i < times) {
           val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
           val sr = i+"_"+h
-          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, Ys)).mapTo[(String,Array[Float])]
+          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
           val Ypm = calculation.permY(Ys.toDenseVector,1)
           val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
 
@@ -93,7 +93,7 @@ class simucalculateActor(pms:Pms) extends Actor{
           rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
-              val rs = (glists ++f._2++ rsm(f._1) :+f._1.split("_").apply(1)).mkString("\t")
+              val rs = (glists ++ rsm(f._1)++f._2 :+f._1.split("_").apply(1)).mkString("\t")
               writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
               i += 1
             }
@@ -115,61 +115,42 @@ class simucalculateActor(pms:Pms) extends Actor{
 
     var rsm:Map[String,Array[String]] = Map()
     val vgs:ActorSelection = system.actorSelection("/user/"+glist(3))
-    //    import java.util.concurrent.TimeUnit
-    //    //val t = 1, TimeUnit.SECONDS)
-    //    val fs:FiniteDuration = (100).millis
-    //    val ts = vgs.resolveOne(fs).value.get
-    //
-    //    if (ts.isFailure){
-    //      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
-    //      vgs = system.actorSelection("/user/"+glist(3))
-    //    }
-
-    //    var vgs:Option[ActorSelection] = Some(system.actorSelection("/user/"+glist(3)))
-    //    if (vgs.isEmpty){
-    //      system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3))
-    //      vgs = Some(system.actorSelection("/user/"+glist(3)))
-    //    }
     val file = new java.io.File(gPms.tp+glist(3)+".gen")
     if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
-    //val vegas2a = system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glist)), glist(3)+utils.getTimeForFile)
-    //val writer = new PrintWriter(new FileWriter("goR"+glist(3)+".txt"))
-
-    //println("processing No."+g)
 
     val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
-    //val sl = glist(4)
-    //    writer.foreach(_ ! myParallel.paraWriterActor.WriteStr("calculation ssstarting"))
-    val X = vegas2.vegasX(glist)
-    for (h <- H) {
-      var i = 0
-      while (i < rl) {
-        var j = 0
-        while(j < n) {
-          if(false) {
-            val Y = vegas2.setPheno(h, i, false)(X)
-            val sr = j + "_" + h + "\t" + i
+    if(rl > 0) {
+      val X = vegas2.vegasX(glist)
+      for (h <- H) {
+        var i = 0
+        while (i < rl) {
+          var j = 0
+          while (j < n) {
+            if (false) {
+              val Y = vegas2.setPheno(h, i, false)(X)
+              val sr = j + "_" + h + "\t" + i
 
-            val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
-            val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
-            rsm += (sr -> plsP.map(_.toString))
-            future2 onComplete {
-              case Success(f) => {
-                val rs = (glists ++ f._2.map(_.toString) ++ rsm(f._1) :+ f._1.split("_").apply(1)).mkString("\t")
-                writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-                rsm -= f._1
-                j += 1
+              val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
+              val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
+              rsm += (sr -> plsP.map(_.toString))
+              future2 onComplete {
+                case Success(f) => {
+                  val rs = (glists ++ rsm(f._1) ++ f._2.map(_.toString) :+ f._1.split("_").apply(1)).mkString("\t")
+                  writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+                  rsm -= f._1
+                  j += 1
+                }
+                case Failure(t) => println("An error has occured: " + t.getMessage)
               }
-              case Failure(t) => println("An error has occured: " + t.getMessage)
             }
+            //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
+            //          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
+            //          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+            //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+            j += 1
           }
-          //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-          j += 1
+          i += 1
         }
-        i += 1
       }
     }
     //writer.close()
@@ -181,7 +162,7 @@ class simucalculateActor(pms:Pms) extends Actor{
     val glist = glists.slice(0, 4)
     var rsm:Map[String,Array[String]] = Map()
     import java.util.concurrent.TimeUnit
-    val vgs = system.actorSelection("/user/"+glist(3))
+    //val vgs = system.actorSelection("/user/"+glist(3))
     val file = new java.io.File(gPms.tp+glist(3)+".gen")
     if(!file.exists() || file.length() == 0) vegas2.simuFgene(glist)
 
@@ -247,7 +228,7 @@ class simucalculateActor(pms:Pms) extends Actor{
           val Ys = calculation.standardization(Y)
           val sr = glist(3) + "_" + j + "_" + h
           //vgs ! vegas2Actor.inp(sr, Y)
-          val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, Y)).mapTo[(String, Array[Float])]
+          val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr,glist, Y)).mapTo[(String, Array[Float])]
 
           val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)
           val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Ys, i, 10000))
@@ -272,7 +253,7 @@ class simucalculateActor(pms:Pms) extends Actor{
       sender ! done(1)
     }
     case gList:geneLists =>{
-      simugenNo2(gList.glist)
+      simugenNo(gList.glist)
       sender ! done(0)
     }
     case gList:gList =>{

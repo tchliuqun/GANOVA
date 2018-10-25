@@ -467,9 +467,10 @@ object plsCalc {
     }
     gdoffold
   }
-  def ngdofP(X:DenseMatrix[Float], Y:DenseMatrix[Float], k:Int = 1, nPerm:Int = 1000): (Array[Float],Array[Float]) ={
+  def ngdofP(Xs:DenseMatrix[Float], Y:DenseMatrix[Float], k:Int = 1, nPerm:Int = 1000): (Array[Float],Array[Float]) ={
     val Ys = calculation.standardization(Y)
     //val n = Y.rows
+    val X = calculation.standardization(Xs)
     val m = Ys.cols
     val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))
     val YY = Ys(::, m - 1).toDenseMatrix.t
@@ -478,8 +479,9 @@ object plsCalc {
     val pval = dofPval(YY,Yhat(::,m-1 until Yhat.cols by m),gdof)
     (gdof,pval)
   }
-  def dofPvalF(X:DenseMatrix[Float],Ys:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000,dof:Boolean = true) = {
+  def dofPvalF(Xs:DenseMatrix[Float],Ys:DenseMatrix[Float],k:Int = 1,nPerm:Int = 1000,dof:Boolean = true) = {
     //val Ys = calculation.standardization(Y)
+    val X = calculation.standardization(Xs)
     val n = Ys.rows
     val m = Ys.cols
     val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, Ys, k))

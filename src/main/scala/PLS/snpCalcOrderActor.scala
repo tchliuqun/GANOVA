@@ -15,7 +15,7 @@ object snpCalcOrderActor{
   val name = "snpCalcOrderActor"
   def props(pms:orderPms) = Props(classOf[snpCalcOrderActor],pms)
   case class chrs(chrs:Array[String])
-  case class yArray(y:Array[String])
+  case class yArray(y:Array[Array[String]])
   case class orderPms(k:Int = 5,perm:Int = 1000,amp:Int = 0,nactor:Int = 10, gfile:String=gPms.op+gPms.glf,
                            dfile:String = gPms.op+gPms.df, ifile:String=gPms.op+gPms.af,
                            pfile:String=gPms.op+gPms.pf,ofile:String = gPms.rp+gPms.rsf,efile:String = gPms.op+gPms.ef)
@@ -49,7 +49,8 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   var looInx = Array(0 until n :_*).map(Seq(_))
   var tenFold = plsCalc.kfoldInx(n,10,true)
   var writer:Option[ActorRef] = None
-  def updateY(y:Array[String]) = {
+  def updateY(y:Array[Array[String]]) = {
+    val nl = y.length
     val pn = fileOper.toArrays(pfile).next.map(_.slice(0,15))
     val dn = fileOper.toArrays(dfile).next
     if (efile.length >0) {
@@ -63,8 +64,8 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
     this.n = mcol._1.length
     this.looInx = Array(0 until n :_*).map(Seq(_))
     this.tenFold = plsCalc.kfoldInx(n,10,true)
-    this.Y = new DenseMatrix(n,1,mcol._2.map(y(_)).map(_.toFloat))
-    this.permY = if(perm > 0) plsCalc.permY(Y,perm) else this.Y
+    this.Y = new DenseMatrix(n,nl,y.map(i=>mcol._2.map(i(_)).map(_.toFloat)).flatten)
+    //this.permY = if(perm > 0) plsCalc.permY(Y(::,0),perm) else this.Y
   }
 //  override def preStart { println("kenny: prestart") }
 
@@ -79,7 +80,7 @@ class snpCalcOrderActor(pm:orderPms) extends Actor{
   }
 
   def makeActor() = {
-    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,permY,looInx,tenFold,this.ofile.replaceFirst("/",""))
+    val calcPm = snpCalcActor.snpCalcPms(k,n,perm,Y,looInx,tenFold,this.ofile.replaceFirst("/",""))
     Array(0 until nActor:_*).map(i => system.actorOf(snpCalcActor.props(calcPm),"calc"+i))
     val wrt = system.actorOf(myParallel.paraWriterActor.props(myParallel.paraWriterActor.fileName(this.ofile)),"writer")
 

@@ -226,3 +226,43 @@ console
 exit
 console
 exit
+console
+run
+console
+exit
+console
+exit
+console
+run
+console
+run
+console
+run
+console
+run
+console
+run
+import PLS._
+import myParallel.actorMessage._
+import breeze.linalg._
+import breeze.stats._
+val chr = "15"
+val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
+    val rs2 = svd.filter(i => i(0) == chr & i(4).toInt > 10).sortBy(_ (4).toInt)
+    // val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
+    val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
+val glists = glistsInx.map(rs2(_))
+val glistss = glistsInx.map(rs2(_))
+val glists = glistss(1)
+val glist = glists.slice(0, 4)
+      val file = new java.io.File(gPms.tp + glist(3) + ".gen")
+    val rl = scala.io.Source.fromFile(gPms.tp+glist(3)+"_rsid.txt").getLines.toArray.length
+      val X = vegas2.vegasX(glist)
+val h = 0.03f
+          val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+var Ym = vegas2.setPhenoT(h,0,0.5f)(X)
+var cr = calculation.pearsonCorr(Ys.toArray,Ym.toArray)
+while(cr<0.2f) {Ym = vegas2.setPhenoT(h,0,0.5f)(X)
+console
+run
+exit

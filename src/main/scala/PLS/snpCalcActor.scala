@@ -38,52 +38,54 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
   //var pk = pms.k
   var n = pms.n
   var perm = pms.perm
-  var permY = pms.Y//DenseMatrix.zeros[Float](n,perm)
-  var Y = permY(::,0).toDenseMatrix.t //DenseMatrix.zeros[Float](n,1)
+  var Y = pms.Y//DenseMatrix.zeros[Float](n,perm)
+//  var Y = permY(::,0).toDenseMatrix.t //DenseMatrix.zeros[Float](n,1)
+  var cr = calculation.pearsonCorr(Y(::,0).toArray,Y(::,1).toArray)
   var looInx = pms.looInx//Array(0 until n :_*).map(Seq(_))
   var tenFold = pms.tenFold//plsCalc.kfoldInx(n,10,true)
   //var mcol = pms.mcol//:(Array[Int], Array[Int]) = (Array(0),Array(0))
   var order:Option[ActorRef] = None
+    var calcPms:Any = 3//(k,n,perm,looInx,tenFold)
   var writer:Option[ActorSelection] = Some(system.actorSelection("/user/writer"))
-  def permT(X:DenseMatrix[Float]) = {
-    var i = 0
-    var nk = if(X.cols < k) X.cols else k
-    var rss = new DenseMatrix[Float](nk,perm)
-    while (i < perm ) {
-      val y1 = permY(::, i).toDenseMatrix.t
-      val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, y1, nk))
-      rss(::,i) := plsCalc.rss(y1, Yhat)
-      i += 1
-    }
-    val st = rss(::,0).toArray
-    Array(0 until nk :_*).map(i => rss(i,::).t.toArray.count(ii => ii < st(i)).toFloat / perm.toFloat)
-  }
-  var calcPms:Any = 3//(k,n,perm,looInx,tenFold)
-  def getGeneSnpSimp(X:DenseMatrix[Float])= {
-    val nk = if(X.cols < k) X.cols else k
-    val YpredTenFold = plsCalc.plsCV(X,Y,nk,tenFold)
-    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,nk))
-    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
-    val gdoffold = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssfold(i),i+1,1000))
-    val pv = dofPval(Y,Yhat,gdoffold)
-    val earray = Array.fill(nk-k)(-1.0)
-    gdoffold++earray++pv++earray
-  }
-  def getGeneSnp(X:DenseMatrix[Float]):geneSNPResult= {
-    val nk = if(X.cols < k) X.cols else k
-    val YpredTenFold = plsCalc.plsCV(X,Y,nk,tenFold)
-    val YpredLoo = plsCalc.plsCV(X,Y,nk,looInx)
-    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,nk))
-    val pdofloo = plsCalc.pdof(Y,Yhat,YpredLoo)
-    val pdoffold = plsCalc.pdof(Y,Yhat,YpredTenFold)
-    val rssloo = 0.6f * sqrt(plsCalc.rss(Y,YpredLoo))
-    val gdofloo = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssloo(i),i+1,1000))
-    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
-    val gdoffold = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssfold(i),i+1,1000))
-    val permPval = permT(X)
-    //.map(i => new DenseMatrix[Float](1,1,Array(i)))
-    geneSNPResult(Yhat,pdofloo.data,gdofloo,pdoffold.data,gdoffold,permPval)
-  }
+//  def permT(X:DenseMatrix[Float]) = {
+//    var i = 0
+//    var nk = if(X.cols < k) X.cols else k
+//    var rss = new DenseMatrix[Float](nk,perm)
+//    while (i < perm ) {
+//      val y1 = permY(::, i).toDenseMatrix.t
+//      val Yhat = plsCalc.predict(X, plsCalc.plsTrain(X, y1, nk))
+//      rss(::,i) := plsCalc.rss(y1, Yhat)
+//      i += 1
+//    }
+//    val st = rss(::,0).toArray
+//    Array(0 until nk :_*).map(i => rss(i,::).t.toArray.count(ii => ii < st(i)).toFloat / perm.toFloat)
+//  }
+
+//  def getGeneSnpSimp(X:DenseMatrix[Float])= {
+//    val nk = if(X.cols < k) X.cols else k
+//    val YpredTenFold = plsCalc.plsCV(X,Y,nk,tenFold)
+//    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,nk))
+//    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
+//    val gdoffold = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssfold(i),i+1,1000))
+//    val pv = dofPval(Y,Yhat,gdoffold)
+//    val earray = Array.fill(nk-k)(-1.0)
+//    gdoffold++earray++pv++earray
+//  }
+//  def getGeneSnp(X:DenseMatrix[Float]):geneSNPResult= {
+//    val nk = if(X.cols < k) X.cols else k
+//    val YpredTenFold = plsCalc.plsCV(X,Y,nk,tenFold)
+//    val YpredLoo = plsCalc.plsCV(X,Y,nk,looInx)
+//    val Yhat= plsCalc.predict(X,plsCalc.plsTrain(X,Y,nk))
+//    val pdofloo = plsCalc.pdof(Y,Yhat,YpredLoo)
+//    val pdoffold = plsCalc.pdof(Y,Yhat,YpredTenFold)
+//    val rssloo = 0.6f * sqrt(plsCalc.rss(Y,YpredLoo))
+//    val gdofloo = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssloo(i),i+1,1000))
+//    val rssfold = 0.6f * sqrt(plsCalc.rss(Y,YpredTenFold))
+//    val gdoffold = Array(0 until nk:_*).map(i => plsCalc.gdof(X,Y,rssfold(i),i+1,1000))
+//    val permPval = permT(X)
+//    //.map(i => new DenseMatrix[Float](1,1,Array(i)))
+//    geneSNPResult(Yhat,pdofloo.data,gdofloo,pdoffold.data,gdoffold,permPval)
+//  }
   def dofPval(Ys:DenseMatrix[Float]=Y,Ypred:DenseMatrix[Float],dof:Array[Float])={
     val nk = dof.length
     Array(0 until nk:_*).map(i => plsCalc.anova(Ys,Ypred(::,i).toDenseMatrix.t,new DenseMatrix[Float](1,1,Array(dof(i))))(0))
@@ -106,14 +108,14 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
     val pmls = pm.asInstanceOf[Int]//,Int,Int,Array[Seq[Int]],Array[Seq[Int]])]
     val m = X.cols
     val k = min(m,pmls)
-//    val rs = plsCalc.ngdofPvalT(X,Y,k)
-//    rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
+    val rs = plsCalc.ngdofPvalT(X,Y,k)
+    rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")
 
 
-    val rs = plsCalc.dofPvalA(X,Y,k)
-
-    val rsp = Array( 1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
-    rsp.mkString("\t")+"\t"+rs._1.mkString("\t")+"\t"+ rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")+"\t"+ rs._4.mkString("\t")+"\t"+ rs._5.mkString("\t")+"\t"+ rs._6.mkString("\t")
+//    val rs = plsCalc.dofPvalA(X,Y,k)
+//
+//    val rsp = Array( 1 to k:_*).map(i => plsCalc.plsPerm(X,Y,i,10000))
+//    rsp.mkString("\t")+"\t"+rs._1.mkString("\t")+"\t"+ rs._2.mkString("\t")+"\t"+ rs._3.mkString("\t")+"\t"+ rs._4.mkString("\t")+"\t"+ rs._5.mkString("\t")+"\t"+ rs._6.mkString("\t")
   }
 
   def receive = {
@@ -131,14 +133,25 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
       this.Y = ys.Y
     }
     case x:Xs => {
-
       val X = x.X
-      val prs = getRes(X,Y,calcPms)
+      if (Y.cols > 1){
+        var rs = "" //x.gene.mkString("\t")
+        for (i <- 0 until Y.cols){
+          val y = Y(::,i).toDenseMatrix.t
+          rs += "\t"+getRes(X,y,calcPms)
+        }
+        val kk = calcPms.asInstanceOf[Int]
+        val rrs = rs.split("\t").drop(1).map(_.toFloat)
+        val rss = (x.gene ++ rrs.map(_.toString) ++ Array(0 until kk :_*).map(i => calculation.
+          brownTest(Array(rrs(i),rrs(i +  kk -1)),Array(cr)).toString)).mkString("\t")
+        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rss))
+      }else {
+        val prs = getRes(X,Y,calcPms)
+        var rs = x.gene.mkString("\t") + "\t"+prs
+        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+      }
       //val prs = genePval(grs).mkString("\t")
-      var rs = x.gene.mkString("\t") + "\t"+prs
-      writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
       sender ! done(1)
-
     }
 
     case xy:XYs => {
@@ -146,8 +159,11 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
       val X = xy.X
       val Ys = if (max(Y) == 0f & min(Y) == 0f) xy.Y else DenseMatrix.horzcat(xy.Y,Y)
       val prs = getRes(X,Ys,calcPms)
+      val yrs = getRes(X,Y,calcPms)
+      val Xs = DenseMatrix.horzcat(X,xy.Y)
+      val xrs = getRes(Xs,Y,calcPms)
       //val prs = genePval(grs).mkString("\t")
-      var rs = xy.gene.mkString("\t")+"\t" +X.cols+ "\t"+prs
+      var rs = xy.gene.mkString("\t")+"\t" +X.cols+ "\t"+prs+"\t"+"0"+"\t"+yrs+"\t"+"0"+"\t"+xrs
       writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
       sender ! done(1)
     }
