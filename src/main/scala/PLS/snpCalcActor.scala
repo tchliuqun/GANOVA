@@ -143,7 +143,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
         val kk = calcPms.asInstanceOf[Int]
         val rrs = rs.split("\t").drop(1).map(_.toFloat)
         val rss = (x.gene ++ rrs.map(_.toString) ++ Array(0 until kk :_*).map(i => calculation.
-          brownTest(Array(rrs(i),rrs(i +  kk -1)),Array(cr)).toString)).mkString("\t")
+          brownTest(Array(rrs(i),rrs(i +  kk -1)),Array(cr)).toString)).mkString("\t") +"\t" + getRes(X,Y,calcPms)
         writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rss))
       }else {
         val prs = getRes(X,Y,calcPms)

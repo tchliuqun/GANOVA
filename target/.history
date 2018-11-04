@@ -266,3 +266,8 @@ while(cr<0.2f) {Ym = vegas2.setPhenoT(h,0,0.5f)(X)
 console
 run
 exit
+run
+console
+sbt
+console
+exit

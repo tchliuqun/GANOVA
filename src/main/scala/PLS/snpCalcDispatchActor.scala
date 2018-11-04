@@ -69,7 +69,8 @@ class snpCalcDispatchActor(pm:dispatcherPms) extends Actor{
     var srt = gen(1).toInt - ampl
     var end = gen(2).toInt + ampl
     while (loc < end & snpd.hasNext){
-      X = X :+ (loc,snpd.next)
+      val x0 = snpd.next
+      if (breeze.stats.meanAndVariance(x0).variance > 0f) X = X :+ (loc,x0)
       if(snpI.hasNext) loc = snpI.next.apply(2).toInt
     }
     X = X.dropWhile(_._1 < srt)

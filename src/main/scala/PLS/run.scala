@@ -91,7 +91,7 @@ object run extends App {
   }
   // pakt and gene expression as phenotype data
 
-  if (false) {
+//  if (false) {
     val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
@@ -108,7 +108,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-  }
+//  }
 //2018-8-26 gbm and lgg: snp ,exp and pakt
   // first gbmlgg exp and pakt
   // second gbmlgg and pakt
@@ -116,17 +116,17 @@ object run extends App {
   // fourth gbm and pakt
   // fifth gbm exp and pakt
   // 2018-9-17pakt ,three dof
-//  if (false) {
+  if (false) {
     //val out = new PrintWriter(new FileWriter(gPms.op+"tcga_gbmlgg_rnaseq.txt"))
     // val expp = scala.io.Source.fromFile(gPms.op+"GBMLGG.rnaseqv2__illuminahiseq_rnaseqv2__unc_edu__Level_3__RSEM_genes_normalized__data.data.txt").getLines.map(_.split("\t"))
     //out.println(expp.next.mkString("\t"))
     //val ds = expp.next
     //for (lin <- expp) out.println((lin(0).split("\\|").apply(1) +: lin.drop(1).map(i =>(log10(i.toDouble+1.0)/log10(2d)).toString)).mkString("\t"))
     // out.close()
-//    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
-  val dff = gPms.op + gPms.df
+    val dff = gPms.op+"tcga_gbmlgg_snp.txt"
+//  val dff = gPms.op + gPms.df
 //  val pff = gPms.op+ "tcga_gbmlgg_rppa_rnaseq.txt"
-  val pff = gPms.op+ "GBMLGG.rppa.txt"
+  val pff = gPms.op+ "LGG.rppa.txt"
     val eff = gPms.op+gPms.ef
 //     val eff = ""
 //    val eff = gPms.op+"tcga_gbmlgg_rnaseq.txt"
@@ -148,7 +148,7 @@ object run extends App {
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-//  }
+  }
   // 2018-5-14 MGMT status and/or gene expression as phenotype data
     if (false) {
   val pfl = "gbm_mgmt_stp27.txt"
