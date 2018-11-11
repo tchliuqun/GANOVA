@@ -101,7 +101,7 @@ object run extends App {
     val ch = Array(1 to 22: _*).map(_.toString)
     val orderpms = snpCalcOrderActor.orderPms(k = 3)//,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-    srt ! snpCalcOrderActor.yArray(Array(pakt.apply(1)))
+    srt ! snpCalcOrderActor.yArray(pakt.slice(1,3))
     srt ! snpCalcOrderActor.chrs(ch)
 
 
