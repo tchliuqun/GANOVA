@@ -4,7 +4,7 @@
 		module="ganova$sources_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20181104095957"
+		publication="20181111104127"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

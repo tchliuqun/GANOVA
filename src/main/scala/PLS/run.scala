@@ -99,9 +99,9 @@ object run extends App {
     val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(_ (0).contains("AKT")).toArray
 
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = snpCalcOrderActor.orderPms(k = 3,nactor = 7,efile = "")
+    val orderpms = snpCalcOrderActor.orderPms(k = 3)//,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-    srt ! snpCalcOrderActor.yArray(pakt.slice(1,3))
+    srt ! snpCalcOrderActor.yArray(Array(pakt.apply(1)))
     srt ! snpCalcOrderActor.chrs(ch)
 
 
