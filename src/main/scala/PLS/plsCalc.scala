@@ -714,8 +714,9 @@ object plsCalc {
     //var pl = Array[Float]()
     var i = 0
     while (i < ny){
-      Yi = Y(::,inx).toDenseMatrix
-      val(dfi,pli) = ngdofP(X,Yi,k)
+      val Yii = Yi(::,inx).toDenseMatrix
+      Yi = Yii
+      val(dfi,pli) = plsCalc.ngdofP(X,Yi,k)
       df ++:= dfi
       pl ++:= pli
       i += 1
