@@ -275,3 +275,21 @@ console
 exit
 console
 exit
+run
+console
+exit
+run
+set libraryDependencies += "org.scalanlp" % "breeze_2.11" % "0.12"
+set resolvers += "Sonatype Releases" at "https://oss.sonatype.org/content/repositories/releases/"
+console
+run
+exit
+run
+console
+run
+console
+run
+console
+run
+console
+exit

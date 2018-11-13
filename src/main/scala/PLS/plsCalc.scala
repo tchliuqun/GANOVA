@@ -71,7 +71,7 @@ object plsCalc {
         w_a = XY * q_a
       }// in this case, XY (K x M) is a column vector (K x 1) since M == 1
       //w_a = XY(::,*).map(x => x/sqrt(x.t * x))
-      w_a = w_a / sqrt(w_a.t * w_a).toFloat // normalize w_a to unity - the denominator is a scalar
+      w_a = w_a /sqrt(sum(w_a *:* w_a))// sqrt(w_a.toDenseMatrix * w_a.toDenseMatrix.t).apply(0,0)//.toFloat // normalize w_a to unity - the denominator is a scalar
       r_a = w_a // loop to compute r_a
       var j: Int = 0
       while (j < a ) {
@@ -79,7 +79,7 @@ object plsCalc {
         j += 1
       }
       t_a = X * r_a // compute score vector
-      tt = t_a.t * t_a // compute t't - (1 x 1) that is auto-converted to a scalar
+      tt = sum(t_a *:* t_a)// t_a.t * t_a // compute t't - (1 x 1) that is auto-converted to a scalar
       p_a = (X.t * t_a) / tt // X-loadings - ((K x 1)' * (K x K))' / tt === (K x 1) / tt
       q_a = (r_a.t * XY).t / tt // Y-loadings - ((K x 1)' * (K x M))' / tt === (M x 1) / tt
       XY = XY - ((p_a * q_a.t) * tt) // XtY deflation
@@ -119,7 +119,7 @@ object plsCalc {
     while (a < A) {
       // w_a = XY
       if (M == 1) {
-        w_a = XY(::, *).map(x => x / sqrt(x.t * x))
+        w_a = XY(::, *).map(x => x / sqrt(sum(x *:* x)))
 
       } else {
         var ii = 0
@@ -132,7 +132,7 @@ object plsCalc {
           w_a(::,ii) := xy * q_a
           ii += 1
         }
-        w_a = w_a(::, *).map(x => x / sqrt(x.t * x))
+        w_a = w_a(::, *).map(x => x / sqrt(sum(x *:* x)))
       }// loop to compute r_a
 
       r_a = w_a
@@ -143,7 +143,7 @@ object plsCalc {
         j += 1
       }
       t_a = X * r_a // compute score vector
-      tt = t_a(::,*).map(x=> x.t * x).t // compute t't - (1 x 1) that is auto-converted to a scalar
+      tt = t_a(::,*).map(x => sum(x *:* x)).t// compute t't - (1 x 1) that is auto-converted to a scalar
       val p_aa = X.t * t_a
       p_a = p_aa(*,::) / tt // X-loadings - ((K x 1)' * (K x K))' / tt === (K x 1) / tt
       //val q_aa = sum(r_a *:* XY,Axis._0).t

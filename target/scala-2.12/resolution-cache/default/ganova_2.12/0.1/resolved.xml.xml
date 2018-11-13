@@ -4,7 +4,7 @@
 		module="ganova_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20180219211737"
+		publication="20181111190805"
 	>
 		<description>
 		GANOVA
@@ -39,8 +39,8 @@
 		<dependency org="commons-net" name="commons-net" rev="3.4" conf="compile->default(compile)"/>
 		<dependency org="com.storm-enroute" name="scalameter_2.12" rev="0.8.2" conf="compile->default(compile)"/>
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.22" conf="compile->default(compile)"/>
-		<dependency org="org.scalanlp" name="breeze_2.12" rev="0.13.1" conf="compile->default(compile)"/>
-		<dependency org="org.scalanlp" name="breeze-natives_2.12" rev="0.13.1" conf="compile->default(compile)"/>
+		<dependency org="org.scalanlp" name="breeze_2.12" rev="0.13.2" conf="compile->default(compile)"/>
+		<dependency org="org.scalanlp" name="breeze-natives_2.12" rev="0.13.2" conf="compile->default(compile)"/>
 		<dependency org="org.ddahl" name="rscala_2.12" rev="2.4.0" conf="compile->default(compile)"/>
 		<dependency org="org.scalactic" name="scalactic_2.12" rev="3.0.1" conf="compile->default(compile)"/>
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.1" conf="test->default(compile)"/>

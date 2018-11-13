@@ -7,7 +7,7 @@
 		revision="0.1"
 		conf="runtime-internal"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20180219211737"/>
+		date="20181111190805"/>
 	<dependencies>
 		<module organisation="org.apache.httpcomponents" name="httpcore">
 			<revision name="4.4.5" status="release" pubdate="20160609003939" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://hc.apache.org/httpcomponents-core-ga" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master, runtime(*), master(compile), compile(*)" position="74">
@@ -258,13 +258,13 @@
 			</revision>
 		</module>
 		<module organisation="org.scalanlp" name="breeze-natives_2.12">
-			<revision name="0.13.1" status="release" pubdate="20170424143235" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="42">
+			<revision name="0.13.2" status="release" pubdate="20170801120458" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="42">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="3367" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-natives_2.12/ivy-0.13.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze-natives_2.12/0.13.1/breeze-natives_2.12-0.13.1.pom"/>
-				<caller organisation="default" name="ganova_2.12" conf="compile, runtime-internal, runtime, optional" rev="0.13.1" rev-constraint-default="0.13.1" rev-constraint-dynamic="0.13.1" callerrev="0.1"/>
+				<metadata-artifact status="no" details="" size="3367" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-natives_2.12/ivy-0.13.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze-natives_2.12/0.13.2/breeze-natives_2.12-0.13.2.pom"/>
+				<caller organisation="default" name="ganova_2.12" conf="compile, runtime-internal, runtime, optional" rev="0.13.2" rev-constraint-default="0.13.2" rev-constraint-dynamic="0.13.2" callerrev="0.1"/>
 				<artifacts>
-					<artifact name="breeze-natives_2.12" type="jar" ext="jar" status="no" details="" size="282" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-natives_2.12/jars/breeze-natives_2.12-0.13.1.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze-natives_2.12/0.13.1/breeze-natives_2.12-0.13.1.jar"/>
+					<artifact name="breeze-natives_2.12" type="jar" ext="jar" status="no" details="" size="282" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-natives_2.12/jars/breeze-natives_2.12-0.13.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze-natives_2.12/0.13.2/breeze-natives_2.12-0.13.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -273,7 +273,7 @@
 			<revision name="1.1.2" status="release" pubdate="20131126195721" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="43">
 				<license name="BSD 3 Clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
 				<metadata-artifact status="no" details="" size="8022" time="0" location="/Users/qunliu/.ivy2/cache/com.github.fommil.netlib/all/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/fommil/netlib/all/1.1.2/all-1.1.2.pom"/>
-				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="all" type="pom" ext="pom" status="no" details="" size="4269" time="0" location="/Users/qunliu/.ivy2/cache/com.github.fommil.netlib/all/poms/all-1.1.2.pom">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/fommil/netlib/all/1.1.2/all-1.1.2.pom"/>
@@ -473,14 +473,14 @@
 			</revision>
 		</module>
 		<module organisation="org.scalanlp" name="breeze_2.12">
-			<revision name="0.13.1" status="release" pubdate="20170424143538" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="29">
+			<revision name="0.13.2" status="release" pubdate="20170801120730" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="default, compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="29">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="4830" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/ivy-0.13.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.12/0.13.1/breeze_2.12-0.13.1.pom"/>
-				<caller organisation="default" name="ganova_2.12" conf="compile, runtime-internal, runtime, optional" rev="0.13.1" rev-constraint-default="0.13.1" rev-constraint-dynamic="0.13.1" callerrev="0.1"/>
-				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="0.13.1" rev-constraint-default="0.13.1" rev-constraint-dynamic="0.13.1" callerrev="0.13.1"/>
+				<metadata-artifact status="no" details="" size="4830" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/ivy-0.13.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.12/0.13.2/breeze_2.12-0.13.2.pom"/>
+				<caller organisation="default" name="ganova_2.12" conf="compile, runtime-internal, runtime, optional" rev="0.13.2" rev-constraint-default="0.13.2" rev-constraint-dynamic="0.13.2" callerrev="0.1"/>
+				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="0.13.2" rev-constraint-default="0.13.2" rev-constraint-dynamic="0.13.2" callerrev="0.13.2"/>
 				<artifacts>
-					<artifact name="breeze_2.12" type="jar" ext="jar" status="no" details="" size="13319453" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.1.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.12/0.13.1/breeze_2.12-0.13.1.jar"/>
+					<artifact name="breeze_2.12" type="jar" ext="jar" status="no" details="" size="13319481" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze_2.12/jars/breeze_2.12-0.13.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze_2.12/0.13.2/breeze_2.12-0.13.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -512,7 +512,7 @@
 			<revision name="1.7.5" status="release" pubdate="20130326045215" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="41">
 				<license name="MIT License" url="http://www.opensource.org/licenses/mit-license.php"/>
 				<metadata-artifact status="no" details="" size="4383" time="0" location="/Users/qunliu/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.5.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.13.2"/>
 				<caller organisation="org.mongodb" name="casbah-commons_2.12.0-RC1" conf="compile, runtime" rev="1.6.0" rev-constraint-default="1.6.0" rev-constraint-dynamic="1.6.0" callerrev="3.1.1"/>
 				<artifacts>
 					<artifact name="slf4j-api" type="jar" ext="jar" status="no" details="" size="26084" time="0" location="/Users/qunliu/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.5.jar">
@@ -533,7 +533,7 @@
 			<revision name="0.13.0" status="release" pubdate="20161129123252" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://spire-math.org" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="36">
 				<license name="MIT" url="http://opensource.org/licenses/MIT"/>
 				<metadata-artifact status="no" details="" size="3059" time="0" location="/Users/qunliu/.ivy2/cache/org.spire-math/spire_2.12/ivy-0.13.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/spire-math/spire_2.12/0.13.0/spire_2.12-0.13.0.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.13.0" rev-constraint-default="0.13.0" rev-constraint-dynamic="0.13.0" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.13.0" rev-constraint-default="0.13.0" rev-constraint-dynamic="0.13.0" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="spire_2.12" type="jar" ext="jar" status="no" details="" size="9660469" time="0" location="/Users/qunliu/.ivy2/cache/org.spire-math/spire_2.12/jars/spire_2.12-0.13.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/spire-math/spire_2.12/0.13.0/spire_2.12-0.13.0.jar"/>
@@ -557,7 +557,7 @@
 			<revision name="2.3.2" status="release" pubdate="20161102175049" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/milessabin/shapeless" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="39">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="3226" time="0" location="/Users/qunliu/.ivy2/cache/com.chuusai/shapeless_2.12/ivy-2.3.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.2/shapeless_2.12-2.3.2.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.3.2" rev-constraint-default="2.3.2" rev-constraint-dynamic="2.3.2" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.3.2" rev-constraint-default="2.3.2" rev-constraint-dynamic="2.3.2" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="shapeless_2.12" type="bundle" ext="jar" status="no" details="" size="2829843" time="0" location="/Users/qunliu/.ivy2/cache/com.chuusai/shapeless_2.12/bundles/shapeless_2.12-2.3.2.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/chuusai/shapeless_2.12/2.3.2/shapeless_2.12-2.3.2.jar"/>
@@ -596,7 +596,7 @@
 				<license name="LGPL" url="http://www.gnu.org/licenses/lgpl-2.1.txt"/>
 				<license name="GPL" url="http://www.gnu.org/licenses/gpl-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="2991" time="0" location="/Users/qunliu/.ivy2/cache/com.github.rwl/jtransforms/ivy-2.4.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/rwl/jtransforms/2.4.0/jtransforms-2.4.0.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.4.0" rev-constraint-default="2.4.0" rev-constraint-dynamic="2.4.0" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="jtransforms" type="jar" ext="jar" status="no" details="" size="764569" time="0" location="/Users/qunliu/.ivy2/cache/com.github.rwl/jtransforms/jars/jtransforms-2.4.0.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/com/github/rwl/jtransforms/2.4.0/jtransforms-2.4.0.jar"/>
@@ -620,7 +620,7 @@
 			<revision name="2.3" status="release" pubdate="20110728130018" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://opencsv.sf.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="33">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="3354" time="0" location="/Users/qunliu/.ivy2/cache/net.sf.opencsv/opencsv/ivy-2.3.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/sf/opencsv/opencsv/2.3/opencsv-2.3.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.3" rev-constraint-default="2.3" rev-constraint-dynamic="2.3" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.3" rev-constraint-default="2.3" rev-constraint-dynamic="2.3" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="opencsv" type="jar" ext="jar" status="no" details="" size="19827" time="0" location="/Users/qunliu/.ivy2/cache/net.sf.opencsv/opencsv/jars/opencsv-2.3.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar"/>
@@ -633,7 +633,7 @@
 				<license name="BSD 3 Clause" url="http://opensource.org/licenses/BSD-3-Clause"/>
 				<metadata-artifact status="no" details="" size="4893" time="0" location="/Users/qunliu/.ivy2/cache/com.github.fommil.netlib/core/ivy-1.1.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/com/github/fommil/netlib/core/1.1.2/core-1.1.2.pom"/>
 				<caller organisation="com.github.fommil.netlib" name="native_ref-java" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="0.13.2"/>
 				<caller organisation="com.github.fommil.netlib" name="all" conf="compile, runtime" rev="1.1.2" rev-constraint-default="1.1.2" rev-constraint-dynamic="1.1.2" callerrev="1.1.2"/>
 				<caller organisation="com.github.fommil.netlib" name="native_system-java" conf="compile, runtime" rev="1.1" rev-constraint-default="1.1" rev-constraint-dynamic="1.1" callerrev="1.1"/>
 				<artifacts>
@@ -651,13 +651,13 @@
 			</revision>
 		</module>
 		<module organisation="org.scalanlp" name="breeze-macros_2.12">
-			<revision name="0.13.1" status="release" pubdate="20170424143111" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="30">
+			<revision name="0.13.2" status="release" pubdate="20170801120453" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://scalanlp.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="30">
 				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
-				<metadata-artifact status="no" details="" size="3152" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-macros_2.12/ivy-0.13.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.12/0.13.1/breeze-macros_2.12-0.13.1.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.13.1" rev-constraint-default="0.13.1" rev-constraint-dynamic="0.13.1" callerrev="0.13.1"/>
+				<metadata-artifact status="no" details="" size="3152" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-macros_2.12/ivy-0.13.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.12/0.13.2/breeze-macros_2.12-0.13.2.pom"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.13.2" rev-constraint-default="0.13.2" rev-constraint-dynamic="0.13.2" callerrev="0.13.2"/>
 				<artifacts>
-					<artifact name="breeze-macros_2.12" type="jar" ext="jar" status="no" details="" size="125330" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-macros_2.12/jars/breeze-macros_2.12-0.13.1.jar">
-						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.12/0.13.1/breeze-macros_2.12-0.13.1.jar"/>
+					<artifact name="breeze-macros_2.12" type="jar" ext="jar" status="no" details="" size="125330" time="0" location="/Users/qunliu/.ivy2/cache/org.scalanlp/breeze-macros_2.12/jars/breeze-macros_2.12-0.13.2.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalanlp/breeze-macros_2.12/0.13.2/breeze-macros_2.12-0.13.2.jar"/>
 					</artifact>
 				</artifacts>
 			</revision>
@@ -681,9 +681,9 @@
 				<caller organisation="org.typelevel" name="machinist_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.6.1"/>
 				<caller organisation="com.storm-enroute" name="scalameter-core_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.8.2"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.12.3"/>
-				<caller organisation="org.scalanlp" name="breeze-macros_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.1"/>
 				<caller organisation="com.fasterxml.jackson.module" name="jackson-module-scala_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.8.4"/>
 				<caller organisation="com.storm-enroute" name="scalameter_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.8.2"/>
+				<caller organisation="org.scalanlp" name="breeze-macros_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.2"/>
 				<caller organisation="org.scalactic" name="scalactic_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="3.0.1"/>
 				<artifacts>
 					<artifact name="scala-reflect" type="jar" ext="jar" status="no" details="" size="3567871" time="0" location="/Users/qunliu/.ivy2/cache/org.scala-lang/scala-reflect/jars/scala-reflect-2.12.3.jar">
@@ -865,7 +865,7 @@
 			<revision name="0.1" status="release" pubdate="20130709122740" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://f2j.sourceforge.net" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="32">
 				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
 				<metadata-artifact status="no" details="" size="2567" time="0" location="/Users/qunliu/.ivy2/cache/net.sourceforge.f2j/arpack_combined_all/ivy-0.1.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.pom"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.1" rev-constraint-default="0.1" rev-constraint-dynamic="0.1" callerrev="0.13.1"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="0.1" rev-constraint-default="0.1" rev-constraint-dynamic="0.1" callerrev="0.13.2"/>
 				<artifacts>
 					<artifact name="arpack_combined_all" type="jar" ext="jar" status="no" details="" size="1194003" time="0" location="/Users/qunliu/.ivy2/cache/net.sourceforge.f2j/arpack_combined_all/jars/arpack_combined_all-0.1.jar">
 						<origin-location is-local="false" location="https://repo1.maven.org/maven2/net/sourceforge/f2j/arpack_combined_all/0.1/arpack_combined_all-0.1.jar"/>
@@ -983,8 +983,8 @@
 			<revision name="3.2" status="release" pubdate="20130403033128" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://commons.apache.org/proper/commons-math/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="6">
 				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
 				<metadata-artifact status="no" details="" size="9676" time="0" location="/Users/qunliu/.ivy2/cache/org.apache.commons/commons-math3/ivy-3.2.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/apache/commons/commons-math3/3.2/commons-math3-3.2.pom"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="3.2" rev-constraint-default="3.2" rev-constraint-dynamic="3.2" callerrev="0.13.2"/>
 				<caller organisation="com.storm-enroute" name="scalameter-core_2.12" conf="compile, runtime" rev="3.2" rev-constraint-default="3.2" rev-constraint-dynamic="3.2" callerrev="0.8.2"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="3.2" rev-constraint-default="3.2" rev-constraint-dynamic="3.2" callerrev="0.13.1"/>
 				<caller organisation="com.storm-enroute" name="scalameter_2.12" conf="default, compile, runtime, master" rev="3.2" rev-constraint-default="3.2" rev-constraint-dynamic="3.2" callerrev="0.8.2"/>
 				<artifacts>
 					<artifact name="commons-math3" type="jar" ext="jar" status="no" details="" size="1692782" time="0" location="/Users/qunliu/.ivy2/cache/org.apache.commons/commons-math3/jars/commons-math3-3.2.jar">
@@ -1043,18 +1043,20 @@
 				<caller organisation="default" name="ganova_2.12" conf="compile, runtime-internal, runtime, optional" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.1"/>
 				<caller organisation="org.typelevel" name="machinist_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.6.1"/>
 				<caller organisation="com.typesafe.akka" name="akka-parsing_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="10.0.9"/>
+				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.2"/>
 				<caller organisation="com.typesafe" name="ssl-config-core_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.2.1"/>
 				<caller organisation="org.scala-lang.modules" name="scala-java8-compat_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.8.0"/>
-				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.1"/>
 				<caller organisation="org.scala-lang.modules" name="scala-xml_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="1.0.6"/>
 				<caller organisation="org.ddahl" name="rscala_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.4.0"/>
 				<caller organisation="org.spire-math" name="spire_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.0"/>
 				<caller organisation="org.scala-lang.modules" name="scala-xml_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="1.0.5"/>
 				<caller organisation="com.storm-enroute" name="scalameter_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.8.2"/>
 				<caller organisation="org.scala-lang" name="scala-reflect" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.12.3"/>
+				<caller organisation="org.scalanlp" name="breeze-macros_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.2"/>
 				<caller organisation="com.github.nscala-time" name="nscala-time_2.12.0-RC1" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.14.0"/>
 				<caller organisation="org.scalactic" name="scalactic_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="3.0.1"/>
 				<caller organisation="com.chuusai" name="shapeless_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.3.2"/>
+				<caller organisation="org.scalanlp" name="breeze-natives_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.2"/>
 				<caller organisation="org.scala-lang" name="scala-compiler" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.12.3"/>
 				<caller organisation="org.mongodb" name="casbah-core_2.12.0-RC1" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="3.1.1"/>
 				<caller organisation="com.typesafe.akka" name="akka-http_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="10.0.9"/>
@@ -1065,10 +1067,8 @@
 				<caller organisation="com.typesafe.akka" name="akka-stream_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.4.19"/>
 				<caller organisation="com.storm-enroute" name="scalameter-core_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.8.2"/>
 				<caller organisation="org.scala-lang.modules" name="scala-parser-combinators_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="1.0.4"/>
-				<caller organisation="org.scalanlp" name="breeze-macros_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.1"/>
 				<caller organisation="org.spire-math" name="spire-macros_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.0"/>
 				<caller organisation="com.fasterxml.jackson.module" name="jackson-module-scala_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="2.8.4"/>
-				<caller organisation="org.scalanlp" name="breeze_2.12" conf="default, compile, runtime, master" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="0.13.1"/>
 				<caller organisation="org.typelevel" name="macro-compat_2.12" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="1.1.1"/>
 				<caller organisation="org.mongodb" name="casbah-gridfs_2.12.0-RC1" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="3.1.1"/>
 				<caller organisation="org.mongodb" name="casbah_2.12.0-RC1" conf="compile, runtime" rev="2.12.3" rev-constraint-default="2.12.3" rev-constraint-dynamic="2.12.3" callerrev="3.1.1"/>

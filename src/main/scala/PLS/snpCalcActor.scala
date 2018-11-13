@@ -93,6 +93,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
       this.Y = ys.Y
     }
     case x:Xs => {
+      try {
       val X = x.X
       if (Y.cols > 1){
         var rs = "" //x.gene.mkString("\t")
@@ -110,36 +111,47 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
         var rs = x.gene.mkString("\t") + "\t"+prs
         writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
       }
+      }
+      catch {
+        case unknown:Throwable => println(x.gene.mkString("\t")+ " " +"Got this unknown exception: " + unknown)
+
+      }
       //val prs = genePval(grs).mkString("\t")
       sender ! done(1)
     }
 
-    case xy:XYs => {
 
-      val X = xy.X
-      val ny = xy.Y.cols
-      val Ys = if (max(Y) == 0f & min(Y) == 0f) xy.Y else DenseMatrix.horzcat(xy.Y,Y)
-      if (Y.cols > 1){
-        var rs = "" //x.gene.mkString("\t")
-        for (i <- 0 until Ys.cols){
-          val y = Ys(::,i).toDenseMatrix.t
-          rs += "\t"+getRes(X,y,calcPms)
+    case xy:XYs => {
+      try {
+        val X = xy.X
+        val ny = Y.cols
+        val Ys = if (max(Y) == 0f & min(Y) == 0f) xy.Y else DenseMatrix.horzcat(xy.Y, Y)
+        if (Y.cols > 1) {
+          var rs = "" //x.gene.mkString("\t")
+          for (i <- 0 until Ys.cols) {
+            val y = Ys(::, i).toDenseMatrix.t
+            rs += "\t" + getRes(X, y, calcPms)
+          }
+          rs += "\t" + getRes(X, Ys, calcPms)
+          val kk = calcPms.asInstanceOf[Int]
+          val rrs = rs.split("\t").drop(1).map(_.toFloat)
+          val rss = xy.gene.mkString("\t") + "\t" + X.cols + "\t" + (rrs.map(_.toString) ++ Array(0 until kk: _*).map(i => calculation.
+            brownTest(Array(rrs(kk * (ny - 1) + i), rrs(i + ny * kk)), Array(cr)).toString) ++ Array(0 until kk: _*).map(i => calculation.
+            brownTest(Array(rrs(rrs.length - kk * 3 + i), rrs(rrs.length - kk * 2 + i)), Array(cr)).toString)).mkString("\t")
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rss))
+        } else {
+          val prs = getRes(X, Ys, calcPms)
+          val yrs = getRes(X, Y, calcPms)
+          val Xs = DenseMatrix.horzcat(X, xy.Y)
+          val xrs = getRes(Xs, Y, calcPms)
+          //val prs = genePval(grs).mkString("\t")
+          val rs = xy.gene.mkString("\t") + "\t" + X.cols + "\t" + prs + "\t" + "0" + "\t" + yrs + "\t" + "0" + "\t" + xrs
+          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
         }
-        rs += "\t" + getRes(X,Ys,calcPms)
-        val kk = calcPms.asInstanceOf[Int]
-        val rrs = rs.split("\t").drop(1).map(_.toFloat)
-        val rss = xy.gene.mkString("\t")+"\t" +X.cols+ "\t" + (rrs.map(_.toString) ++ Array(0 until kk :_*).map(i => calculation.
-          brownTest(Array(rrs(kk *(ny-1) +i),rrs(i +  ny * kk)),Array(cr)).toString)++Array(0 until kk :_*).map(i => calculation.
-          brownTest(Array(rrs(rrs.length - kk * 3 +i),rrs(rrs.length - kk * 2 +i)),Array(cr)).toString)).mkString("\t")
-        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rss))
-      }else {
-        val prs = getRes(X, Ys, calcPms)
-        val yrs = getRes(X, Y, calcPms)
-        val Xs = DenseMatrix.horzcat(X, xy.Y)
-        val xrs = getRes(Xs, Y, calcPms)
-        //val prs = genePval(grs).mkString("\t")
-        val rs = xy.gene.mkString("\t") + "\t" + X.cols + "\t" + prs + "\t" + "0" + "\t" + yrs + "\t" + "0" + "\t" + xrs
-        writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+      }
+      catch {
+        case unknown:Throwable => println(xy.gene.mkString("\t")+ " " +"Got this unknown exception: " + unknown)
+
       }
       sender ! done(1)
     }
