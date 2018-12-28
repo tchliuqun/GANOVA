@@ -91,24 +91,22 @@ object run extends App {
   }
   // pakt and gene expression as phenotype data
 
-//  if (false) {
+  if (false) {
     val xx = scala.io.Source.fromFile(gPms.op+gPms.df).getLines.map(_.split("\t")).take(1).toArray.flatten
     val yy = scala.io.Source.fromFile(gPms.op+gPms.pf).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val ee = scala.io.Source.fromFile(gPms.op+gPms.ef).getLines.map(_.split("\t")).take(1).toArray.flatten.map(_.slice(0,15))
     val mcol =fileOper.intersectCols(xx,yy,ee)
-    val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(_ (0).contains("AKT")).toArray
-
+    val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(i => i(0).contains( "Akt_p")).toArray//| i(0).contains("EGFR_pY1068")).toArray
+//val pakt = fileOper.toArrays(gPms.op+gPms.pf).filter(i => i(0).contains("Akt")).toArray.slice(1,3)
     val ch = Array(1 to 22: _*).map(_.toString)
-    val orderpms = snpCalcOrderActor.orderPms(k = 3)//,efile = "")
+    val orderpms = snpCalcOrderActor.orderPms(k = 3,efile = "")
     val srt = system.actorOf(snpCalcOrderActor.props(orderpms), "srt")
-    srt ! snpCalcOrderActor.yArray(pakt.slice(1,3))
+    srt ! snpCalcOrderActor.yArray(pakt)
     srt ! snpCalcOrderActor.chrs(ch)
-
-
     //srt ! snpCalcActor.func(calculation.runeig)
     srt ! snpCalcActor.calcPm(3)
     srt ! action
-//  }
+}
 //2018-8-26 gbm and lgg: snp ,exp and pakt
   // first gbmlgg exp and pakt
   // second gbmlgg and pakt
@@ -213,7 +211,7 @@ object run extends App {
     }
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
-  if (false) {
+//  if (false) {
 //    val t1 = System.nanoTime()
 //    //plsCalc.gdofPval2(X1,Y0,2)
 //    val rss = calculation.sgsea(gs,rs)
@@ -231,7 +229,7 @@ object run extends App {
     if (false) {
       srt ! simumasterActor.chr(Array("15"))
     }
-  }
+//  }
   // 2018-6-11 15:20 testing different dof calculating method and compare to permutation results of PLS
   if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 10, 0.02f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )

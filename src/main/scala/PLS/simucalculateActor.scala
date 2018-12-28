@@ -126,12 +126,12 @@ class simucalculateActor(pms:Pms) extends Actor{
         while (i < rl) {
           var j = 0
           while (j < n) {
-            if (false) {
+//            if (false) {
               val Y = vegas2.setPheno(h, i, false)(X)
               val sr = j + "_" + h + "\t" + i
 
               val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
-              val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2
+              val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
               rsm += (sr -> plsP.map(_.toString))
               future2 onComplete {
                 case Success(f) => {
@@ -142,7 +142,7 @@ class simucalculateActor(pms:Pms) extends Actor{
                 }
                 case Failure(t) => println("An error has occured: " + t.getMessage)
               }
-            }
+//            }
             //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
             //          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
             //          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
@@ -231,7 +231,7 @@ class simucalculateActor(pms:Pms) extends Actor{
           val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr,glist, Y)).mapTo[(String, Array[Float])]
 
           val (yy, yh, pdofl, gdof) = plsCalc.dofPvalF(X, Ys, k, 1000, true)
-          val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Ys, i, 10000))
+          val permp = Array(1 to k: _*).map(i => plsCalc.plsPerm(X, Ys, i, 10000))++calculation.pcr(X,Ys.toDenseVector,k)
           //rsy += (sr-> (glist, yy, yh, pdofl, gdof, permp))
           future2 onComplete {
             case Success(f) => {

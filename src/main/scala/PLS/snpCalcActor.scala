@@ -40,7 +40,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
   var perm = pms.perm
   var Y = pms.Y//DenseMatrix.zeros[Float](n,perm)
 //  var Y = permY(::,0).toDenseMatrix.t //DenseMatrix.zeros[Float](n,1)
-  var cr = calculation.pearsonCorr(Y(::,0).toArray,Y(::,1).toArray)
+  var cr = if(Y.cols >1) calculation.pearsonCorr(Y(::,0).toArray,Y(::,1).toArray)else 0f
   var looInx = pms.looInx//Array(0 until n :_*).map(Seq(_))
   var tenFold = pms.tenFold//plsCalc.kfoldInx(n,10,true)
   //var mcol = pms.mcol//:(Array[Int], Array[Int]) = (Array(0),Array(0))
@@ -99,7 +99,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
         var rs = "" //x.gene.mkString("\t")
         for (i <- 0 until Y.cols){
           val y = Y(::,i).toDenseMatrix.t
-          rs += "\t"+getRes(X,y,calcPms)
+          rs += "\t"+getRes(X,y,calcPms)+"\t"+ calculation.pcr(X,y.toDenseVector,k).mkString("\t")
         }
         val kk = calcPms.asInstanceOf[Int]
         val rrs = rs.split("\t").drop(1).map(_.toFloat)
@@ -130,7 +130,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
           var rs = "" //x.gene.mkString("\t")
           for (i <- 0 until Ys.cols) {
             val y = Ys(::, i).toDenseMatrix.t
-            rs += "\t" + getRes(X, y, calcPms)
+            rs += "\t" + getRes(X, y, calcPms)+"\t"+ calculation.pcr(X,y.toDenseVector,k).mkString("\t")
           }
           rs += "\t" + getRes(X, Ys, calcPms)
           val kk = calcPms.asInstanceOf[Int]
@@ -140,7 +140,7 @@ class snpCalcActor(pms:snpCalcPms) extends Actor{
             brownTest(Array(rrs(rrs.length - kk * 3 + i), rrs(rrs.length - kk * 2 + i)), Array(cr)).toString)).mkString("\t")
           writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rss))
         } else {
-          val prs = getRes(X, Ys, calcPms)
+          val prs = getRes(X, Ys, calcPms)+"\t"+ calculation.pcr(X,Y.toDenseVector,k).mkString("\t")
           val yrs = getRes(X, Y, calcPms)
           val Xs = DenseMatrix.horzcat(X, xy.Y)
           val xrs = getRes(Xs, Y, calcPms)

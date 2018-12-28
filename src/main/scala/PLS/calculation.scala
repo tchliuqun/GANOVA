@@ -294,17 +294,25 @@ object calculation {
     val inp:Array[Array[Long]] = Array(Array(a.toLong,b.toLong),Array(c.toLong,d.toLong))
     TestUtils.chiSquareTest(inp).toFloat
   }
-  def linearPval(pd:Array[String],y:Array[Float],mcol:Array[Int]):Float = {
-    val x = mcol.map(pd(_).toFloat)
-    if (calculation.Variance(x) < 0.01f){
+  def linearPval(x:Array[Double],y:Array[Double]):Float = {
+//    val x = if (mcol.length > 0)mcol.map(pd(_).toFloat)else pd.map(_.toFloat)
+    if (calculation.Variance(x.map(_.toFloat)) < 0.01f){
       return 1.0f
     }else {
       val n = y.length
-      val xy = Array(0 until n: _*).map(i => Array(x(i).toDouble, y(i).toDouble))
+      val xy = Array(0 until n: _*).map(i => Array(x(i), y(i)))
       val regression = new SimpleRegression()
       regression.addData(xy)
       return(regression.getSignificance.toFloat)
     }
+  }
+  def linearPval(pd:Array[String],y:Array[Float],mcol:Array[Int] = Array[Int]()):Float = {
+    val x = if (mcol.length > 0)mcol.map(pd(_).toDouble)else pd.map(_.toDouble)
+    return linearPval(x,y.map(_.toDouble))
+  }
+  def pcr(X:DenseMatrix[Float],Y:DenseVector[Float],k:Int) = {
+    val rss = princomp(convert(X,Double)).scores
+    Array( 0 until k :_*).map(i => calculation.linearPval(rss(::,i).toArray,Y.toArray.map(_.toDouble)))
   }
 //  def filterDuplicateColumn(dm:DenseMatrix[Double]):DenseMatrix[Double] ={
 //    val covi = breeze.linalg.cov(Standardize.scaleColumns(dm))
