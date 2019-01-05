@@ -211,13 +211,13 @@ object run extends App {
     }
   // comparing VEGAS2  and new GANOVA using simulating SNP within genes in chr15
   // results are before "simuRs_2018_04_02_07_01_24_582.txt"
-//  if (false) {
+  if (false) {
 //    val t1 = System.nanoTime()
 //    //plsCalc.gdofPval2(X1,Y0,2)
 //    val rss = calculation.sgsea(gs,rs)
 //    val t2 = System.nanoTime()
 //    val lapse1 = (t2 - t1) / 1e9d
-    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array( 0.03f, 0.05f))
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
@@ -229,7 +229,7 @@ object run extends App {
     if (false) {
       srt ! simumasterActor.chr(Array("15"))
     }
-//  }
+  }
   // 2018-6-11 15:20 testing different dof calculating method and compare to permutation results of PLS
   if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 10, 0.02f.to(0.06f,0.005f).toArray,3,plsCalc.plsAdof _ )
@@ -245,17 +245,17 @@ object run extends App {
   }
   //2018-7-11
   // 2018-10-18 simulation with different length of Y and different correlation in Ys
-  if (false) {
+//  if (false) {
     val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f,0.03f, 0.05f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
 
       srt ! simumasterActor.chr(Array("15"))
-  }
+//  }
 //2018-7-15
   if (false) {
-val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.03f),3,500,50)
+  val orderpms = simuSnpActor.Pms(gPms.rp + "simuRs.txt", 500, Array(0.03f),3,500,50)
   val srt = system.actorOf(simuSnpActor.props(orderpms), "srt")
   val nis = (5 to 100 by 3).toArray
   println("start")

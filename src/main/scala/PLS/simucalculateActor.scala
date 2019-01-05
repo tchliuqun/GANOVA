@@ -79,7 +79,7 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+          val Ys = vegas2.setPhenoT(h,1,0.5f)(X)
           val sr = i+"_"+h
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
           val Ypm = calculation.permY(Ys.toDenseVector,1)
@@ -89,7 +89,7 @@ class simucalculateActor(pms:Pms) extends Actor{
           val Y = calculation.standardization(Yp)
 
 
-          val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+          val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2 ++ calculation.pcr(X,Ys.toDenseVector,k)
           rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
@@ -131,7 +131,7 @@ class simucalculateActor(pms:Pms) extends Actor{
               val sr = j + "_" + h + "\t" + i
 
               val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
-              val plsP = plsCalc.gdofPlsPval(X, Y, 2)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
+              val plsP = plsCalc.gdofPlsPval(X, Y, k)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
               rsm += (sr -> plsP.map(_.toString))
               future2 onComplete {
                 case Success(f) => {
