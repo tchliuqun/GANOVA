@@ -135,9 +135,9 @@ class simucalculateActor(pms:Pms) extends Actor{
 //              future2 onComplete {
 //                case Success(f) => {
 //                  val rs = (glists ++ rsm(f._1) ++ f._2.map(_.toString) :+ f._1.split("_").apply(1)).mkString("\t")
-       val rs= (glists ++ plP ++ j.toString++ h.toString).mkString("\t")
+       val rs= (glists ++ plsP ++ j.toString++ h.toString).mkString("\t")
                   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-                  rsm -= f._1
+//                  rsm -= f._1
                   j += 1
 //                }
 //                case Failure(t) => println("An error has occured: " + t.getMessage)
