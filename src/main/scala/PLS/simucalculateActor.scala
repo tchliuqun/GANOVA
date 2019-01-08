@@ -126,29 +126,25 @@ class simucalculateActor(pms:Pms) extends Actor{
         while (i < rl) {
           var j = 0
           while (j < n) {
-//            if (false) {
               val Y = vegas2.setPheno(h, i, false)(X)
-              val sr = j + "_" + h + "\t" + i
+//              val sr = j + "_" + h + "\t" + i
 
-              val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
+//              val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
               val plsP = plsCalc.gdofPlsPval(X, Y, k)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
-              rsm += (sr -> plsP.map(_.toString))
-              future2 onComplete {
-                case Success(f) => {
-                  val rs = (glists ++ rsm(f._1) ++ f._2.map(_.toString) :+ f._1.split("_").apply(1)).mkString("\t")
+//              rsm += (sr -> plsP.map(_.toString))
+//              future2 onComplete {
+//                case Success(f) => {
+//                  val rs = (glists ++ rsm(f._1) ++ f._2.map(_.toString) :+ f._1.split("_").apply(1)).mkString("\t")
+       val rs= (glists ++ plP ++ j.toString++ h.toString).mkString("\t")
                   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
                   rsm -= f._1
                   j += 1
-                }
-                case Failure(t) => println("An error has occured: " + t.getMessage)
+//                }
+//                case Failure(t) => println("An error has occured: " + t.getMessage)
               }
 //            }
-            //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
-            //          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno(h, i, false)) :+ h :+ i).mkString("\t")
-            //          writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-            //writer.println(rs) //foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-            j += 1
-          }
+//            j += 1
+//          }
           i += 1
         }
       }
