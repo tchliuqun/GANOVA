@@ -217,14 +217,14 @@ object run extends App {
 //    val rss = calculation.sgsea(gs,rs)
 //    val t2 = System.nanoTime()
 //    val lapse1 = (t2 - t1) / 1e9d
-    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.01f, 0.03f, 0.05f))
+    val orderpms = simumasterActor.Pms(gPms.rp + "simuRs.txt", 100, Array(0.02f, 0.03f, 0.04f))
     val srt = system.actorOf(simumasterActor.props(orderpms), "srt")
     println("start")
     //implicit val timeout = Timeout(999 hours)
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
     val rs2 = svd.filter(i => i(0) == "15" & i(4).toInt > 10).sortBy(_ (4).toInt)
     val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
-    srt ! simucalculateActor.gList(glist, 20)
+    srt ! simucalculateActor.gList(glist, 10)
 
     if (false) {
       srt ! simumasterActor.chr(Array("15"))

@@ -17,7 +17,7 @@ object simucalculateActor{
   val name = "simucalculateActor"
   def props(pms:Pms) = Props(classOf[simucalculateActor],pms)
   def deffun(z:Array[Float])(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int) = plsCalc.ngdofP(X,Y,k)._2.map(_.toString)
-  case class Pms(fil:String,times:Int = 1000,H:Array[Float] = Array(0.01f, 0.015f, 0.02f),k:Int = 3,rscala:Boolean = true,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  case class Pms(fil:String,times:Int = 1000,H:Array[Float] = Array(0.03f, 0.05f),k:Int = 3,rscala:Boolean = true,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] =(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class geneList(glist:Array[String])
   case class geneLists(glist:Array[String])
   case class gList(glist:Array[String],n:Int = 2, func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String]=(X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) =>  plsCalc.ngdofP(X,Y,k)._2.map(_.toString))// = xx:Array[Float]=>(xyk:[(DenseMatrix[Float],DenseMatrix[Float],Int)] => plsCalc.ngdofP(xyk._1,xyk._2,xyk._3)._2.map(_.toString)))
@@ -135,7 +135,7 @@ class simucalculateActor(pms:Pms) extends Actor{
 //              future2 onComplete {
 //                case Success(f) => {
 //                  val rs = (glists ++ rsm(f._1) ++ f._2.map(_.toString) :+ f._1.split("_").apply(1)).mkString("\t")
-       val rs= (glists ++ plsP ++ j.toString++ h.toString).mkString("\t")
+       val rs= (glists ++ plsP :+ j.toString :+ h.toString).mkString("\t")
                   writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
 //                  rsm -= f._1
                   j += 1

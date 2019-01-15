@@ -12,7 +12,7 @@ import myParallel.paraWriterActor._
 object simumasterActor{
   val name = "simumasterActor"
   def props(fil:Pms) = Props(classOf[simumasterActor],fil)
-  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.01f, 0.015f, 0.02f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
+  case class Pms(fil:String,times:Int = 100,H:Array[Float]= Array(0.02f, 0.03f, 0.04f),k:Int = 3,func:(DenseMatrix[Float],DenseMatrix[Float],Int,Array[Float]) => Array[String] = (X:DenseMatrix[Float],Y:DenseMatrix[Float],k:Int,dof:Array[Float]) => plsCalc.ngdofP(X,Y,k)._2.map(_.toString))
   case class coreNum(num:Int)
   case class chr(chrname:Array[String])}
 
