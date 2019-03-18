@@ -6066,7 +6066,7 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar
 [debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.7!jline.jar
 [debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
-[debug] :: resolution report :: resolve 5659ms :: artifacts dl 110ms
+[debug] :: resolution report :: resolve 1754ms :: artifacts dl 81ms
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT compile produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-compile.xml
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT runtime produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-runtime.xml
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT test produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-test.xml
@@ -6080,5 +6080,5 @@
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT docs produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-docs.xml
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT pom produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-pom.xml
 [debug] 	report for default#ganova-build;0.1-SNAPSHOT scala-tool produced in /Users/liuqun/Nutstore/workspace/GANOVA/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-ganova-build-scala-tool.xml
-[debug] 	resolve done (5659ms resolve - 110ms download)
+[debug] 	resolve done (1754ms resolve - 81ms download)
 [info] Done updating.
