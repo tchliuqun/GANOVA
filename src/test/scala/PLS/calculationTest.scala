@@ -7,6 +7,7 @@ import org.scalatest.FlatSpec
 import PLS._
 import PLS.vegas2._
 import PLS.gPms._
+import PLS.plsCalc.ngdofP
 import breeze.linalg._
 import breeze.numerics._
 import breeze.stats._
@@ -184,10 +185,13 @@ class calculationTest extends FlatSpec {
   val Yhat1 = plsCalc.predict(X1, plsCalc.plsTrain(X1, Y1, k))
   val rssfold1 = 0.6f * sqrt(plsCalc.rss(Y1, YpredTenFold1))
   val t11 = System.nanoTime()
-  val gdoffold01 = Array(0 until k: _*).map(i => plsCalc.gdof(X1, Y1, rssfold1(i), i + 1, 1000, 1))
+  plsCalc.gdofPlsPval(X1, Y1, k)
+  //val gdoffold01 = Array(0 until k: _*).map(i => plsCalc.gdof(X1, Y1, rssfold1(i), i + 1, 1000, 1))
+  //plsCalc.ngdofP(X1,Y1,k)
   val t12 = System.nanoTime()
   val lapse11 = (t12 - t11) / 1e9d
   plsCalc.gdofPlsPval(X1, Y1, k)
+
   val YY = DenseMatrix.horzcat(Y1, Y2)
   plsCalc.gdofPlsPval(X1, YY, k)
   plsCalc.gdofAll(X1, YY, rssfold1(0))

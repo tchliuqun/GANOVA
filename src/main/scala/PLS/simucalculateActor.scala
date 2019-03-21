@@ -79,7 +79,7 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val Ys = vegas2.setPhenoT(h,1,0.5f)(X)
+          val Ys = vegas2.setPhenoT(h,2,0.5f)(X)
           val sr = i+"_"+h
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
           // multiple column of Y
@@ -92,7 +92,7 @@ class simucalculateActor(pms:Pms) extends Actor{
           val Yss = calculation.standardization(Ys)
 
 
-          val plsP = plsCalc.gdofPlsPval(X, Yss, k)._2 ++ calculation.pcr(X,Yss.toDenseVector,k)
+          val plsP = plsCalc.ngdofP(X, Yss, k)._2 ++ calculation.pcr(X,Yss.toDenseVector,k)
           rsm += (sr -> plsP.map(_.toString))
           future2 onComplete{
             case Success(f) =>{
@@ -133,7 +133,7 @@ class simucalculateActor(pms:Pms) extends Actor{
 //              val sr = j + "_" + h + "\t" + i
 
 //              val future2: Future[(String, Array[Float])] = ask(vgs, vegas2Actor.inp(sr, glists, Y)).mapTo[(String, Array[Float])]
-              val plsP = plsCalc.gdofPlsPval(X, Y, k)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
+              val plsP = plsCalc.ngdofP(X, Y, k)._2 ++ calculation.pcr(X,Y.toDenseVector,k)
 //              rsm += (sr -> plsP.map(_.toString))
 //              future2 onComplete {
 //                case Success(f) => {
@@ -175,7 +175,7 @@ class simucalculateActor(pms:Pms) extends Actor{
             val Ypm = calculation.permY(Ys.toDenseVector,ii)
             val Yp = DenseMatrix.horzcat(Ypm(::,1 until Ypm.cols),Ys)
             val Y = calculation.standardization(Yp)
-            val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+            val plsP = plsCalc.ngdofPvalT(X, Y, 3)._2
             rs ++= plsP.map(_.toString)
             ii += 1
           }
@@ -188,7 +188,7 @@ class simucalculateActor(pms:Pms) extends Actor{
               Yp = DenseMatrix.horzcat(Ypm,Yp)
             }
             val Y = calculation.standardization(Yp)
-            val plsP = plsCalc.gdofPlsPval(X, Y, 3)._2
+            val plsP = plsCalc.ngdofPvalT(X, Y, 3)._2
             rs ++= plsP.map(_.toString)
             iii += 1
           }
