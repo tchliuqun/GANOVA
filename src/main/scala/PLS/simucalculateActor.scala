@@ -79,7 +79,7 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val Ys = vegas2.setPhenoT(h,2,0.5f)(X)
+          val Ys = vegas2.setPhenoT(h,1,0.5f)(X)
           val sr = i+"_"+h
           val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
           // multiple column of Y
