@@ -40,7 +40,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
     val rs2 = svd.filter(i => i(0) == chr & i(4).toInt > 10).sortBy(_ (4).toInt)
     // val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
     //val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
-    val glistsInx = Array(144 until rs2.size: _*).slice(0,76)
+    val glistsInx = Array(150 until rs2.size: _*).slice(0,70)
     //val glistsInx = Range(0, 30, 3).toArray ++ Array(30 until rs2.size: _*)
     this.glists = glistsInx.map(rs2(_))
   }
