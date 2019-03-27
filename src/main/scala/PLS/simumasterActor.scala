@@ -39,8 +39,8 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
     val svd = fileOper.toArrays(gPms.rp + "GBMsnp6Rs_2018-01-01_23.txt").drop(1).toArray
     val rs2 = svd.filter(i => i(0) == chr & i(4).toInt > 10).sortBy(_ (4).toInt)
     // val glist = rs2.filter(i => i(4).toInt > 100 & i(5).toDouble > 0.80).flatten
-    //val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
-    val glistsInx = Array(150 until rs2.size: _*).slice(0,70)
+    val glistsInx = Range(0, 120, 3).toArray ++ Array(120 until rs2.size: _*).slice(0,100)
+    //val glistsInx = Array(150 until rs2.size: _*).slice(0,70)
     //val glistsInx = Range(0, 30, 3).toArray ++ Array(30 until rs2.size: _*)
     this.glists = glistsInx.map(rs2(_))
   }
@@ -72,7 +72,8 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
       while (ii < cores){
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+ii)
         calculaters :+= Some(actr)
-        system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+        system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count),"user/"+wname)), glists(count)(3))
+        //system.actorSelection("/user/"+glists(count)).foreach(_ ! )
         actr !  simucalculateActor.geneLists(glists(count))
         Thread.sleep(myParallel.actorMessage.fs.length+100)
         count += 1
@@ -129,6 +130,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
       //  cores = glists.length
       //}
       system.actorOf(vegas2Actor.props(vegas2Actor.Pms(gList.glist)), gList.glist.apply(3))
+
       val pms = simucalculateActor.Pms(wname,times,H)
       Array(0 until cores:_*).foreach(i => {
         val actr = system.actorOf(simucalculateActor.props(pms),"calc"+i)
@@ -145,7 +147,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
       //doneNum += 1
       if (r == 0) {
         if (count < tlen) {
-          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count),"user/"+wname)), glists(count)(3))
           sender ! simucalculateActor.geneLists(glists(count))
           println("processing No." + count)
         }
@@ -154,7 +156,7 @@ class simumasterActor(pms:simumasterActor.Pms) extends Actor{
         }
       }else if (r == 1){
         if (count < tlen) {
-          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count))), glists(count)(3))
+          system.actorOf(vegas2Actor.props(vegas2Actor.Pms(glists(count),"user/"+wname)), glists(count)(3))
           sender ! simucalculateActor.geneList(glists(count))
           println("processing No." + count)
         }

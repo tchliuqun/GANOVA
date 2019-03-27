@@ -79,29 +79,34 @@ class simucalculateActor(pms:Pms) extends Actor{
       for (h <- H) {
         var i = 0
         while (i < times) {
-          val Ys = vegas2.setPhenoT(h,1,0.5f)(X)
-          val sr = i+"_"+h
-          val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
+          val Ys = vegas2.setPhenoT(h,0,0.5f)(X)
+          val sr = glist(3) +"_"+i+"_"+h
+          //val future2: Future[(String,Array[Float])] = ask(vgs,vegas2Actor.inp(sr, glists,Ys)).mapTo[(String,Array[Float])]
+          vgs ! vegas2Actor.inp(sr, glists, Ys)
           // multiple column of Y
           if (false) {
             val Ypm = calculation.permY(Ys.toDenseVector, 1)
             val Yp = DenseMatrix.horzcat(Ypm(::, 1 until Ypm.cols), Ys)
-            val Yss = calculation.standardization(Yp)
+            val Y = calculation.standardization(Yp)
+            // single column of Y
+            //val Yss = calculation.standardization(Ys)
+
           }
-          // single column of Y
-          val Yss = calculation.standardization(Ys)
 
 
-          val plsP = plsCalc.ngdofP(X, Yss, k)._2 ++ calculation.pcr(X,Yss.toDenseVector,k)
-          rsm += (sr -> plsP.map(_.toString))
-          future2 onComplete{
-            case Success(f) =>{
-              val rs = (glists ++ rsm(f._1)++f._2 :+f._1.split("_").apply(1)).mkString("\t")
-              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
-              i += 1
-            }
-            case Failure(t) => println("An error has occured: " + t.getMessage)
-          }
+          val plsP = plsCalc.ngdofP(X, Ys, k)._2 ++ calculation.pcr(X,Ys.toDenseVector,k)
+          val wstr = (glist ++ plsP).mkString("\t")
+          writer.foreach(_ ! myParallel.paraWriterActor.strBf1(sr,wstr))
+          i += 1
+//          rsm += (sr -> plsP.map(_.toString))
+//          //future2 onComplete{
+//            case Success(f) =>{
+//              val rs = (glists ++ rsm(f._1)++f._2 :+f._1.split("_").apply(1)).mkString("\t")
+//              writer.foreach(_ ! myParallel.paraWriterActor.WriteStr(rs))
+//              i += 1
+//            }
+//            case Failure(t) => println("An error has occured: " + t.getMessage)
+//          }
 
           //val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPheno2(h, 2)) :+ h).mkString("\t")
 //          val rs = (glists ++ vegas2.vegas(glist, 3, vegas2.setPhenoT(h, 0,0.5f)) :+ h).mkString("\t")

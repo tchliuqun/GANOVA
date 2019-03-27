@@ -4,8 +4,10 @@ package myParallel
   import java.io.{BufferedWriter, File, FileWriter}
 
   import PLS.run.currentTime
+  import PLS.simucalculateActor.rsy
   import PLS.utils
   import akka.actor.{Actor, ActorRef, PoisonPill, Props}
+  import breeze.linalg.DenseMatrix
   import myParallel.paraWriterActor._
   import myParallel.actorMessage._
 
@@ -18,6 +20,9 @@ package myParallel
     case class fileName(fil:String)
     case class WriteStr(str: String)
     case class totalNumber(num:Int)
+    //case class rsy(idx:String,glt:Array[String],yy:DenseMatrix[Float], yh:DenseMatrix[Float],pdofl:Array[Float],gdof:Array[Float],permp:Array[Float])
+    case class strBf1(idx:String = "",rs:String = "")//,s3:String = "",s4:String= "")
+    case class strBf2(idx:String = "",rs:String = "")
     //  case class count(num:Int)
     //  case class done(count:Int)
     //  case object finished
@@ -31,6 +36,7 @@ package myParallel
     val profix = "."+fnL(fnL.length -1)
     val fn  = fileName.replace(profix,"_"+utils.getTimeForFile+profix)
 
+    var rsm = scala.collection.mutable.Map[String,(String,String)]()
     var totalNum = 0
     var count = 0
     var ifCount = false
@@ -64,6 +70,26 @@ package myParallel
     //val myActor = system.actorOf(BufferWriterActor.props(fn), paraWriterActor.name)
 
     def receive = {
+      case ry:strBf1 =>{
+        //println("PPPPPPPPPPPPPPPPPPPP")
+        if(rsm.contains(ry.idx)){
+          bw.write(ry.rs + "\t"+rsm(ry.idx)._2)
+          bw.newLine()
+          rsm -= ry.idx
+        }else{
+          rsm += (ry.idx-> (ry.rs,""))
+        }// += (ry.idx-> ry.rs)
+      }
+      case ry:strBf2 =>{
+        //println("PPPPPPPPPPPPPPPPPPPP")
+        if(rsm.contains(ry.idx)){
+          bw.write(rsm(ry.idx)._1 + "\t" + ry.rs)
+          bw.newLine()
+          rsm -= ry.idx
+        }else{
+          rsm += (ry.idx-> ("",ry.rs))
+        }// += (ry.idx-> ry.rs)
+      }
       case paraWriterActor.WriteStr(str) => {
         count += 1
         bw.write(str)
